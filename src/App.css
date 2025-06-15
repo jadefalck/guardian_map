@@ -1,0 +1,24 @@
+/* App.css */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Pour éviter tout centrage ou limitation */
+#root {
+  max-width: none;
+}
+
+/* Pour supprimer les décorations sur les liens */
+a {
+  text-decoration: none;
+}
+
+.font-londrina {
+  font-family: 'Londrina Display', cursive;
+}
+
+

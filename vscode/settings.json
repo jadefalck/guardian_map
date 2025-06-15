@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.autoSave": "onFocusChange",
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "css",
+    "javascript": "javascript",
+    "javascriptreact": "javascript",
+    "typescriptreact": "typescript"
+  },
+  "tailwindCSS.emmetCompletions": true
+}
