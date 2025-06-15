@@ -49,7 +49,7 @@ export default function App() {
           Plongez là où la nature est respectée
         </h2>
         <p className="text-gray-700 mt-2 text-lg max-w-2xl mx-auto">
-          Découvrez des sites soigneusement sélectionnés pour leur beauté, leur sécurité et leur engagement à protéger l’environnement.
+           des sites soigneusement sélectionnés pour leur beauté, leur sécurité et leur engagement à protéger l’environnement.
         </p>
       </div>
 
