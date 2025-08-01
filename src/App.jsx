@@ -11,6 +11,15 @@ import logo from './assets/images/logo.png';
 import SeasonalFish from './components/SeasonalFish';
 import ConditionsMeteo from './components/ConditionsMeteo';
 import { useState } from "react"; 
+import Philippines from "./pages/pays/Philippines";
+import Indonesie from "./pages/pays/Indonesie";
+import Thailande from "./pages/pays/Thailande";
+import Malaisie from "./pages/pays/Malaisie";
+import SriLanka from "./pages/pays/SriLanka";
+import Japon from "./pages/pays/Japon";
+import Inde from "./pages/pays/Inde";
+import Vietnam from "./pages/pays/Vietnam";
+import CoreeDuSud from "./pages/pays/CoreeDuSud";
 
 
 export default function App() {
@@ -44,88 +53,23 @@ export default function App() {
       </nav>
 
 
-      <div className="text-center my-8 px-4 transition-transform duration-300 hover:scale-[1.02] hover:-translate-y-1">
-        <h2 className="text-2xl font-bold text-[#1113a2]">
-          Plongez là où la nature est respectée
-        </h2>
-        <p className="text-gray-700 mt-2 text-lg max-w-2xl mx-auto">
-           Découvrez des sites soigneusement sélectionnés pour leur beauté, leur sécurité et leur engagement à protéger l’environnement.
-        </p>
-      </div>
-
-      <CarteAvecEffet />
-
-      <div className="w-full bg-gray-100 py-8">
-        <div className="max-w-6xl mx-auto px-4">
-          {/* Titre "FILTRES" dans un rectangle blanc avec bordure bleue */}
-          <div className="inline-block bg-white border-2 border-[#1113a2] rounded-full px-6 py-2 text-[#1113a2] text-lg font-semibold mb-6">
-            FILTRES
-          </div>
-
-          {/* Bloc vide avec bordure bleue sur fond blanc */}
-          <div className="bg-white border-2 border-[#1113a2] rounded-xl min-h-[120px] shadow-sm">
-            {/* Tu rempliras ici plus tard */}
-          </div>
-        </div>
-      </div>
-
-      <div className="flex justify-center my-8">
-        <div className="bg-[#1113a2] text-white text-xl font-semibold px-6 py-3 shadow-sm transition-all duration-300 hover:bg-[#0d0f8f] hover:scale-105 cursor-default">
-          À quelle période souhaitez-vous plonger ?
-        </div>
-      </div>
-
-      <SeasonalFish selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth} />
-      <ConditionsMeteo selectedMonth={selectedMonth} />
-
-
-
-      {/* Footer avec infos de contact et formulaire */}
-      <footer className="bg-[#1113a2] text-white py-10 px-6 mt-12">
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-6 text-center">
-            <p className="text-lg font-semibold">Suivez-nous sur Instagram : <span className="underline">@guardianmap</span></p>
-            <p className="mt-1">Contactez-nous à : <a href="mailto:gdm.guardianmap@gmail.com" className="underline">gdm.guardianmap@gmail.com</a></p>
-          </div>
-
-          <form
-            action="mailto:gdm.guardianmap@gmail.com"
-            method="POST"
-            encType="text/plain"
-            className="bg-white text-gray-800 p-6 rounded-lg shadow-md max-w-xl mx-auto"
-          >
-            <label htmlFor="message" className="block font-semibold mb-2">
-              Votre message :
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              className="w-full border border-gray-300 rounded-md p-3 mb-4"
-              placeholder="Écrivez votre message ici..."
-              required
-            ></textarea>
-
-            <button
-              type="submit"
-              className="bg-[#1113a2] text-white px-6 py-2 rounded hover:bg-[#0d0f8f] transition"
-            >
-              Envoyer
-            </button>
-          </form>
-        </div>
-      </footer>
-
-
-
 
 
       {/* Contenu */}
-      <main className="p-6">
+      <main className="pt-0">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/knowledge" element={<Knowledge />} />
           <Route path="/partenaires" element={<Partenaires />} />
+          <Route path="/philippines" element={<Philippines />} />
+          <Route path="/indonesie" element={<Indonesie />} />
+          <Route path="/thailande" element={<Thailande />} />
+          <Route path="/malaisie" element={<Malaisie />} />
+          <Route path="/sri-lanka" element={<SriLanka />} />
+          <Route path="/japon" element={<Japon />} />
+          <Route path="/inde" element={<Inde />} />
+          <Route path="/vietnam" element={<Vietnam />} />
+          <Route path="/coree-du-sud" element={<CoreeDuSud />} />
         </Routes>
       </main>
     </Router>

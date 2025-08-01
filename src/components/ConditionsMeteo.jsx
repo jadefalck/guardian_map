@@ -79,24 +79,34 @@ export default function ConditionsMeteo({ selectedMonth }) {
   const data = weatherData[selectedMonth?.toLowerCase()] || null;
 
   return (
-    <div className="mt-10 px-6 max-w-5xl mx-auto">
+    <div className="mt-10 w-full px-4">
+      {/* Titre */}
       <h2 className="text-xl font-bold text-[#1113a2] mb-4 text-center">
         Conditions météorologiques
       </h2>
 
-      <div className="bg-white border-2 border-[#1113a2] rounded-xl p-4 shadow-md">
+      <div className="bg-white border-2 border-[#1113a2] rounded-xl p-6 shadow-md max-w-screen-xl mx-auto">
         {data ? (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-gray-700 font-medium">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center text-gray-700 font-medium">
             <div>
-              <p className="text-sm text-gray-500">Température</p>
-              <p>Air : {data.air}<br />Mer : {data.mer}</p>
+              <p className="text-lg font-semibold text-[#1113a2] mb-1">
+                🌡️ Température
+              </p>
+              <p>
+                <strong>Air :</strong> {data.air}<br />
+                <strong>Mer :</strong> {data.mer}
+                </p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Précipitations</p>
+              <p className="text-lg font-semibold text-[#1113a2] mb-1">
+                🌧️ Précipitations
+              </p>
               <p>{data.pluie}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Vent / Mer</p>
+              <p className="text-lg font-semibold text-[#1113a2] mb-1">
+                💨 Vent / Mer
+              </p>
               <p>{data.vent}</p>
             </div>
           </div>
@@ -109,3 +119,4 @@ export default function ConditionsMeteo({ selectedMonth }) {
     </div>
   );
 }
+
