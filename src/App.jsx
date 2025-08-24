@@ -47,8 +47,6 @@ export default function App() {
         {/* Liens de navigation */}
         <div className="flex space-x-6 text-sm">
           <Link to="/" className="text-gray-700 hover:text-[#1113a2]">Home</Link>
-          <Link to="/knowledge" className="text-gray-700 hover:text-[#1113a2]">Knowledge</Link>
-          <Link to="/partenaires" className="text-gray-700 hover:text-[#1113a2]">Partenaires</Link>
         </div>
       </nav>
 
@@ -65,11 +63,11 @@ export default function App() {
           <Route path="/indonesie" element={<Indonesie />} />
           <Route path="/thailande" element={<Thailande />} />
           <Route path="/malaisie" element={<Malaisie />} />
-          <Route path="/sri-lanka" element={<SriLanka />} />
+          <Route path="/sri_lanka" element={<SriLanka />} />
           <Route path="/japon" element={<Japon />} />
           <Route path="/inde" element={<Inde />} />
           <Route path="/vietnam" element={<Vietnam />} />
-          <Route path="/coree-du-sud" element={<CoreeDuSud />} />
+          <Route path="/coree_du_sud" element={<CoreeDuSud />} />
         </Routes>
       </main>
     </Router>

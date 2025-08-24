@@ -23,11 +23,11 @@ export default function Home() {
     { name: "Indonésie", image: prezIndonesie, path: "/indonesie" },
     { name: "Thaïlande", image: prezThailande, path: "/thailande" },
     { name: "Malaisie", image: prezMalaisie, path: "/malaisie" },
-    { name: "Sri Lanka", image: prezSriLanka, path: "/sri-lanka" },
+    //{ name: "Sri Lanka", image: prezSriLanka, path: "/sri_lanka" },
     { name: "Japon", image: prezJapon, path: "/japon" },
-    { name: "Inde", image: prezInde, path: "/inde" },
+    //{ name: "Inde", image: prezInde, path: "/inde" },
     { name: "Vietnam", image: prezVietnam, path: "/vietnam" },
-    { name: "Corée du Sud", image: prezCoree, path: "/coree-du-sud" },
+    //{ name: "Corée du Sud", image: prezCoree, path: "/coree_du_sud" },
   ];
 
   // ✅ Génération des cartes pays
@@ -54,7 +54,10 @@ export default function Home() {
       <div className="bg-gray-100 py-10 px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-lg md:text-xl font-semibold text-[#3b3c42] mb-2">
-            Ensemble, découvrons les centres de plongée qui respectent la nature et s'engagent pour l’océan.
+            Ensemble, découvrons les centres de plongée qui{" "}
+            <span className="text-[#1113a2] font-semibold">respectent</span> la nature et{" "}
+            <span className="text-[#1113a2] font-semibold">s'engagent</span> pour l’
+            <span className="text-[#1113a2] font-semibold">océan</span>.
           </h1>
         </div>
       </div>
@@ -72,15 +75,15 @@ export default function Home() {
         </video>
 
         <div className="absolute inset-0 flex items-center justify-center px-4 z-10">
-          <div className="bg-white bg-opacity-90 p-8 rounded-xl shadow-lg text-center w-full max-w-3xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#1113a2] mb-6">
+          <div className="bg-white bg-opacity-90 p-6 rounded-xl shadow-lg text-center w-full max-w-2xl">
+            <h2 className="text-2xl md:text-4xl font-bold text-[#1113a2] mb-1">
               Où voulez-vous partir ?
             </h2>
-            <input
+            {/*<input
               type="text"
               placeholder="Rechercher une destination..."
               className="w-full px-6 py-4 text-lg border border-gray-300 rounded-lg shadow-sm"
-            />
+            />*/}
           </div>
         </div>
       </div>
@@ -98,6 +101,65 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* Footer avec contact + inscription séparés */}
+      <div className="bg-[#1113a2] py-12 px-6 text-white">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12 md:gap-8">
+          
+          {/* Colonne gauche : Contact */}
+          <div className="md:w-1/2">
+            <h3 className="text-xl font-bold mb-4">Contact</h3>
+            <p className="mb-2">
+              📧 Mail :{" "}
+              <a href="mailto:gdm.guardianmap@gmail.com" className="underline hover:text-gray-300">
+                gdm.guardianmap@gmail.com
+              </a>
+            </p>
+            <p>
+              📸 Instagram :{" "}
+              <a
+                href="https://instagram.com/guardianmap"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-gray-300"
+              >
+                @guardianmap
+              </a>
+            </p>
+          </div>
+
+          {/* Trait vertical */}
+          <div className="hidden md:block w-px h-28 bg-white/30" />
+
+          {/* Colonne droite : Newsletter */}
+          <div className="md:w-1/2">
+            <h3 className="text-xl font-bold mb-4 text-white">Reste informé(e)</h3>
+            <p className="mb-4">Inscris-toi pour suivre le développement de GuardianMap.</p>
+            <form className="flex flex-col sm:flex-row gap-4">
+              <input
+                type="email"
+                placeholder="Ton adresse e-mail"
+                className="w-full sm:w-auto px-4 py-2 rounded-lg text-black focus:outline-none"
+                required
+              />
+              <button
+                type="submit"
+                className="bg-white text-[#1113a2] px-6 py-2 rounded-lg font-semibold hover:bg-gray-200 transition"
+              >
+                S'inscrire
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+
     </div>
+
+
+
+
   );
 }
