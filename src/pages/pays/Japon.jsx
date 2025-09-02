@@ -288,7 +288,7 @@ export default function Japon() {
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl max-w-[1200px] mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Carte */}
             <div className="md:col-span-3 rounded-xl overflow-hidden">
-              <CarteAvecDonnees country="japon" regionFilter={regionFilter} />
+              <CarteAvecDonnees country="japon" regionFilter={regionFilter} mapId="map-japon" />
             </div>
 
             {/* Panneau de droite */}

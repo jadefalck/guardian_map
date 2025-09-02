@@ -288,7 +288,7 @@ export default function Thailande() {
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl max-w-[1200px] mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Carte */}
             <div className="md:col-span-3 rounded-xl overflow-hidden">
-              <CarteAvecDonnees country="thailande" regionFilter={regionFilter} />
+              <CarteAvecDonnees country="thailande" regionFilter={regionFilter} mapId="map-thailande" />
             </div>
 
             {/* Panneau de droite */}
@@ -341,19 +341,23 @@ export default function Thailande() {
               </div>
 
               {/* Filtre régions */}
-              <h3 className="text-[#1113a2] text font-semibold mb-2">
-                Filtrer par région
-              </h3>
+              <h3 className="text-[#1113a2] text font-semibold mb-2">Filtrer par région</h3>
               <div className="space-y-2 text-sm">
                 {uniqueRegions.map((region, i) => (
                   <div key={i}>
-                    <label className="inline-flex items-center gap-2">
+                    <label className="inline-flex items-center gap-2 text-gray-800">
                       <input
                         type="radio"
                         name="region"
                         value={region}
+                        className="accent-[#1113a2]"
                         checked={regionFilter === region}
-                        onChange={() => setRegionFilter(region)}
+                        onChange={() => {
+                          setRegionFilter(region);
+                          // 👉 scroll vers la carte (utile sur téléphone)
+                          const el = document.getElementById("MAP_ID_ICI"); // ← remplace par l’id de la page
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }}
                       />
                       {region}
                     </label>
@@ -361,11 +365,16 @@ export default function Thailande() {
                 ))}
                 <button
                   className="mt-4 text-xs underline text-blue-600"
-                  onClick={() => setRegionFilter("")}
+                  onClick={() => {
+                    setRegionFilter("");
+                    const el = document.getElementById("MAP_ID_ICI"); // ← remplace par l’id de la page
+                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
                 >
                   Réinitialiser le filtre
                 </button>
               </div>
+
             </div>
           </div>
         </div>
