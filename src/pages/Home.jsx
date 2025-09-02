@@ -9,11 +9,9 @@ import prezIndonesie from "../assets/images/prez_indonesie.jpg";
 import prezThailande from "../assets/images/prez_thailande.jpg";
 import prezPhilippines from "../assets/images/prez_philippines.jpg";
 import prezMalaisie from "../assets/images/prez_malaisie.jpg";
-import prezSriLanka from "../assets/images/prez_sri_lanka.jpg";
 import prezJapon from "../assets/images/prez_japon.jpg";
-import prezInde from "../assets/images/prez_inde.jpg";
 import prezVietnam from "../assets/images/prez_vietnam.jpg";
-import prezCoree from "../assets/images/prez_coree_du_sud.jpg";
+import prezMaldives from "../assets/images/prez_maldives.jpg";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -23,11 +21,9 @@ export default function Home() {
     { name: "Indonésie", image: prezIndonesie, path: "/indonesie" },
     { name: "Thaïlande", image: prezThailande, path: "/thailande" },
     { name: "Malaisie", image: prezMalaisie, path: "/malaisie" },
-    //{ name: "Sri Lanka", image: prezSriLanka, path: "/sri_lanka" },
     { name: "Japon", image: prezJapon, path: "/japon" },
-    //{ name: "Inde", image: prezInde, path: "/inde" },
-    { name: "Vietnam", image: prezVietnam, path: "/vietnam" },
-    //{ name: "Corée du Sud", image: prezCoree, path: "/coree_du_sud" },
+    //{ name: "Vietnam", image: prezVietnam, path: "/vietnam" },
+    { name: "Maldives", image: prezMaldives, path: "/maldives" },
   ];
 
   // ✅ Génération des cartes pays

@@ -15,11 +15,9 @@ import Philippines from "./pages/pays/Philippines";
 import Indonesie from "./pages/pays/Indonesie";
 import Thailande from "./pages/pays/Thailande";
 import Malaisie from "./pages/pays/Malaisie";
-import SriLanka from "./pages/pays/SriLanka";
 import Japon from "./pages/pays/Japon";
-import Inde from "./pages/pays/Inde";
 import Vietnam from "./pages/pays/Vietnam";
-import CoreeDuSud from "./pages/pays/CoreeDuSud";
+import Maldives from "./pages/pays/Maldives";
 
 
 export default function App() {
@@ -63,11 +61,9 @@ export default function App() {
           <Route path="/indonesie" element={<Indonesie />} />
           <Route path="/thailande" element={<Thailande />} />
           <Route path="/malaisie" element={<Malaisie />} />
-          <Route path="/sri_lanka" element={<SriLanka />} />
           <Route path="/japon" element={<Japon />} />
-          <Route path="/inde" element={<Inde />} />
           <Route path="/vietnam" element={<Vietnam />} />
-          <Route path="/coree_du_sud" element={<CoreeDuSud />} />
+          <Route path="/maldives" element={<Maldives />} />
         </Routes>
       </main>
     </Router>

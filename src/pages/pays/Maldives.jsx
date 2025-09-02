@@ -1,4 +1,4 @@
-// src/pages/Philippines.jsx
+// src/pages/pays/Maldives.jsx
 import React, {
   useEffect,
   useMemo,
@@ -8,15 +8,19 @@ import React, {
 } from "react";
 import CarteAvecDonnees from "../../components/CarteAvecDonnees";
 import oceanImage from "../../assets/images/ocean.jpg";
-import data from "../../data/Philippines_BDD_GF.json";
 
-// ✅ images pour la section "Pourquoi GreenFins ?"
+// ⚠️ Pas encore de BDD JSON pour les Maldives ? Laisse vide pour que la carte s’affiche quand même.
+// Si tu crées ../../data/Maldives_BDD_GF.json, remplace la ligne ci-dessous par :
+// import data from "../../data/Maldives_BDD_GF.json";
+const data = [];
+
+// Images pour la section "Pourquoi GreenFins ?"
 import imgTourisme from "../../assets/images/tourisme_durable.jpg";
 import imgEcosystemes from "../../assets/images/protection_ecosystemes_marins.jpg";
 import imgEncadree from "../../assets/images/plongee_encadree_responsable.jpg";
 
-// ---- charge l'Excel, filtre "philippines" et REGROUPE par poisson ----
-async function loadGroupedPhilippinesSpecies() {
+/* ------------------ Utils: Poissons Maldives depuis l’Excel ------------------ */
+async function loadGroupedMaldivesSpecies() {
   const XLSX = await import("xlsx");
   const url = new URL("../../data/BDD_poissons.xlsx", import.meta.url);
 
@@ -28,12 +32,12 @@ async function loadGroupedPhilippinesSpecies() {
   const ws = wb.Sheets[wb.SheetNames[0]];
   const rows = XLSX.utils.sheet_to_json(ws, { defval: "" });
 
-  const phil = rows.filter(
-    (r) => String(r.pays || "").toLowerCase().trim() === "philippines"
-  );
+  // tolère "maldives", "maldive", "maldivas"
+  const targets = new Set(["maldives", "maldive", "maldivas"]);
+  const mv = rows.filter((r) => targets.has(String(r.pays || "").toLowerCase().trim()));
 
   const byAnimal = new Map();
-  phil.forEach((r) => {
+  mv.forEach((r) => {
     const rawName = String(r.animal || "").trim();
     if (!rawName) return;
 
@@ -71,7 +75,7 @@ async function loadGroupedPhilippinesSpecies() {
     .sort((a, b) => a.name.localeCompare(b.name, "fr"));
 }
 
-// ---- mappe toutes les images du dossier type_poisson ----
+/* ------------------ Images espèces ------------------ */
 const imageModules = import.meta.glob(
   "../../assets/images/type_poisson/*.{jpg,jpeg,png,webp}",
   { eager: true }
@@ -86,7 +90,7 @@ function buildImageMap() {
   return map;
 }
 
-/** 🏷️ Mappe dynamique des images de labels (GF_Gold.png, etc.) */
+/* ------------------ Images labels GreenFins ------------------ */
 const labelImageModules = import.meta.glob(
   "../../assets/images/labels_greenfins/*.{png,jpg,jpeg,webp}",
   { eager: true }
@@ -104,18 +108,14 @@ const labelImgs = buildLabelImageMap();
 const imgGold = labelImgs.get("gf_gold");
 const imgSilver = labelImgs.get("gf_silver");
 const imgBronze = labelImgs.get("gf_bronze");
-const imgInactive = labelImgs.get("gf_inactive"); // optionnel
+const imgInactive = labelImgs.get("gf_inactive");
 
-/** 🔎 Révélation progressive — joue seulement à la descente.
- *  - À l'entrée dans le viewport: anime si on scrolle vers le bas.
- *  - À la sortie du viewport: "désarme" l'animation seulement si on remonte,
- *    ce qui permet de la rejouer à la prochaine descente.
- */
+/* ------------------ Reveal: fondu qui joue uniquement à la descente ------------------ */
 function Reveal({
   children,
   delay = 0,
   className = "",
-  zoomOnVisible = false, // option: léger zoom quand visible
+  zoomOnVisible = false,
   y = 12,
   scaleFrom = 0.98,
   scaleTo = 1.01,
@@ -142,10 +142,8 @@ function Reveal({
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // joue uniquement quand on entre en scroll descendant
           if (isScrollingDown.current) setVisible(true);
         } else {
-          // on désarme quand on quitte en remontant (pour pouvoir rejouer plus tard)
           if (!isScrollingDown.current) setVisible(false);
         }
       },
@@ -178,7 +176,7 @@ function Reveal({
   );
 }
 
-// ====== Hook utilitaire pour mobile (carrousel espèces + logique responsive) ======
+/* ------------------ Hooks responsive ------------------ */
 function useIsMobile() {
   const query = "(max-width: 768px)";
   const getMatch = () =>
@@ -198,8 +196,6 @@ function useIsMobile() {
 
   return isMobile;
 }
-
-// Détection "touch" pour désactiver l'effet vague sur mobile/tablette
 function useIsTouch() {
   const query = "(pointer: coarse)";
   const getMatch = () =>
@@ -220,18 +216,17 @@ function useIsTouch() {
   return isTouch;
 }
 
-export default function Philippines() {
-  // -- Carte + filtre région --
+/* ------------------ Page Maldives ------------------ */
+export default function Maldives() {
+  // Carte + filtre région (s’il n’y a pas de data, la liste sera vide)
   const [regionFilter, setRegionFilter] = useState("");
   const uniqueRegions = Array.from(new Set(data.map((d) => d.region))).sort();
 
-  // -- Espèces groupées --
+  // Espèces groupées
   const [species, setSpecies] = useState([]);
-  const [hoveredId, setHoveredId] = useState(null);
-  const [selected, setSelected] = useState(null);
   const imgMap = useMemo(() => buildImageMap(), []);
 
-  // 🔦 Highlight temporaire d’un bloc (pourquoi / niveaux)
+  // Highlight (pour scroll vers ancre)
   const [highlightId, setHighlightId] = useState(null);
   const scrollAndHighlight = useCallback((toId) => {
     const el = document.getElementById(toId);
@@ -241,7 +236,7 @@ export default function Philippines() {
     setTimeout(() => setHighlightId((cur) => (cur === toId ? null : cur)), 1500);
   }, []);
 
-  // ⬆️ Arriver en haut de page au montage
+  // Arriver en haut au montage
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, []);
@@ -250,7 +245,7 @@ export default function Philippines() {
     let mounted = true;
     (async () => {
       try {
-        const rows = await loadGroupedPhilippinesSpecies();
+        const rows = await loadGroupedMaldivesSpecies();
         if (!mounted) return;
         const withImg = rows.map((r) => {
           const base = r.photoBase.replace(/\.[^.]+$/, "").toLowerCase();
@@ -267,72 +262,14 @@ export default function Philippines() {
     };
   }, [imgMap]);
 
-  // ===== Panneau de détail (utilisé par l’ancienne galerie : conservé pour compat) =====
-  const detailRef = useRef(null);
-
-  const selectedIndex = useMemo(() => {
-    if (!selected) return -1;
-    return species.findIndex((s) => s.id === selected.id);
-  }, [species, selected]);
-
-  const scrollToDetail = useCallback(() => {
-    if (detailRef.current) {
-      detailRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }, []);
-
-  const toggleSelect = useCallback(
-    (sp) => {
-      setSelected((cur) => {
-        const next = cur && cur.id === sp.id ? null : sp;
-        if (next) setTimeout(scrollToDetail, 0);
-        return next;
-      });
-    },
-    [scrollToDetail]
-  );
-
-  const goNext = useCallback(() => {
-    if (!species.length) return;
-    const idx = selectedIndex === -1 ? 0 : (selectedIndex + 1) % species.length;
-    const sp = species[idx];
-    setSelected(sp);
-    setTimeout(scrollToDetail, 0);
-  }, [species, selectedIndex, scrollToDetail]);
-
-  const goPrev = useCallback(() => {
-    if (!species.length) return;
-    const idx =
-      selectedIndex === -1
-        ? species.length - 1
-        : (selectedIndex - 1 + species.length) % species.length;
-    const sp = species[idx];
-    setSelected(sp);
-    setTimeout(scrollToDetail, 0);
-  }, [species, selectedIndex, scrollToDetail]);
-
-  useEffect(() => {
-    if (!selected) return;
-    const onKey = (e) => {
-      if (e.key === "ArrowRight") goNext();
-      if (e.key === "ArrowLeft") goPrev();
-      if (e.key === "Escape") setSelected(null);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [selected, goNext, goPrev]);
-
-  // Classes utilitaires pour le highlight
   const hi = (id, extra = "") =>
     `${extra} transition transform ${
       highlightId === id ? "ring-4 ring-[#1113a2] scale-[1.03]" : ""
     }`;
 
-  const isMobile = useIsMobile();
-
   return (
     <div className="w-full">
-      {/* Bande bleue avec nom du pays — corrigé */}
+      {/* Titre pays */}
       <header className="w-full bg-gray-100 shadow-inner">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <h1
@@ -341,7 +278,7 @@ export default function Philippines() {
                        text-transparent bg-clip-text drop-shadow-md
                        text-center md:text-left md:ml-[6%]"
           >
-            Philippines
+            Maldives
           </h1>
         </div>
       </header>
@@ -355,12 +292,12 @@ export default function Philippines() {
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl max-w-[1200px] mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Carte */}
             <div className="md:col-span-3 rounded-xl overflow-hidden">
-              <CarteAvecDonnees country="philippines" regionFilter={regionFilter} />
+              <CarteAvecDonnees country="maldives" regionFilter={regionFilter} />
             </div>
 
             {/* Panneau de droite */}
             <div className="bg-white/80 p-4 rounded-xl shadow-inner max-h-[600px] overflow-y-auto">
-              {/* 1) Bouton "Pourquoi..." en premier */}
+              {/* Bouton "Pourquoi..." */}
               <button
                 className="w-full flex items-center justify-center gap-2 text-sm px-3 py-2 rounded-lg bg-gray-100 text-[#1113a2] border border-gray-300 hover:bg-gray-200 transition focus:ring-2 focus:ring-[#1113a2]"
                 onClick={() => scrollAndHighlight("why-greenfins")}
@@ -370,36 +307,36 @@ export default function Philippines() {
                 <span>Pourquoi aller dans des centres certifiés ?</span>
               </button>
 
-              {/* 2) Titre Niveaux */}
+              {/* Titre niveaux */}
               <h3 className="text-[#1113a2] text font-semibold mt-5 mb-2">
                 Niveaux Greenfins
               </h3>
 
-              {/* 3) Boutons niveaux */}
+              {/* Boutons niveaux */}
               <div className="flex flex-wrap gap-2 mb-6">
                 <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
                   style={{ background: "#D4AF37", color: "#fff", borderColor: "#D4AF37" }}
                   onClick={() => scrollAndHighlight("level-gold")}
                 >
                   Gold
                 </button>
                 <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
                   style={{ background: "#C0C0C0", color: "#fff", borderColor: "#C0C0C0" }}
                   onClick={() => scrollAndHighlight("level-silver")}
                 >
                   Silver
                 </button>
                 <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
                   style={{ background: "#CD7F32", color: "#fff", borderColor: "#CD7F32" }}
                   onClick={() => scrollAndHighlight("level-bronze")}
                 >
                   Bronze
                 </button>
                 <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 text-white focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 text-white focus:outline-none"
                   style={{ background: "#6b7280", borderColor: "#6b7280" }}
                   onClick={() => scrollAndHighlight("level-inactive")}
                 >
@@ -407,40 +344,48 @@ export default function Philippines() {
                 </button>
               </div>
 
-              {/* 4) Titre Filtrer par région */}
-              <h3 className="text-[#1113a2] text font-semibold mb-2">
-                Filtrer par région
-              </h3>
-
-              {/* 5) Radios régions */}
-              <div className="space-y-2 text-sm">
-                {uniqueRegions.map((region, i) => (
-                  <div key={i}>
-                    <label className="inline-flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="region"
-                        value={region}
-                        checked={regionFilter === region}
-                        onChange={() => setRegionFilter(region)}
-                      />
-                      {region}
-                    </label>
+              {/* Filtre régions (affiché seulement s’il y a des régions) */}
+              {uniqueRegions.length > 0 && (
+                <>
+                  <h3 className="text-[#1113a2] text font-semibold mb-2">
+                    Filtrer par région
+                  </h3>
+                  <div className="space-y-2 text-sm">
+                    {uniqueRegions.map((region, i) => (
+                      <div key={i}>
+                        <label className="inline-flex items-center gap-2">
+                          <input
+                            type="radio"
+                            name="region"
+                            value={region}
+                            checked={regionFilter === region}
+                            onChange={() => setRegionFilter(region)}
+                          />
+                          {region}
+                        </label>
+                      </div>
+                    ))}
+                    <button
+                      className="mt-4 text-xs underline text-blue-600"
+                      onClick={() => setRegionFilter("")}
+                    >
+                      Réinitialiser le filtre
+                    </button>
                   </div>
-                ))}
-                <button
-                  className="mt-4 text-xs underline text-blue-600"
-                  onClick={() => setRegionFilter("")}
-                >
-                  Réinitialiser le filtre
-                </button>
-              </div>
+                </>
+              )}
+
+              {uniqueRegions.length === 0 && (
+                <p className="text-xs text-gray-600">
+                  Les points Maldives arrivent bientôt. La carte fonctionne déjà (centrée sur l’archipel).
+                </p>
+              )}
             </div>
           </div>
         </div>
       </Reveal>
 
-      {/* Pourquoi choisir un centre labellisé GreenFins (avec images) */}
+      {/* Pourquoi GreenFins */}
       <Reveal>
         <div id="why-greenfins" className="bg-white py-12 px-6">
           <div className="max-w-6xl mx-auto">
@@ -455,23 +400,16 @@ export default function Philippines() {
               </h2>
             </div>
 
-            {/* Paragraphe principal */}
             <Reveal zoomOnVisible className="ml-[6%]">
               <p className="mb-8 text-sm md:text-base text-gray-700 max-w-4xl text-justify">
-                Les clubs labellisés GreenFins s’engagent à{" "}
-                <span className="text-[#1113a2] font-bold">respecter des normes strictes</span>{" "}
-                de protection de l’environnement marin, de gestion responsable des déchets et de sensibilisation des plongeurs.
-                <br />
-                Choisir un centre GreenFins, c’est{" "}
-                <span className="text-[#1113a2] font-bold">contribuer</span>{" "}
-                directement à la{" "}
-                <span className="text-[#1113a2] font-bold">préservation des récifs coralliens</span>{" "}
-                et à un tourisme durable.
+                Aux Maldives, la pression touristique peut être forte sur les récifs.
+                Les centres GreenFins s’engagent à{" "}
+                <span className="text-[#1113a2] font-bold">minimiser leur impact</span>, former les plongeurs
+                et soutenir la conservation locale (mantas, requins, tortues…).
               </p>
             </Reveal>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-              {/* Card 1 */}
               <Reveal delay={0} zoomOnVisible>
                 <div className="group rounded-xl shadow-md border border-gray-200 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
                   <img
@@ -481,15 +419,13 @@ export default function Philippines() {
                   />
                   <div className="p-4 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
                     <h3 className="font-bold text-[#1113a2] mb-2">Tourisme durable</h3>
-                    En allant dans des centres engagés,{" "}
-                    <span className="text-[#1113a2]">
-                      vous soutenez l’environnement et les communautés locales
-                    </span>.
+                    Vous soutenez{" "}
+                    <span className="text-[#1113a2]">les efforts de préservation</span>{" "}
+                    des atolls et communautés.
                   </div>
                 </div>
               </Reveal>
 
-              {/* Card 2 */}
               <Reveal delay={120} zoomOnVisible>
                 <div className="group rounded-xl shadow-md border border-gray-200 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
                   <img
@@ -498,15 +434,14 @@ export default function Philippines() {
                     className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-[1.05]"
                   />
                   <div className="p-4 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <h3 className="font-bold text-[#1113a2] mb-2">Protection des écosystèmes marins</h3>
-                    Ces centres appliquent des{" "}
-                    <span className="text-[#1113a2]">pratiques limitant les impacts</span>{" "}
-                    sur les coraux, poissons et autres espèces.
+                    <h3 className="font-bold text-[#1113a2] mb-2">Protection des écosystèmes</h3>
+                    Pratiques qui{" "}
+                    <span className="text-[#1113a2]">réduisent les dommages</span>{" "}
+                    sur les récifs.
                   </div>
                 </div>
               </Reveal>
 
-              {/* Card 3 */}
               <Reveal delay={240} zoomOnVisible>
                 <div className="group rounded-xl shadow-md border border-gray-200 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
                   <img
@@ -515,10 +450,9 @@ export default function Philippines() {
                     className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-[1.05]"
                   />
                   <div className="p-4 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <h3 className="font-bold text-[#1113a2] mb-2">Plongée encadrée et responsable</h3>
-                    Des instructeurs formés assurent des{" "}
-                    <span className="text-[#1113a2]">immersions sécurisées</span>{" "}
-                    pour vous, et la biodiversité.
+                    <h3 className="font-bold text-[#1113a2] mb-2">Plongée encadrée</h3>
+                    Encadrement formé aux{" "}
+                    <span className="text-[#1113a2]">bonnes pratiques</span>.
                   </div>
                 </div>
               </Reveal>
@@ -535,16 +469,10 @@ export default function Philippines() {
               <h2 className="text-2xl md:text-1xl font-bold text-[#1113a2]">Niveaux de membres GreenFins</h2>
             </div>
 
-            {/* Paragraphe d'intro */}
             <Reveal zoomOnVisible className="ml-[6%]">
               <p className="mb-8 text-sm md:text-base text-gray-700 max-w-4xl text-justify">
-                GreenFins attribue un{" "}
-                <span className="text-[#1113a2] font-bold">niveau de performance environnementale</span>{" "}
-                aux centres de plongée. Même un centre{" "}
-                <span className="text-[#1113a2] font-bold">“Inactive”</span>{" "}
-                reste généralement plus respectueux de l'environnement que la moyenne, car il a été{" "}
-                <span className="text-[#1113a2] font-bold">formé aux bonnes pratiques</span>{" "}
-                et conserve souvent une partie de ses engagements.
+                Les centres évalués reçoivent un niveau (Gold, Silver, Bronze, Inactive) selon
+                leur conformité aux standards environnementaux.
               </p>
             </Reveal>
 
@@ -571,9 +499,8 @@ export default function Philippines() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">Respect strict</span> des meilleures pratiques
-                    environnementales et engagement exemplaire.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    Mise en œuvre exemplaire des meilleures pratiques.
                   </div>
                 </div>
               </Reveal>
@@ -600,9 +527,8 @@ export default function Philippines() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">Fort engagement</span> environnemental avec quelques axes
-                    d’amélioration.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    Fort engagement, quelques axes d’amélioration.
                   </div>
                 </div>
               </Reveal>
@@ -629,9 +555,8 @@ export default function Philippines() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">Bon respect</span> des recommandations, des améliorations
-                    restent possibles.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    Bon respect des recommandations.
                   </div>
                 </div>
               </Reveal>
@@ -658,9 +583,8 @@ export default function Philippines() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">N'a pas renouvelé le programme</span>, mais a été formé et
-                    garde souvent de bonnes pratiques.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    N’a pas renouvelé, conserve souvent de bonnes pratiques.
                   </div>
                 </div>
               </Reveal>
@@ -679,32 +603,17 @@ export default function Philippines() {
               </h2>
             </div>
 
-            {/* phrase d’explication */}
             <p className="ml-[4%] mb-4 text-sm md:text-base text-gray-700 max-w-3xl">
-              Voici la visibilité moyenne de l'eau pour les plongeurs au fil des mois
-              dans ce pays.
+              Nord-Est (≈ nov–avr) souvent le plus clair ; la mousson sud-ouest (≈ mai–oct) peut
+              réduire la visibilité.
             </p>
 
-            {/* légende */}
-            <div className="flex gap-6 mb-5 ml-[4%]">
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 bg-green-500 rounded-full"></span> Excellente
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 bg-yellow-400 rounded-full"></span> Moyenne
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 bg-orange-400 rounded-full"></span> Faible
-              </div>
-            </div>
-
-            {/* mois : effet "vague" desktop uniquement (désactivé sur touch) */}
-            <MonthsWave />
+            <MonthsWaveMaldives />
           </div>
         </div>
       </Reveal>
 
-      {/* Espèces observables — carrousel 1 carte sur mobile, 2 cartes sur desktop */}
+      {/* Espèces observables — carrousel (1 sur mobile, 2 sur desktop) */}
       <Reveal>
         <div className="bg-gray-100 py-12 px-6">
           <div className="max-w-6xl mx-auto">
@@ -714,19 +623,18 @@ export default function Philippines() {
           </div>
 
           <p className="ml-[10%] mb-6 text-sm md:text-base text-gray-700 max-w-4xl text-justify">
-            Voici maintenant une sélection des espèces qui sont{" "}
-            <span className="text-[#1113a2] font-semibold">endémiques, rares, peu visibles ailleurs</span>,{" "}
-            ou particulièrement représentatives de la biodiversité exceptionnelle de l’archipel philippin.
+            Une sélection d’espèces{" "}
+            <span className="text-[#1113a2] font-semibold">emblématiques</span>{" "}
+            des Maldives (mantas, requins, tortues, nudibranches…).
           </p>
 
           {(() => {
-            // ----- Carte -----
             function SpeciesCard({ sp, showPrev = false, showNext = false, onPrev, onNext }) {
               if (!sp) return null;
               return (
                 <div className="relative bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden">
                   <div className="flex flex-col md:flex-row">
-                    {/* image — hauteur fixe */}
+                    {/* image à gauche, hauteur fixe */}
                     <div className="md:w-[48%] w-full h-[260px] bg-gray-200">
                       {sp.img ? (
                         <img src={sp.img} alt={sp.name} className="w-full h-full object-cover" />
@@ -737,7 +645,7 @@ export default function Philippines() {
                       )}
                     </div>
 
-                    {/* texte — hauteur fixe */}
+                    {/* texte */}
                     <div className="md:w-[52%] w-full p-4 md:p-5 min-h-[260px]">
                       <h3 className="text-xl font-extrabold text-[#1113a2] leading-tight">{sp.name}</h3>
                       {sp.regions?.length > 0 && (
@@ -758,7 +666,7 @@ export default function Philippines() {
                       className="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center rounded-full bg-[#1113a2] text-white shadow-lg hover:scale-105 transition"
                     >
                       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                        <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                       </svg>
                     </button>
                   )}
@@ -769,7 +677,7 @@ export default function Philippines() {
                       className="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center rounded-full bg-[#1113a2] text-white shadow-lg hover:scale-105 transition"
                     >
                       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                        <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                        <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z" />
                       </svg>
                     </button>
                   )}
@@ -793,7 +701,6 @@ export default function Philippines() {
               );
             }
 
-            // ----- Carrousel 1-up mobile / 2-up desktop -----
             function TwoUpCarousel({ items }) {
               const isMobileLocal = useIsMobile();
               const [idx, setIdx] = React.useState(0);
@@ -828,14 +735,14 @@ export default function Philippines() {
                 doFadeTo((i) => (i - step + len) % len);
               }, [doFadeTo, len, step]);
 
-              // Autoplay 3s seulement si visible & non survolé
+              // autoplay 3s si visible & pas en pause
               React.useEffect(() => {
                 if (!inView || paused || len === 0) return;
                 const id = setInterval(() => goNext(), 3000);
                 return () => clearInterval(id);
               }, [inView, paused, len, goNext]);
 
-              // Détection visibilité
+              // observer visibilité
               React.useEffect(() => {
                 const el = containerRef.current;
                 if (!el) return;
@@ -847,7 +754,7 @@ export default function Philippines() {
                 return () => obs.disconnect();
               }, []);
 
-              // Scroll doux uniquement après action user
+              // scroll doux après action utilisateur
               React.useEffect(() => {
                 if (userScrollRef.current) {
                   containerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -855,7 +762,7 @@ export default function Philippines() {
                 }
               }, [idx]);
 
-              // Gestes tactiles
+              // gestes tactiles
               const startX = React.useRef(null);
               const handleTouchStart = (e) => (startX.current = e.touches[0].clientX);
               const handleTouchEnd = (e) => {
@@ -907,10 +814,10 @@ export default function Philippines() {
         </div>
       </Reveal>
 
-      {/* Footer */}
+      {/* Footer (Contact + Newsletter) */}
       <div className="bg-[#1113a2] py-12 px-6 text-white">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12 md:gap-8">
-          {/* Colonne gauche : Contact */}
+          {/* Contact */}
           <div className="md:w-1/2">
             <h3 className="text-xl font-bold mb-4">Contact</h3>
             <p className="mb-2">
@@ -932,10 +839,10 @@ export default function Philippines() {
             </p>
           </div>
 
-          {/* Trait vertical */}
+          {/* Séparateur */}
           <div className="hidden md:block w-px h-28 bg-white/30" />
 
-          {/* Colonne droite : Newsletter */}
+          {/* Newsletter */}
           <div className="md:w-1/2">
             <h3 className="text-xl font-bold mb-4 text-white">Reste informé(e)</h3>
             <p className="mb-4">Inscris-toi pour suivre le développement de GuardianMap.</p>
@@ -960,26 +867,23 @@ export default function Philippines() {
   );
 }
 
-/* ---------- Composant "MonthsWave" (desktop uniquement), statique sur touch ---------- */
-function MonthsWave() {
-  const isTouch = useIsTouch(); // désactive l'effet "vague" sur mobile/tablette
+/* ------------------ Visibilité: vague desktop (palette Maldives) ------------------ */
+function MonthsWaveMaldives() {
+  const isTouch = useIsTouch(); // pas de vague sur mobile/tablette
   const months = ["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sept","Oct","Nov","Déc"];
+  // Nord-Est (nov–avr) = très bon ; mousson SW (mai–oct) = plus variable/chargée
   const colors = [
-    "bg-yellow-400","bg-green-500","bg-green-500","bg-green-500",
+    "bg-green-500","bg-green-500","bg-green-500","bg-green-500",
     "bg-yellow-400","bg-orange-400","bg-orange-400","bg-orange-400",
-    "bg-yellow-400","bg-green-500","bg-green-500","bg-yellow-400"
+    "bg-yellow-400","bg-yellow-400","bg-green-500","bg-green-500"
   ];
   const [active, setActive] = React.useState(-1);
 
   if (isTouch) {
-    // Version simple: pas d'animation au survol sur les écrans tactiles
     return (
       <div className="flex flex-wrap gap-2 justify-center">
         {months.map((m, i) => (
-          <div
-            key={m}
-            className={`text-white ${colors[i]} px-4 py-2 rounded-full text-sm font-semibold shadow`}
-          >
+          <div key={m} className={`text-white ${colors[i]} px-4 py-2 rounded-full text-sm font-semibold shadow`}>
             {m}
           </div>
         ))}
@@ -987,7 +891,6 @@ function MonthsWave() {
     );
   }
 
-  // Desktop: vague au survol
   return (
     <div
       className="flex flex-wrap gap-2 justify-center"
