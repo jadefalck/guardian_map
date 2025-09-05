@@ -15,7 +15,72 @@ import imgTourisme from "../../assets/images/tourisme_durable.jpg";
 import imgEcosystemes from "../../assets/images/protection_ecosystemes_marins.jpg";
 import imgEncadree from "../../assets/images/plongee_encadree_responsable.jpg";
 
-// ---- charge l'Excel, filtre "philippines" et REGROUPE par poisson ----
+/* ---------------- API base pour la newsletter (comme le tracking) ---------------- */
+const API_BASE =
+  (typeof import.meta !== "undefined" &&
+    import.meta.env &&
+    import.meta.env.VITE_API_BASE) ||
+  (typeof window !== "undefined" && window.location.hostname === "localhost"
+    ? "https://go.guardianmap.com"
+    : "");
+
+/* ---------------- Formulaire Newsletter (POST JSON vers o2switch) ---------------- */
+function NewsletterForm() {
+  const [email, setEmail] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [msg, setMsg] = React.useState(null);
+  const [err, setErr] = React.useState(null);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setMsg(null);
+    setErr(null);
+
+    try {
+      const res = await fetch(`${API_BASE}/api/newsletter_subscribe.php`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, website: "" /* honeypot */ }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.ok) throw new Error(json.error || "Erreur réseau");
+      setMsg("Merci ! Ton adresse a bien été enregistrée 🙌");
+      setEmail("");
+    } catch (e2) {
+      setErr("Impossible d’enregistrer ton email. Réessaie.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-4">
+      {/* honeypot caché anti-bot */}
+      <input type="text" name="website" className="hidden" tabIndex={-1} readOnly />
+      <input
+        type="email"
+        placeholder="Ton adresse e-mail"
+        className="w-full sm:w-auto px-4 py-2 rounded-lg text-black focus:outline-none"
+        required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        disabled={loading}
+      />
+      <button
+        type="submit"
+        disabled={loading}
+        className="bg-white text-[#1113a2] px-6 py-2 rounded-lg font-semibold hover:bg-gray-200 transition disabled:opacity-60"
+      >
+        {loading ? "Envoi..." : "S'inscrire"}
+      </button>
+      {msg && <p className="text-green-200 text-sm sm:ml-2">{msg}</p>}
+      {err && <p className="text-red-200 text-sm sm:ml-2">{err}</p>}
+    </form>
+  );
+}
+
+/* ---------------- charge l'Excel, filtre "philippines" et REGROUPE par poisson ---------------- */
 async function loadGroupedPhilippinesSpecies() {
   const XLSX = await import("xlsx");
   const url = new URL("../../data/BDD_poissons.xlsx", import.meta.url);
@@ -71,7 +136,7 @@ async function loadGroupedPhilippinesSpecies() {
     .sort((a, b) => a.name.localeCompare(b.name, "fr"));
 }
 
-// ---- mappe toutes les images du dossier type_poisson ----
+/* ---------------- mappe toutes les images du dossier type_poisson ---------------- */
 const imageModules = import.meta.glob(
   "../../assets/images/type_poisson/*.{jpg,jpeg,png,webp}",
   { eager: true }
@@ -86,7 +151,7 @@ function buildImageMap() {
   return map;
 }
 
-/** 🏷️ Mappe dynamique des images de labels (GF_Gold.png, etc.) */
+/* ---------------- Mappe dynamique des images de labels (GF_Gold.png, etc.) ---------------- */
 const labelImageModules = import.meta.glob(
   "../../assets/images/labels_greenfins/*.{png,jpg,jpeg,webp}",
   { eager: true }
@@ -104,18 +169,14 @@ const labelImgs = buildLabelImageMap();
 const imgGold = labelImgs.get("gf_gold");
 const imgSilver = labelImgs.get("gf_silver");
 const imgBronze = labelImgs.get("gf_bronze");
-const imgInactive = labelImgs.get("gf_inactive"); // optionnel
+const imgInactive = labelImgs.get("gf_inactive");
 
-/** 🔎 Révélation progressive — joue seulement à la descente.
- *  - À l'entrée dans le viewport: anime si on scrolle vers le bas.
- *  - À la sortie du viewport: "désarme" l'animation seulement si on remonte,
- *    ce qui permet de la rejouer à la prochaine descente.
- */
+/* ---------------- Révélation progressive — joue seulement à la descente ---------------- */
 function Reveal({
   children,
   delay = 0,
   className = "",
-  zoomOnVisible = false, // option: léger zoom quand visible
+  zoomOnVisible = false,
   y = 12,
   scaleFrom = 0.98,
   scaleTo = 1.01,
@@ -142,10 +203,8 @@ function Reveal({
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // joue uniquement quand on entre en scroll descendant
           if (isScrollingDown.current) setVisible(true);
         } else {
-          // on désarme quand on quitte en remontant (pour pouvoir rejouer plus tard)
           if (!isScrollingDown.current) setVisible(false);
         }
       },
@@ -178,7 +237,7 @@ function Reveal({
   );
 }
 
-// ====== Hook utilitaire pour mobile (carrousel espèces + logique responsive) ======
+/* ---------------- Hooks responsive ---------------- */
 function useIsMobile() {
   const query = "(max-width: 768px)";
   const getMatch = () =>
@@ -198,8 +257,6 @@ function useIsMobile() {
 
   return isMobile;
 }
-
-// Détection "touch" pour désactiver l'effet vague sur mobile/tablette
 function useIsTouch() {
   const query = "(pointer: coarse)";
   const getMatch = () =>
@@ -221,17 +278,17 @@ function useIsTouch() {
 }
 
 export default function Philippines() {
-  // -- Carte + filtre région --
+  /* -------- Carte + filtre région -------- */
   const [regionFilter, setRegionFilter] = useState("");
   const uniqueRegions = Array.from(new Set(data.map((d) => d.region))).sort();
 
-  // -- Espèces groupées --
+  /* -------- Espèces groupées -------- */
   const [species, setSpecies] = useState([]);
-  const [hoveredId, setHoveredId] = useState(null);
+  const [hoveredId, setHoveredId] = useState(null); // conservé si tu l'utilises ailleurs
   const [selected, setSelected] = useState(null);
   const imgMap = useMemo(() => buildImageMap(), []);
 
-  // 🔦 Highlight temporaire d’un bloc (pourquoi / niveaux)
+  /* -------- Highlight blocs -------- */
   const [highlightId, setHighlightId] = useState(null);
   const scrollAndHighlight = useCallback((toId) => {
     const el = document.getElementById(toId);
@@ -241,7 +298,7 @@ export default function Philippines() {
     setTimeout(() => setHighlightId((cur) => (cur === toId ? null : cur)), 1500);
   }, []);
 
-  // ⬆️ Arriver en haut de page au montage
+  /* -------- Arriver en haut au montage -------- */
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, []);
@@ -267,7 +324,7 @@ export default function Philippines() {
     };
   }, [imgMap]);
 
-  // ===== Panneau de détail (utilisé par l’ancienne galerie : conservé pour compat) =====
+  /* -------- Détail espèce (compat ancien code) -------- */
   const detailRef = useRef(null);
 
   const selectedIndex = useMemo(() => {
@@ -322,7 +379,7 @@ export default function Philippines() {
     return () => window.removeEventListener("keydown", onKey);
   }, [selected, goNext, goPrev]);
 
-  // Classes utilitaires pour le highlight
+  /* -------- Classe utilitaire highlight -------- */
   const hi = (id, extra = "") =>
     `${extra} transition transform ${
       highlightId === id ? "ring-4 ring-[#1113a2] scale-[1.03]" : ""
@@ -332,7 +389,7 @@ export default function Philippines() {
 
   return (
     <div className="w-full">
-      {/* Bande bleue avec nom du pays — corrigé */}
+      {/* Bande bleue avec nom du pays */}
       <header className="w-full bg-gray-100 shadow-inner">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <h1
@@ -354,13 +411,17 @@ export default function Philippines() {
         >
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl max-w-[1200px] mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Carte */}
-            <div className="md:col-span-3 rounded-xl overflow-hidden">
-              <CarteAvecDonnees country="philippines" regionFilter={regionFilter} mapId="map-philippines" />
+            <div className="md:col-span-3 rounded-xl overflow-hidden" id="map-philippines-wrapper">
+              <CarteAvecDonnees
+                country="philippines"
+                regionFilter={regionFilter}
+                mapId="map-philippines"
+              />
             </div>
 
             {/* Panneau de droite */}
             <div className="bg-white/80 p-4 rounded-xl shadow-inner max-h-[600px] overflow-y-auto">
-              {/* 1) Bouton "Pourquoi..." en premier */}
+              {/* 1) Bouton "Pourquoi..." */}
               <button
                 className="w-full flex items-center justify-center gap-2 text-sm px-3 py-2 rounded-lg bg-gray-100 text-[#1113a2] border border-gray-300 hover:bg-gray-200 transition focus:ring-2 focus:ring-[#1113a2]"
                 onClick={() => scrollAndHighlight("why-greenfins")}
@@ -407,7 +468,7 @@ export default function Philippines() {
                 </button>
               </div>
 
-              {/* 4) Titre Filtrer par région */}
+              {/* 4) Filtrer par région */}
               <h3 className="text-[#1113a2] text font-semibold mb-2">Filtrer par région</h3>
               <div className="space-y-2 text-sm">
                 {uniqueRegions.map((region, i) => (
@@ -422,7 +483,7 @@ export default function Philippines() {
                         onChange={() => {
                           setRegionFilter(region);
                           // 👉 scroll vers la carte (utile sur téléphone)
-                          const el = document.getElementById("MAP_ID_ICI"); // ← remplace par l’id de la page
+                          const el = document.getElementById("map-philippines");
                           if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
                         }}
                       />
@@ -434,20 +495,19 @@ export default function Philippines() {
                   className="mt-4 text-xs underline text-blue-600"
                   onClick={() => {
                     setRegionFilter("");
-                    const el = document.getElementById("MAP_ID_ICI"); // ← remplace par l’id de la page
+                    const el = document.getElementById("map-philippines");
                     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
                   }}
                 >
                   Réinitialiser le filtre
                 </button>
               </div>
-
             </div>
           </div>
         </div>
       </Reveal>
 
-      {/* Pourquoi choisir un centre labellisé GreenFins (avec images) */}
+      {/* Pourquoi choisir un centre labellisé GreenFins */}
       <Reveal>
         <div id="why-greenfins" className="bg-white py-12 px-6">
           <div className="max-w-6xl mx-auto">
@@ -462,12 +522,12 @@ export default function Philippines() {
               </h2>
             </div>
 
-            {/* Paragraphe principal */}
             <Reveal zoomOnVisible className="ml-[6%]">
               <p className="mb-8 text-sm md:text-base text-gray-700 max-w-4xl text-justify">
                 Les clubs labellisés GreenFins s’engagent à{" "}
                 <span className="text-[#1113a2] font-bold">respecter des normes strictes</span>{" "}
-                de protection de l’environnement marin, de gestion responsable des déchets et de sensibilisation des plongeurs.
+                de protection de l’environnement marin, de gestion responsable des déchets et de
+                sensibilisation des plongeurs.
                 <br />
                 Choisir un centre GreenFins, c’est{" "}
                 <span className="text-[#1113a2] font-bold">contribuer</span>{" "}
@@ -478,7 +538,6 @@ export default function Philippines() {
             </Reveal>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-              {/* Card 1 */}
               <Reveal delay={0} zoomOnVisible>
                 <div className="group rounded-xl shadow-md border border-gray-200 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
                   <img
@@ -496,7 +555,6 @@ export default function Philippines() {
                 </div>
               </Reveal>
 
-              {/* Card 2 */}
               <Reveal delay={120} zoomOnVisible>
                 <div className="group rounded-xl shadow-md border border-gray-200 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
                   <img
@@ -513,7 +571,6 @@ export default function Philippines() {
                 </div>
               </Reveal>
 
-              {/* Card 3 */}
               <Reveal delay={240} zoomOnVisible>
                 <div className="group rounded-xl shadow-md border border-gray-200 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
                   <img
@@ -542,7 +599,6 @@ export default function Philippines() {
               <h2 className="text-2xl md:text-1xl font-bold text-[#1113a2]">Niveaux de membres GreenFins</h2>
             </div>
 
-            {/* Paragraphe d'intro */}
             <Reveal zoomOnVisible className="ml-[6%]">
               <p className="mb-8 text-sm md:text-base text-gray-700 max-w-4xl text-justify">
                 GreenFins attribue un{" "}
@@ -686,13 +742,11 @@ export default function Philippines() {
               </h2>
             </div>
 
-            {/* phrase d’explication */}
             <p className="ml-[4%] mb-4 text-sm md:text-base text-gray-700 max-w-3xl">
               Voici la visibilité moyenne de l'eau pour les plongeurs au fil des mois
               dans ce pays.
             </p>
 
-            {/* légende */}
             <div className="flex gap-6 mb-5 ml-[4%]">
               <div className="flex items-center gap-2">
                 <span className="w-4 h-4 bg-green-500 rounded-full"></span> Excellente
@@ -705,13 +759,12 @@ export default function Philippines() {
               </div>
             </div>
 
-            {/* mois : effet "vague" desktop uniquement (désactivé sur touch) */}
             <MonthsWave />
           </div>
         </div>
       </Reveal>
 
-      {/* Espèces observables — carrousel 1 carte sur mobile, 2 cartes sur desktop */}
+      {/* Espèces observables — carrousel */}
       <Reveal>
         <div className="bg-gray-100 py-12 px-6">
           <div className="max-w-6xl mx-auto">
@@ -727,13 +780,12 @@ export default function Philippines() {
           </p>
 
           {(() => {
-            // ----- Carte -----
             function SpeciesCard({ sp, showPrev = false, showNext = false, onPrev, onNext }) {
               if (!sp) return null;
               return (
                 <div className="relative bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden">
                   <div className="flex flex-col md:flex-row">
-                    {/* image — hauteur fixe */}
+                    {/* image */}
                     <div className="md:w-[48%] w-full h-[260px] bg-gray-200">
                       {sp.img ? (
                         <img src={sp.img} alt={sp.name} className="w-full h-full object-cover" />
@@ -744,7 +796,7 @@ export default function Philippines() {
                       )}
                     </div>
 
-                    {/* texte — hauteur fixe */}
+                    {/* texte */}
                     <div className="md:w-[52%] w-full p-4 md:p-5 min-h-[260px]">
                       <h3 className="text-xl font-extrabold text-[#1113a2] leading-tight">{sp.name}</h3>
                       {sp.regions?.length > 0 && (
@@ -800,7 +852,6 @@ export default function Philippines() {
               );
             }
 
-            // ----- Carrousel 1-up mobile / 2-up desktop -----
             function TwoUpCarousel({ items }) {
               const isMobileLocal = useIsMobile();
               const [idx, setIdx] = React.useState(0);
@@ -835,14 +886,12 @@ export default function Philippines() {
                 doFadeTo((i) => (i - step + len) % len);
               }, [doFadeTo, len, step]);
 
-              // Autoplay 3s seulement si visible & non survolé
               React.useEffect(() => {
                 if (!inView || paused || len === 0) return;
                 const id = setInterval(() => goNext(), 3000);
                 return () => clearInterval(id);
               }, [inView, paused, len, goNext]);
 
-              // Détection visibilité
               React.useEffect(() => {
                 const el = containerRef.current;
                 if (!el) return;
@@ -854,7 +903,6 @@ export default function Philippines() {
                 return () => obs.disconnect();
               }, []);
 
-              // Scroll doux uniquement après action user
               React.useEffect(() => {
                 if (userScrollRef.current) {
                   containerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -862,7 +910,6 @@ export default function Philippines() {
                 }
               }, [idx]);
 
-              // Gestes tactiles
               const startX = React.useRef(null);
               const handleTouchStart = (e) => (startX.current = e.touches[0].clientX);
               const handleTouchEnd = (e) => {
@@ -886,7 +933,6 @@ export default function Philippines() {
                     {!isMobileLocal && <SpeciesCard sp={right} showNext onPrev={goPrev} onNext={goNext} />}
                   </div>
 
-                  {/* points de pagination */}
                   <div className="mt-3 flex items-center justify-center gap-2 flex-wrap">
                     {items.map((_, i) => {
                       const active = isMobileLocal
@@ -946,20 +992,7 @@ export default function Philippines() {
           <div className="md:w-1/2">
             <h3 className="text-xl font-bold mb-4 text-white">Reste informé(e)</h3>
             <p className="mb-4">Inscris-toi pour suivre le développement de GuardianMap.</p>
-            <form className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Ton adresse e-mail"
-                className="w-full sm:w-auto px-4 py-2 rounded-lg text-black focus:outline-none"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-white text-[#1113a2] px-6 py-2 rounded-lg font-semibold hover:bg-gray-200 transition"
-              >
-                S'inscrire
-              </button>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
       </div>
@@ -967,9 +1000,9 @@ export default function Philippines() {
   );
 }
 
-/* ---------- Composant "MonthsWave" (desktop uniquement), statique sur touch ---------- */
+/* ---------- Composant "MonthsWave" (desktop), statique sur touch ---------- */
 function MonthsWave() {
-  const isTouch = useIsTouch(); // désactive l'effet "vague" sur mobile/tablette
+  const isTouch = useIsTouch();
   const months = ["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sept","Oct","Nov","Déc"];
   const colors = [
     "bg-yellow-400","bg-green-500","bg-green-500","bg-green-500",
@@ -979,14 +1012,10 @@ function MonthsWave() {
   const [active, setActive] = React.useState(-1);
 
   if (isTouch) {
-    // Version simple: pas d'animation au survol sur les écrans tactiles
     return (
       <div className="flex flex-wrap gap-2 justify-center">
         {months.map((m, i) => (
-          <div
-            key={m}
-            className={`text-white ${colors[i]} px-4 py-2 rounded-full text-sm font-semibold shadow`}
-          >
+          <div key={m} className={`text-white ${colors[i]} px-4 py-2 rounded-full text-sm font-semibold shadow`}>
             {m}
           </div>
         ))}
@@ -994,12 +1023,8 @@ function MonthsWave() {
     );
   }
 
-  // Desktop: vague au survol
   return (
-    <div
-      className="flex flex-wrap gap-2 justify-center"
-      onMouseLeave={() => setActive(-1)}
-    >
+    <div className="flex flex-wrap gap-2 justify-center" onMouseLeave={() => setActive(-1)}>
       {months.map((m, i) => {
         const dist = active === -1 ? 99 : Math.abs(i - active);
         const scale =
