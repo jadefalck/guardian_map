@@ -7,6 +7,7 @@ import React, {
   useRef,
 } from "react";
 import CarteAvecDonnees from "../../components/CarteAvecDonnees";
+import NewsletterForm from "../../components/NewsletterForm";
 import oceanImage from "../../assets/images/ocean.jpg";
 import data from "../../data/Japon_BDD_GF.json";
 
@@ -28,8 +29,8 @@ async function loadGroupedJaponSpecies() {
   const ws = wb.Sheets[wb.SheetNames[0]];
   const rows = XLSX.utils.sheet_to_json(ws, { defval: "" });
 
-  // tolère "japon", "japan"
-  const targets = new Set(["japon", "japan"]);
+  // tolère "japon" / "japan" / "nippon"
+  const targets = new Set(["japon", "japan", "nippon"]);
   const jp = rows.filter((r) => targets.has(String(r.pays || "").toLowerCase().trim()));
 
   const byAnimal = new Map();
@@ -106,7 +107,7 @@ const imgSilver = labelImgs.get("gf_silver");
 const imgBronze = labelImgs.get("gf_bronze");
 const imgInactive = labelImgs.get("gf_inactive");
 
-/* ------------------ Reveal: fondu qui joue uniquement à la descente ------------------ */
+/* ------------------ Reveal: fondu uniquement à la descente ------------------ */
 function Reveal({
   children,
   delay = 0,
@@ -265,7 +266,7 @@ export default function Japon() {
 
   return (
     <div className="w-full">
-      {/* Titre pays */}
+      {/* Titre pays (PAS de Reveal avant la carte) */}
       <header className="w-full bg-gray-100 shadow-inner">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <h1
@@ -279,97 +280,105 @@ export default function Japon() {
         </div>
       </header>
 
-      {/* Carte + panneau de droite */}
-      <Reveal>
-        <div
-          className="py-16 px-4 bg-cover bg-center"
-          style={{ backgroundImage: `url(${oceanImage})` }}
-        >
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl max-w-[1200px] mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
-            {/* Carte */}
-            <div className="md:col-span-3 rounded-xl overflow-hidden">
-              <CarteAvecDonnees country="japon" regionFilter={regionFilter} mapId="map-japon" />
+      {/* Carte + panneau de droite (PAS de Reveal ici) */}
+      <div
+        className="py-16 px-4 bg-cover bg-center"
+        style={{ backgroundImage: `url(${oceanImage})` }}
+      >
+        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl max-w-[1200px] mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
+          {/* Carte */}
+          <div className="md:col-span-3 rounded-xl overflow-hidden">
+            <CarteAvecDonnees country="japon" regionFilter={regionFilter} mapId="map-japon" />
+          </div>
+
+          {/* Panneau de droite */}
+          <div className="bg-white/80 p-4 rounded-xl shadow-inner max-h-[600px] overflow-y-auto">
+            {/* Bouton "Pourquoi..." */}
+            <button
+              className="w-full flex items-center justify-center gap-2 text-sm px-3 py-2 rounded-lg bg-gray-100 text-[#1113a2] border border-gray-300 hover:bg-gray-200 transition focus:ring-2 focus:ring-[#1113a2]"
+              onClick={() => scrollAndHighlight("why-greenfins")}
+              title="Clique pour en savoir plus"
+            >
+              <span className="text-base">👉</span>
+              <span>Pourquoi aller dans des centres certifiés ?</span>
+            </button>
+
+            {/* Titre niveaux */}
+            <h3 className="text-[#1113a2] text font-semibold mt-5 mb-2">
+              Niveaux Greenfins
+            </h3>
+
+            {/* Boutons niveaux */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              <button
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
+                style={{ background: "#D4AF37", color: "#fff", borderColor: "#D4AF37" }}
+                onClick={() => scrollAndHighlight("level-gold")}
+              >
+                Gold
+              </button>
+              <button
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
+                style={{ background: "#C0C0C0", color: "#fff", borderColor: "#C0C0C0" }}
+                onClick={() => scrollAndHighlight("level-silver")}
+              >
+                Silver
+              </button>
+              <button
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
+                style={{ background: "#CD7F32", color: "#fff", borderColor: "#CD7F32" }}
+                onClick={() => scrollAndHighlight("level-bronze")}
+              >
+                Bronze
+              </button>
+              <button
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 text-white focus:outline-none"
+                style={{ background: "#6b7280", borderColor: "#6b7280" }}
+                onClick={() => scrollAndHighlight("level-inactive")}
+              >
+                Inactive
+              </button>
             </div>
 
-            {/* Panneau de droite */}
-            <div className="bg-white/80 p-4 rounded-xl shadow-inner max-h-[600px] overflow-y-auto">
-              {/* Bouton "Pourquoi..." */}
+            {/* Filtre régions */}
+            <h3 className="text-[#1113a2] text font-semibold mb-2">Filtrer par région</h3>
+            <div className="space-y-2 text-sm">
+              {uniqueRegions.map((region, i) => (
+                <div key={i}>
+                  <label className="inline-flex items-center gap-2 text-gray-800">
+                    <input
+                      type="radio"
+                      name="region"
+                      value={region}
+                      className="accent-[#1113a2]"
+                      checked={regionFilter === region}
+                      onChange={() => {
+                        setRegionFilter(region);
+                        // scroll doux vers la carte (utile sur mobile)
+                        const el = document.getElementById("map-japon");
+                        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }}
+                    />
+                    {region}
+                  </label>
+                </div>
+              ))}
               <button
-                className="w-full flex items-center justify-center gap-2 text-sm px-3 py-2 rounded-lg bg-gray-100 text-[#1113a2] border border-gray-300 hover:bg-gray-200 transition focus:ring-2 focus:ring-[#1113a2]"
-                onClick={() => scrollAndHighlight("why-greenfins")}
-                title="Clique pour en savoir plus"
+                className="mt-4 text-xs underline text-blue-600"
+                onClick={() => {
+                  setRegionFilter("");
+                  const el = document.getElementById("map-japon");
+                  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
               >
-                <span className="text-base">👉</span>
-                <span>Pourquoi aller dans des centres certifiés ?</span>
+                Réinitialiser le filtre
               </button>
-
-              {/* Titre niveaux */}
-              <h3 className="text-[#1113a2] text font-semibold mt-5 mb-2">
-                Niveaux Greenfins
-              </h3>
-
-              {/* Boutons niveaux */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
-                  style={{ background: "#D4AF37", color: "#fff", borderColor: "#D4AF37" }}
-                  onClick={() => scrollAndHighlight("level-gold")}
-                >
-                  Gold
-                </button>
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
-                  style={{ background: "#C0C0C0", color: "#fff", borderColor: "#C0C0C0" }}
-                  onClick={() => scrollAndHighlight("level-silver")}
-                >
-                  Silver
-                </button>
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
-                  style={{ background: "#CD7F32", color: "#fff", borderColor: "#CD7F32" }}
-                  onClick={() => scrollAndHighlight("level-bronze")}
-                >
-                  Bronze
-                </button>
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 text-white focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
-                  style={{ background: "#6b7280", borderColor: "#6b7280" }}
-                  onClick={() => scrollAndHighlight("level-inactive")}
-                >
-                  Inactive
-                </button>
-              </div>
-
-              {/* Filtre régions */}
-              <h3 className="text-[#1113a2] text font-semibold mb-2">
-                Filtrer par région
-              </h3>
-              <div className="space-y-2 text-sm">
-                {uniqueRegions.map((region, i) => (
-                  <div key={i}>
-                    <label className="inline-flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="region"
-                        value={region}
-                        checked={regionFilter === region}
-                        onChange={() => setRegionFilter(region)}
-                      />
-                      {region}
-                    </label>
-                  </div>
-                ))}
-                <button
-                  className="mt-4 text-xs underline text-blue-600"
-                  onClick={() => setRegionFilter("")}
-                >
-                  Réinitialiser le filtre
-                </button>
-              </div>
             </div>
           </div>
         </div>
-      </Reveal>
+      </div>
+
+      {/* ---------------- à partir d'ici : sections avec Reveal ---------------- */}
 
       {/* Pourquoi GreenFins */}
       <Reveal>
@@ -388,16 +397,10 @@ export default function Japon() {
 
             <Reveal zoomOnVisible className="ml-[6%]">
               <p className="mb-8 text-sm md:text-base text-gray-700 max-w-4xl text-justify">
-                Les clubs labellisés GreenFins s’engagent à{" "}
-                <span className="text-[#1113a2] font-bold">respecter des normes strictes</span>{" "}
-                de protection de l’environnement marin, de gestion responsable des déchets et de
-                sensibilisation des plongeurs.
-                <br />
-                Choisir un centre GreenFins, c’est{" "}
-                <span className="text-[#1113a2] font-bold">contribuer</span>{" "}
-                directement à la{" "}
-                <span className="text-[#1113a2] font-bold">préservation des récifs coralliens</span>{" "}
-                et à un tourisme durable.
+                Au Japon (Okinawa, Izu, Ogasawara…), les centres GreenFins{" "}
+                <span className="text-[#1113a2] font-bold">réduisent l’impact</span> sur les
+                récifs, forment les plongeurs et soutiennent des actions locales de
+                conservation (coraux, mantas, nudibranches…).
               </p>
             </Reveal>
 
@@ -411,10 +414,9 @@ export default function Japon() {
                   />
                   <div className="p-4 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
                     <h3 className="font-bold text-[#1113a2] mb-2">Tourisme durable</h3>
-                    En allant dans des centres engagés,{" "}
-                    <span className="text-[#1113a2]">
-                      vous soutenez l’environnement et les communautés locales
-                    </span>.
+                    Vous soutenez{" "}
+                    <span className="text-[#1113a2]">les communautés insulaires</span> et la
+                    protection des récifs.
                   </div>
                 </div>
               </Reveal>
@@ -427,10 +429,10 @@ export default function Japon() {
                     className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-[1.05]"
                   />
                   <div className="p-4 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <h3 className="font-bold text-[#1113a2] mb-2">Protection des écosystèmes marins</h3>
-                    Ces centres appliquent des{" "}
-                    <span className="text-[#1113a2]">pratiques limitant les impacts</span>{" "}
-                    sur les coraux, poissons et autres espèces.
+                    <h3 className="font-bold text-[#1113a2] mb-2">Protection des écosystèmes</h3>
+                    Pratiques qui{" "}
+                    <span className="text-[#1113a2]">limitent les dégâts</span> sur coraux et
+                    faune.
                   </div>
                 </div>
               </Reveal>
@@ -443,10 +445,9 @@ export default function Japon() {
                     className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-[1.05]"
                   />
                   <div className="p-4 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <h3 className="font-bold text-[#1113a2] mb-2">Plongée encadrée et responsable</h3>
-                    Des instructeurs formés assurent des{" "}
-                    <span className="text-[#1113a2]">immersions sécurisées</span>{" "}
-                    pour vous, et la biodiversité.
+                    <h3 className="font-bold text-[#1113a2] mb-2">Plongée encadrée</h3>
+                    Encadrement formé aux{" "}
+                    <span className="text-[#1113a2]">bonnes pratiques</span>.
                   </div>
                 </div>
               </Reveal>
@@ -465,13 +466,8 @@ export default function Japon() {
 
             <Reveal zoomOnVisible className="ml-[6%]">
               <p className="mb-8 text-sm md:text-base text-gray-700 max-w-4xl text-justify">
-                GreenFins attribue un{" "}
-                <span className="text-[#1113a2] font-bold">niveau de performance environnementale</span>{" "}
-                aux centres de plongée. Même un centre{" "}
-                <span className="text-[#1113a2] font-bold">“Inactive”</span>{" "}
-                reste généralement plus respectueux de l'environnement que la moyenne, car il a été{" "}
-                <span className="text-[#1113a2] font-bold">formé aux bonnes pratiques</span>{" "}
-                et conserve souvent une partie de ses engagements.
+                Les centres évalués reçoivent un niveau (Gold, Silver, Bronze, Inactive) selon
+                leur conformité aux standards environnementaux.
               </p>
             </Reveal>
 
@@ -498,9 +494,8 @@ export default function Japon() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">Respect strict</span> des meilleures pratiques
-                    environnementales et engagement exemplaire.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    Mise en œuvre exemplaire des meilleures pratiques.
                   </div>
                 </div>
               </Reveal>
@@ -527,9 +522,8 @@ export default function Japon() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">Fort engagement</span> environnemental avec quelques axes
-                    d’amélioration.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    Fort engagement, quelques axes d’amélioration.
                   </div>
                 </div>
               </Reveal>
@@ -556,9 +550,8 @@ export default function Japon() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">Bon respect</span> des recommandations, des améliorations
-                    restent possibles.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    Bon respect des recommandations.
                   </div>
                 </div>
               </Reveal>
@@ -585,9 +578,8 @@ export default function Japon() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">N'a pas renouvelé le programme</span>, mais a été formé et
-                    garde souvent de bonnes pratiques.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    N’a pas renouvelé, conserve souvent de bonnes pratiques.
                   </div>
                 </div>
               </Reveal>
@@ -607,7 +599,8 @@ export default function Japon() {
             </div>
 
             <p className="ml-[4%] mb-4 text-sm md:text-base text-gray-700 max-w-3xl">
-              Voici la visibilité moyenne de l'eau pour les plongeurs au fil des mois au Japon.
+              Globalement meilleure du printemps à l’automne (Okinawa très stable en été) ;
+              l’hiver peut être plus chargé selon les régions.
             </p>
 
             <MonthsWaveJapan />
@@ -625,9 +618,9 @@ export default function Japon() {
           </div>
 
           <p className="ml-[10%] mb-6 text-sm md:text-base text-gray-700 max-w-4xl text-justify">
-            Voici une sélection d’espèces{" "}
-            <span className="text-[#1113a2] font-semibold">emblématiques, rares ou peu visibles ailleurs</span>{" "}
-            au Japon.
+            Quelques espèces{" "}
+            <span className="text-[#1113a2] font-semibold">emblématiques</span>{" "}
+            que l’on rencontre au Japon (nudibranches variés, tortues, raies…).
           </p>
 
           {(() => {
@@ -844,24 +837,11 @@ export default function Japon() {
           {/* Séparateur */}
           <div className="hidden md:block w-px h-28 bg-white/30" />
 
-          {/* Newsletter */}
+          {/* Newsletter (composant partagé) */}
           <div className="md:w-1/2">
             <h3 className="text-xl font-bold mb-4 text-white">Reste informé(e)</h3>
             <p className="mb-4">Inscris-toi pour suivre le développement de GuardianMap.</p>
-            <form className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Ton adresse e-mail"
-                className="w-full sm:w-auto px-4 py-2 rounded-lg text-black focus:outline-none"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-white text-[#1113a2] px-6 py-2 rounded-lg font-semibold hover:bg-gray-200 transition"
-              >
-                S'inscrire
-              </button>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
       </div>
@@ -873,10 +853,10 @@ export default function Japon() {
 function MonthsWaveJapan() {
   const isTouch = useIsTouch(); // pas de vague sur mobile/tablette
   const months = ["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sept","Oct","Nov","Déc"];
-  // Palette utilisée pour le Japon (verts au cœur de saison)
+  // Printemps-été souvent meilleurs selon régions ; hiver plus variable
   const colors = [
-    "bg-orange-400","bg-yellow-400","bg-yellow-400","bg-green-500",
-    "bg-green-500","bg-green-500","bg-yellow-400","bg-yellow-400",
+    "bg-orange-400","bg-orange-400","bg-yellow-400","bg-green-500",
+    "bg-green-500","bg-green-500","bg-green-500","bg-green-500",
     "bg-green-500","bg-green-500","bg-yellow-400","bg-orange-400"
   ];
   const [active, setActive] = React.useState(-1);

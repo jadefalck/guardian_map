@@ -1,99 +1,244 @@
-import { useEffect, useRef, useState } from "react";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import Papa from "papaparse";
+// components/CarteAvecDonnees.jsx
+import React, { useEffect, useRef, useCallback, useState } from "react";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 
-export default function CarteAvecEffet({ csvFilePath, center = [10.3, 123.9], zoom = 6 }) {
-  const mapRef = useRef(null);
-  const [selectedCentre, setSelectedCentre] = useState(null);
-  const [centresData, setCentresData] = useState([]);
+import dataPhilippines from "../data/Philippines_BDD_GF.json";
+import dataIndonesie   from "../data/Indonesie_BDD_GF.json";
+import dataJapon       from "../data/Japon_BDD_GF.json";
+import dataMalaisie    from "../data/Malaisie_BDD_GF.json";
+import dataThailande   from "../data/Thailande_BDD_GF.json";
 
-  useEffect(() => {
-    if (csvFilePath) {
-      fetch(csvFilePath)
-        .then((res) => res.text())
-        .then((text) => {
-          const parsed = Papa.parse(text, { header: true });
-          setCentresData(parsed.data);
-        });
-    }
-  }, [csvFilePath]);
+/* ------------------ MapTiler (MapLibre) ------------------ */
+const MAPTILER_KEY   = "gsmNeDjg2V0pS8etxXtI";
+const STYLE_PRIMARY  = `https://api.maptiler.com/maps/streets/style.json?key=${MAPTILER_KEY}`;
+const STYLE_FALLBACK = `https://api.maptiler.com/maps/basic/style.json?key=${MAPTILER_KEY}`;
+const STYLE_ULTIMATE = "https://demotiles.maplibre.org/style.json";
 
-  useEffect(() => {
-    if (mapRef.current) {
-      mapRef.current.remove(); // supprime l'ancienne carte si elle existe
-      mapRef.current = null;
-    }
+/* ------------------ centrage initial par pays ------------------ */
+const countrySettings = {
+  philippines: { center: [121.774, 12.8797], zoom: 5   },
+  indonesie:   { center: [113.9213, -0.7893], zoom: 4.5 },
+  japon:       { center: [138.2529, 36.2048], zoom: 4.5 },
+  malaisie:    { center: [101.9758, 4.2105],  zoom: 5.2 },
+  thailande:   { center: [100.9925, 15.87],   zoom: 5.2 },
+  maldives:    { center: [73.5, 1.9],         zoom: 5.3 },
+};
 
-    if (centresData.length > 0) {
-      const map = L.map("map").setView(center, zoom);
-      mapRef.current = map;
-
-      // Fond de carte moderne
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-        attribution: '&copy; OpenStreetMap &copy; CARTO',
-      }).addTo(map);
-
-      centresData.forEach((centre) => {
-        const lat = parseFloat(centre.latitude);
-        const lng = parseFloat(centre.longitude);
-        if (!isNaN(lat) && !isNaN(lng)) {
-          const isInactive = getLabelText(centre.stamp_image || "") === "Label Inactif";
-          const icon = new L.Icon({
-            iconUrl: isInactive
-              ? "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png"
-              : "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34],
-            shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
-            shadowSize: [41, 41],
-          });
-
-          const marker = L.marker([lat, lng], { icon })
-            .addTo(map)
-            .bindTooltip(centre.centre_name, { permanent: false });
-
-          marker.on("click", () => {
-            setSelectedCentre(centre);
-            map.panTo([lat, lng - 0.3]);
-          });
-        }
-      });
-
-      setTimeout(() => {
-        map.invalidateSize();
-      }, 200);
-    }
-  }, [centresData, center, zoom]);
-
-  useEffect(() => {
-    if (mapRef.current) {
-      mapRef.current.invalidateSize();
-    }
-  }, [centresData]);
-
-  function getLabelText(stamp) {
-    if (stamp.includes("gold")) return "Label Gold";
-    if (stamp.includes("silver")) return "Label Silver";
-    if (stamp.includes("bronze")) return "Label Bronze";
-    if (stamp.includes("digital")) return "Label Digital";
-    return "Label Inactif";
+function getDataByCountry(country) {
+  switch ((country || "").toLowerCase()) {
+    case "philippines": return dataPhilippines;
+    case "indonesie":   return dataIndonesie;
+    case "japon":       return dataJapon;
+    case "malaisie":    return dataMalaisie;
+    case "thailande":   return dataThailande;
+    case "maldives":    return [];
+    default:            return [];
   }
+}
+
+/* ------------------ helpers popup + tracking ------------------ */
+function levelStyle(levelRaw) {
+  const l = String(levelRaw || "").toLowerCase();
+  if (l.includes("gold"))     return { bg:"#D4AF37", color:"#fff",    label:"Gold" };
+  if (l.includes("silver"))   return { bg:"#C0C0C0", color:"#1f2937", label:"Silver" };
+  if (l.includes("bronze"))   return { bg:"#CD7F32", color:"#fff",    label:"Bronze" };
+  if (l.includes("inactive")) return { bg:"#e5e7eb", color:"#374151", label:"Inactive" };
+  return { bg:"#374151", color:"#fff", label: levelRaw || "N/A" };
+}
+const hasValidWebsite = (w) =>
+  !!w && typeof w === "string" &&
+  !/^pas\s*de\s*lien$/i.test(w.trim()) &&
+  w !== "#" && !w.toLowerCase().startsWith("mailto:");
+const normalizeWebsite = (w) => (/^https?:\/\//i.test(w) ? w : `https://${w}`);
+
+const TRACKING_BASE =
+  (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.VITE_TRACKING_BASE) ||
+  (typeof window !== "undefined" && window.location.hostname === "localhost"
+    ? "https://go.guardianmap.com"
+    : "");
+const slugify = (s) =>
+  String(s || "")
+    .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60);
+const toTrackingUrl = ({ centerId, country, region, destUrl }) => {
+  if (!TRACKING_BASE) return destUrl;
+  const qs = new URLSearchParams({ c:centerId||"", country:country||"", region:region||"", u:destUrl||"" });
+  return `${TRACKING_BASE}/go.php?${qs.toString()}`;
+};
+
+/* ------------------ Composant carte ------------------ */
+export default function CarteAvecDonnees({ country, regionFilter, mapId }) {
+  const containerRef = useRef(null);
+  const mapRef = useRef(null);
+  const markersRef = useRef([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  /* ------ utilitaire: clean marqueurs ------ */
+  const clearMarkers = useCallback(() => {
+    markersRef.current.forEach((m) => { try { m.remove(); } catch {} });
+    markersRef.current = [];
+  }, []);
+
+  /* ------ placer/mettre à jour les marqueurs (sans recréer la carte) ------ */
+  const renderMarkers = useCallback(() => {
+    const map = mapRef.current;
+    if (!map || !map.isStyleLoaded()) return;
+
+    clearMarkers();
+
+    const all = getDataByCountry(country).filter(
+      (d) => Number.isFinite(Number(d.latitude)) && Number.isFinite(Number(d.longitude))
+    );
+    const rows = regionFilter
+      ? all.filter(
+          (d) =>
+            d.region &&
+            String(d.region).toLowerCase() === String(regionFilter).toLowerCase()
+        )
+      : all;
+
+    const bounds = new maplibregl.LngLatBounds();
+
+    rows.forEach((d, idx) => {
+      const lat = Number(d.latitude);
+      const lng = Number(d.longitude);
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+
+      // PIN SVG simple (dégradé bleu)
+      const el = document.createElement("div");
+      const gradId = `pinGrad-${idx}-${Math.random().toString(36).slice(2)}`;
+      el.innerHTML = `
+        <svg viewBox="0 0 24 24" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="${gradId}" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1113a2"/><stop offset="100%" stop-color="#3f51b5"/>
+          </linearGradient></defs>
+          <path fill="url(#${gradId})" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle fill="#fff" cx="12" cy="9" r="2.6"/>
+        </svg>`;
+      el.style.transform = "translate(-50%, -100%)";
+      el.style.cursor = "pointer";
+
+      const { bg, color, label } = levelStyle(d.certification_level);
+      const destUrl  = hasValidWebsite(d.website) ? normalizeWebsite(d.website) : null;
+      const centerId = slugify(d.id || d.slug || d.name);
+      const href     = destUrl ? toTrackingUrl({ centerId, country, region: d.region, destUrl }) : null;
+
+      const popupHTML = `
+        <div style="font-family:system-ui,Inter,Roboto; font-size:13px; max-width:280px; line-height:1.5;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <div style="font-weight:800; color:#1113a2;">${d.name || "Centre de plongée"}</div>
+            <span style="display:inline-block;padding:4px 8px;border-radius:9999px;background:${bg};color:${color};font-size:12px;font-weight:800;">${label}</span>
+          </div>
+          <div><strong>Région :</strong> ${d.region || "—"}</div>
+          ${
+            href
+              ? `<a href="${href}" target="_blank" rel="noopener noreferrer"
+                   style="display:inline-block;margin-top:10px;padding:8px 12px;border-radius:10px;background:#1113a2;color:#fff;text-decoration:none;font-weight:600;">
+                   Accéder au site
+                 </a>`
+              : `<div style="margin-top:10px;color:#6b7280;">Pas de lien</div>`
+          }
+        </div>
+      `;
+
+      const marker = new maplibregl.Marker({ element: el })
+        .setLngLat([lng, lat])
+        .setPopup(new maplibregl.Popup({ offset: 25 }).setHTML(popupHTML))
+        .addTo(map);
+
+      markersRef.current.push(marker);
+      bounds.extend([lng, lat]);
+    });
+
+    // recadre
+    if (!bounds.isEmpty()) {
+      map.fitBounds(bounds, { padding: 60, maxZoom: 9, duration: 400, essential: true });
+    } else {
+      const s = countrySettings[(country || "").toLowerCase()];
+      if (s) map.jumpTo({ center: s.center, zoom: s.zoom });
+    }
+  }, [country, regionFilter, clearMarkers]);
+
+  /* ------ init carte (1 fois par pays) + fallback de style ------ */
+  useEffect(() => {
+    const node = containerRef.current;
+    const s = countrySettings[(country || "").toLowerCase()];
+    if (!node || !s) return;
+
+    setIsLoading(true);
+
+    const map = new maplibregl.Map({
+      container: node,
+      style: STYLE_PRIMARY,
+      center: s.center,
+      zoom: s.zoom,
+    });
+    mapRef.current = map;
+
+    map.addControl(new maplibregl.NavigationControl(), "top-right");
+
+    // watchdog: si le style ne charge pas vite → essayer un fallback
+    const tried = { basic: false, ultimate: false };
+    const watchdog = setTimeout(() => {
+      if (!map.isStyleLoaded()) {
+        if (!tried.basic) { tried.basic = true; map.setStyle(STYLE_FALLBACK); }
+      }
+    }, 3000);
+
+    const onError = () => {
+      if (!tried.basic)   { tried.basic   = true; map.setStyle(STYLE_FALLBACK); return; }
+      if (!tried.ultimate){ tried.ultimate= true; map.setStyle(STYLE_ULTIMATE); return; }
+    };
+
+    const rerender = () => {
+      setTimeout(() => map.resize(), 50);
+      setIsLoading(false);
+      renderMarkers();
+    };
+
+    map.on("error", onError);
+    map.on("load", rerender);
+    map.on("styledata", rerender);
+
+    return () => {
+      clearTimeout(watchdog);
+      try {
+        map.off("error", onError);
+        map.off("load", rerender);
+        map.off("styledata", rerender);
+      } catch {}
+      clearMarkers();
+      try { map.remove(); } catch {}
+      mapRef.current = null;
+    };
+  }, [country, renderMarkers, clearMarkers]);
+
+  /* ------ quand le filtre change: juste MAJ des pins ------ */
+  useEffect(() => { renderMarkers(); }, [regionFilter, renderMarkers]);
 
   return (
-    <div className="relative w-full bg-white py-12 flex justify-center items-start">
-      {/* Map container */}
-      <div className="relative w-[90%] h-[500px] z-10 rounded-xl overflow-hidden shadow-lg">
-        <div id="map" className="w-full h-full"></div>
-      </div>
-
-      {/* Info box */}
-      {selectedCentre && (
-        <div className="absolute top-6 right-6 z-20 bg-white bg-opacity-90 backdrop-blur-md rounded-md shadow-md p-4 max-w-xs">
-          <h2 className="text-lg font-bold text-blue-900">{selectedCentre.centre_name}</h2>
-          <p className="text-sm mt-1"><strong>Contact :</strong> {selectedCentre.contacts || "Non renseigné"}</p>
-          <p className="text-sm"><strong>Label :</strong> {getLabelText(selectedCentre.stamp_image || "")}</p>
+    <div
+      id={mapId || undefined}
+      ref={containerRef}
+      style={{
+        position: "relative",
+        height: "600px",
+        width: "100%",
+        borderRadius: "1rem",
+        overflow: "hidden",
+        background: "#eef1f6",
+      }}
+    >
+      {isLoading && (
+        <div style={{
+          position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center",
+          background:"rgba(255,255,255,.85)", zIndex:10, fontFamily:"system-ui,Inter,Roboto"
+        }}>
+          Chargement de la carte…
         </div>
       )}
     </div>

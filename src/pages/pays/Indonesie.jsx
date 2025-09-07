@@ -1,4 +1,4 @@
-// src/pages/Indonesie.jsx
+// src/pages/pays/Indonesie.jsx
 import React, {
   useEffect,
   useMemo,
@@ -7,10 +7,11 @@ import React, {
   useRef,
 } from "react";
 import CarteAvecDonnees from "../../components/CarteAvecDonnees";
+import NewsletterForm from "../../components/NewsletterForm";
 import oceanImage from "../../assets/images/ocean.jpg";
 import data from "../../data/Indonesie_BDD_GF.json";
 
-// ✅ images pour la section "Pourquoi GreenFins ?"
+// Images pour la section "Pourquoi GreenFins ?"
 import imgTourisme from "../../assets/images/tourisme_durable.jpg";
 import imgEcosystemes from "../../assets/images/protection_ecosystemes_marins.jpg";
 import imgEncadree from "../../assets/images/plongee_encadree_responsable.jpg";
@@ -28,12 +29,14 @@ async function loadGroupedIndonesieSpecies() {
   const ws = wb.Sheets[wb.SheetNames[0]];
   const rows = XLSX.utils.sheet_to_json(ws, { defval: "" });
 
-  // tolère "indonesie", "indonésie", "indonesia"
+  // tolère "indonesie" / "indonésie" / "indonesia"
   const targets = new Set(["indonesie", "indonésie", "indonesia"]);
-  const indo = rows.filter((r) => targets.has(String(r.pays || "").toLowerCase().trim()));
+  const id = rows.filter((r) =>
+    targets.has(String(r.pays || "").toLowerCase().trim())
+  );
 
   const byAnimal = new Map();
-  indo.forEach((r) => {
+  id.forEach((r) => {
     const rawName = String(r.animal || "").trim();
     if (!rawName) return;
 
@@ -220,8 +223,6 @@ export default function Indonesie() {
 
   // Espèces groupées
   const [species, setSpecies] = useState([]);
-  const [hoveredId, setHoveredId] = useState(null);
-  const [selected, setSelected] = useState(null);
   const imgMap = useMemo(() => buildImageMap(), []);
 
   // Highlight (pour scroll vers ancre)
@@ -260,66 +261,10 @@ export default function Indonesie() {
     };
   }, [imgMap]);
 
-  // Sélection / navigation espèces
-  const detailRef = useRef(null);
-  const selectedIndex = useMemo(() => {
-    if (!selected) return -1;
-    return species.findIndex((s) => s.id === selected.id);
-  }, [species, selected]);
-
-  const scrollToDetail = useCallback(() => {
-    if (detailRef.current) {
-      detailRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }, []);
-
-  const toggleSelect = useCallback(
-    (sp) => {
-      setSelected((cur) => {
-        const next = cur && cur.id === sp.id ? null : sp;
-        if (next) setTimeout(scrollToDetail, 0);
-        return next;
-      });
-    },
-    [scrollToDetail]
-  );
-
-  const goNext = useCallback(() => {
-    if (!species.length) return;
-    const idx = selectedIndex === -1 ? 0 : (selectedIndex + 1) % species.length;
-    const sp = species[idx];
-    setSelected(sp);
-    setTimeout(scrollToDetail, 0);
-  }, [species, selectedIndex, scrollToDetail]);
-
-  const goPrev = useCallback(() => {
-    if (!species.length) return;
-    const idx =
-      selectedIndex === -1
-        ? species.length - 1
-        : (selectedIndex - 1 + species.length) % species.length;
-    const sp = species[idx];
-    setSelected(sp);
-    setTimeout(scrollToDetail, 0);
-  }, [species, selectedIndex, scrollToDetail]);
-
-  useEffect(() => {
-    if (!selected) return;
-    const onKey = (e) => {
-      if (e.key === "ArrowRight") goNext();
-      if (e.key === "ArrowLeft") goPrev();
-      if (e.key === "Escape") setSelected(null);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [selected, goNext, goPrev]);
-
   const hi = (id, extra = "") =>
     `${extra} transition transform ${
       highlightId === id ? "ring-4 ring-[#1113a2] scale-[1.03]" : ""
     }`;
-
-  const isMobile = useIsMobile();
 
   return (
     <div className="w-full">
@@ -346,7 +291,11 @@ export default function Indonesie() {
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl max-w-[1200px] mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Carte */}
             <div className="md:col-span-3 rounded-xl overflow-hidden">
-              <CarteAvecDonnees country="indonesie"   regionFilter={regionFilter} mapId="map-indonesie" />
+              <CarteAvecDonnees
+                country="indonesie"
+                regionFilter={regionFilter}
+                mapId="map-indonesie"
+              />
             </div>
 
             {/* Panneau de droite */}
@@ -369,28 +318,28 @@ export default function Indonesie() {
               {/* Boutons niveaux */}
               <div className="flex flex-wrap gap-2 mb-6">
                 <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
                   style={{ background: "#D4AF37", color: "#fff", borderColor: "#D4AF37" }}
                   onClick={() => scrollAndHighlight("level-gold")}
                 >
                   Gold
                 </button>
                 <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
                   style={{ background: "#C0C0C0", color: "#fff", borderColor: "#C0C0C0" }}
                   onClick={() => scrollAndHighlight("level-silver")}
                 >
                   Silver
                 </button>
                 <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
                   style={{ background: "#CD7F32", color: "#fff", borderColor: "#CD7F32" }}
                   onClick={() => scrollAndHighlight("level-bronze")}
                 >
                   Bronze
                 </button>
                 <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 text-white focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 text-white focus:outline-none"
                   style={{ background: "#6b7280", borderColor: "#6b7280" }}
                   onClick={() => scrollAndHighlight("level-inactive")}
                 >
@@ -399,7 +348,9 @@ export default function Indonesie() {
               </div>
 
               {/* Filtre régions */}
-              <h3 className="text-[#1113a2] text font-semibold mb-2">Filtrer par région</h3>
+              <h3 className="text-[#1113a2] text font-semibold mb-2">
+                Filtrer par région
+              </h3>
               <div className="space-y-2 text-sm">
                 {uniqueRegions.map((region, i) => (
                   <div key={i}>
@@ -412,8 +363,8 @@ export default function Indonesie() {
                         checked={regionFilter === region}
                         onChange={() => {
                           setRegionFilter(region);
-                          // 👉 scroll vers la carte (utile sur téléphone)
-                          const el = document.getElementById("MAP_ID_ICI"); // ← remplace par l’id de la page
+                          // Scroll doux vers la carte (utile sur mobile)
+                          const el = document.getElementById("map-indonesie");
                           if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
                         }}
                       />
@@ -425,14 +376,13 @@ export default function Indonesie() {
                   className="mt-4 text-xs underline text-blue-600"
                   onClick={() => {
                     setRegionFilter("");
-                    const el = document.getElementById("MAP_ID_ICI"); // ← remplace par l’id de la page
+                    const el = document.getElementById("map-indonesie");
                     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
                   }}
                 >
                   Réinitialiser le filtre
                 </button>
               </div>
-
             </div>
           </div>
         </div>
@@ -455,15 +405,10 @@ export default function Indonesie() {
 
             <Reveal zoomOnVisible className="ml-[6%]">
               <p className="mb-8 text-sm md:text-base text-gray-700 max-w-4xl text-justify">
-                Les clubs labellisés GreenFins s’engagent à{" "}
-                <span className="text-[#1113a2] font-bold">respecter des normes strictes</span>{" "}
-                de protection de l’environnement marin, de gestion responsable des déchets et de sensibilisation des plongeurs.
-                <br />
-                Choisir un centre GreenFins, c’est{" "}
-                <span className="text-[#1113a2] font-bold">contribuer</span>{" "}
-                directement à la{" "}
-                <span className="text-[#1113a2] font-bold">préservation des récifs coralliens</span>{" "}
-                et à un tourisme durable.
+                En Indonésie (Komodo, Raja Ampat, Bali, Sulawesi…), la pression sur les récifs
+                peut être élevée. Les centres GreenFins s’engagent à{" "}
+                <span className="text-[#1113a2] font-bold">réduire leur impact</span>, former les plongeurs
+                et soutenir la conservation locale.
               </p>
             </Reveal>
 
@@ -477,10 +422,9 @@ export default function Indonesie() {
                   />
                   <div className="p-4 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
                     <h3 className="font-bold text-[#1113a2] mb-2">Tourisme durable</h3>
-                    En allant dans des centres engagés,{" "}
-                    <span className="text-[#1113a2]">
-                      vous soutenez l’environnement et les communautés locales
-                    </span>.
+                    Vous soutenez{" "}
+                    <span className="text-[#1113a2]">les communautés locales</span>{" "}
+                    et la préservation des récifs.
                   </div>
                 </div>
               </Reveal>
@@ -493,10 +437,10 @@ export default function Indonesie() {
                     className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-[1.05]"
                   />
                   <div className="p-4 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <h3 className="font-bold text-[#1113a2] mb-2">Protection des écosystèmes marins</h3>
-                    Ces centres appliquent des{" "}
-                    <span className="text-[#1113a2]">pratiques limitant les impacts</span>{" "}
-                    sur les coraux, poissons et autres espèces.
+                    <h3 className="font-bold text-[#1113a2] mb-2">Protection des écosystèmes</h3>
+                    Pratiques qui{" "}
+                    <span className="text-[#1113a2]">limitent les dommages</span>{" "}
+                    sur coraux et faune.
                   </div>
                 </div>
               </Reveal>
@@ -509,10 +453,9 @@ export default function Indonesie() {
                     className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-[1.05]"
                   />
                   <div className="p-4 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <h3 className="font-bold text-[#1113a2] mb-2">Plongée encadrée et responsable</h3>
-                    Des instructeurs formés assurent des{" "}
-                    <span className="text-[#1113a2]">immersions sécurisées</span>{" "}
-                    pour vous, et la biodiversité.
+                    <h3 className="font-bold text-[#1113a2] mb-2">Plongée encadrée</h3>
+                    Encadrement formé aux{" "}
+                    <span className="text-[#1113a2]">bonnes pratiques</span>.
                   </div>
                 </div>
               </Reveal>
@@ -531,13 +474,8 @@ export default function Indonesie() {
 
             <Reveal zoomOnVisible className="ml-[6%]">
               <p className="mb-8 text-sm md:text-base text-gray-700 max-w-4xl text-justify">
-                GreenFins attribue un{" "}
-                <span className="text-[#1113a2] font-bold">niveau de performance environnementale</span>{" "}
-                aux centres de plongée. Même un centre{" "}
-                <span className="text-[#1113a2] font-bold">“Inactive”</span>{" "}
-                reste généralement plus respectueux de l'environnement que la moyenne, car il a été{" "}
-                <span className="text-[#1113a2] font-bold">formé aux bonnes pratiques</span>{" "}
-                et conserve souvent une partie de ses engagements.
+                Les centres évalués reçoivent un niveau (Gold, Silver, Bronze, Inactive) selon
+                leur conformité aux standards environnementaux.
               </p>
             </Reveal>
 
@@ -564,9 +502,8 @@ export default function Indonesie() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">Respect strict</span> des meilleures pratiques
-                    environnementales et engagement exemplaire.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    Mise en œuvre exemplaire des meilleures pratiques.
                   </div>
                 </div>
               </Reveal>
@@ -593,9 +530,8 @@ export default function Indonesie() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">Fort engagement</span> environnemental avec quelques axes
-                    d’amélioration.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    Fort engagement, quelques axes d’amélioration.
                   </div>
                 </div>
               </Reveal>
@@ -622,9 +558,8 @@ export default function Indonesie() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">Bon respect</span> des recommandations, des améliorations
-                    restent possibles.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    Bon respect des recommandations.
                   </div>
                 </div>
               </Reveal>
@@ -651,9 +586,8 @@ export default function Indonesie() {
                       />
                     )}
                   </div>
-                  <div className="p-6 text-sm text-gray-700 transition-transform duration-300 group-hover:scale-[1.01]">
-                    <span className="text-[#1113a2]">N'a pas renouvelé le programme</span>, mais a été formé et
-                    garde souvent de bonnes pratiques.
+                  <div className="p-6 text-sm text-gray-700 transition-transform group-hover:scale-[1.01]">
+                    N’a pas renouvelé, conserve souvent de bonnes pratiques.
                   </div>
                 </div>
               </Reveal>
@@ -673,24 +607,11 @@ export default function Indonesie() {
             </div>
 
             <p className="ml-[4%] mb-4 text-sm md:text-base text-gray-700 max-w-3xl">
-              Voici la visibilité moyenne de l'eau pour les plongeurs au fil des mois
-              en Indonésie.
+              Conditions variables selon les régions (Komodo, Raja Ampat, Bali, Sulawesi). Bonnes
+              fenêtres souvent d’<em>avril à novembre</em> dans de nombreuses zones.
             </p>
 
-            <div className="flex gap-6 mb-5 ml-[4%]">
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 bg-green-500 rounded-full"></span> Excellente
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 bg-yellow-400 rounded-full"></span> Moyenne
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 bg-orange-400 rounded-full"></span> Faible
-              </div>
-            </div>
-
-            {/* Effet vague desktop uniquement, palette adaptée Indonésie */}
-            <MonthsWaveIndo />
+            <MonthsWaveIndonesia />
           </div>
         </div>
       </Reveal>
@@ -705,9 +626,8 @@ export default function Indonesie() {
           </div>
 
           <p className="ml-[10%] mb-6 text-sm md:text-base text-gray-700 max-w-4xl text-justify">
-            Voici une sélection d’espèces{" "}
-            <span className="text-[#1113a2] font-semibold">emblématiques, rares ou endémiques</span>{" "}
-            qui illustrent la biodiversité exceptionnelle de l’archipel indonésien.
+            Quelques espèces <span className="text-[#1113a2] font-semibold">emblématiques</span>{" "}
+            d’Indonésie (poissons perroquets à bosse, raies manta, requins, nudibranches, pygmies…).
           </p>
 
           {(() => {
@@ -748,7 +668,7 @@ export default function Indonesie() {
                       className="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center rounded-full bg-[#1113a2] text-white shadow-lg hover:scale-105 transition"
                     >
                       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                        <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                       </svg>
                     </button>
                   )}
@@ -759,7 +679,7 @@ export default function Indonesie() {
                       className="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center rounded-full bg-[#1113a2] text-white shadow-lg hover:scale-105 transition"
                     >
                       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                        <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                        <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z" />
                       </svg>
                     </button>
                   )}
@@ -798,14 +718,17 @@ export default function Indonesie() {
 
               const userScrollRef = React.useRef(false);
 
-              const doFadeTo = React.useCallback((computeNext) => {
-                if (!len) return;
-                setFading(true);
-                setTimeout(() => {
-                  setIdx((i) => computeNext(i));
-                  setTimeout(() => setFading(false), 20);
-                }, 160);
-              }, [len]);
+              const doFadeTo = React.useCallback(
+                (computeNext) => {
+                  if (!len) return;
+                  setFading(true);
+                  setTimeout(() => {
+                    setIdx((i) => computeNext(i));
+                    setTimeout(() => setFading(false), 20);
+                  }, 160);
+                },
+                [len]
+              );
 
               const goNext = React.useCallback(() => {
                 userScrollRef.current = true;
@@ -857,7 +780,9 @@ export default function Indonesie() {
               return (
                 <div
                   ref={containerRef}
-                  className={`max-w-5xl mx-auto px-4 transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
+                  className={`max-w-5xl mx-auto px-4 transition-opacity duration-500 ${
+                    fading ? "opacity-0" : "opacity-100"
+                  }`}
                   onMouseEnter={() => setPaused(true)}
                   onMouseLeave={() => setPaused(false)}
                   onTouchStart={handleTouchStart}
@@ -865,7 +790,9 @@ export default function Indonesie() {
                 >
                   <div className={`grid grid-cols-1 ${!isMobileLocal ? "md:grid-cols-2" : ""} gap-4`}>
                     <SpeciesCard sp={left} showPrev onPrev={goPrev} onNext={goNext} />
-                    {!isMobileLocal && <SpeciesCard sp={right} showNext onPrev={goPrev} onNext={goNext} />}
+                    {!isMobileLocal && (
+                      <SpeciesCard sp={right} showNext onPrev={goPrev} onNext={goNext} />
+                    )}
                   </div>
 
                   {/* points de pagination */}
@@ -878,7 +805,9 @@ export default function Indonesie() {
                         <button
                           key={i}
                           aria-label={`Aller à ${i + 1}`}
-                          className={`rounded-full transition ${active ? "w-3.5 h-3.5 bg-[#1113a2]" : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"}`}
+                          className={`rounded-full transition ${
+                            active ? "w-3.5 h-3.5 bg-[#1113a2]" : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"
+                          }`}
                           onClick={() => {
                             userScrollRef.current = true;
                             setIdx(isMobileLocal ? i : (i % 2 === 0 ? i : (i - 1 + len) % len));
@@ -896,7 +825,7 @@ export default function Indonesie() {
         </div>
       </Reveal>
 
-      {/* Footer */}
+      {/* Footer (Contact + Newsletter) */}
       <div className="bg-[#1113a2] py-12 px-6 text-white">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12 md:gap-8">
           {/* Contact */}
@@ -924,24 +853,11 @@ export default function Indonesie() {
           {/* Séparateur */}
           <div className="hidden md:block w-px h-28 bg-white/30" />
 
-          {/* Newsletter */}
+          {/* Newsletter (composant partagé) */}
           <div className="md:w-1/2">
             <h3 className="text-xl font-bold mb-4 text-white">Reste informé(e)</h3>
             <p className="mb-4">Inscris-toi pour suivre le développement de GuardianMap.</p>
-            <form className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Ton adresse e-mail"
-                className="w-full sm:w-auto px-4 py-2 rounded-lg text-black focus:outline-none"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-white text-[#1113a2] px-6 py-2 rounded-lg font-semibold hover:bg-gray-200 transition"
-              >
-                S'inscrire
-              </button>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
       </div>
@@ -950,14 +866,14 @@ export default function Indonesie() {
 }
 
 /* ------------------ Visibilité: vague desktop (palette Indonésie) ------------------ */
-function MonthsWaveIndo() {
+function MonthsWaveIndonesia() {
   const isTouch = useIsTouch(); // pas de vague sur mobile/tablette
   const months = ["Jan","Fév","Mar","Avr","Mai","Juin","Juil","Août","Sept","Oct","Nov","Déc"];
-  // Palette spécifique Indonésie (plus de "vert" en début/fin d'année)
+  // Palette indicative Indonésie (souvent bon ~avril–novembre selon régions)
   const colors = [
+    "bg-yellow-400","bg-yellow-400","bg-green-500","bg-green-500",
     "bg-green-500","bg-green-500","bg-green-500","bg-green-500",
-    "bg-yellow-400","bg-orange-400","bg-orange-400","bg-orange-400",
-    "bg-yellow-400","bg-green-500","bg-green-500","bg-green-500"
+    "bg-green-500","bg-green-500","bg-yellow-400","bg-yellow-400"
   ];
   const [active, setActive] = React.useState(-1);
 
@@ -965,7 +881,10 @@ function MonthsWaveIndo() {
     return (
       <div className="flex flex-wrap gap-2 justify-center">
         {months.map((m, i) => (
-          <div key={m} className={`text-white ${colors[i]} px-4 py-2 rounded-full text-sm font-semibold shadow`}>
+          <div
+            key={m}
+            className={`text-white ${colors[i]} px-4 py-2 rounded-full text-sm font-semibold shadow`}
+          >
             {m}
           </div>
         ))}
@@ -994,7 +913,7 @@ function MonthsWaveIndo() {
             className={`text-white ${colors[i]} px-4 py-2 rounded-full text-sm font-semibold ${shadow} select-none`}
             style={{
               transform: `translateY(-${lift}px) scale(${scale})`,
-              transition: "transform 220ms ease, box-shadow 220ms ease"
+              transition: "transform 220ms ease, box-shadow 220ms ease",
             }}
             aria-label={`Mois ${m}`}
           >

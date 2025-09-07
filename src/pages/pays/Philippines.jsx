@@ -171,7 +171,7 @@ const imgSilver = labelImgs.get("gf_silver");
 const imgBronze = labelImgs.get("gf_bronze");
 const imgInactive = labelImgs.get("gf_inactive");
 
-/* ---------------- Révélation progressive — joue seulement à la descente ---------------- */
+/* ---------------- Révélation progressive (seulement sous la carte) ---------------- */
 function Reveal({
   children,
   delay = 0,
@@ -284,7 +284,7 @@ export default function Philippines() {
 
   /* -------- Espèces groupées -------- */
   const [species, setSpecies] = useState([]);
-  const [hoveredId, setHoveredId] = useState(null); // conservé si tu l'utilises ailleurs
+  const [hoveredId, setHoveredId] = useState(null);
   const [selected, setSelected] = useState(null);
   const imgMap = useMemo(() => buildImageMap(), []);
 
@@ -403,109 +403,110 @@ export default function Philippines() {
         </div>
       </header>
 
-      {/* Carte + panneau de droite */}
-      <Reveal>
-        <div
-          className="py-16 px-4 bg-cover bg-center"
-          style={{ backgroundImage: `url(${oceanImage})` }}
-        >
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl max-w-[1200px] mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
-            {/* Carte */}
-            <div className="md:col-span-3 rounded-xl overflow-hidden" id="map-philippines-wrapper">
-              <CarteAvecDonnees
-                country="philippines"
-                regionFilter={regionFilter}
-                mapId="map-philippines"
-              />
+      {/* ===================== CARTE — SANS Reveal ===================== */}
+      <div
+        className="py-16 px-4 bg-cover bg-center"
+        style={{ backgroundImage: `url(${oceanImage})` }}
+      >
+        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl max-w-[1200px] mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
+          {/* Carte */}
+          <div className="md:col-span-3 rounded-xl overflow-hidden" id="map-philippines-wrapper">
+            <CarteAvecDonnees
+              country="philippines"
+              /* ✅ on ne passe QUE le filtre, pas de régions ni onRegionChange
+                 pour éviter l’affichage des filtres dans la carte */
+              regionFilter={regionFilter}
+              mapId="map-philippines"
+            />
+          </div>
+
+          {/* Panneau de droite */}
+          <div className="bg-white/80 p-4 rounded-xl shadow-inner max-h-[600px] overflow-y-auto">
+            {/* 1) Bouton "Pourquoi..." */}
+            <button
+              className="w-full flex items-center justify-center gap-2 text-sm px-3 py-2 rounded-lg bg-gray-100 text-[#1113a2] border border-gray-300 hover:bg-gray-200 transition focus:ring-2 focus:ring-[#1113a2]"
+              onClick={() => scrollAndHighlight("why-greenfins")}
+              title="Clique pour en savoir plus"
+            >
+              <span className="text-base">👉</span>
+              <span>Pourquoi aller dans des centres certifiés ?</span>
+            </button>
+
+            {/* 2) Titre Niveaux */}
+            <h3 className="text-[#1113a2] text font-semibold mt-5 mb-2">
+              Niveaux Greenfins
+            </h3>
+
+            {/* 3) Boutons niveaux */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              <button
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                style={{ background: "#D4AF37", color: "#fff", borderColor: "#D4AF37" }}
+                onClick={() => scrollAndHighlight("level-gold")}
+              >
+                Gold
+              </button>
+              <button
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                style={{ background: "#C0C0C0", color: "#fff", borderColor: "#C0C0C0" }}
+                onClick={() => scrollAndHighlight("level-silver")}
+              >
+                Silver
+              </button>
+              <button
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                style={{ background: "#CD7F32", color: "#fff", borderColor: "#CD7F32" }}
+                onClick={() => scrollAndHighlight("level-bronze")}
+              >
+                Bronze
+              </button>
+              <button
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 text-white focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
+                style={{ background: "#6b7280", borderColor: "#6b7280" }}
+                onClick={() => scrollAndHighlight("level-inactive")}
+              >
+                Inactive
+              </button>
             </div>
 
-            {/* Panneau de droite */}
-            <div className="bg-white/80 p-4 rounded-xl shadow-inner max-h-[600px] overflow-y-auto">
-              {/* 1) Bouton "Pourquoi..." */}
+            {/* 4) Filtrer par région (👉 affiche UNIQUEMENT ici) */}
+            <h3 className="text-[#1113a2] text font-semibold mb-2">Filtrer par région</h3>
+            <div className="space-y-2 text-sm">
+              {uniqueRegions.map((region, i) => (
+                <div key={i}>
+                  <label className="inline-flex items-center gap-2 text-gray-800">
+                    <input
+                      type="radio"
+                      name="region"
+                      value={region}
+                      className="accent-[#1113a2]"
+                      checked={regionFilter === region}
+                      onChange={() => {
+                        setRegionFilter(region);
+                        const el = document.getElementById("map-philippines");
+                        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }}
+                    />
+                    {region}
+                  </label>
+                </div>
+              ))}
               <button
-                className="w-full flex items-center justify-center gap-2 text-sm px-3 py-2 rounded-lg bg-gray-100 text-[#1113a2] border border-gray-300 hover:bg-gray-200 transition focus:ring-2 focus:ring-[#1113a2]"
-                onClick={() => scrollAndHighlight("why-greenfins")}
-                title="Clique pour en savoir plus"
+                className="mt-4 text-xs underline text-blue-600"
+                onClick={() => {
+                  setRegionFilter("");
+                  const el = document.getElementById("map-philippines");
+                  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
               >
-                <span className="text-base">👉</span>
-                <span>Pourquoi aller dans des centres certifiés ?</span>
+                Réinitialiser le filtre
               </button>
-
-              {/* 2) Titre Niveaux */}
-              <h3 className="text-[#1113a2] text font-semibold mt-5 mb-2">
-                Niveaux Greenfins
-              </h3>
-
-              {/* 3) Boutons niveaux */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
-                  style={{ background: "#D4AF37", color: "#fff", borderColor: "#D4AF37" }}
-                  onClick={() => scrollAndHighlight("level-gold")}
-                >
-                  Gold
-                </button>
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
-                  style={{ background: "#C0C0C0", color: "#fff", borderColor: "#C0C0C0" }}
-                  onClick={() => scrollAndHighlight("level-silver")}
-                >
-                  Silver
-                </button>
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
-                  style={{ background: "#CD7F32", color: "#fff", borderColor: "#CD7F32" }}
-                  onClick={() => scrollAndHighlight("level-bronze")}
-                >
-                  Bronze
-                </button>
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 text-white focus:outline-none focus:ring-0 active:ring-1 active:ring-gray-400"
-                  style={{ background: "#6b7280", borderColor: "#6b7280" }}
-                  onClick={() => scrollAndHighlight("level-inactive")}
-                >
-                  Inactive
-                </button>
-              </div>
-
-              {/* 4) Filtrer par région */}
-              <h3 className="text-[#1113a2] text font-semibold mb-2">Filtrer par région</h3>
-              <div className="space-y-2 text-sm">
-                {uniqueRegions.map((region, i) => (
-                  <div key={i}>
-                    <label className="inline-flex items-center gap-2 text-gray-800">
-                      <input
-                        type="radio"
-                        name="region"
-                        value={region}
-                        className="accent-[#1113a2]"
-                        checked={regionFilter === region}
-                        onChange={() => {
-                          setRegionFilter(region);
-                          // 👉 scroll vers la carte (utile sur téléphone)
-                          const el = document.getElementById("map-philippines");
-                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }}
-                      />
-                      {region}
-                    </label>
-                  </div>
-                ))}
-                <button
-                  className="mt-4 text-xs underline text-blue-600"
-                  onClick={() => {
-                    setRegionFilter("");
-                    const el = document.getElementById("map-philippines");
-                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }}
-                >
-                  Réinitialiser le filtre
-                </button>
-              </div>
             </div>
           </div>
         </div>
-      </Reveal>
+      </div>
+
+      {/* ===================== Révélations à partir d’ici ===================== */}
 
       {/* Pourquoi choisir un centre labellisé GreenFins */}
       <Reveal>
@@ -572,7 +573,7 @@ export default function Philippines() {
               </Reveal>
 
               <Reveal delay={240} zoomOnVisible>
-                <div className="group rounded-xl shadow-md border border-gray-200 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+                <div className="group rounded-xl shadow-md border border-gray-200 overflow-hidden transition-transform durée-300 hover:scale-[1.02] hover:shadow-lg">
                   <img
                     src={imgEncadree}
                     alt="Plongée encadrée et responsable"

@@ -7,6 +7,7 @@ import React, {
   useRef,
 } from "react";
 import CarteAvecDonnees from "../../components/CarteAvecDonnees";
+import NewsletterForm from "../../components/NewsletterForm";
 import oceanImage from "../../assets/images/ocean.jpg";
 import data from "../../data/Malaisie_BDD_GF.json";
 
@@ -106,7 +107,7 @@ const imgSilver = labelImgs.get("gf_silver");
 const imgBronze = labelImgs.get("gf_bronze");
 const imgInactive = labelImgs.get("gf_inactive");
 
-/* ------------------ Reveal: fondu qui joue uniquement à la descente ------------------ */
+/* ------------------ Reveal: fondu uniquement à la descente ------------------ */
 function Reveal({
   children,
   delay = 0,
@@ -265,7 +266,7 @@ export default function Malaisie() {
 
   return (
     <div className="w-full">
-      {/* Titre pays */}
+      {/* Titre pays (PAS de Reveal avant la carte) */}
       <header className="w-full bg-gray-100 shadow-inner">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <h1
@@ -279,106 +280,106 @@ export default function Malaisie() {
         </div>
       </header>
 
-      {/* Carte + panneau de droite */}
-      <Reveal>
-        <div
-          className="py-16 px-4 bg-cover bg-center"
-          style={{ backgroundImage: `url(${oceanImage})` }}
-        >
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl max-w-[1200px] mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
-            {/* Carte */}
-            <div className="md:col-span-3 rounded-xl overflow-hidden">
-              <CarteAvecDonnees country="malaisie" regionFilter={regionFilter} mapId="map-malaisie" />
-            </div>
+      {/* Carte + panneau de droite (PAS de Reveal ici) */}
+      <div
+        className="py-16 px-4 bg-cover bg-center"
+        style={{ backgroundImage: `url(${oceanImage})` }}
+      >
+        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl max-w-[1200px] mx-auto p-4 grid grid-cols-1 md:grid-cols-4 gap-4">
+          {/* Carte */}
+          <div className="md:col-span-3 rounded-xl overflow-hidden">
+            <CarteAvecDonnees country="malaisie" regionFilter={regionFilter} mapId="map-malaisie" />
+          </div>
 
-            {/* Panneau de droite */}
-            <div className="bg-white/80 p-4 rounded-xl shadow-inner max-h-[600px] overflow-y-auto">
-              {/* Bouton "Pourquoi..." */}
+          {/* Panneau de droite */}
+          <div className="bg-white/80 p-4 rounded-xl shadow-inner max-h-[600px] overflow-y-auto">
+            {/* Bouton "Pourquoi..." */}
+            <button
+              className="w-full flex items-center justify-center gap-2 text-sm px-3 py-2 rounded-lg bg-gray-100 text-[#1113a2] border border-gray-300 hover:bg-gray-200 transition focus:ring-2 focus:ring-[#1113a2]"
+              onClick={() => scrollAndHighlight("why-greenfins")}
+              title="Clique pour en savoir plus"
+            >
+              <span className="text-base">👉</span>
+              <span>Pourquoi aller dans des centres certifiés ?</span>
+            </button>
+
+            {/* Titre niveaux */}
+            <h3 className="text-[#1113a2] text font-semibold mt-5 mb-2">
+              Niveaux Greenfins
+            </h3>
+
+            {/* Boutons niveaux */}
+            <div className="flex flex-wrap gap-2 mb-6">
               <button
-                className="w-full flex items-center justify-center gap-2 text-sm px-3 py-2 rounded-lg bg-gray-100 text-[#1113a2] border border-gray-300 hover:bg-gray-200 transition focus:ring-2 focus:ring-[#1113a2]"
-                onClick={() => scrollAndHighlight("why-greenfins")}
-                title="Clique pour en savoir plus"
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
+                style={{ background: "#D4AF37", color: "#fff", borderColor: "#D4AF37" }}
+                onClick={() => scrollAndHighlight("level-gold")}
               >
-                <span className="text-base">👉</span>
-                <span>Pourquoi aller dans des centres certifiés ?</span>
+                Gold
               </button>
-
-              {/* Titre niveaux */}
-              <h3 className="text-[#1113a2] text font-semibold mt-5 mb-2">
-                Niveaux Greenfins
-              </h3>
-
-              {/* Boutons niveaux */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
-                  style={{ background: "#D4AF37", color: "#fff", borderColor: "#D4AF37" }}
-                  onClick={() => scrollAndHighlight("level-gold")}
-                >
-                  Gold
-                </button>
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
-                  style={{ background: "#C0C0C0", color: "#fff", borderColor: "#C0C0C0" }}
-                  onClick={() => scrollAndHighlight("level-silver")}
-                >
-                  Silver
-                </button>
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
-                  style={{ background: "#CD7F32", color: "#fff", borderColor: "#CD7F32" }}
-                  onClick={() => scrollAndHighlight("level-bronze")}
-                >
-                  Bronze
-                </button>
-                <button
-                  className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 text-white focus:outline-none"
-                  style={{ background: "#6b7280", borderColor: "#6b7280" }}
-                  onClick={() => scrollAndHighlight("level-inactive")}
-                >
-                  Inactive
-                </button>
-              </div>
-
-              {/* Filtre régions */}
-              <h3 className="text-[#1113a2] text font-semibold mb-2">Filtrer par région</h3>
-              <div className="space-y-2 text-sm">
-                {uniqueRegions.map((region, i) => (
-                  <div key={i}>
-                    <label className="inline-flex items-center gap-2 text-gray-800">
-                      <input
-                        type="radio"
-                        name="region"
-                        value={region}
-                        className="accent-[#1113a2]"
-                        checked={regionFilter === region}
-                        onChange={() => {
-                          setRegionFilter(region);
-                          // scroll doux vers la carte (utile sur mobile)
-                          const el = document.getElementById("map-malaisie");
-                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }}
-                      />
-                      {region}
-                    </label>
-                  </div>
-                ))}
-                <button
-                  className="mt-4 text-xs underline text-blue-600"
-                  onClick={() => {
-                    setRegionFilter("");
-                    const el = document.getElementById("map-malaisie");
-                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }}
-                >
-                  Réinitialiser le filtre
-                </button>
-              </div>
-
+              <button
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
+                style={{ background: "#C0C0C0", color: "#fff", borderColor: "#C0C0C0" }}
+                onClick={() => scrollAndHighlight("level-silver")}
+              >
+                Silver
+              </button>
+              <button
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 focus:outline-none"
+                style={{ background: "#CD7F32", color: "#fff", borderColor: "#CD7F32" }}
+                onClick={() => scrollAndHighlight("level-bronze")}
+              >
+                Bronze
+              </button>
+              <button
+                className="text-xs px-2.5 py-1.5 rounded-full border transition hover:opacity-90 text-white focus:outline-none"
+                style={{ background: "#6b7280", borderColor: "#6b7280" }}
+                onClick={() => scrollAndHighlight("level-inactive")}
+              >
+                Inactive
+              </button>
             </div>
+
+            {/* Filtre régions */}
+            <h3 className="text-[#1113a2] text font-semibold mb-2">Filtrer par région</h3>
+            <div className="space-y-2 text-sm">
+              {uniqueRegions.map((region, i) => (
+                <div key={i}>
+                  <label className="inline-flex items-center gap-2 text-gray-800">
+                    <input
+                      type="radio"
+                      name="region"
+                      value={region}
+                      className="accent-[#1113a2]"
+                      checked={regionFilter === region}
+                      onChange={() => {
+                        setRegionFilter(region);
+                        // scroll doux vers la carte (utile sur mobile)
+                        const el = document.getElementById("map-malaisie");
+                        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }}
+                    />
+                    {region}
+                  </label>
+                </div>
+              ))}
+              <button
+                className="mt-4 text-xs underline text-blue-600"
+                onClick={() => {
+                  setRegionFilter("");
+                  const el = document.getElementById("map-malaisie");
+                  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+              >
+                Réinitialiser le filtre
+              </button>
+            </div>
+
           </div>
         </div>
-      </Reveal>
+      </div>
+
+      {/* ---------------- à partir d'ici : sections avec Reveal ---------------- */}
 
       {/* Pourquoi GreenFins */}
       <Reveal>
@@ -845,24 +846,11 @@ export default function Malaisie() {
           {/* Séparateur */}
           <div className="hidden md:block w-px h-28 bg-white/30" />
 
-          {/* Newsletter */}
+          {/* Newsletter (composant partagé) */}
           <div className="md:w-1/2">
             <h3 className="text-xl font-bold mb-4 text-white">Reste informé(e)</h3>
             <p className="mb-4">Inscris-toi pour suivre le développement de GuardianMap.</p>
-            <form className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Ton adresse e-mail"
-                className="w-full sm:w-auto px-4 py-2 rounded-lg text-black focus:outline-none"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-white text-[#1113a2] px-6 py-2 rounded-lg font-semibold hover:bg-gray-200 transition"
-              >
-                S'inscrire
-              </button>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
       </div>
