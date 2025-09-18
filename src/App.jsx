@@ -10,7 +10,7 @@ import TitreSite from './assets/images/titre1.png';
 import logo from './assets/images/logo.png';
 import SeasonalFish from './components/SeasonalFish';
 import ConditionsMeteo from './components/ConditionsMeteo';
-import { useState } from "react"; 
+import { useState } from "react";
 import Philippines from "./pages/pays/Philippines";
 import Indonesie from "./pages/pays/Indonesie";
 import Thailande from "./pages/pays/Thailande";
@@ -18,10 +18,15 @@ import Malaisie from "./pages/pays/Malaisie";
 import Japon from "./pages/pays/Japon";
 import Vietnam from "./pages/pays/Vietnam";
 import Maldives from "./pages/pays/Maldives";
+import APropos from "./pages/APropos";
+import Services from "./pages/Services";
+import Blog from "./pages/Blog";
 
+// 👉 NOUVEL IMPORT
+import LabelsCertifications from "./pages/LabelsCertifications";
 
 export default function App() {
-  const [selectedMonth, setSelectedMonth] = useState("Janvier")
+  const [selectedMonth, setSelectedMonth] = useState("Janvier");
 
   return (
     <Router>
@@ -45,11 +50,12 @@ export default function App() {
         {/* Liens de navigation */}
         <div className="flex space-x-6 text-sm">
           <Link to="/" className="text-gray-700 hover:text-[#1113a2]">Home</Link>
+          <Link to="/labels" className="text-gray-700 hover:text-[#1113a2]">Labels &amp; Certifications</Link>
+          <Link to="/services" className="text-gray-700 hover:text-[#1113a2]">Services</Link>
+          <Link to="/blog" className="text-gray-700 hover:text-[#1113a2]">Blog</Link>
+          <Link to="/apropos" className="text-gray-700 hover:text-[#1113a2]">À propos</Link>
         </div>
       </nav>
-
-
-
 
       {/* Contenu */}
       <main className="pt-0">
@@ -64,13 +70,16 @@ export default function App() {
           <Route path="/japon" element={<Japon />} />
           <Route path="/vietnam" element={<Vietnam />} />
           <Route path="/maldives" element={<Maldives />} />
+          {/* 👉 NOUVELLE ROUTE */}
+          <Route path="/labels" element={<LabelsCertifications />} />
+          <Route path="/apropos" element={<APropos />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
       </main>
     </Router>
   );
 }
-
-
 
 
 
