@@ -55,7 +55,6 @@ export default function App() {
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
           >
-            {/* Icône burger / croix */}
             {menuOpen ? (
               // Croix
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,12 +82,12 @@ export default function App() {
         <div
           className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${menuOpen ? "max-h-64" : "max-h-0"}`}
         >
-          <div className="mt-2 flex flex-col rounded-lg bg-white/80 shadow-sm text-sm">
-            <Link onClick={() => setMenuOpen(false)} to="/" className="px-4 py-3 border-b border-gray-200 hover:text-[#1113a2]">Home</Link>
-            <Link onClick={() => setMenuOpen(false)} to="/labels" className="px-4 py-3 border-b border-gray-200 hover:text-[#1113a2]">Labels &amp; Certifications</Link>
-            <Link onClick={() => setMenuOpen(false)} to="/services" className="px-4 py-3 border-b border-gray-200 hover:text-[#1113a2]">Services</Link>
-            <Link onClick={() => setMenuOpen(false)} to="/blog" className="px-4 py-3 border-b border-gray-200 hover:text-[#1113a2]">Blog</Link>
-            <Link onClick={() => setMenuOpen(false)} to="/apropos" className="px-4 py-3 hover:text-[#1113a2]">À propos</Link>
+          <div className="mt-2 flex flex-col rounded-lg bg-gray-50/95 shadow-sm text-sm">
+            <Link onClick={() => setMenuOpen(false)} to="/" className="px-4 py-3 border-b border-gray-200 text-gray-800 hover:text-[#1113a2]">Home</Link>
+            <Link onClick={() => setMenuOpen(false)} to="/labels" className="px-4 py-3 border-b border-gray-200 text-gray-800 hover:text-[#1113a2]">Labels &amp; Certifications</Link>
+            <Link onClick={() => setMenuOpen(false)} to="/services" className="px-4 py-3 border-b border-gray-200 text-gray-800 hover:text-[#1113a2]">Services</Link>
+            <Link onClick={() => setMenuOpen(false)} to="/blog" className="px-4 py-3 border-b border-gray-200 text-gray-800 hover:text-[#1113a2]">Blog</Link>
+            <Link onClick={() => setMenuOpen(false)} to="/apropos" className="px-4 py-3 text-gray-800 hover:text-[#1113a2]">À propos</Link>
           </div>
         </div>
       </nav>
