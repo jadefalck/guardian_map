@@ -22,6 +22,9 @@ import APropos from "./pages/APropos";
 import Services from "./pages/Services";
 import Blog from "./pages/Blog";
 import LabelsCertifications from "./pages/LabelsCertifications";
+import RequinsBaleines from "./pages/blog/RequinsBaleines";
+import WorldMaritimeDay from "./pages/blog/WorldMaritimeDay";
+
 
 export default function App() {
   const [selectedMonth, setSelectedMonth] = useState("Janvier");
@@ -109,6 +112,8 @@ export default function App() {
           <Route path="/apropos" element={<APropos />} />
           <Route path="/services" element={<Services />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/requins-baleines" element={<RequinsBaleines />} />
+          <Route path="/blog/world-maritime-day" element={<WorldMaritimeDay />} />
         </Routes>
       </main>
     </Router>
