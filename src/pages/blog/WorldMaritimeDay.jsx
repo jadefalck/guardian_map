@@ -45,13 +45,82 @@ export default function WorldMaritimeDay() {
         <h2 className="text-xl font-semibold text-[#1113a2] mt-6 mb-3">
           Un thème chaque année
         </h2>
-        <p className="mb-4" style={{ textAlign: "justify" }}>
+        <p className="mb-6" style={{ textAlign: "justify" }}>
           Chaque édition propose un <strong>thème spécifique</strong> (ex. prévention de
           la pollution, transition énergétique, numérique, sécurité des navires, etc.).
           C’est l’occasion de faire le point sur les engagements de l’OMI et les avancées
           réglementaires.
         </p>
 
+        {/* PROJETS — déplacé avant "Pourquoi en parler" */}
+        <h2 className="text-xl font-semibold text-[#1113a2] mt-2 mb-3">
+          Projets et initiatives récentes
+        </h2>
+
+        <div className="space-y-5 mb-8">
+          {/* 1. Décarbonation (Singapour / GCMD) */}
+          <section className="bg-white rounded-2xl shadow p-5">
+            <h3 className="font-semibold text-gray-900">
+              1) Décarbonation à Singapour — essais de biocarburants marins (GCMD)
+            </h3>
+            <p className="mt-2" style={{ textAlign: "justify" }}>
+              À Singapour, le <em>Global Centre for Maritime Decarbonisation</em> (GCMD)
+              a mené des essais à l’échelle réelle avec des mélanges de
+              <strong> biocarburants</strong> (ex. B20–B30) sur des navires commerciaux.
+              Objectifs : réduire les émissions de GES et valider l’<strong>interopérabilité</strong>
+              (qualité carburant, compatibilité moteurs, procédures de soutage, suivi
+              des performances). Ces pilotes fournissent des données utiles pour
+              généraliser des solutions de transition sur des routes très fréquentées en
+              Asie.
+            </p>
+            <ul className="list-disc list-inside mt-2 text-sm text-gray-700">
+              <li>Portée : acteurs portuaires, armateurs, fournisseurs de carburants.</li>
+              <li>Impact : réduction mesurée des émissions sur des lignes commerciales.</li>
+              <li>Pays : Singapour (rayonnement régional Asie).</li>
+            </ul>
+          </section>
+
+          {/* 2. Bruit sous-marin (GloNoise / lignes directrices OMI) */}
+          <section className="bg-white rounded-2xl shadow p-5">
+            <h3 className="font-semibold text-gray-900">
+              2) Réduction du bruit sous-marin — déploiement des lignes directrices OMI (GloNoise)
+            </h3>
+            <p className="mt-2" style={{ textAlign: "justify" }}>
+              Le <strong>bruit sous-marin</strong> généré par la propulsion et la coque
+              perturbe poissons et mammifères marins. Le projet <em>GloNoise</em> soutient
+              les États pour appliquer les <strong>directives OMI</strong> : évaluation et
+              <em>monitoring</em> du bruit, intégration dans le design (formes d’hélices,
+              isolation vibratoire), et bonnes pratiques opérationnelles
+              (réductions de vitesse ciblées, itinéraires sensibles).
+            </p>
+            <ul className="list-disc list-inside mt-2 text-sm text-gray-700">
+              <li>Portée : administrations maritimes, chantiers navals, armateurs.</li>
+              <li>Impact : atténuation du bruit dans des <em>hotspots</em> de biodiversité.</li>
+              <li>Pays : déploiements pilotes multi-pays (Europe, Amérique du Nord, etc.).</li>
+            </ul>
+          </section>
+
+          {/* 3. Actions locales Nigeria (NIMASA) */}
+          <section className="bg-white rounded-2xl shadow p-5">
+            <h3 className="font-semibold text-gray-900">
+              3) Nigeria — sensibilisation et éducation contre la pollution plastique (NIMASA)
+            </h3>
+            <p className="mt-2" style={{ textAlign: "justify" }}>
+              La NIMASA (Nigeria Maritime Administration and Safety Agency) a profité de
+              la Journée maritime pour organiser des <strong>campagnes locales</strong> :
+              interventions scolaires, appels à la réduction du plastique à usage unique,
+              et mise en avant des <strong>opportunités économiques durables</strong>
+              liées à une mer en bonne santé (pêche, tourisme côtier).
+            </p>
+            <ul className="list-disc list-inside mt-2 text-sm text-gray-700">
+              <li>Portée : communautés littorales, écoles, autorités locales.</li>
+              <li>Impact : réduction des déchets, amélioration de la qualité des plages.</li>
+              <li>Pays : Nigeria (villes portuaires et zones côtières).</li>
+            </ul>
+          </section>
+        </div>
+
+        {/* Pourquoi en parler — déplacé après les projets */}
         <h2 className="text-xl font-semibold text-[#1113a2] mt-6 mb-3">
           Pourquoi en parler sur GuardianMap ?
         </h2>
@@ -81,6 +150,57 @@ export default function WorldMaritimeDay() {
         >
           ← Retour au blog
         </Link>
+
+        {/* Sources */}
+        <div className="mt-8 text-xs text-gray-500">
+          <p className="font-semibold mb-1">Sources :</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>
+              IMO – World Maritime Day overview (thèmes, événements) —{" "}
+              <a
+                href="https://www.imo.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                imo.org
+              </a>
+            </li>
+            <li>
+              Global Centre for Maritime Decarbonisation (essais biocarburants, Singapour) —{" "}
+              <a
+                href="https://www.gcformd.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                gcformd.org
+              </a>
+            </li>
+            <li>
+              Lignes directrices OMI sur le bruit sous-marin / GloNoise —{" "}
+              <a
+                href="https://www.imo.org/en/OurWork/Environment/Pages/Underwater-noise.aspx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                imo.org/en/OurWork/Environment/Underwater-noise
+              </a>
+            </li>
+            <li>
+              NIMASA – initiatives World Maritime Day (Nigéria) —{" "}
+              <a
+                href="https://nimasa.gov.ng/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                nimasa.gov.ng
+              </a>
+            </li>
+          </ul>
+        </div>
       </article>
 
       {/* Footer */}
