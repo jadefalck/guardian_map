@@ -149,42 +149,7 @@ export default function APropos() {
         </div>
       </section>
 
-      {/* ===== Footer (Contact + Newsletter) ===== */}
-      <div className="bg-[#1113a2] py-12 px-6 text-white">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12 md:gap-8">
-          {/* Contact */}
-          <div className="md:w-1/2">
-            <h3 className="text-xl font-bold mb-4">Contact</h3>
-            <p className="mb-2">
-              📧 Mail :{" "}
-              <a href="mailto:gdm.guardianmap@gmail.com" className="underline hover:text-gray-300">
-                gdm.guardianmap@gmail.com
-              </a>
-            </p>
-            <p>
-              📸 Instagram :{" "}
-              <a
-                href="https://instagram.com/guardianmap"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-gray-300"
-              >
-                @guardianmap
-              </a>
-            </p>
-          </div>
 
-          {/* Séparateur */}
-          <div className="hidden md:block w-px h-28 bg-white/30" />
-
-          {/* Newsletter */}
-          <div className="md:w-1/2">
-            <h3 className="text-xl font-bold mb-4 text-white">Reste informé(e)</h3>
-            <p className="mb-4">Inscris-toi pour suivre le développement de GuardianMap.</p>
-            <NewsletterForm />
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

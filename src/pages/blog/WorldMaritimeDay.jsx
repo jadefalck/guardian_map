@@ -203,39 +203,7 @@ export default function WorldMaritimeDay() {
         </div>
       </article>
 
-      {/* Footer */}
-      <footer className="bg-[#1113a2] py-12 px-6 text-white mt-12">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Contact</h3>
-            <p className="mb-2">
-              📧 Mail :
-              <a
-                href="mailto:contact@guardianmap.com"
-                className="underline hover:text-gray-300 ml-1"
-              >
-                contact@guardianmap.com
-              </a>
-            </p>
-            <p>
-              📸 Instagram :
-              <a
-                href="https://instagram.com/guardianmap"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-gray-300 ml-1"
-              >
-                @guardianmap
-              </a>
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-white">Reste informé(e)</h3>
-            <p className="mb-4">Inscris-toi pour suivre le développement de GuardianMap.</p>
-            <NewsletterForm />
-          </div>
-        </div>
-      </footer>
+
     </div>
   );
 }
