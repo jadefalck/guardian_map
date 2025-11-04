@@ -84,6 +84,7 @@ export default function App() {
                 className={`h-7 w-7 rounded-full flex items-center justify-center cursor-pointer border 
                 ${i18n.language === "fr" ? "border-[#1113a2]" : "border-gray-300 opacity-60"} 
                 hover:opacity-100 bg-white shadow-sm`}
+                aria-label="Français"
               >
                 <img src={drapeauFR} alt="FR" className="h-4 w-4 rounded-full" />
               </div>
@@ -93,16 +94,17 @@ export default function App() {
                 className={`h-7 w-7 rounded-full flex items-center justify-center cursor-pointer border 
                 ${i18n.language === "en" ? "border-[#1113a2]" : "border-gray-300 opacity-60"} 
                 hover:opacity-100 bg-white shadow-sm`}
+                aria-label="English"
               >
                 <img src={drapeauEN} alt="EN" className="h-4 w-4 rounded-full" />
               </div>
             </div>
           </div>
 
-          {/* Hamburger */}
+          {/* Hamburger (contraste renforcé) */}
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-white/70"
+            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-900 hover:bg-white/70"
             aria-label="Ouvrir le menu"
             onClick={() => setMenuOpen((v) => !v)}
           >
@@ -146,37 +148,76 @@ export default function App() {
           </div>
         </div>
 
-        {/* Menu Mobile */}
-        <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${menuOpen ? "max-h-[60vh]" : "max-h-0"}`}>
-          <div className="mt-2 flex flex-col rounded-lg bg-gray-50/95 shadow-sm text-sm">
+        {/* Menu Mobile — CONTRASTE FORT */}
+        <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${menuOpen ? "max-h-[70vh]" : "max-h-0"}`}>
+          <div className="mt-2 flex flex-col rounded-lg bg-white shadow-md text-base text-gray-800">
 
-            <Link onClick={() => setMenuOpen(false)} to="/" className="px-4 py-3 border-b">{t("menu.home")}</Link>
+            <Link
+              onClick={() => setMenuOpen(false)}
+              to="/"
+              className="px-4 py-3 border-b border-gray-200 hover:bg-gray-50"
+            >
+              {t("menu.home")}
+            </Link>
 
             <button
-              className="px-4 py-3 text-left border-b flex items-center justify-between"
+              className="px-4 py-3 text-left border-b border-gray-200 flex items-center justify-between hover:bg-gray-50"
               onClick={() => setActivitiesOpenMobile((v) => !v)}
             >
-              <span>{t("menu.activities")}</span>
+              <span className="font-medium">{t("menu.activities")}</span>
               <span className={`transform transition ${activitiesOpenMobile ? "rotate-180" : ""}`}>▾</span>
             </button>
 
             {activitiesOpenMobile && (
               <div className="pl-6 pb-2">
-                <Link onClick={() => { setMenuOpen(false); setActivitiesOpenMobile(false); }} to="/plongée" className="block px-2 py-2">
+                <Link
+                  onClick={() => { setMenuOpen(false); setActivitiesOpenMobile(false); }}
+                  to="/plongée"
+                  className="block px-2 py-2 hover:text-[#1113a2]"
+                >
                   {t("menu.diving")}
                 </Link>
               </div>
             )}
 
-            <Link onClick={() => setMenuOpen(false)} to="/circuits" className="px-4 py-3 border-t">{t("menu.circuits")}</Link>
-            <Link onClick={() => setMenuOpen(false)} to="/blog" className="px-4 py-4 border-t">{t("menu.blog")}</Link>
-            <Link onClick={() => setMenuOpen(false)} to="/apropos" className="px-4 py-4 border-t">{t("menu.about")}</Link>
+            <Link
+              onClick={() => setMenuOpen(false)}
+              to="/circuits"
+              className="px-4 py-3 border-t border-gray-200 hover:bg-gray-50"
+            >
+              {t("menu.circuits")}
+            </Link>
 
-            <div className="flex gap-2 px-4 py-3">
-              <img src={drapeauFR} alt="FR" onClick={() => changeLanguage("fr")}
-                className={`h-5 w-5 cursor-pointer ${i18n.language==="fr"?"opacity-100":"opacity-50"}`} />
-              <img src={drapeauEN} alt="EN" onClick={() => changeLanguage("en")}
-                className={`h-5 w-5 cursor-pointer ${i18n.language==="en"?"opacity-100":"opacity-50"}`} />
+            <Link
+              onClick={() => setMenuOpen(false)}
+              to="/blog"
+              className="px-4 py-3 border-t border-gray-200 hover:bg-gray-50"
+            >
+              {t("menu.blog")}
+            </Link>
+
+            <Link
+              onClick={() => setMenuOpen(false)}
+              to="/apropos"
+              className="px-4 py-3 border-t border-gray-200 hover:bg-gray-50"
+            >
+              {t("menu.about")}
+            </Link>
+
+            {/* Sélecteur de langue mobile */}
+            <div className="flex gap-3 px-4 py-3 border-t border-gray-200">
+              <img
+                src={drapeauFR}
+                alt="FR"
+                onClick={() => changeLanguage("fr")}
+                className={`h-6 w-6 cursor-pointer ${i18n.language==="fr"?"opacity-100":"opacity-50"}`}
+              />
+              <img
+                src={drapeauEN}
+                alt="EN"
+                onClick={() => changeLanguage("en")}
+                className={`h-6 w-6 cursor-pointer ${i18n.language==="en"?"opacity-100":"opacity-50"}`}
+              />
             </div>
           </div>
         </div>
