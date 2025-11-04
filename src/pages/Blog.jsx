@@ -1,33 +1,38 @@
 // src/pages/Blog.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation, Trans } from "react-i18next";
+
 import requinBaleineImg from "../assets/images/articles_blog/requin_baleine_tourisme.jpg";
 import wmdImg from "../assets/images/articles_blog/world_maritime_day.webp";
-import omanImg from "../assets/images/articles_blog/oman.jpg"; // 🆕 image Oman
+import omanImg from "../assets/images/articles_blog/oman.jpg";
 import blogBanner from "../assets/images/bannière_blog.jpg";
 
 export default function Blog() {
+  const { t } = useTranslation();
+
   return (
     <div className="w-full">
       {/* ======= SECTION 1 — TITRE SUR FOND GRIS ======= */}
       <section className="relative py-16 px-6 text-center overflow-hidden bg-gray-200">
         <div className="relative z-10 px-4">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-3">
-            Blog
+            {t("blog.hero.title")}
           </h1>
           <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto">
-            <strong>GuardianMap</strong>, la plateforme qui met en avant le{" "}
-            <span className="font-semibold">tourisme marin responsable</span>.
+            <Trans
+              i18nKey="blog.hero.subtitle"
+              components={{ b: <span className="font-semibold" /> }}
+            />
           </p>
         </div>
       </section>
 
       {/* ======= SECTION 2 — FOND IMAGE + ENCADRÉ INTRO ======= */}
       <section className="relative w-full py-16 px-4 md:px-8 overflow-hidden">
-        {/* Image de fond */}
         <img
           src={blogBanner}
-          alt="Fond Blog"
+          alt={t("blog.bannerAlt")}
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
@@ -35,11 +40,10 @@ export default function Blog() {
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="bg-white/85 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-md p-6 md:p-10 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              On ne naît pas bon touriste, on le devient
+              {t("blog.intro.title")}
             </h2>
             <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Ici, on informe, on sensibilise et on partage : les bonnes pratiques à suivre
-              et les mauvaises habitudes à oublier. Le tourisme peut protéger… ou détruire.
+              {t("blog.intro.text")}
             </p>
           </div>
         </div>
@@ -48,9 +52,10 @@ export default function Blog() {
       {/* ======= SECTION 3 — ARTICLES ======= */}
       <section className="w-full py-12 px-4 md:px-8">
         <div className="mx-auto max-w-6xl space-y-10">
+
           {/* Article 1 — Requins-baleines */}
           <article className="relative bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-            <Link to="/blog/requins-baleines" aria-label="Lire l’article Requins-baleines">
+            <Link to="/blog/requins-baleines" aria-label={t("blog.articles.ws.aria")}>
               <span className="absolute inset-0 z-10" />
             </Link>
             <div className="flex flex-col md:flex-row">
@@ -58,7 +63,7 @@ export default function Blog() {
                 <Link to="/blog/requins-baleines" className="block">
                   <img
                     src={requinBaleineImg}
-                    alt="Tourisme autour des requins-baleines"
+                    alt={t("blog.articles.ws.alt")}
                     className="h-full w-full object-cover md:h-[320px]"
                   />
                 </Link>
@@ -66,18 +71,18 @@ export default function Blog() {
               <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
                 <h2 className="text-2xl md:text-3xl font-bold text-[#1113a2] mb-3">
                   <Link to="/blog/requins-baleines" className="hover:underline">
-                    Requins-baleines : quand le rêve devient un danger
+                    {t("blog.articles.ws.title")}
                   </Link>
                 </h2>
                 <p className="text-gray-700 mb-6 text-justify">
-                  Qui n’a jamais rêvé de voir un requin-baleine ? Ce géant des océans fascine…
+                  {t("blog.articles.ws.excerpt")}
                 </p>
                 <div className="z-20">
                   <Link
                     to="/blog/requins-baleines"
                     className="inline-block rounded-xl bg-[#1113a2] px-5 py-2.5 text-white font-medium hover:opacity-90 transition"
                   >
-                    Lire l’article
+                    {t("blog.read")}
                   </Link>
                 </div>
               </div>
@@ -86,7 +91,7 @@ export default function Blog() {
 
           {/* Article 2 — World Maritime Day */}
           <article className="relative bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-            <Link to="/blog/world-maritime-day" aria-label="Lire l’article World Maritime Day">
+            <Link to="/blog/world-maritime-day" aria-label={t("blog.articles.wmd.aria")}>
               <span className="absolute inset-0 z-10" />
             </Link>
             <div className="flex flex-col md:flex-row-reverse">
@@ -94,7 +99,7 @@ export default function Blog() {
                 <Link to="/blog/world-maritime-day" className="block">
                   <img
                     src={wmdImg}
-                    alt="World Maritime Day / Journée maritime mondiale"
+                    alt={t("blog.articles.wmd.alt")}
                     className="h-full w-full object-cover md:h-[320px]"
                   />
                 </Link>
@@ -102,27 +107,27 @@ export default function Blog() {
               <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
                 <h2 className="text-2xl md:text-3xl font-bold text-[#1113a2] mb-3">
                   <Link to="/blog/world-maritime-day" className="hover:underline">
-                    World Maritime Day : pourquoi le maritime nous concerne tous
+                    {t("blog.articles.wmd.title")}
                   </Link>
                 </h2>
                 <p className="text-gray-700 mb-6 text-justify">
-                  Instaurée par l’OMI, la Journée maritime mondiale rappelle que 80–90 % des échanges transitent par la mer…
+                  {t("blog.articles.wmd.excerpt")}
                 </p>
                 <div className="z-20">
                   <Link
                     to="/blog/world-maritime-day"
                     className="inline-block rounded-xl bg-[#1113a2] px-5 py-2.5 text-white font-medium hover:opacity-90 transition"
                   >
-                    Lire l’article
+                    {t("blog.read")}
                   </Link>
                 </div>
               </div>
             </div>
           </article>
 
-          {/* 🆕 Article 3 — Oman */}
+          {/* Article 3 — Oman */}
           <article className="relative bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
-            <Link to="/blog/oman" aria-label="Lire l’article Oman (Daymaniyat, tortues, requins de récif)">
+            <Link to="/blog/oman" aria-label={t("blog.articles.oman.aria")}>
               <span className="absolute inset-0 z-10" />
             </Link>
             <div className="flex flex-col md:flex-row">
@@ -130,7 +135,7 @@ export default function Blog() {
                 <Link to="/blog/oman" className="block">
                   <img
                     src={omanImg}
-                    alt="Oman : îles Daymaniyat, tortues et requins de récif"
+                    alt={t("blog.articles.oman.alt")}
                     className="h-full w-full object-cover md:h-[320px]"
                     loading="lazy"
                   />
@@ -139,25 +144,24 @@ export default function Blog() {
               <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
                 <h2 className="text-2xl md:text-3xl font-bold text-[#1113a2] mb-3">
                   <Link to="/blog/oman" className="hover:underline">
-                    Oman : protéger, patienter… et vivre des rencontres magiques
+                    {t("blog.articles.oman.title")}
                   </Link>
                 </h2>
                 <p className="text-gray-700 mb-6 text-justify">
-                  Un pays qui prend vraiment soin de sa faune marine : accès régulé aux tortues,
-                  zones protégées aux Daymaniyat, requins de récif non nourris… Ici, on observe
-                  en douceur et on accepte la part d’imprévu.
+                  {t("blog.articles.oman.excerpt")}
                 </p>
                 <div className="z-20">
                   <Link
                     to="/blog/oman"
                     className="inline-block rounded-xl bg-[#1113a2] px-5 py-2.5 text-white font-medium hover:opacity-90 transition"
                   >
-                    Lire l’article
+                    {t("blog.read")}
                   </Link>
                 </div>
               </div>
             </div>
           </article>
+
         </div>
       </section>
     </div>

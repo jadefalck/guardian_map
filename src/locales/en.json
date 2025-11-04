@@ -1,0 +1,244 @@
+{
+  "menu.home": "Home",
+  "menu.activities": "Activities",
+  "menu.diving": "Diving",
+  "menu.circuits": "Tours",
+  "menu.blog": "Blog",
+  "menu.about": "About",
+  
+  "home": {
+    "hero": {
+      "title": "For ocean-friendly travel",
+      "subtitle": "Our mission: help every traveler make choices that <b>protect the ocean, its wildlife and local communities</b>."
+    },
+    "about": {
+      "title": "What GuardianMap does",
+      "text": "<b>GuardianMap</b> highlights <b>truly responsible marine activities</b>, promotes those with <b>official labels</b>, and co-creates <b>ethical tours</b> with <b>committed local agencies</b>. <b>Awareness</b> is also at the core of our work through <b>ocean-focused articles</b>, strengthening <b>collective consciousness</b> for <b>nature-respectful tourism</b>."
+    },
+    "cards": {
+      "activities": {
+        "alt": "Responsible marine activities",
+        "title": "Responsible activities",
+        "text": "Dive centers, boat trips and <b>low-impact</b> experiences: eco-briefings, viewing distances, wildlife respect, and <b>labeled</b> partners whenever possible.",
+        "cta": "See activities"
+      },
+      "circuits": {
+        "alt": "Ethical tours co-built with local agencies",
+        "title": "Ethical tours",
+        "text": "Itineraries co-built with <b>local agencies</b>: responsible stays, small groups, and activities aligned with ecosystem protection.",
+        "cta": "Discover tours"
+      },
+      "blog": {
+        "alt": "Awareness and ocean information",
+        "title": "Awareness & Blog",
+        "text": "Good practices, labels, sensitive species… Our blog helps <b>understand real impact</b> and adopt ocean-friendly habits.",
+        "cta": "Read the blog"
+      }
+    }
+  },
+
+  "activities": {
+    "hero": {
+      "title": "Activities",
+      "subtitle": "<b>GuardianMap</b> promotes <b>responsible marine tourism</b>: activities with strong good-practice standards and, whenever possible, backed by recognized labels."
+    },
+    "criteria": {
+      "bannerAlt": "Activities background",
+      "title": "Clear, demanding criteria",
+      "text": "Every center, trip and activity must have an <b>official label</b> awarded by governments or NGOs.",
+      "badge": "If it’s not <c>certified</c>, it’s not on <c>GuardianMap</c>."
+    },
+    "diving": {
+      "imageAlt": "Diving activities",
+      "title": "Diving",
+      "text": "Centers applying <b>recognized standards</b>: boat management, responsible anchoring, coral protection and diver awareness. These operators are often <c>labelled</c> to minimize impact on marine ecosystems.",
+      "cta": "Discover diving activities",
+      "labelsTitle": "Labels we rely on:"
+    },
+    "labels": {
+      "greenfins": {
+        "alt": "Green Fins logo",
+        "title": "Green Fins",
+        "text": "International framework supported by the UN: boat management, responsible anchoring, coral protection."
+      },
+      "blueflag": {
+        "alt": "Blue Flag logo",
+        "title": "Blue Flag",
+        "text": "Environmental label for beaches and marinas: water quality, waste management, environmental education."
+      }
+    }
+  },
+
+  
+  "circuits": {
+    "hero": {
+      "title": "Tours",
+      "subtitle": "<b>Ethical, responsible</b> itineraries co-designed with <b>committed local agencies</b>."
+    },
+    "bannerAlt": "Tours background",
+    "coming": {
+      "title": "Tours are coming soon",
+      "text": "We’re currently crafting immersive, responsible itineraries with certified local partners."
+    },
+    "explain": {
+      "title": "Ethical tours in collaboration with local agencies",
+      "intro": "GuardianMap works with <b>committed local agencies</b> to create immersive itineraries that respect the environment and communities.",
+      "point1": "Support for <b>eco-responsible local actors</b>",
+      "point2": "<b>Sustainable activities</b> & marine ecotourism",
+      "point3": "Authentic experiences away from mass tourism"
+    },
+    "illustrationAlt": "Tour illustration"
+  },
+
+  
+  "blog": {
+    "hero": {
+      "title": "Blog",
+      "subtitle": "<b>GuardianMap</b>, the platform that highlights <b>responsible marine tourism</b>."
+    },
+    "bannerAlt": "Blog background",
+    "intro": {
+      "title": "Good tourists aren’t born, they’re made",
+      "text": "Here we inform, raise awareness and share: good practices to adopt, bad habits to drop. Tourism can protect… or destroy."
+    },
+    "read": "Read article",
+    "articles": {
+      "ws": {
+        "aria": "Read the Whale Shark article",
+        "alt": "Tourism around whale sharks",
+        "title": "Whale sharks: when the dream turns dangerous",
+        "excerpt": "Who hasn’t dreamed of seeing a whale shark? This gentle giant fascinates…"
+      },
+      "wmd": {
+        "aria": "Read the World Maritime Day article",
+        "alt": "World Maritime Day",
+        "title": "World Maritime Day: why maritime matters to everyone",
+        "excerpt": "Created by the IMO, World Maritime Day reminds us that 80–90% of trade moves by sea…"
+      },
+      "oman": {
+        "aria": "Read the Oman article (Daymaniyat, turtles, reef sharks)",
+        "alt": "Oman: Daymaniyat Islands, turtles and reef sharks",
+        "title": "Oman: protect, be patient… and live magical encounters",
+        "excerpt": "A country that truly cares for marine life: regulated turtle access, protected Daymaniyat sites, no shark feeding… Here, we observe gently and embrace the unexpected."
+      }
+    }
+  },
+
+  
+  "articles": {
+    "common": { "backToBlog": "← Back to blog" },
+
+    "oman": {
+      "title": "Oman: protect, be patient… and live magical encounters",
+      "subtitle": "An exemplary country: regulated turtle access, protected Daymaniyat Islands, natural encounters without feeding.",
+      "heroAlt": "Oman: Daymaniyat Islands, turtles, reef sharks",
+      "p1": "If there is a destination where true respect for wildlife is felt, it’s <b>Oman</b>. Encounters happen <i>on nature’s terms</i>. Authorities actively protect sea turtles and coastal ecosystems; visitors are invited to slow down — for better encounters.",
+      "h2_turtles": "Sea turtles: regulated access for their peace",
+      "p2": "To watch turtles you must <b>pay an access fee</b> — funding protection and monitoring. During <b>nesting season</b>, some beaches/islands are <b>closed</b> to tourists to avoid disturbing nesting or hatchlings. Result: less stress and preserved natural behaviour.",
+      "h2_daymaniyat": "Daymaniyat Islands: reef sharks… without feeding",
+      "p3": "Around the <b>Daymaniyat Islands</b> you may meet <b>reef sharks</b> in a <i>100% natural</i> setting: <b>they are not fed</b>. Boats keep their distance; you enter the water and <b>swim to viewing zones</b>. Sometimes you must <b>be patient</b> — which is good: it prevents imbalance and makes the moment even more <b>magical</b>.",
+      "h2_philosophy": "A simple philosophy: see without disturbing",
+      "li1": "No feeding, no handling: <b>passive observation</b>.",
+      "li2": "Respect distances and <b>limit group sizes</b> when needed.",
+      "li3": "Clear briefings and <b>local guides</b> who know the sites.",
+      "quote": "In Oman, patience is a virtue: the show is natural, unpredictable — and unforgettable."
+    },
+
+    "ws": {
+      "title": "Whale sharks: when the dream turns dangerous",
+      "subtitle": "Understand the impacts of feeding and choose responsible encounters.",
+      "heroAlt": "Tourism around whale sharks",
+      "p1": "Who hasn’t dreamed of seeing a whale shark? With 10–12 meters length it’s one of the most majestic marine animals. But behind the postcard lies a question: <b>what do we sacrifice to guarantee a 100% sighting?</b>",
+      "p2": "In some places whale sharks are fed to ensure sightings. Boats crowd, swimmers rush in; the animal becomes a scheduled attraction. Feeding disrupts its entire way of life.",
+      "p3": "Normally a whale shark travels <b>thousands of kilometers per year</b> to find food. These migrations are vital. When fed in one place, it stops migrating, and <b>its lifespan can drop significantly</b>.",
+      "h2_responsible": "How to choose a responsible tour?",
+      "li1": "Beware of <b>guarantee promises</b> (“refund if no whale shark”) — often a sign of feeding.",
+      "li2": "Prefer operators who <b>do not feed</b> wildlife and observe discreetly.",
+      "li3": "Keep distances, don’t cut the animal’s path and <b>stay at the surface</b> if required.",
+      "quote": "Real luxury isn’t a guaranteed sighting. It’s meeting a whale shark wild and free — without putting it at risk for a selfie."
+    },
+
+    "wmd": {
+      "title": "World Maritime Day: why maritime matters to everyone",
+      "subtitle": "An IMO/UN day highlighting shipping’s vital role, safety at sea and ocean protection.",
+      "heroAlt": "World Maritime Day",
+      "p1": "<b>World Maritime Day</b> was created by the <b>International Maritime Organization</b> (IMO). It is celebrated annually, usually on the <b>last Thursday of September</b>.",
+      "p2": "Goals: <b>highlight shipping’s importance</b> — <i>80–90%</i> of trade moves by sea — and <b>recognize seafarers</b>, while <b>raising awareness</b> on environment, safety and innovation.",
+      "h2_theme": "A theme each year",
+      "p3": "Each edition proposes a <b>specific theme</b> (pollution prevention, energy transition, digitalization, ship safety, etc.).",
+      "h2_projects": "Recent projects and initiatives",
+      "pj1": {
+        "title": "1) Decarbonization in Singapore — marine biofuel trials (GCMD)",
+        "text": "In Singapore, the <i>Global Centre for Maritime Decarbonisation</i> (GCMD) ran real-world trials with <b>biofuels</b> (B20–B30). Aims: cut GHGs and validate <b>interoperability</b> (fuel quality, engines, bunkering, performance).",
+        "b1": "Scope: ports, shipowners, fuel suppliers.",
+        "b2": "Impact: measured emission cuts on commercial routes.",
+        "b3": "Country: Singapore (regional Asia impact)."
+      },
+      "pj2": {
+        "title": "2) Underwater noise reduction — IMO guidelines (GloNoise)",
+        "text": "<b>Underwater noise</b> affects fish and marine mammals. <i>GloNoise</i> supports applying <b>IMO guidelines</b>: monitoring, design integration, and operational good practices.",
+        "b1": "Scope: administrations, shipyards, owners.",
+        "b2": "Impact: noise mitigation in biodiversity hotspots.",
+        "b3": "Countries: multi-country pilots."
+      },
+      "pj3": {
+        "title": "3) Nigeria — awareness against plastic pollution (NIMASA)",
+        "text": "NIMASA ran <b>local campaigns</b>: schools, calls to cut single-use plastics, and promotion of <b>sustainable opportunities</b> tied to a healthy sea.",
+        "b1": "Scope: coastal communities, schools, local authorities.",
+        "b2": "Impact: less waste, cleaner beaches.",
+        "b3": "Country: Nigeria."
+      },
+      "h2_why": "Why talk about it on GuardianMap?",
+      "why1": "Our coastal and diving activities rely on a <b>healthy ocean</b>.",
+      "why2": "<b>Cleaner, safer shipping lanes</b> benefit biodiversity and coastal communities.",
+      "why3": "Understanding these issues helps us <b>travel better</b> and support responsible operators.",
+      "quote": "Protecting the ocean also means caring about how our goods move and those who make the sea economy run."
+    }
+  },
+
+  
+  "footer": {
+    "contact": {
+      "title": "Contact",
+      "email": "📧 Email",
+      "instagram": "📸 Instagram"
+    },
+    "newsletter": {
+      "title": "Stay in the loop",
+      "subtitle": "Subscribe to follow GuardianMap’s progress."
+    }
+  },
+
+  "about": {
+  "title": "About us",
+  "subtitle": "Behind GuardianMap are two ocean lovers who decided to act to protect what they cherish most: marine life.",
+
+  "thomas": {
+    "name": "Thomas",
+    "role": "Co-founder",
+    "bio": "An adventurer at heart and ocean lover, Thomas brings his energy and strong organisational spirit to turn GuardianMap into reality."
+  },
+
+  "jade": {
+    "name": "Jade",
+    "role": "Co-founder",
+    "bio": "A passionate diver and travel enthusiast, Jade brings her creativity and vision to build a more respectful way to explore our oceans."
+  },
+
+  "why": {
+    "title": "Why did we create GuardianMap?",
+    "problemTitle": "The problem",
+    "solutionTitle": "The solution",
+
+    "problem": "Many travellers, with good intentions, don’t always know how to behave responsibly around the ocean. We dream of seeing marine beauty… but sometimes, without realising it, we contribute to harming it.",
+    
+    "solution": "GuardianMap makes responsible marine travel easy by highlighting certified sustainable operators and inspiring travellers through education. Our goal: empower everyone to protect the ocean while exploring it."
+  }
+}
+}
+
+
+
+
+
+

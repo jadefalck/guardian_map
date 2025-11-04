@@ -1,0 +1,246 @@
+{
+  "menu.home": "Accueil",
+  "menu.activities": "Activités",
+  "menu.diving": "Plongée",
+  "menu.circuits": "Circuits",
+  "menu.blog": "Blog",
+  "menu.about": "À propos",
+
+  "home": {
+    "hero": {
+      "title": "Pour un tourisme respectueux des océans",
+      "subtitle": "Notre mission : aider chaque voyageur à faire des choix qui <b>protègent l’océan, ses habitants et les communautés locales</b>."
+    },
+    "about": {
+      "title": "Ce que fait GuardianMap",
+      "text": "<b>GuardianMap</b> met en avant les <b>activités marines réellement responsables</b>, en valorisant celles qui disposent de <b>labels officiels</b> et co-crée des <b>circuits éthiques</b> avec des <b>agences locales engagées</b>. La <b>sensibilisation</b> est également au cœur de notre travail, à travers des <b>articles dédiés à l’océan</b>, pour renforcer la <b>conscience collective</b> autour d’un <b>tourisme respectueux du vivant</b>."
+    },
+    "cards": {
+      "activities": {
+        "alt": "Activités marines responsables",
+        "title": "Activités responsables",
+        "text": "Centres de plongée, sorties bateau et expériences <b>à faible impact</b> : briefings éco, distances d’observation, respect de la faune, partenaires <b>labellisés</b> quand c’est possible.",
+        "cta": "Voir les activités"
+      },
+      "circuits": {
+        "alt": "Circuits éthiques co-construits avec des agences locales",
+        "title": "Circuits éthiques",
+        "text": "Itinéraires co-construits avec des <b>agences locales</b> : hébergements responsables, petites tailles de groupes, et activités alignées avec la protection des écosystèmes.",
+        "cta": "Découvrir les circuits"
+      },
+      "blog": {
+        "alt": "Sensibilisation et informations sur l’océan",
+        "title": "Sensibilisation & Blog",
+        "text": "Bons réflexes, labels, espèces sensibles… Notre blog aide à <b>comprendre l’impact réel</b> de nos choix et à adopter des pratiques qui protègent l’océan.",
+        "cta": "Lire le blog"
+      }
+    }
+  },
+
+
+  "activities": {
+    "hero": {
+      "title": "Activités",
+      "subtitle": "<b>GuardianMap</b> met en avant le <b>tourisme marin responsable</b> : activités exigeantes sur les bonnes pratiques et, quand c’est possible, portées par des labels reconnus."
+    },
+    "criteria": {
+      "bannerAlt": "Fond Activités",
+      "title": "Des critères clairs et exigeants",
+      "text": "Chaque centre, chaque sortie, chaque activité doit avoir un <b>label officiel</b> décerné par les gouvernements ou des ONG.",
+      "badge": "Si ce n’est pas <c>certifié</c>, ce n’est pas sur <c>GuardianMap</c>."
+    },
+    "diving": {
+      "imageAlt": "Activités de plongée",
+      "title": "Plongée",
+      "text": "Des centres qui appliquent des <b>standards reconnus</b> : gestion des bateaux, ancrage responsable, protection des coraux et sensibilisation des plongeurs. Ces structures sont souvent <c>labellisées</c> afin de minimiser leur impact sur les écosystèmes marins.",
+      "cta": "Découvrir les activités de plongée",
+      "labelsTitle": "Les labels que nous utilisons :"
+    },
+    "labels": {
+      "greenfins": {
+        "alt": "Logo Green Fins",
+        "title": "Green Fins",
+        "text": "Référentiel international soutenu par l’ONU : gestion des bateaux, ancrage responsable, protection des coraux."
+      },
+      "blueflag": {
+        "alt": "Logo Blue Flag (Pavillon Bleu)",
+        "title": "Blue Flag (Pavillon Bleu)",
+        "text": "Label environnemental pour plages et marinas : qualité de l’eau, gestion des déchets, éducation à l’environnement."
+      }
+    }
+  },
+
+  
+  "circuits": {
+    "hero": {
+      "title": "Circuits",
+      "subtitle": "Des itinéraires <b>éthiques et responsables</b>, imaginés avec des <b>agences locales engagées</b>."
+    },
+    "bannerAlt": "Fond Circuits",
+    "coming": {
+      "title": "Les circuits arrivent bientôt",
+      "text": "Nous travaillons actuellement à la création de circuits immersifs et responsables avec des partenaires locaux certifiés."
+    },
+    "explain": {
+      "title": "Des circuits éthiques en collaboration avec des agences locales",
+      "intro": "GuardianMap collabore avec des <b>agences locales engagées</b> pour créer des itinéraires immersifs, respectueux de l’environnement et des communautés.",
+      "point1": "Soutien à des <b>acteurs locaux écoresponsables</b>",
+      "point2": "<b>Activités durables</b> & écotourisme marin",
+      "point3": "Expériences authentiques & loin du tourisme de masse"
+    },
+    "illustrationAlt": "Illustration circuit"
+  },
+
+  
+  "blog": {
+    "hero": {
+      "title": "Blog",
+      "subtitle": "<b>GuardianMap</b>, la plateforme qui met en avant le <b>tourisme marin responsable</b>."
+    },
+    "bannerAlt": "Fond Blog",
+    "intro": {
+      "title": "On ne naît pas bon touriste, on le devient",
+      "text": "Ici, on informe, on sensibilise et on partage : les bonnes pratiques à suivre et les mauvaises habitudes à oublier. Le tourisme peut protéger… ou détruire."
+    },
+    "read": "Lire l’article",
+    "articles": {
+      "ws": {
+        "aria": "Lire l’article Requins-baleines",
+        "alt": "Tourisme autour des requins-baleines",
+        "title": "Requins-baleines : quand le rêve devient un danger",
+        "excerpt": "Qui n’a jamais rêvé de voir un requin-baleine ? Ce géant des océans fascine…"
+      },
+      "wmd": {
+        "aria": "Lire l’article World Maritime Day",
+        "alt": "World Maritime Day / Journée maritime mondiale",
+        "title": "World Maritime Day : pourquoi le maritime nous concerne tous",
+        "excerpt": "Instaurée par l’OMI, la Journée maritime mondiale rappelle que 80–90 % des échanges transitent par la mer…"
+      },
+      "oman": {
+        "aria": "Lire l’article Oman (Daymaniyat, tortues, requins de récif)",
+        "alt": "Oman : îles Daymaniyat, tortues et requins de récif",
+        "title": "Oman : protéger, patienter… et vivre des rencontres magiques",
+        "excerpt": "Un pays qui prend vraiment soin de sa faune marine : accès régulé aux tortues, zones protégées aux Daymaniyat, requins de récif non nourris… Ici, on observe en douceur et on accepte la part d’imprévu."
+      }
+    }
+  },
+
+  
+  "articles": {
+    "common": { "backToBlog": "← Retour au blog" },
+
+    "oman": {
+      "title": "Oman : protéger, patienter… et vivre des rencontres magiques",
+      "subtitle": "Un pays exemplaire : accès régulé aux tortues, îles Daymaniyat protégées, rencontres naturelles sans nourrissage.",
+      "heroAlt": "Oman : îles Daymaniyat, tortues, requins de récif",
+      "p1": "S’il existe une destination où l’on ressent un véritable respect pour la faune marine, c’est bien <b>Oman</b>. Ici, la rencontre avec les animaux se vit <i>aux conditions de la nature</i>. Les autorités protègent activement les tortues marines et les écosystèmes côtiers, et le visiteur est invité à s’adapter à un rythme plus lent — pour de meilleures rencontres.",
+      "h2_turtles": "Tortues marines : un accès régulé pour leur tranquillité",
+      "p2": "Pour observer les tortues, il faut <b>payer un droit d’accès</b> — une contribution qui finance la protection et le suivi. Et lorsque les tortues sont en <b>période de ponte</b>, l’accès à certaines plages/îles est <b>interdit</b> aux touristes : on ne perturbe ni la nidification ni l’émergence des bébés. Résultat : des populations moins stressées et des comportements naturels préservés.",
+      "h2_daymaniyat": "Îles Daymaniyat : requins de récif… sans nourrissage",
+      "p3": "Autour des <b>îles Daymaniyat</b>, on peut croiser des <b>requins de récif</b> dans un cadre <i>100 % naturel</i> : <b>ils ne sont pas nourris</b>. Les bateaux se positionnent à distance, on se met à l’eau et on <b>nage jusqu’aux zones d’observation</b>. Parfois, il faut <b>être patient</b> — et c’est tant mieux : cela évite tout déséquilibre et rend la rencontre encore plus <b>magique</b>.",
+      "h2_philosophy": "Une philosophie simple : voir sans déranger",
+      "li1": "Pas de nourrissage, pas de manipulation : <b>observation passive</b>.",
+      "li2": "Respect des distances et <b>groupes limités</b> si nécessaire.",
+      "li3": "Briefings clairs, et un <b>encadrement local</b> qui connaît les sites.",
+      "quote": "À Oman, la patience est une vertu : le spectacle est naturel, imprévisible — et c’est ce qui le rend inoubliable."
+    },
+
+    "ws": {
+      "title": "Requins-baleines : quand le rêve devient un danger",
+      "subtitle": "Comprendre les impacts du nourrissage et adopter des rencontres responsables.",
+      "heroAlt": "Tourisme autour des requins-baleines",
+      "p1": "Qui n’a jamais rêvé de voir un requin-baleine ? Ce géant des océans fascine. Avec ses 10 à 12 mètres de long, il est l’un des animaux marins les plus majestueux que l’on puisse rencontrer. Mais derrière l’image de carte postale, une question dérangeante se cache : <b>que sacrifie-t-on pour garantir aux touristes ce spectacle à 100 % ?</b>",
+      "p2": "Dans certaines destinations, les requins-baleines sont nourris pour être sûrs d’être vus. Résultat : les bateaux affluent, les touristes se pressent dans l’eau, et l’animal devient une attraction programmée. Sauf qu’en le nourrissant, on bouleverse totalement son mode de vie.",
+      "p3": "Normalement, un requin-baleine parcourt des <b>milliers de kilomètres par an</b> pour chercher sa nourriture. Ces déplacements sont essentiels à sa santé et à sa longévité. Mais lorsqu’il est nourri toujours au même endroit, il cesse de migrer. Conséquence dramatique : <b>son espérance de vie peut chuter de manière significative</b>.",
+      "h2_responsible": "Comment choisir une sortie responsable ?",
+      "li1": "Méfiez-vous des <b>promesses de garantie</b> (« remboursement si pas de requin-baleine »). Souvent, cela traduit des pratiques de nourrissage.",
+      "li2": "Préférez les opérateurs qui <b>nourrissent pas</b> la faune et observent discrètement l’animal quand il apparaît naturellement.",
+      "li3": "Respectez les distances, évitez de couper la trajectoire de l’animal et <b>restez en surface</b> si c’est la règle locale.",
+      "quote": "Le vrai luxe n’est pas de voir un requin-baleine à coup sûr. C’est de le croiser libre, sauvage, dans son environnement naturel — sans l’avoir mis en danger pour un selfie."
+    },
+
+    "wmd": {
+      "title": "World Maritime Day : pourquoi le maritime nous concerne tous",
+      "subtitle": "Une journée OMI/ONU pour rappeler le rôle vital du transport maritime, la sécurité en mer et la protection de l’océan.",
+      "heroAlt": "World Maritime Day / Journée maritime mondiale",
+      "p1": "La <b>Journée maritime mondiale</b> a été instaurée par l’<b>Organisation Maritime Internationale</b> (OMI), une agence des Nations Unies. Elle est célébrée chaque année, généralement <b>le dernier jeudi de septembre</b>.",
+      "p2": "L’objectif est double : <b>mettre en avant l’importance du transport maritime</b> dans le commerce mondial — on estime que <i>80 à 90 %</i> des échanges transitent par la mer — et <b>valoriser les marins</b>, tout en <b>sensibilisant</b> aux enjeux environnementaux, à la sécurité en mer et à l’innovation.",
+      "h2_theme": "Un thème chaque année",
+      "p3": "Chaque édition propose un <b>thème spécifique</b> (ex. prévention de la pollution, transition énergétique, numérique, sécurité des navires, etc.).",
+      "h2_projects": "Projets et initiatives récentes",
+      "pj1": {
+        "title": "1) Décarbonation à Singapour — essais de biocarburants marins (GCMD)",
+        "text": "À Singapour, le <i>Global Centre for Maritime Decarbonisation</i> (GCMD) a mené des essais à l’échelle réelle avec des <b>biocarburants</b> (B20–B30). Objectifs : réduire les GES et valider l’<b>interopérabilité</b> (qualité, moteurs, soutage, suivi).",
+        "b1": "Portée : acteurs portuaires, armateurs, fournisseurs de carburants.",
+        "b2": "Impact : réduction mesurée des émissions sur des lignes commerciales.",
+        "b3": "Pays : Singapour (rayonnement régional Asie)."
+      },
+      "pj2": {
+        "title": "2) Réduction du bruit sous-marin — lignes directrices OMI (GloNoise)",
+        "text": "Le <b>bruit sous-marin</b> perturbe poissons et mammifères. <i>GloNoise</i> soutient l’application des <b>directives OMI</b> : monitoring, intégration au design, bonnes pratiques opérationnelles.",
+        "b1": "Portée : administrations maritimes, chantiers, armateurs.",
+        "b2": "Impact : atténuation du bruit dans des hotspots de biodiversité.",
+        "b3": "Pays : déploiements pilotes multi-pays."
+      },
+      "pj3": {
+        "title": "3) Nigeria — sensibilisation contre la pollution plastique (NIMASA)",
+        "text": "La NIMASA a mené des <b>campagnes locales</b> : écoles, réduction du plastique à usage unique, et mise en avant d’<b>opportunités durables</b> liées à une mer en bonne santé.",
+        "b1": "Portée : communautés littorales, écoles, autorités locales.",
+        "b2": "Impact : réduction des déchets, plages plus propres.",
+        "b3": "Pays : Nigeria."
+      },
+      "h2_why": "Pourquoi en parler sur GuardianMap ?",
+      "why1": "Nos activités côtières et de plongée dépendent d’un <b>océan en bonne santé</b>.",
+      "why2": "Des <b>routes maritimes plus propres et plus sûres</b> bénéficient à la biodiversité.",
+      "why3": "Comprendre ces enjeux nous aide à voyager mieux et à soutenir les opérateurs responsables.",
+      "quote": "Protéger l’océan, c’est aussi s’intéresser à la manière dont nos marchandises circulent et au travail de celles et ceux qui font vivre la mer."
+    }
+  },
+
+  
+  "footer": {
+    "contact": {
+      "title": "Contact",
+      "email": "📧 Mail",
+      "instagram": "📸 Instagram"
+    },
+    "newsletter": {
+      "title": "Reste informé(e)",
+      "subtitle": "Inscris-toi pour suivre le développement de GuardianMap."
+    }
+  },
+
+  "about": {
+  "title": "À propos de nous",
+  "subtitle": "Derrière GuardianMap, deux passionnés de l’océan qui veulent protéger la vie marine.",
+
+  "thomas": {
+    "name": "Thomas",
+    "role": "Co-fondateur",
+    "bio": "Aventurier dans l’âme et passionné par la mer, Thomas apporte son énergie et son sens de l’organisation pour faire grandir GuardianMap."
+  },
+
+  "jade": {
+    "name": "Jade",
+    "role": "Co-fondatrice",
+    "bio": "Plongeuse passionnée et amoureuse des voyages, Jade met sa créativité et sa vision au service d’un tourisme marin plus respectueux."
+  },
+
+  "why": {
+    "title": "Pourquoi avoir créé GuardianMap ?",
+    "problemTitle": "Le problème",
+    "solutionTitle": "La solution",
+
+    "problem": "Beaucoup de touristes ne savent pas toujours comment adopter les bons comportements face à l’océan. On veut voir la beauté marine… mais parfois, on participe à sa destruction.",
+    
+    "solution": "GuardianMap rend le tourisme marin responsable plus simple, en mettant en avant des expériences respectueuses et une sensibilisation active."
+  }
+}
+}
+
+
+
+
+
+
+
