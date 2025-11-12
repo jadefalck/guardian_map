@@ -145,18 +145,52 @@
     },
 
     "ws": {
-      "title": "Whale sharks: when the dream turns dangerous",
-      "subtitle": "Understand the impacts of feeding and choose responsible encounters.",
-      "heroAlt": "Tourism around whale sharks",
-      "p1": "Who hasn’t dreamed of seeing a whale shark? With 10–12 meters length it’s one of the most majestic marine animals. But behind the postcard lies a question: <b>what do we sacrifice to guarantee a 100% sighting?</b>",
-      "p2": "In some places whale sharks are fed to ensure sightings. Boats crowd, swimmers rush in; the animal becomes a scheduled attraction. Feeding disrupts its entire way of life.",
-      "p3": "Normally a whale shark travels <b>thousands of kilometers per year</b> to find food. These migrations are vital. When fed in one place, it stops migrating, and <b>its lifespan can drop significantly</b>.",
-      "h2_responsible": "How to choose a responsible tour?",
-      "li1": "Beware of <b>guarantee promises</b> (“refund if no whale shark”) — often a sign of feeding.",
-      "li2": "Prefer operators who <b>do not feed</b> wildlife and observe discreetly.",
-      "li3": "Keep distances, don’t cut the animal’s path and <b>stay at the surface</b> if required.",
-      "quote": "Real luxury isn’t a guaranteed sighting. It’s meeting a whale shark wild and free — without putting it at risk for a selfie."
+      "title": "Whale sharks: fragile beauty, shared responsibility",
+      "subtitle": "Why encounters must remain natural and how to observe without harm.",
+      "heroAlt": "Whale shark observed in its natural habitat",
+
+      "intro_p1": "In the vast blue of our oceans lives a gentle giant: the whale shark (Rhincodon typus).",
+      "intro_p2": "With its 12-meter length, a huge mouth filtering plankton, and a star-speckled back, it fascinates divers worldwide. Despite its size, this shark is harmless to humans: it feeds on micro-organisms, moves slowly, and embodies serenity.",
+      "intro_p3": "But this beauty,almost mythical, is also what puts it at risk today.",
+
+      "attraction_title": "An animal turned tourist attraction",
+      "attraction_p1": "In several regions (Philippines, Mexico, Maldives, Mozambique, Thailand), the whale shark has become a true attraction. Some operators promise a “100% chance” of seeing one.",
+      "attraction_p2": "Yet no encounter in the wild can ever be guaranteed. When a company claims certainty, it almost always means the animals are artificially fed to ensure their presence.",
+      "attraction_p3": "This practice, sadly widespread, has serious long-term consequences on behavior and health.",
+
+      "carouselAlt": "Whale shark photo {index}",
+      "carouselCaption": "Glances of whale sharks in different regions (always follow local rules and guidelines).",
+
+      "derives_title": "The pitfalls of irresponsible tourism",
+      "derives_intro": "Feeding whale sharks is not benign. In the short term, it looks harmless: the animal approaches, visitors leave amazed. In the long term, the impacts are damaging:",
+      "derives_li1": "Behavioral disruption: dependence on feeding hotspots.",
+      "derives_li2": "Reduced migration: altered routes impacting reproduction and population health.",
+      "derives_li3": "Frequent injuries: propeller strikes or repeated contact with visitors.",
+      "derives_li4": "Health risks: unsuitable food disturbing metabolism.",
+      "derives_outro": "What starts as good intentions can end up harming their natural balance.",
+
+      "practices_title": "Good practices to adopt",
+      "practices_li1": "Choose eco-certified operators (e.g., <b>Green Fins</b> or <b>PADI Eco Center</b>) or tours that do not guarantee a sighting.",
+      "practices_li2": "Never touch or feed the animal.",
+      "practices_li3": "Respect distances: at least 3–4 m from the head and 6 m from the tail.",
+      "practices_li4": "Limit the number of divers/boats present at the same time.",
+      "practices_li5": "Observe quietly and without flash.",
+      "practices_li6": "Check natural seasons/areas where whale sharks aggregate.",
+      "practices_outro": "A respectful encounter is authentic and rare and all the more magical.",
+
+      "orgs_title": "Organizations protecting whale sharks",
+      "orgs_mmf": "<b>Marine Megafauna Foundation (MMF)</b> : Mozambique-based; long-term monitoring, photo-ID, and outreach. <a>marinemegafauna.org</a>",
+      "orgs_sos": "<b>Save Our Seas Foundation</b> : funds scientific and educational projects on sharks and rays. <a>saveourseas.com</a>",
+      "orgs_wildbook": "<b>Whale Shark Project (Wild Me / Wildbook for Whale Sharks)</b> : a global platform using spot patterns for individual identification.",
+
+      "conclusion_title": "To conclude",
+      "conclusion_p1": "The whale shark symbolizes the fragility of beauty. It reminds us that fascination should never turn into domination.",
+      "conclusion_p2": "Every photo, every dive, every encounter can be an act of respect or disturbance. The choice is ours.",
+
+      "quote": "Loving the ocean also means learning to protect it.",
+      "cta": "Find truly responsible dive centers here: <a>guardianmap.com/plongée</a>"
     },
+
 
     "wmd": {
       "title": "World Maritime Day: why maritime matters to everyone",

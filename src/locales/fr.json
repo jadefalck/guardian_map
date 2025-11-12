@@ -146,18 +146,52 @@
     },
 
     "ws": {
-      "title": "Requins-baleines : quand le rêve devient un danger",
-      "subtitle": "Comprendre les impacts du nourrissage et adopter des rencontres responsables.",
-      "heroAlt": "Tourisme autour des requins-baleines",
-      "p1": "Qui n’a jamais rêvé de voir un requin-baleine ? Ce géant des océans fascine. Avec ses 10 à 12 mètres de long, il est l’un des animaux marins les plus majestueux que l’on puisse rencontrer. Mais derrière l’image de carte postale, une question dérangeante se cache : <b>que sacrifie-t-on pour garantir aux touristes ce spectacle à 100 % ?</b>",
-      "p2": "Dans certaines destinations, les requins-baleines sont nourris pour être sûrs d’être vus. Résultat : les bateaux affluent, les touristes se pressent dans l’eau, et l’animal devient une attraction programmée. Sauf qu’en le nourrissant, on bouleverse totalement son mode de vie.",
-      "p3": "Normalement, un requin-baleine parcourt des <b>milliers de kilomètres par an</b> pour chercher sa nourriture. Ces déplacements sont essentiels à sa santé et à sa longévité. Mais lorsqu’il est nourri toujours au même endroit, il cesse de migrer. Conséquence dramatique : <b>son espérance de vie peut chuter de manière significative</b>.",
-      "h2_responsible": "Comment choisir une sortie responsable ?",
-      "li1": "Méfiez-vous des <b>promesses de garantie</b> (« remboursement si pas de requin-baleine »). Souvent, cela traduit des pratiques de nourrissage.",
-      "li2": "Préférez les opérateurs qui <b>nourrissent pas</b> la faune et observent discrètement l’animal quand il apparaît naturellement.",
-      "li3": "Respectez les distances, évitez de couper la trajectoire de l’animal et <b>restez en surface</b> si c’est la règle locale.",
-      "quote": "Le vrai luxe n’est pas de voir un requin-baleine à coup sûr. C’est de le croiser libre, sauvage, dans son environnement naturel — sans l’avoir mis en danger pour un selfie."
+      "title": "Requins-baleines : beauté fragile, responsabilité nécessaire",
+      "subtitle": "Pourquoi l’observation doit rester naturelle et comment voyager sans nuire.",
+      "heroAlt": "Requin-baleine observé dans son milieu naturel",
+
+      "intro_p1": "Dans l’immensité bleue de nos océans vit un géant paisible : le requin-baleine (Rhincodon typus).",
+      "intro_p2": "Avec ses 12 mètres de long, sa bouche immense capable de filtrer le plancton, et son dos constellé de taches blanches semblables à un ciel étoilé, il fascine les plongeurs du monde entier. Malgré sa taille impressionnante, ce requin est inoffensif pour l’homme : il se nourrit de micro-organismes, évolue lentement et incarne la sérénité même.",
+      "intro_p3": "Mais cette beauté, cette aura presque mythique, est aussi ce qui le met aujourd’hui en danger.",
+
+      "attraction_title": "Un animal devenu attraction touristique",
+      "attraction_p1": "Dans plusieurs régions du monde (Philippines, Mexique, Maldives, Mozambique, Thaïlande), le requin-baleine est devenu une véritable attraction. Des agences promettent de pouvoir « voir un requin-baleine à coup sûr ».",
+      "attraction_p2": "Or, aucune rencontre en milieu naturel ne peut être garantie. Lorsqu’une agence affirme une certitude de rencontre à 100 %, cela signifie presque toujours que les animaux sont nourris artificiellement pour attirer leur présence.",
+      "attraction_p3": "Cette pratique, malheureusement répandue, a des conséquences graves et durables sur leur comportement et leur santé.",
+
+      "carouselAlt": "Photo {index} de requins-baleines",
+      "carouselCaption": "Aperçu de requins-baleines observés dans diverses régions du monde (respect des règles locales indispensable).",
+
+      "derives_title": "Les dérives du tourisme non responsable",
+      "derives_intro": "Nourrir les requins-baleines n’est pas anodin. À court terme, l’illusion est parfaite : l’animal s’approche, les touristes repartent émerveillés. Mais sur le long terme, les effets sont destructeurs :",
+      "derives_li1": "Perturbation du comportement naturel : dépendance aux zones de nourrissage.",
+      "derives_li2": "Moins de migration : routes modifiées, impacts sur la reproduction et la santé des populations.",
+      "derives_li3": "Blessures fréquentes : hélices de bateaux, contacts répétés avec les touristes.",
+      "derives_li4": "Risque sanitaire : nourriture inadaptée perturbant leur métabolisme.",
+      "derives_outro": "Ce qui part d’une bonne intention (voir et aimer l’animal) peut finir par nuire à son équilibre naturel.",
+
+      "practices_title": "Les bonnes pratiques à adopter",
+      "practices_li1": "Choisir des centres éco-certifiés (p. ex. <b>Green Fins</b> ou <b>PADI Eco Center</b>) ou des sorties qui ne garantissent pas à 100 % la rencontre.",
+      "practices_li2": "Ne jamais toucher ni nourrir l’animal.",
+      "practices_li3": "Respecter les distances : au moins 3–4 m de la tête et 6 m de la queue.",
+      "practices_li4": "Limiter le nombre de plongeurs/bateaux présents simultanément.",
+      "practices_li5": "Observer en silence et sans flash.",
+      "practices_li6": "Se renseigner sur les zones et saisons où les requins-baleines viennent naturellement.",
+      "practices_outro": "Un requin-baleine observé dans le respect, c’est une rencontre authentique, rare et d’autant plus magique.",
+
+      "orgs_title": "Des associations qui les protègent",
+      "orgs_mmf": "<b>Marine Megafauna Foundation (MMF)</b> : basée au Mozambique, elle mène des études de suivi, de photo-identification et de sensibilisation sur le terrain. <a>marinemegafauna.org</a>",
+      "orgs_sos": "<b>Save Our Seas Foundation</b> : finance des projets scientifiques et éducatifs sur les requins et les raies. <a>saveourseas.com</a>",
+      "orgs_wildbook": "<b>Whale Shark Project (Wild Me / Wildbook for Whale Sharks)</b> : plateforme mondiale de reconnaissance individuelle par motifs de taches.",
+
+      "conclusion_title": "En conclusion",
+      "conclusion_p1": "Le requin-baleine est un symbole : celui de la fragilité de la beauté. Il nous rappelle que la fascination ne doit pas devenir domination.",
+      "conclusion_p2": "Chaque photo, chaque plongée, chaque rencontre peut être un acte de respect ou de perturbation. À nous de choisir le bon côté.",
+
+      "quote": "Aimer la mer, c’est apprendre à la protéger.",
+      "cta": "Découvrez les centres de plongée vraiment engagés ici : <a>guardianmap.com/plongée</a>"
     },
+
 
     "wmd": {
       "title": "World Maritime Day : pourquoi le maritime nous concerne tous",
