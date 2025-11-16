@@ -268,8 +268,259 @@
     
     "solution": "GuardianMap makes responsible marine travel easy by highlighting certified sustainable operators and inspiring travellers through education. Our goal: empower everyone to protect the ocean while exploring it."
   }
+},
+
+
+  "activitiesDiving": {
+    "hero": {
+      "title": "Activities",
+      "subtitle": "<b>GuardianMap</b> highlights <b>responsible marine tourism</b>: operators with strict best practices and, where possible, recognized certifications."
+    },
+    "criteria": {
+      "bannerAlt": "Activities banner",
+      "title": "Clear and rigorous criteria",
+      "text": "Every dive center, boat trip, or marine activity must hold an <b>official certification</b> issued by governments or NGOs.",
+      "badge": "If it’s not <c>certified</c>, it’s not on <c>GuardianMap</c>."
+    },
+    "diving": {
+      "imageAlt": "Diving activities",
+      "title": "Diving",
+      "text": "Centers applying <b>recognized standards</b>: boat management, responsible anchoring, coral protection, and diver education. These operators are often <c>certified</c> to minimize their impact on marine ecosystems.",
+      "cta": "Explore diving activities",
+      "labelsTitle": "Labels we rely on:"
+    },
+    "labels": {
+      "greenfins": {
+        "alt": "Green Fins logo",
+        "title": "Green Fins",
+        "text": "UN-supported international framework: boat management, responsible anchoring, coral protection."
+      },
+      "blueflag": {
+        "alt": "Blue Flag logo",
+        "title": "Blue Flag",
+        "text": "Environmental label for beaches and marinas: water quality, waste management, environmental education."
+      }
+    }
+  }
+, 
+
+  "divingPage": {
+    "intro": "Together, let’s discover dive centers that truly <b>respect</b> nature and are <b>committed</b> to protecting the <b>ocean</b>.",
+    "heroTitle": "Where do you want to dive?",
+    "error": "We couldn’t read continent data from the database. Showing a default list instead.",
+    "photoPlaceholder": "{{name}} photo to be added",
+    "continents": {
+      "africa": "Africa",
+      "north-america": "North America",
+      "south-america": "South America",
+      "asia": "Asia",
+      "europe": "Europe",
+      "oceania": "Oceania"
+    }
+  }, 
+
+
+  "countries": {
+    "cape-verde": "Cape Verde",
+    "egypt": "Egypt",
+    "la-reunion": "Reunion",
+    "mauritius": "Mauritius",
+    "morocco": "Morocco",
+    "mozambique": "Mozambique",
+    "seychelles": "Seychelles",
+    "south-africa": "South Africa",
+    "tanzania": "Tanzania",
+
+    "antigua-and-barbuda": "Antigua and Barbuda",
+    "aruba": "Aruba",
+    "bahamas": "Bahamas",
+    "barbados": "Barbados",
+    "belize": "Belize",
+    "bermuda": "Bermuda",
+    "bonaire": "Bonaire",
+    "canada": "Canada",
+    "costa-rica": "Costa Rica",
+    "curacao": "Curaçao",
+    "united-states": "United States",
+    "grenada": "Grenada",
+    "honduras": "Honduras",
+    "cayman-islands": "Cayman Islands",
+    "turks-and-caicos": "Turks and Caicos",
+    "martinique": "Martinique",
+    "mexico": "Mexico",
+    "panama": "Panama",
+    "puerto-rico": "Puerto Rico",
+    "dominican-republic": "Dominican Republic",
+    "saint-lucia": "Saint Lucia",
+    "sint-maarten": "Sint Maarten",
+    "trinidad-and-tobago": "Trinidad and Tobago",
+    "us-virgin-islands": "U.S. Virgin Islands",
+
+    "argentina": "Argentina",
+    "brazil": "Brazil",
+    "chile": "Chile",
+    "colombia": "Colombia",
+    "ecuador": "Ecuador",
+
+    "saudi-arabia": "Saudi Arabia",
+    "south-korea": "South Korea",
+    "united-arab-emirates": "United Arab Emirates",
+    "india": "India",
+    "indonesia": "Indonesia",
+    "israel": "Israel",
+    "japan": "Japan",
+    "jordan": "Jordan",
+    "malaysia": "Malaysia",
+    "maldives": "Maldives",
+    "philippines": "Philippines",
+    "taiwan": "Taiwan",
+    "thailand": "Thailand",
+    "timor-leste": "Timor-Leste",
+    "turkiye": "Turkey",
+    "vietnam": "Vietnam",
+
+    "albania": "Albania",
+    "belgium": "Belgium",
+    "bulgaria": "Bulgaria",
+    "croatia": "Croatia",
+    "cyprus": "Cyprus",
+    "denmark": "Denmark",
+    "estonia": "Estonia",
+    "france": "France",
+    "germany": "Germany",
+    "greece": "Greece",
+    "iceland": "Iceland",
+    "ireland": "Ireland",
+    "italy": "Italy",
+    "latvia": "Latvia",
+    "lithuania": "Lithuania",
+    "malta": "Malta",
+    "monaco": "Monaco",
+    "montenegro": "Montenegro",
+    "netherlands": "Netherlands",
+    "norway": "Norway",
+    "poland": "Poland",
+    "portugal": "Portugal",
+    "romania": "Romania",
+    "united-kingdom": "United Kingdom",
+    "serbia": "Serbia",
+    "slovenia": "Slovenia",
+    "spain": "Spain",
+    "sweden": "Sweden",
+    "switzerland": "Switzerland",
+    "ukraine": "Ukraine",
+
+    "australia": "Australia",
+    "cook-islands": "Cook Islands",
+    "fiji": "Fiji",
+    "new-zealand": "New Zealand",
+    "palau": "Palau",
+    "french-polynesia": "French Polynesia",
+    "nouvelle-zelande": "New Zealand",
+    "polynesie-francaise": "French Polynesia",
+    "vanuatu": "Vanuatu", 
+
+    "cap-vert": "Cape Verde",
+    "etats-unis": "United States",
+    "republique-dominicaine": "Dominican Republic",
+    "saint-lucie": "Saint Lucia",
+    "iles-caimans": "Cayman Islands",
+    "iles-turques-et-caiques": "Turks and Caicos Islands",
+    "arabie-saoudite": "Saudi Arabia",
+    "coree-du-sud": "South Korea",
+    "emirats-arabes-unis": "United Arab Emirates",
+    "royaume-uni": "United Kingdom"
+
+  },
+
+
+  "countryPage": {
+    "panel": {
+      "legendTitle": "Legend & counters",
+      "gfShort": "GF",
+      "bfShort": "BF",
+      "buttons": {
+        "whyCertified": "Why choose a certified center?",
+        "whatGF": "What is Green Fins?",
+        "whatBF": "What is Blue Flag?"
+      },
+      "filterByLabel": "Filter by label",
+      "filterOptions": {
+        "all": "All centers",
+        "greenfins": "Green Fins only",
+        "blueflag": "Blue Flag only"
+      },
+      "gfLevelsTitle": "Green Fins levels",
+      "reset": "Reset filter",
+      "resetTitle": "Reset levels & labels",
+      "levels": {
+        "gold": "Gold",
+        "silver": "Silver",
+        "bronze": "Bronze",
+        "inactive": "Inactive",
+        "digital": "Digital"
+      },
+      "gfNote": "Note: these levels filter Green Fins centers only."
+    },
+
+    "why": {
+      "title": "Why choose a certified center?",
+      "text1": "Choosing a certified operator reduces the environmental impact of your trips and supports practices that protect marine ecosystems.",
+      "list": {
+        "impact": "Reduced impacts (anchoring, waste, habitat disturbance).",
+        "briefings": "Clear briefings on viewing distances and good practices.",
+        "followup": "Ongoing monitoring and improvement of environmental practices.",
+        "sites": "Better protected sites, richer experiences."
+      },
+      "boxTitle": "In short",
+      "boxText": "You vote with your wallet for committed operators while maximising your chances of seeing abundant, healthy marine life."
+    },
+
+    "gf": {
+      "title": "What is Green Fins?",
+      "text1": "Green Fins (Reef-World Foundation & UNEP) supports dive and snorkel operators in adopting responsible practices: waste management, anchoring, group sizes, awareness-raising, and more.",
+      "text2": "The Gold, Silver, Bronze, Inactive and Digital levels reflect how committed operators are and how closely they follow best practices.",
+      "boxTitle": "Key points",
+      "box": {
+        "point1": "Internationally recognised framework",
+        "point2": "Continuous audits and support",
+        "point3": "Focused on the ocean and coral reefs"
+      }
+    },
+
+    "bf": {
+      "title": "What is Blue Flag?",
+      "text1": "Blue Flag recognises beaches, marinas and boats that meet strict criteria: water quality, waste management, safety, public information and environmental education.",
+      "text2": "The label is renewed every year based on regular inspections.",
+      "boxTitle": "Key facts",
+      "box": {
+        "point1": "Monitored water quality",
+        "point2": "On-site management and safety",
+        "point3": "Education and information for visitors"
+      }
+    }
+  },
+
+  
+  "continents": {
+    "africa": "Africa",
+    "north-america": "North America",
+    "south-america": "South America",
+    "asia": "Asia",
+    "europe": "Europe",
+    "oceania": "Oceania"
+  },
+  "continentPage": {
+    "searchPlaceholder": "Search for a country…",
+    "noCountry": "No country found.",
+    "centersShort": "center(s)"
+  }
 }
-}
+
+
+
+
+
 
 
 
