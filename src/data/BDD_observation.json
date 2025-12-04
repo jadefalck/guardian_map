@@ -1,0 +1,314 @@
+[
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "A Whale’s Song Expeditions",
+    "website": "https://www.awhalessongexpeditions.com/",
+    "lat": 57.1014573,
+    "lon": -135.3939468
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "ACEST – Asociacion Cetaceos Sur de Tenerife",
+    "website": "https://acestenerife.es/",
+    "lat": 28.0779006,
+    "lon": -16.7360099
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "AIMM",
+    "website": "https://www.aimmportugal.org/",
+    "lat": 48.8227962,
+    "lon": 2.3432487
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Auckland Whale & Dolphin Safari",
+    "website": "https://whalewatchingauckland.com/",
+    "lat": -36.842224,
+    "lon": 174.762412
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Azores Whale Watching & Wildlife Tours TERRA AZUL",
+    "website": "https://www.azoreswhalewatch.com/",
+    "lat": 37.7158093,
+    "lon": -25.4297254
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Cabo Trek",
+    "website": "https://cabowhaletrek.com/",
+    "lat": 22.8809925,
+    "lon": -109.9113659
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "CANADIAN MARINE ENVIRONMENT PROTECTION SOCIETY",
+    "website": "https://www.facebook.com/cmepsociety/",
+    "lat": 45.696685,
+    "lon": -62.27688500000001
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Capt. Dave’s Dana Point Dolphin & Whale Watching Safari",
+    "website": "https://www.dolphinsafari.com/",
+    "lat": 33.462536,
+    "lon": -117.702949
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Carino Sailing and Dolphin Adventures",
+    "website": "https://wildlifecruises.co.nz/",
+    "lat": -35.280962,
+    "lon": 174.092257
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Changing Tide Tours",
+    "website": "http://changingtidetours.com/",
+    "lat": 8.6274604,
+    "lon": -83.157482
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Dana Wharf Whale Watching",
+    "website": "https://danawharf.com/",
+    "lat": 33.4600104,
+    "lon": -117.6921466
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Dolphin Encountours",
+    "website": "https://www.dolphinencountours.org/",
+    "lat": -26.8451035,
+    "lon": 32.8903552
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "E-Ko Tours",
+    "website": "https://www.e-ko.nz/",
+    "lat": -41.288829,
+    "lon": 174.008044
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Eagle Eye Adventures",
+    "website": "https://www.eagleeyeadventures.com/",
+    "lat": 50.0269956,
+    "lon": -125.2406599
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Eagle Wing Whale & Wildlife Watching Tours",
+    "website": "https://eaglewingtours.com/",
+    "lat": 48.4225927,
+    "lon": -123.3824861
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Elding Whale Watching",
+    "website": "https://elding.is/",
+    "lat": 64.1513913,
+    "lon": -21.9444119
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Five Star Whale Watching",
+    "website": "https://www.5starwhales.com/",
+    "lat": 48.42240719999999,
+    "lon": -123.3670534
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Futurismo Azores Adventures",
+    "website": "https://www.futurismo.pt/en",
+    "lat": 37.7395488,
+    "lon": -25.6640589
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Happy Whale",
+    "website": "https://happywhale.com/",
+    "lat": 42.66002719999999,
+    "lon": -70.6151898
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Lobosonda Madeira Whale Watching",
+    "website": "https://www.lobosonda.com/",
+    "lat": 32.7186111,
+    "lon": -17.1721016
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Love the Oceans",
+    "website": "https://lovetheoceans.org/",
+    "lat": 48.8441878,
+    "lon": 2.3424137
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "North Sailing",
+    "website": "https://www.northsailing.is/",
+    "lat": 66.046206,
+    "lon": -17.3434798
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Ocean Futures Society",
+    "website": "http://www.oceanfutures.org/",
+    "lat": 48.83387159999999,
+    "lon": 2.3287659
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Raggy Charters",
+    "website": "https://www.raggycharters.co.za/",
+    "lat": -33.9672556,
+    "lon": 25.6337106
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Sodurba",
+    "website": "https://sodurba.co.za/",
+    "lat": -29.9437264,
+    "lon": 30.9975369
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Sussex Dolphin Project",
+    "website": "https://sussexdolphinproject.org/",
+    "lat": 50.8312214,
+    "lon": -0.2367368
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Whale Watch Tenerife",
+    "website": "https://whalewatchtenerife.org/",
+    "lat": 28.0779862,
+    "lon": -16.736411
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "Whale Wise Eco Tours",
+    "website": "https://whalewise-ecotours.com/",
+    "lat": 28.2464688,
+    "lon": -16.8428309
+  },
+  {
+    "animal": "Baleine",
+    "label": "WCA",
+    "name": "WILDTRUST",
+    "website": "http://wildtrust.co.za/wildoceans/",
+    "lat": -29.5732507,
+    "lon": 30.3531082
+  },
+  {
+    "animal": "Dauphin",
+    "label": "Friend of the Sea",
+    "name": "Kaikoura Kayaks",
+    "website": "https://www.kaikourakayaks.nz/",
+    "lat": -42.40735292391963,
+    "lon": 173.6832081964731
+  },
+  {
+    "animal": "Baleine",
+    "label": "Friend of the Sea",
+    "name": "Kaikoura Kayaks",
+    "website": "https://www.kaikourakayaks.nz/",
+    "lat": -42.40735292391963,
+    "lon": 173.6832081964731
+  },
+  {
+    "animal": "Dauphin",
+    "label": "Friend of the Sea",
+    "name": "Mare Forza 7",
+    "website": "https://www.facebook.com/mareforza7noleggiogommoni/",
+    "lat": 40.98765384499636,
+    "lon": 9.584917895279377
+  },
+  {
+    "animal": "Dauphin",
+    "label": "Friend of the Sea",
+    "name": "Diving & Snorkeling team",
+    "website": "https://www.dstsardegna.it/en/about-us/",
+    "lat": 40.96953086569163,
+    "lon": 9.587639923294386
+  },
+  {
+    "animal": "Dauphin",
+    "label": "Friend of the Sea",
+    "name": "Centro Immersioni Figarolo",
+    "website": "https://www.centroimmersionifigarolo.it/",
+    "lat": 41.0029566560272,
+    "lon": 9.619995638153869
+  },
+  {
+    "animal": "Dauphin",
+    "label": "Friend of the Sea",
+    "name": "Blue Way",
+    "website": "https://olbiaseaexcursions.com/",
+    "lat": 40.91587102091631,
+    "lon": 9.523473525935822
+  },
+  {
+    "animal": "Dauphin",
+    "label": "Friend of the Sea",
+    "name": "Nautical Service",
+    "website": "https://www.nauticalserviceolbia.it/en/dolphin-spotting/",
+    "lat": 41.03530303843145,
+    "lon": 9.5221950486277
+  },
+  {
+    "animal": "Dauphin",
+    "label": "Friend of the Sea",
+    "name": "Virginia Luxury Yacht",
+    "website": "https://luxuryvirginia.it/",
+    "lat": 41.14012276878911,
+    "lon": 9.480876448090305
+  },
+  {
+    "animal": "Dauphin",
+    "label": "Friend of the Sea",
+    "name": "Delfini del Ponente",
+    "website": "https://delfinidelponente.it/en/",
+    "lat": 43.87676823632965,
+    "lon": 8.018968980295273
+  },
+  {
+    "animal": "Dauphin",
+    "label": "Friend of the Sea",
+    "name": "MareCamp",
+    "website": "https://www.marecamp.com/en/",
+    "lat": 37.55671761092603,
+    "lon": 15.14812771049788
+  }
+]

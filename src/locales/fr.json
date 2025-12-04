@@ -5,6 +5,7 @@
   "menu.circuits": "Circuits",
   "menu.blog": "Blog",
   "menu.about": "À propos",
+  "menu.especes": "Espèces",
 
   "home": {
     "hero": {
@@ -37,18 +38,20 @@
     }
   },
 
-
   "activities": {
     "hero": {
       "title": "Activités",
-      "subtitle": "<b>GuardianMap</b> met en avant le <b>tourisme marin responsable</b> : activités exigeantes sur les bonnes pratiques et, quand c’est possible, portées par des labels reconnus."
+      "line1": "Chaque activité doit avoir un label officiel décerné par les gouvernements ou des ONG.",
+      "line2": "Si ce n’est <b>pas certifié</b>, ce n’est <b>pas sur GuardianMap</b>."
     },
+
     "criteria": {
-      "bannerAlt": "Fond Activités",
+      "bannerAlt": "Bannière Activités",
       "title": "Des critères clairs et exigeants",
       "text": "Chaque centre, chaque sortie, chaque activité doit avoir un <b>label officiel</b> décerné par les gouvernements ou des ONG.",
       "badge": "Si ce n’est pas <c>certifié</c>, ce n’est pas sur <c>GuardianMap</c>."
     },
+
     "diving": {
       "imageAlt": "Activités de plongée",
       "title": "Plongée",
@@ -56,6 +59,43 @@
       "cta": "Découvrir les activités de plongée",
       "labelsTitle": "Les labels que nous utilisons :"
     },
+
+    "observation": {
+      "title": "Observation de la faune marine",
+      "imageAlt": "Observation responsable des mammifères marins",
+      "text": "Découvrez comment <b>observer les animaux marins</b> tout en respectant leur environnement. Grâce à des pratiques responsables et <c>des opérateurs certifiés</c>, profitez d’expériences uniques sans perturber les écosystèmes.",
+      "cta": "Explorer l’observation",
+      "labelsTitle": "Labels d’observation responsable",
+
+      "pageTitle": "Observation d'espèces",
+
+      "filters": {
+        "title": "Quel animal ?",
+        "hint": "Clique à nouveau sur une carte pour revenir à tous les animaux."
+      },
+
+      "threatsTitle": "Principales menaces de l'observation",
+      "threatsIntroLine1": "Vous vous demandez sûrement comment des sorties en bateau pour observer des baleines, des dauphins et d'autres animaux marins peuvent être dangereuses pour eux.",
+      "threatsIntroLine2": "Voici les raisons :",
+
+      "threats": {
+        "proximity": {
+          "title": "Proximité excessive",
+          "text": "Collisions, coupures d’hélice, animaux encerclés ou forcés à changer de trajectoire."
+        },
+        "noise": {
+          "title": "Bruit sous-marin",
+          "text": "Les moteurs et la répétition des passages perturbent la communication, l’orientation et augmentent le stress des cétacés."
+        },
+        "feeding": {
+          "title": "Nourrissage & sur-fréquentation",
+          "text": "Dépendance à l’humain, changements de comportements, stress chronique et dégradation des habitats."
+        }
+      },
+
+      "highlight": "Choisir des <blue>opérateurs certifiés et formés</blue> permet de <blue>limiter ces impacts</blue> et de laisser aux animaux la liberté de décider de la rencontre."
+    },
+
     "labels": {
       "greenfins": {
         "alt": "Logo Green Fins",
@@ -66,11 +106,21 @@
         "alt": "Logo Blue Flag (Pavillon Bleu)",
         "title": "Blue Flag (Pavillon Bleu)",
         "text": "Label environnemental pour plages et marinas : qualité de l’eau, gestion des déchets, éducation à l’environnement."
+      },
+      "wca": {
+        "alt": "World Cetacean Alliance",
+        "title": "World Cetacean Alliance",
+        "text": "Premier label mondial pour l’observation éthique des cétacés."
+      },
+      "fots": {
+        "alt": "Friend of the Sea",
+        "title": "Friend of the Sea",
+        "text": "Certification internationale pour garantir des pratiques durables."
       }
     }
   },
 
-  
+
   "circuits": {
     "hero": {
       "title": "Circuits",
@@ -91,7 +141,6 @@
     "illustrationAlt": "Illustration circuit"
   },
 
-  
   "blog": {
     "hero": {
       "title": "Blog",
@@ -125,7 +174,6 @@
     }
   },
 
-  
   "articles": {
     "common": { "backToBlog": "← Retour au blog" },
 
@@ -192,7 +240,6 @@
       "cta": "Découvrez les centres de plongée vraiment engagés ici : <a>guardianmap.com/plongée</a>"
     },
 
-
     "wmd": {
       "title": "World Maritime Day : pourquoi le maritime nous concerne tous",
       "subtitle": "Une journée OMI/ONU pour rappeler le rôle vital du transport maritime, la sécurité en mer et la protection de l’océan.",
@@ -231,7 +278,6 @@
     }
   },
 
-  
   "footer": {
     "contact": {
       "title": "Contact",
@@ -245,64 +291,26 @@
   },
 
   "about": {
-  "title": "À propos de nous",
-  "subtitle": "Derrière GuardianMap, deux passionnés de l’océan qui veulent protéger la vie marine.",
-
-  "thomas": {
-    "name": "Thomas",
-    "role": "Co-fondateur",
-    "bio": "Aventurier dans l’âme et passionné par la mer, Thomas apporte son énergie et son sens de l’organisation pour faire grandir GuardianMap."
-  },
-
-  "jade": {
-    "name": "Jade",
-    "role": "Co-fondatrice",
-    "bio": "Plongeuse passionnée et amoureuse des voyages, Jade met sa créativité et sa vision au service d’un tourisme marin plus respectueux."
-  },
-
-  "why": {
-    "title": "Pourquoi avoir créé GuardianMap ?",
-    "problemTitle": "Le problème",
-    "solutionTitle": "La solution",
-
-    "problem": "Beaucoup de touristes ne savent pas toujours comment adopter les bons comportements face à l’océan. On veut voir la beauté marine… mais parfois, on participe à sa destruction.",
-    
-    "solution": "GuardianMap rend le tourisme marin responsable plus simple, en mettant en avant des expériences respectueuses et une sensibilisation active."
-  },
-
-
-  "activities": {
-    "hero": {
-      "title": "Activités",
-      "subtitle": "<b>GuardianMap</b> met en avant le <b>tourisme marin responsable</b> : activités exigeantes sur les bonnes pratiques et, quand c’est possible, portées par des labels reconnus."
+    "title": "À propos de nous",
+    "subtitle": "Derrière GuardianMap, deux passionnés de l’océan qui veulent protéger la vie marine.",
+    "thomas": {
+      "name": "Thomas",
+      "role": "Co-fondateur",
+      "bio": "Aventurier dans l’âme et passionné par la mer, Thomas apporte son énergie et son sens de l’organisation pour faire grandir GuardianMap."
     },
-    "criteria": {
-      "bannerAlt": "Bannière Activités",
-      "title": "Des critères clairs et exigeants",
-      "text": "Chaque centre, chaque sortie, chaque activité doit avoir un <b>label officiel</b> décerné par les gouvernements ou des ONG.",
-      "badge": "Si ce n’est pas <c>certifié</c>, ce n’est pas sur <c>GuardianMap</c>."
+    "jade": {
+      "name": "Jade",
+      "role": "Co-fondatrice",
+      "bio": "Plongeuse passionnée et amoureuse des voyages, Jade met sa créativité et sa vision au service d’un tourisme marin plus respectueux."
     },
-    "diving": {
-      "imageAlt": "Activités de plongée",
-      "title": "Plongée",
-      "text": "Des centres qui appliquent des <b>standards reconnus</b> : gestion des bateaux, ancrage responsable, protection des coraux et sensibilisation des plongeurs. Ces structures sont souvent <c>labellisées</c> afin de minimiser leur impact sur les écosystèmes marins.",
-      "cta": "Découvrir les activités de plongée",
-      "labelsTitle": "Les labels que nous utilisons :"
-    },
-    "labels": {
-      "greenfins": {
-        "alt": "Logo Green Fins",
-        "title": "Green Fins",
-        "text": "Référentiel international soutenu par l’ONU : gestion des bateaux, ancrage responsable, protection des coraux."
-      },
-      "blueflag": {
-        "alt": "Logo Blue Flag (Pavillon Bleu)",
-        "title": "Blue Flag (Pavillon Bleu)",
-        "text": "Label environnemental pour plages et marinas : qualité de l’eau, gestion des déchets, éducation à l’environnement."
-      }
+    "why": {
+      "title": "Pourquoi avoir créé GuardianMap ?",
+      "problemTitle": "Le problème",
+      "solutionTitle": "La solution",
+      "problem": "Beaucoup de touristes ne savent pas toujours comment adopter les bons comportements face à l’océan. On veut voir la beauté marine… mais parfois, on participe à sa destruction.",
+      "solution": "GuardianMap rend le tourisme marin responsable plus simple, en mettant en avant des expériences respectueuses et une sensibilisation active."
     }
-  }
-},
+  },
 
   "divingPage": {
     "intro": "Ensemble, découvrons les centres de plongée qui <b>respectent</b> la nature et <b>s'engagent</b> pour l’<b>océan</b>.",
@@ -317,8 +325,7 @@
       "europe": "Europe",
       "oceania": "Océanie"
     }
-  }, 
-
+  },
 
   "countries": {
     "cape-verde": "Cap-Vert",
@@ -419,7 +426,6 @@
     "vanuatu": "Vanuatu"
   },
 
-
   "countryPage": {
     "panel": {
       "legendTitle": "Légende & compteurs",
@@ -487,7 +493,6 @@
     }
   },
 
-  
   "continents": {
     "africa": "Afrique",
     "north-america": "Amérique du Nord",
@@ -496,22 +501,63 @@
     "europe": "Europe",
     "oceania": "Océanie"
   },
+
   "continentPage": {
     "searchPlaceholder": "Rechercher un pays…",
     "noCountry": "Aucun pays trouvé.",
     "centersShort": "centre(s)"
-  }
+  },
+
+  "especes": {
+  "title": "Où les voir",
+  "subtitle": "Carte des zones d’observation où l’on peut rencontrer différentes espèces marines, selon les saisons et les régions.",
+    "search": {
+      "label": "Rechercher un site, un pays, un continent ou une espèce",
+      "placeholder": "Ex : Maldives, Asie, Requin-baleine…",
+      "type": {
+        "site": "Site",
+        "country": "Pays",
+        "continent": "Continent",
+        "species": "Espèce"
+      }
+    },
+    "filters": {
+      "continent": "Continent",
+      "allContinents": "Tous les continents",
+      "country": "Pays",
+      "allCountries": "Tous les pays",
+      "species": "Espèce",
+      "allSpecies": "Toutes les espèces",
+      "month": "Mois",
+      "allMonths": "Tous les mois"
+    },
+    "popup": {
+      "unethicalTitle": "Lieu pas éthique"
+    },
+    "legend": "Les pins <blue>bleu foncé</blue> indiquent les zones d’observation ; les pins <red>rouges</red> sont signalés comme non éthiques."
+  },
+
+  "months": {
+    "1": "Janvier",
+    "2": "Février",
+    "3": "Mars",
+    "4": "Avril",
+    "5": "Mai",
+    "6": "Juin",
+    "7": "Juillet",
+    "8": "Août",
+    "9": "Septembre",
+    "10": "Octobre",
+    "11": "Novembre",
+    "12": "Décembre"
+  },
+
+  "animals": {
+  "whale": "Baleine",
+  "dolphin": "Dauphin"
 }
 
-
-
-
-
-
-
-
-
-
+}
 
 
 

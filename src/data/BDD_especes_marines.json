@@ -1,0 +1,4374 @@
+[
+  {
+    "id": 1,
+    "site": "South Ari Atoll",
+    "country": "Maldives",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 3.85,
+    "lon": 73.27,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 2,
+    "site": "Baa Atoll",
+    "country": "Maldives",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 5.25,
+    "lon": 73.0,
+    "months": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 3,
+    "site": "Fuvahmulah Atoll",
+    "country": "Maldives",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -0.3,
+    "lon": 73.45,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 4,
+    "site": "Côte de Gujarat",
+    "country": "Inde",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 21.0,
+    "lon": 69.0,
+    "months": [
+      1,
+      2,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 5,
+    "site": "Côte de Kerala",
+    "country": "Inde",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -1.0,
+    "lon": -2.0,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 6,
+    "site": "Kalpitiya",
+    "country": "Sri Lanka",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 8.0,
+    "lon": 79.7,
+    "months": [
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 7,
+    "site": "Mirissa",
+    "country": "Sri Lanka",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 5.94,
+    "lon": 80.45,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 8,
+    "site": "Pigeon Island National Park",
+    "country": "Sri Lanka",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 8.6,
+    "lon": 81.2,
+    "months": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 9,
+    "site": "Richelieu Rock",
+    "country": "Thaïlande",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 9.4,
+    "lon": 97.6,
+    "months": [
+      1,
+      2,
+      3,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 10,
+    "site": "Koh Tachai / Pinnacle",
+    "country": "Thaïlande",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 9.0,
+    "lon": 97.5,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      12
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 11,
+    "site": "Koh Bon",
+    "country": "Thaïlande",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 8.3,
+    "lon": 97.6,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 12,
+    "site": "Similan Islands",
+    "country": "Thaïlande",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 8.6,
+    "lon": 97.6,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 13,
+    "site": "Koh Lipe",
+    "country": "Thaïlande",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 6.5,
+    "lon": 99.0,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 14,
+    "site": "Koh Tao / Golfe de Thaïlande",
+    "country": "Thaïlande",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 10.1,
+    "lon": 99.8,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 15,
+    "site": "Chumphon Pinnacle",
+    "country": "Thaïlande",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 10.2,
+    "lon": 99.0,
+    "months": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 16,
+    "site": "Sail Rock",
+    "country": "Thaïlande",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 9.8,
+    "lon": 100.0,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 17,
+    "site": "Koh Phi Phi & environs",
+    "country": "Thaïlande",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 7.7,
+    "lon": 98.8,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 18,
+    "site": "Koh Chang",
+    "country": "Thaïlande",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 12.0,
+    "lon": 102.5,
+    "months": [
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "tres rare",
+    "explication": ""
+  },
+  {
+    "id": 19,
+    "site": "Donsol",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 12.9,
+    "lon": 123.6,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 20,
+    "site": "Ticao Pass",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 12.6,
+    "lon": 123.8,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 21,
+    "site": "Southern Leyte",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 10.2,
+    "lon": 125.0,
+    "months": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 22,
+    "site": "Tubbataha Reefs",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 8.9,
+    "lon": 119.9,
+    "months": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 23,
+    "site": "Oslob",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 9.5,
+    "lon": 123.4,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "X",
+    "frequence": "souvent",
+    "explication": "Les requins baleines sont nourris à la main chaque matin avec des crevettes pour garantir leur présence ; c’est le cas d’école mondial de mauvais exemple."
+  },
+  {
+    "id": 24,
+    "site": "Panglao / Balicasag",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 9.6,
+    "lon": 123.7,
+    "months": [
+      1,
+      2,
+      3
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 25,
+    "site": "Anda",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 9.8,
+    "lon": 124.6,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 26,
+    "site": "Camiguin",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 9.2,
+    "lon": 124.7,
+    "months": [
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 27,
+    "site": "Apo Reef",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 12.7,
+    "lon": 120.4,
+    "months": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 28,
+    "site": "Puerto Galera",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 13.5,
+    "lon": 120.9,
+    "months": [],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 29,
+    "site": "Verde Island Passage",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 13.5,
+    "lon": 121.0,
+    "months": [],
+    "ethique": "",
+    "frequence": "tres rare",
+    "explication": ""
+  },
+  {
+    "id": 30,
+    "site": "Palawan côte Est",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 11.2,
+    "lon": 119.3,
+    "months": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 31,
+    "site": "Coron",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 11.9,
+    "lon": 120.1,
+    "months": [],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 32,
+    "site": "Batangas",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 13.8,
+    "lon": 120.9,
+    "months": [],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 33,
+    "site": "Northern Cebu / Malapascua",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 11.3,
+    "lon": 124.1,
+    "months": [],
+    "ethique": "",
+    "frequence": "tres rare",
+    "explication": ""
+  },
+  {
+    "id": 34,
+    "site": "Siquijor",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 9.2,
+    "lon": 123.6,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 35,
+    "site": "Boracay / Carabao Island",
+    "country": "Philippines",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 11.9,
+    "lon": 121.9,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 36,
+    "site": "Kwatisore – Cenderawasih Bay",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -3.3,
+    "lon": 135.0,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "X",
+    "frequence": "souvent",
+    "explication": "Les requins baleines se regroupent sous les bagans (plateformes de pêche) et les pêcheurs leur donnent des poissons/appâts pour les garder sous les filets"
+  },
+  {
+    "id": 37,
+    "site": "Triton Bay – Kaimana",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -3.7,
+    "lon": 133.8,
+    "months": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "X",
+    "frequence": "souvent",
+    "explication": "Les requins baleines se regroupent sous les bagans (plateformes de pêche) et les pêcheurs leur donnent des poissons/appâts pour les garder sous les filets"
+  },
+  {
+    "id": 38,
+    "site": "Teluk Saleh – Sumbawa",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -8.5,
+    "lon": 117.9,
+    "months": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "X",
+    "frequence": "souvent",
+    "explication": "Les requins baleines se regroupent sous les bagans (plateformes de pêche) et les pêcheurs leur donnent des poissons/appâts pour les garder sous les filets"
+  },
+  {
+    "id": 39,
+    "site": "Talisayan / Derawan / Maratua – Kalimantan Est",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 2.3,
+    "lon": 118.2,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "X",
+    "frequence": "regulier",
+    "explication": "Les requins baleines se regroupent sous les bagans (plateformes de pêche) et les pêcheurs leur donnent des poissons/appâts pour les garder sous les filets"
+  },
+  {
+    "id": 40,
+    "site": "Botubarani – Gorontalo",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 0.48,
+    "lon": 123.1,
+    "months": [],
+    "ethique": "X",
+    "frequence": "regulier",
+    "explication": "Les requins baleines se regroupent sous les bagans (plateformes de pêche) et les pêcheurs leur donnent des poissons/appâts pour les garder sous les filets"
+  },
+  {
+    "id": 41,
+    "site": "Raja Ampat",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -1.9,
+    "lon": 130.1,
+    "months": [],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 42,
+    "site": "Kaimana",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 0.25,
+    "lon": 133.7,
+    "months": [],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 43,
+    "site": "Alor",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -8.2,
+    "lon": 124.5,
+    "months": [],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 44,
+    "site": "Flores Nord / Maumere",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -8.6,
+    "lon": 122.2,
+    "months": [],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 45,
+    "site": "Komodo",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -8.5,
+    "lon": 119.5,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 46,
+    "site": "Halmahera",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -0.5,
+    "lon": -0.5,
+    "months": [
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 47,
+    "site": "Bali – Nusa Penida",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -8.7,
+    "lon": 115.5,
+    "months": [],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 48,
+    "site": "Wakatobi",
+    "country": "Indonésie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": -5.5,
+    "lon": 123.8,
+    "months": [],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 49,
+    "site": "Lankayan Island",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 6.5,
+    "lon": 117.9,
+    "months": [
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 50,
+    "site": "Sipadan Island",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 4.1,
+    "lon": 118.6,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 51,
+    "site": "Mabul & Kapalai",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 4.25,
+    "lon": 118.6,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 52,
+    "site": "Layang Layang Atoll",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 7.4,
+    "lon": 113.9,
+    "months": [
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 53,
+    "site": "Tunku Abdul Rahman / Gaya & récifs au large de Kota Kinabalu",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 6.0,
+    "lon": 116.0,
+    "months": [
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "tres rare",
+    "explication": ""
+  },
+  {
+    "id": 54,
+    "site": "Pulau Payar Marine Park",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 6.0,
+    "lon": 100.0,
+    "months": [],
+    "ethique": "",
+    "frequence": "tres rare",
+    "explication": ""
+  },
+  {
+    "id": 55,
+    "site": "Pulau Tenggol – “Whale Shark Point”, Tokong Timur, Rajawali, etc.",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 4.8,
+    "lon": 103.68,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 56,
+    "site": "Perhentian Islands – Tokong Laut, sites pélagiques",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 5.92,
+    "lon": 102.73,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 57,
+    "site": "Redang Island – Big Mount, Pulau Paku, Pulau Lima & alentours",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 5.77,
+    "lon": 103.03,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 58,
+    "site": "Lang Tengah Island",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 5.8,
+    "lon": 102.9,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 59,
+    "site": "Kapas Island & Gemia",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 5.22,
+    "lon": 103.27,
+    "months": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 60,
+    "site": "Pulau Kerengga Besar & petits îlots du parc de Redang",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 5.77,
+    "lon": 103.05,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 61,
+    "site": "Pulau Aur & Pulau Dayang – Rayner’s Rock, Captain Point, Pinnacles",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 2.45,
+    "lon": 104.52,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 62,
+    "site": "Pulau Dayang",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 2.48,
+    "lon": 104.5,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 63,
+    "site": "Tioman / archipel de Seribuat",
+    "country": "Malaisie",
+    "continent": "asie",
+    "species": "requin-baleine",
+    "lat": 2.82,
+    "lon": 104.18,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "tres rare",
+    "explication": ""
+  },
+  {
+    "id": 64,
+    "site": "île de Santa Maria",
+    "country": "Portugal",
+    "continent": "europe",
+    "species": "requin-baleine",
+    "lat": 36.95,
+    "lon": -25.1,
+    "months": [
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 65,
+    "site": "Baixa do Ambrósio",
+    "country": "Portugal",
+    "continent": "europe",
+    "species": "requin-baleine",
+    "lat": 37.0,
+    "lon": -24.9,
+    "months": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 66,
+    "site": "Formigas & Dollabarat",
+    "country": "Portugal",
+    "continent": "europe",
+    "species": "requin-baleine",
+    "lat": 37.02,
+    "lon": -24.86,
+    "months": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 67,
+    "site": "Princess Alice Bank",
+    "country": "Portugal",
+    "continent": "europe",
+    "species": "requin-baleine",
+    "lat": 38.6,
+    "lon": -29.0,
+    "months": [
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 68,
+    "site": "Côte sud de Pico",
+    "country": "Portugal",
+    "continent": "europe",
+    "species": "requin-baleine",
+    "lat": 38.4,
+    "lon": -28.3,
+    "months": [
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 69,
+    "site": "“Bordure sud de l’archipel”",
+    "country": "Portugal",
+    "continent": "europe",
+    "species": "requin-baleine",
+    "lat": -0.5,
+    "lon": 2.0,
+    "months": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 70,
+    "site": "Mafia Island",
+    "country": "Tanzanie",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -7.9,
+    "lon": 39.8,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 71,
+    "site": "Zone “offshore / canal de Mafia”",
+    "country": "Tanzanie",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -8.0,
+    "lon": 39.9,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 72,
+    "site": "Praia do Tofo / “Whale Shark Alley”",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -23.86,
+    "lon": 35.55,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "hotspot mondial",
+    "explication": ""
+  },
+  {
+    "id": 73,
+    "site": "Barra / Praia da Barra",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -23.8,
+    "lon": 35.54,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "hotspot mondial",
+    "explication": ""
+  },
+  {
+    "id": 74,
+    "site": "Guinjata Bay",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -24.07,
+    "lon": 35.5,
+    "months": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 75,
+    "site": "Paindane Reef / Paindane – Coral Gardens",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -24.1,
+    "lon": 35.5,
+    "months": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 76,
+    "site": "Zone Guinjata – Paindane – “Island Rock” – Jangamo",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": 0.2,
+    "lon": -0.05,
+    "months": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 77,
+    "site": "Zavora",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -24.52,
+    "lon": 35.2,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 78,
+    "site": "Pomene Bay & récifs au large",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -22.92,
+    "lon": 35.56,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 79,
+    "site": "Couloir côtier Zavora ↔ Tofo ↔ Pomene",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -23.7,
+    "lon": -0.2,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "hotspot mondial",
+    "explication": ""
+  },
+  {
+    "id": 80,
+    "site": "Bazaruto Archipelago",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -21.64,
+    "lon": 35.5,
+    "months": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 81,
+    "site": "Vilanculos",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -22.0,
+    "lon": 35.32,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 82,
+    "site": "Inhassoro & baie au large",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -21.6,
+    "lon": 35.2,
+    "months": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 83,
+    "site": "Archipel des Quirimbas",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -12.14,
+    "lon": 40.43,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 84,
+    "site": "Nacala / Baie de Nacala",
+    "country": "Mozambique",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": 0.05,
+    "lon": 40.7,
+    "months": [
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 85,
+    "site": "Sodwana Bay",
+    "country": "Afrique du Sud",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -27.5333,
+    "lon": 32.6833,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 86,
+    "site": "Cape Vidal",
+    "country": "Afrique du Sud",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -28.1167,
+    "lon": 32.55,
+    "months": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 87,
+    "site": "Durban – côte nord / sud",
+    "country": "Afrique du Sud",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -29.8667,
+    "lon": 31.05,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 88,
+    "site": "Segment Durban → Umtentweni",
+    "country": "Afrique du Sud",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -30.3333,
+    "lon": 30.5,
+    "months": [
+      1,
+      2,
+      3,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 89,
+    "site": "Segment Amanzimtoti → Hibberdene",
+    "country": "Afrique du Sud",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -30.3333,
+    "lon": 30.7,
+    "months": [
+      1
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 90,
+    "site": "Aliwal Shoal",
+    "country": "Afrique du Sud",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -30.25,
+    "lon": 30.7833,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 91,
+    "site": "Protea Banks",
+    "country": "Afrique du Sud",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -30.7333,
+    "lon": 30.45,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 92,
+    "site": "Nosy Be",
+    "country": "Madagascar",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -13.32,
+    "lon": 48.2,
+    "months": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "tres souvent",
+    "explication": ""
+  },
+  {
+    "id": 93,
+    "site": "Nosy Sakati",
+    "country": "Madagascar",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -13.31,
+    "lon": 48.17,
+    "months": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 94,
+    "site": "Madirokely / Ambatoloaka – zone large",
+    "country": "Madagascar",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -13.41,
+    "lon": 48.24,
+    "months": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 95,
+    "site": "Baie d’Ampasindava",
+    "country": "Madagascar",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -13.7,
+    "lon": 47.95,
+    "months": [
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 96,
+    "site": "Baie de Lokobe / côte est Nosy Be",
+    "country": "Madagascar",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -13.43,
+    "lon": 48.3,
+    "months": [
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 97,
+    "site": "Nosy Iranja",
+    "country": "Madagascar",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -13.65,
+    "lon": 47.98,
+    "months": [
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 98,
+    "site": "Nosy Komba",
+    "country": "Madagascar",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -13.45,
+    "lon": 48.35,
+    "months": [
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 99,
+    "site": "Baie de Tanikely / Parc Marin de Nosy Tanikely",
+    "country": "Madagascar",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -13.48,
+    "lon": 48.27,
+    "months": [
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 100,
+    "site": "Baie de Ramena – Diego Suarez",
+    "country": "Madagascar",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -12.25,
+    "lon": 49.35,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 101,
+    "site": "Baie de Befotaka / Mahajanga",
+    "country": "Madagascar",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -15.72,
+    "lon": 46.32,
+    "months": [
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 102,
+    "site": "Baie de Moramba",
+    "country": "Madagascar",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -14.22,
+    "lon": 47.06,
+    "months": [
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 103,
+    "site": "Diani Beach",
+    "country": "Kenya",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.28,
+    "lon": 39.59,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 104,
+    "site": "Galu Beach",
+    "country": "Kenya",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.32,
+    "lon": 39.58,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 105,
+    "site": "Kisite–Mpunguti Marine Park",
+    "country": "Kenya",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.67,
+    "lon": 39.38,
+    "months": [
+      1,
+      2,
+      3
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 106,
+    "site": "Wasini Island",
+    "country": "Kenya",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.66,
+    "lon": 39.38,
+    "months": [
+      1,
+      2,
+      3
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 107,
+    "site": "Shimoni / Passe de Pemba Channel",
+    "country": "Kenya",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.62,
+    "lon": 39.38,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 108,
+    "site": "Tiwi Beach",
+    "country": "Kenya",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.18,
+    "lon": 39.57,
+    "months": [
+      1,
+      2,
+      3
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 109,
+    "site": "Nyali / Mombasa Marine Park",
+    "country": "Kenya",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.01,
+    "lon": 39.73,
+    "months": [
+      1,
+      2,
+      3
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 110,
+    "site": "Kilifi / Watamu / Malindi",
+    "country": "Kenya",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -3.62,
+    "lon": 40.02,
+    "months": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 111,
+    "site": "Watamu Marine National Park",
+    "country": "Kenya",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -3.37,
+    "lon": 40.0,
+    "months": [
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 112,
+    "site": "Malindi Marine Park",
+    "country": "Kenya",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -3.22,
+    "lon": 40.13,
+    "months": [
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 113,
+    "site": "Offshore Lamu / Kiunga Marine Reserve",
+    "country": "Kenya",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -2.3,
+    "lon": 41.0,
+    "months": [
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 114,
+    "site": "Mahé – Baie Ternay Marine National Park",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.62,
+    "lon": 55.38,
+    "months": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 115,
+    "site": "Mahé – Port Launay Marine National Park",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.61,
+    "lon": 55.41,
+    "months": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 116,
+    "site": "Mahé – Beau Vallon / Bel Ombre",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.61,
+    "lon": 55.43,
+    "months": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 117,
+    "site": "Mahé – Anse Major / Cap Matoopa",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.6,
+    "lon": 55.42,
+    "months": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 118,
+    "site": "Mahé – Anse à la Mouche / Baie Lazare",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.76,
+    "lon": 55.49,
+    "months": [
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 119,
+    "site": "Praslin – Côte sud-ouest / Anse Consolation",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.37,
+    "lon": 55.74,
+    "months": [
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 120,
+    "site": "Curieuse Marine National Park",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.29,
+    "lon": 55.7,
+    "months": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 121,
+    "site": "La Digue – Zone large au sud de l’île",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.37,
+    "lon": 55.83,
+    "months": [
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 122,
+    "site": "Felicité / Sister Islands / Coco Island Marine Park",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -4.3,
+    "lon": 55.85,
+    "months": [
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 123,
+    "site": "Îles Amirantes",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -5.68,
+    "lon": 53.65,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 124,
+    "site": "Îles Alphonse & St-François Atoll",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -7.04,
+    "lon": 52.73,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 125,
+    "site": "Île Farquhar",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -10.13,
+    "lon": 51.1,
+    "months": [],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 126,
+    "site": "Bird Island – passages offshore",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -3.72,
+    "lon": 55.2,
+    "months": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 127,
+    "site": "Aldabra Atoll",
+    "country": "Seychelles",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -9.42,
+    "lon": 46.35,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 128,
+    "site": "Golfe de Tadjourah",
+    "country": "Djibouti",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": 11.8,
+    "lon": 42.8,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "tres souvent",
+    "explication": ""
+  },
+  {
+    "id": 129,
+    "site": "Plage d’Arta / Arta Plage",
+    "country": "Djibouti",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": 11.6,
+    "lon": 42.77,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "tres souvent",
+    "explication": ""
+  },
+  {
+    "id": 130,
+    "site": "Baie de Ghoubbet",
+    "country": "Djibouti",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": 11.57,
+    "lon": 42.6,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 131,
+    "site": "Îles Moucha & Maskali",
+    "country": "Djibouti",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": 11.78,
+    "lon": 43.0,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 132,
+    "site": "Doraleh / Ras Eiro",
+    "country": "Djibouti",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": 11.61,
+    "lon": 43.11,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 133,
+    "site": "Khor Ambado",
+    "country": "Djibouti",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": 11.54,
+    "lon": 43.13,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 134,
+    "site": "Fjords du Ghoubbet – Abour / Andabba",
+    "country": "Djibouti",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": -0.05,
+    "lon": -0.075,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 135,
+    "site": "Baie de Tadjourah – zone large",
+    "country": "Djibouti",
+    "continent": "afrique",
+    "species": "requin-baleine",
+    "lat": 11.8,
+    "lon": -0.1,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 136,
+    "site": "Isla Holbox",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 21.52,
+    "lon": -87.37,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "X",
+    "frequence": "tres souvent",
+    "explication": "Les requins baleines sont nourris à la main à cause de la grosse pression touristique."
+  },
+  {
+    "id": 137,
+    "site": "Isla Mujeres",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 21.24,
+    "lon": -86.74,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "X",
+    "frequence": "tres souvent",
+    "explication": "Les requins baleines sont nourris à la main à cause de la grosse pression touristique."
+  },
+  {
+    "id": 138,
+    "site": "Cancún – zone large offshore",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 21.17,
+    "lon": -86.82,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "tres souvent",
+    "explication": ""
+  },
+  {
+    "id": 139,
+    "site": "Isla Contoy",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 21.5,
+    "lon": -86.79,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "tres souvent",
+    "explication": ""
+  },
+  {
+    "id": 140,
+    "site": "Bahía de los Ángeles",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 28.95,
+    "lon": -113.55,
+    "months": [
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 141,
+    "site": "La Paz – Bay of La Paz",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 24.15,
+    "lon": -110.32,
+    "months": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 142,
+    "site": "Espíritu Santo & Partida",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 24.47,
+    "lon": -110.3,
+    "months": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 143,
+    "site": "Cabo San Lucas",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 22.88,
+    "lon": -109.91,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 144,
+    "site": "Isla Magdalena",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 24.61,
+    "lon": -112.11,
+    "months": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 145,
+    "site": "Puerto Vallarta – Bahia de Banderas",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 20.61,
+    "lon": -105.23,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 146,
+    "site": "Isla Tiburón & Canal de Ballenas",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 28.8,
+    "lon": -112.9,
+    "months": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 147,
+    "site": "San Carlos – Golfo de Santa Clara",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 31.15,
+    "lon": -113.5,
+    "months": [
+      8,
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 148,
+    "site": "Gladden Spit and Silk Cayes Marine Reserve",
+    "country": "Belize",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 16.5,
+    "lon": -87.9667,
+    "months": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 149,
+    "site": "Glover's Reef Atoll (sud-ouest)",
+    "country": "Belize",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 16.73,
+    "lon": -87.78,
+    "months": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 150,
+    "site": "Lighthouse Reef Atoll (sud de l'atoll)",
+    "country": "Belize",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 17.2,
+    "lon": -87.6,
+    "months": [
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 151,
+    "site": "Ewing Bank (nord Golfe du Mexique)",
+    "country": "Etats-Unis",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 28.1,
+    "lon": -91.1,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 152,
+    "site": "Flower Garden Banks (Texas / Louisiane)",
+    "country": "Etats-Unis",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 27.9,
+    "lon": -93.6,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 153,
+    "site": "Plateau continental nord Golfe du Mexique",
+    "country": "Etats-Unis",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 28.5,
+    "lon": -88.0,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 154,
+    "site": "Archipel de Los Roques (Caraibes)",
+    "country": "Venezuela",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 11.9,
+    "lon": -66.7,
+    "months": [
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 155,
+    "site": "Utila (Iles de la Baie)",
+    "country": "Honduras",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 16.1,
+    "lon": -86.9,
+    "months": [
+      2,
+      3,
+      4,
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 156,
+    "site": "Roatan (nord de l'ile)",
+    "country": "Honduras",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 16.4,
+    "lon": -86.6,
+    "months": [
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 157,
+    "site": "Isla del Coco",
+    "country": "Costa Rica",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 5.52,
+    "lon": -87.07,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 158,
+    "site": "Pacifique nord (Guanacaste)",
+    "country": "Costa Rica",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 10.5,
+    "lon": -85.8,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 159,
+    "site": "Parc national de Coiba",
+    "country": "Panama",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 7.43,
+    "lon": -81.77,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 160,
+    "site": "Golfe de Chiriqui",
+    "country": "Panama",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 8.3,
+    "lon": -82.3,
+    "months": [
+      2,
+      3,
+      4,
+      5,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 161,
+    "site": "Isla Malpelo",
+    "country": "Colombie",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 3.99,
+    "lon": -81.59,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 162,
+    "site": "Isla Gorgona",
+    "country": "Colombie",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 2.97,
+    "lon": -78.18,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 163,
+    "site": "Fernando de Noronha",
+    "country": "Brésil",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": -3.85,
+    "lon": -32.42,
+    "months": [
+      1,
+      2,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 164,
+    "site": "Atol das Rocas",
+    "country": "Brésil",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": -3.86,
+    "lon": -33.81,
+    "months": [
+      1,
+      2,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 165,
+    "site": "Cote nord-est (Maranhao - Ceara)",
+    "country": "Brésil",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": -2.5,
+    "lon": -41.0,
+    "months": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 166,
+    "site": "Galapagos - Ile Darwin",
+    "country": "Equateur",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 1.67,
+    "lon": -92.0,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 167,
+    "site": "Galapagos - Ile Wolf",
+    "country": "Equateur",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 1.38,
+    "lon": -91.82,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 168,
+    "site": "Ningaloo Reef (Exmouth)",
+    "country": "Australie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -22.0,
+    "lon": 113.9,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 169,
+    "site": "Coral Bay (Ningaloo sud)",
+    "country": "Australie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -23.1,
+    "lon": 113.8,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 170,
+    "site": "Noord-west Shelf (WA)",
+    "country": "Australie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -19.0,
+    "lon": 116.0,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 171,
+    "site": "Blue Corner et recifs voisins (Koror)",
+    "country": "Palaos (Palau)",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": 7.26,
+    "lon": 134.53,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 172,
+    "site": "Baie de Kimbe (Nouvelle-Bretagne)",
+    "country": "Papouasie Nouvelle Guinée",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -5.33,
+    "lon": 150.15,
+    "months": [
+      1,
+      2,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 173,
+    "site": "Archipel de Yasawa",
+    "country": "Fidji",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -17.1,
+    "lon": 177.3,
+    "months": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 174,
+    "site": "Chuuk / Truk Lagoon",
+    "country": "Micronésie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": 7.4,
+    "lon": 151.8,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 175,
+    "site": "Mer de Corail (recifs externes)",
+    "country": "Nouvelle Calédonie ",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -20.5,
+    "lon": 165.5,
+    "months": [
+      1,
+      2,
+      3,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 176,
+    "site": "Atoll de Majuro",
+    "country": "Iles Marshall",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": 7.1,
+    "lon": 171.4,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 177,
+    "site": "Turneffe Atoll (sud-est)",
+    "country": "Belize",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 17.3,
+    "lon": -87.8,
+    "months": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 178,
+    "site": "Sapodilla Cayes Marine Reserve",
+    "country": "Belize",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 16.1,
+    "lon": -88.4,
+    "months": [
+      4,
+      5,
+      6
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 179,
+    "site": "De Soto Canyon (nord-est Golfe du Mexique)",
+    "country": "Etats-Unis",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 29.0,
+    "lon": -86.0,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 180,
+    "site": "Plateau large au large de la Floride (Panhandle)",
+    "country": "Etats-Unis",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 29.5,
+    "lon": -86.8,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 181,
+    "site": "Isla La Tortuga",
+    "country": "Venezuela",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 10.9,
+    "lon": -65.3,
+    "months": [
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 182,
+    "site": "Offshore Isla Margarita",
+    "country": "Venezuela",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 11.0,
+    "lon": -64.0,
+    "months": [
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 183,
+    "site": "Cayos Cochinos",
+    "country": "Honduras",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 15.97,
+    "lon": -86.52,
+    "months": [
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 184,
+    "site": "Islas Murcielagos (Bat Islands)",
+    "country": "Costa Rica",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 10.9,
+    "lon": -85.9,
+    "months": [
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 185,
+    "site": "Islas Catalinas",
+    "country": "Costa Rica",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 10.2,
+    "lon": -85.9,
+    "months": [
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 186,
+    "site": "Archipel de Las Perlas",
+    "country": "Panama",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 8.4,
+    "lon": -79.0,
+    "months": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 187,
+    "site": "Cote caraibe (Parc national de Tayrona, zone large)",
+    "country": "Colombie",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 11.4,
+    "lon": -74.1,
+    "months": [
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 188,
+    "site": "Bancs d'Abrolhos",
+    "country": "Brésil",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": -18.0,
+    "lon": -38.5,
+    "months": [
+      1,
+      2,
+      3,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 189,
+    "site": "Galapagos - Punta Vicente Roca (Isabela)",
+    "country": "Equateur",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 0.03,
+    "lon": -91.37,
+    "months": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 190,
+    "site": "Exmouth Gulf",
+    "country": "Australie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -22.2,
+    "lon": 114.1,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "ethique": "",
+    "frequence": "regulier",
+    "explication": ""
+  },
+  {
+    "id": 191,
+    "site": "Dampier Archipelago",
+    "country": "Australie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -20.5,
+    "lon": 116.8,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 192,
+    "site": "Rowley Shoals",
+    "country": "Australie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -17.3,
+    "lon": 119.3,
+    "months": [
+      10,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 193,
+    "site": "German Channel",
+    "country": "Palaos (Palau)",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": 7.29,
+    "lon": 134.52,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 194,
+    "site": "Milne Bay",
+    "country": "Papouasie Nouvelle Guinée",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -10.4,
+    "lon": 150.8,
+    "months": [
+      1,
+      2,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 195,
+    "site": "Madang",
+    "country": "Papouasie Nouvelle Guinée",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -5.2,
+    "lon": 145.8,
+    "months": [
+      1,
+      2,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 196,
+    "site": "Bligh Waters / Vatu-i-Ra Channel",
+    "country": "Fidji",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -17.4,
+    "lon": 178.5,
+    "months": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 197,
+    "site": "Pohnpei offshore",
+    "country": "Micronésie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": 6.9,
+    "lon": 158.2,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 198,
+    "site": "Kosrae recifs externes",
+    "country": "Micronésie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": 5.3,
+    "lon": 162.9,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 199,
+    "site": "Recifs Loyauté et Chesterfield",
+    "country": "Nouvelle Calédonie ",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -21.0,
+    "lon": 161.0,
+    "months": [
+      1,
+      2,
+      3,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 200,
+    "site": "Atoll de Kwajalein",
+    "country": "Iles Marshall",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": 8.7,
+    "lon": 167.7,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 201,
+    "site": "Banco Chinchorro",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 18.6,
+    "lon": -87.4,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 202,
+    "site": "Isla Cozumel (offshore est)",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 20.4,
+    "lon": -86.7,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 203,
+    "site": "Isla Holbox - Cabo Catoche offshore",
+    "country": "Mexique",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 21.7,
+    "lon": -87.2,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 204,
+    "site": "Placencia offshore",
+    "country": "Belize",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 16.5,
+    "lon": -88.3,
+    "months": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 205,
+    "site": "Guanaja (Iles de la Baie)",
+    "country": "Honduras",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 16.45,
+    "lon": -85.9,
+    "months": [
+      2,
+      3,
+      4,
+      10,
+      11
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 206,
+    "site": "Cayos Cochinos - Big Media Luna",
+    "country": "Honduras",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 15.95,
+    "lon": -86.48,
+    "months": [
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 207,
+    "site": "San Juan del Sur (Pacifique)",
+    "country": "Nicaragua",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 11.25,
+    "lon": -85.87,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 208,
+    "site": "Golfo de Fonseca (offshore)",
+    "country": "Nicaragua",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 12.9,
+    "lon": -87.5,
+    "months": [
+      1,
+      2,
+      3
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 209,
+    "site": "Isla del Caño",
+    "country": "Costa Rica",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 8.7,
+    "lon": -83.85,
+    "months": [
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 210,
+    "site": "Golfo Dulce offshore",
+    "country": "Costa Rica",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 8.6,
+    "lon": -83.2,
+    "months": [
+      1,
+      2,
+      3
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 211,
+    "site": "Bocas del Toro offshore",
+    "country": "Panama",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 9.2,
+    "lon": -82.3,
+    "months": [
+      9,
+      10
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 212,
+    "site": "Archipel San Andres & Providencia",
+    "country": "Colombie",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 12.55,
+    "lon": -81.7,
+    "months": [
+      1,
+      2,
+      3
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 213,
+    "site": "Galapagos - Wolf-Darwin corridor",
+    "country": "Equateur",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": 1.5,
+    "lon": -91.9,
+    "months": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "souvent",
+    "explication": ""
+  },
+  {
+    "id": 214,
+    "site": "Tumbes offshore",
+    "country": "Pérou",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": -3.6,
+    "lon": -80.5,
+    "months": [
+      1,
+      2,
+      3,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 215,
+    "site": "Talara offshore",
+    "country": "Pérou",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": -4.6,
+    "lon": -81.3,
+    "months": [
+      1,
+      2,
+      3,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 216,
+    "site": "Arica offshore",
+    "country": "Chili",
+    "continent": "amerique",
+    "species": "requin-baleine",
+    "lat": -18.5,
+    "lon": -70.3,
+    "months": [
+      1,
+      2,
+      3
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 217,
+    "site": "Montebello Islands",
+    "country": "Australie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -20.5,
+    "lon": 115.5,
+    "months": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 218,
+    "site": "Scott Reef",
+    "country": "Australie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -14.0,
+    "lon": 121.75,
+    "months": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "ethique": "",
+    "frequence": "occasionnel",
+    "explication": ""
+  },
+  {
+    "id": 219,
+    "site": "Ashmore Reef",
+    "country": "Australie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -12.25,
+    "lon": 123.05,
+    "months": [
+      3,
+      4,
+      5
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 220,
+    "site": "Coral Sea - Osprey Reef",
+    "country": "Australie",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -13.9,
+    "lon": 146.55,
+    "months": [
+      1,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 221,
+    "site": "New Georgia Sound",
+    "country": "Iles Salomon",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -8.4,
+    "lon": 157.1,
+    "months": [
+      1,
+      2,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 222,
+    "site": "Marovo Lagoon offshore",
+    "country": "Iles Salomon",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -8.75,
+    "lon": 158.2,
+    "months": [
+      1,
+      2,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 223,
+    "site": "Maskelyne Islands",
+    "country": "Vanuatu",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -16.5,
+    "lon": 168.3,
+    "months": [
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 224,
+    "site": "Espiritu Santo offshore",
+    "country": "Vanuatu",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -15.5,
+    "lon": 167.2,
+    "months": [
+      1,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 225,
+    "site": "Vava'u archipelago offshore",
+    "country": "Tonga",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -18.6,
+    "lon": -173.98,
+    "months": [
+      7,
+      8,
+      9
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 226,
+    "site": "Apolima Strait offshore",
+    "country": "Samoa",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -13.8,
+    "lon": -172.0,
+    "months": [
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 227,
+    "site": "Tarawa offshore",
+    "country": "Kiribati",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": 1.4,
+    "lon": 173.0,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 228,
+    "site": "Funafuti Atoll offshore",
+    "country": "Tuvalu",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -8.5,
+    "lon": 179.2,
+    "months": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 229,
+    "site": "Atoll de Rongelap",
+    "country": "Iles Marshall",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": 11.15,
+    "lon": 166.88,
+    "months": [
+      1,
+      2,
+      3
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 230,
+    "site": "Rarotonga offshore",
+    "country": "Iles Cook",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -21.25,
+    "lon": -159.75,
+    "months": [
+      1,
+      2,
+      3,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 231,
+    "site": "Tuamotu - Rangiroa offshore",
+    "country": "Polynesie Francaise",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -15.0,
+    "lon": -147.5,
+    "months": [
+      1,
+      2,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  },
+  {
+    "id": 232,
+    "site": "Tahiti peninsula offshore",
+    "country": "Polynesie Francaise",
+    "continent": "oceanie",
+    "species": "requin-baleine",
+    "lat": -17.7,
+    "lon": -149.2,
+    "months": [
+      1,
+      2,
+      11,
+      12
+    ],
+    "ethique": "",
+    "frequence": "rare",
+    "explication": ""
+  }
+]

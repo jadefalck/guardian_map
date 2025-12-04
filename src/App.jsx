@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import Blog from "./pages/Blog";
 import LabelsCertifications from "./pages/LabelsCertifications";
 import Circuits from "./pages/Circuits";
+import Especes from "./pages/Especes";
 
 // Blog articles
 import RequinsBaleines from "./pages/blog/RequinsBaleines";
@@ -19,6 +20,7 @@ import Oman from "./pages/blog/Oman";
 // Activités
 import Activites from "./pages/activites/Activités";
 import Plongée from "./pages/activites/Plongée";
+import Observation from "./pages/activites/Observation"; // ← NOUVELLE PAGE
 
 // Pays
 import Philippines from "./pages/pays/Philippines";
@@ -134,14 +136,24 @@ export default function App() {
               </Link>
 
               {activitiesOpen && (
-                <div className="absolute right-0 mt-2 w-44 rounded-lg bg-white shadow-lg ring-1 ring-black/5 py-2">
-                  <Link to="/plongée" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                <div className="absolute right-0 mt-2 w-52 rounded-lg bg-white shadow-lg ring-1 ring-black/5 py-2">
+                  <Link
+                    to="/plongée"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  >
                     {t("menu.diving")}
+                  </Link>
+                  <Link
+                    to="/observation"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    {t("activities.observation.title")}
                   </Link>
                 </div>
               )}
             </div>
 
+            <Link to="/especes" className="text-gray-700 hover:text-[#1113a2]">{t("menu.especes")}</Link>
             <Link to="/circuits" className="text-gray-700 hover:text-[#1113a2]">{t("menu.circuits")}</Link>
             <Link to="/blog" className="text-gray-700 hover:text-[#1113a2]">{t("menu.blog")}</Link>
             <Link to="/apropos" className="text-gray-700 hover:text-[#1113a2]">{t("menu.about")}</Link>
@@ -177,8 +189,23 @@ export default function App() {
                 >
                   {t("menu.diving")}
                 </Link>
+                <Link
+                  onClick={() => { setMenuOpen(false); setActivitiesOpenMobile(false); }}
+                  to="/observation"
+                  className="block px-2 py-2 hover:text-[#1113a2]"
+                >
+                  {t("activities.observation.title")}
+                </Link>
               </div>
             )}
+
+            <Link
+              onClick={() => setMenuOpen(false)}
+              to="/especes"
+              className="px-4 py-3 border-t border-gray-200 hover:bg-gray-50"
+            >
+              {t("menu.especes")}
+            </Link>
 
             <Link
               onClick={() => setMenuOpen(false)}
@@ -246,8 +273,10 @@ export default function App() {
           <Route path="/circuits" element={<Circuits />} />
           <Route path="/activites" element={<Activites />} />
           <Route path="/plongée" element={<Plongée />} />
+          <Route path="/observation" element={<Observation />} /> {/* ← NOUVELLE ROUTE */}
           <Route path="/continents/:slug" element={<ContinentRouter />} />
           <Route path="/pays2/:slug" element={<CountryPage />} />
+          <Route path="/especes" element={<Especes />} />
         </Routes>
       </main>
 
@@ -285,19 +314,3 @@ export default function App() {
     </Router>
   );
 }
-
-/*import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-//import './App.css'
-
-export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-    </Routes>
-  );
-}*/
-
-//export default App

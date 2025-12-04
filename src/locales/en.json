@@ -5,7 +5,8 @@
   "menu.circuits": "Tours",
   "menu.blog": "Blog",
   "menu.about": "About",
-  
+  "menu.especes": "Species",
+
   "home": {
     "hero": {
       "title": "For ocean-friendly travel",
@@ -40,14 +41,17 @@
   "activities": {
     "hero": {
       "title": "Activities",
-      "subtitle": "<b>GuardianMap</b> promotes <b>responsible marine tourism</b>: activities with strong good-practice standards and, whenever possible, backed by recognized labels."
+      "line1": "Each activity must have an official label awarded by governments or NGOs.",
+      "line2": "If it is <b>not certified</b>, it is <b>not on GuardianMap</b>."
     },
+
     "criteria": {
-      "bannerAlt": "Activities background",
-      "title": "Clear, demanding criteria",
-      "text": "Every center, trip and activity must have an <b>official label</b> awarded by governments or NGOs.",
+      "bannerAlt": "Activities banner",
+      "title": "Clear and rigorous criteria",
+      "text": "Every dive center, boat trip, or marine activity must hold an <b>official certification</b> issued by governments or NGOs.",
       "badge": "If it’s not <c>certified</c>, it’s not on <c>GuardianMap</c>."
     },
+
     "diving": {
       "imageAlt": "Diving activities",
       "title": "Diving",
@@ -55,6 +59,43 @@
       "cta": "Discover diving activities",
       "labelsTitle": "Labels we rely on:"
     },
+
+    "observation": {
+      "title": "Marine wildlife watching",
+      "imageAlt": "Responsible marine mammal watching",
+      "text": "Learn how to <b>observe marine wildlife</b> while respecting their environment. Through responsible practices and <c>certified operators</c>, you can enjoy unique encounters without disturbing ecosystems.",
+      "cta": "Explore wildlife watching",
+      "labelsTitle": "Labels we rely on",
+
+      "pageTitle": "Wildlife observation",
+
+      "filters": {
+        "title": "Which animal?",
+        "hint": "Click again on a card to show all animals."
+      },
+
+      "threatsTitle": "Main risks of wildlife watching",
+      "threatsIntroLine1": "You might wonder how boat trips to watch whales, dolphins and other marine animals can be dangerous for them.",
+      "threatsIntroLine2": "Here are the main reasons:",
+
+      "threats": {
+        "proximity": {
+          "title": "Excessive proximity",
+          "text": "Collisions, propeller cuts, animals being surrounded or forced to change their route."
+        },
+        "noise": {
+          "title": "Underwater noise",
+          "text": "Engines and repeated passages disturb communication, orientation and increase stress for cetaceans."
+        },
+        "feeding": {
+          "title": "Feeding & over-frequentation",
+          "text": "Dependence on humans, behaviour changes, chronic stress and degraded habitats."
+        }
+      },
+
+      "highlight": "Choosing <blue>certified and trained operators</blue> helps <blue>reduce these impacts</blue> and lets animals keep the freedom to decide whether or not to interact."
+    },
+
     "labels": {
       "greenfins": {
         "alt": "Green Fins logo",
@@ -65,11 +106,21 @@
         "alt": "Blue Flag logo",
         "title": "Blue Flag",
         "text": "Environmental label for beaches and marinas: water quality, waste management, environmental education."
+      },
+      "wca": {
+        "alt": "World Cetacean Alliance logo",
+        "title": "World Cetacean Alliance",
+        "text": "Leading global label for ethical cetacean watching."
+      },
+      "fots": {
+        "alt": "Friend of the Sea logo",
+        "title": "Friend of the Sea",
+        "text": "International certification ensuring sustainable practices."
       }
     }
   },
 
-  
+
   "circuits": {
     "hero": {
       "title": "Tours",
@@ -90,7 +141,6 @@
     "illustrationAlt": "Tour illustration"
   },
 
-  
   "blog": {
     "hero": {
       "title": "Blog",
@@ -124,7 +174,6 @@
     }
   },
 
-  
   "articles": {
     "common": { "backToBlog": "← Back to blog" },
 
@@ -191,7 +240,6 @@
       "cta": "Find truly responsible dive centers here: <a>guardianmap.com/plongée</a>"
     },
 
-
     "wmd": {
       "title": "World Maritime Day: why maritime matters to everyone",
       "subtitle": "An IMO/UN day highlighting shipping’s vital role, safety at sea and ocean protection.",
@@ -230,7 +278,6 @@
     }
   },
 
-  
   "footer": {
     "contact": {
       "title": "Contact",
@@ -244,32 +291,26 @@
   },
 
   "about": {
-  "title": "About us",
-  "subtitle": "Behind GuardianMap are two ocean lovers who decided to act to protect what they cherish most: marine life.",
-
-  "thomas": {
-    "name": "Thomas",
-    "role": "Co-founder",
-    "bio": "An adventurer at heart and ocean lover, Thomas brings his energy and strong organisational spirit to turn GuardianMap into reality."
+    "title": "About us",
+    "subtitle": "Behind GuardianMap are two ocean lovers who decided to act to protect what they cherish most: marine life.",
+    "thomas": {
+      "name": "Thomas",
+      "role": "Co-founder",
+      "bio": "An adventurer at heart and ocean lover, Thomas brings his energy and strong organisational spirit to turn GuardianMap into reality."
+    },
+    "jade": {
+      "name": "Jade",
+      "role": "Co-founder",
+      "bio": "A passionate diver and travel enthusiast, Jade brings her creativity and vision to build a more respectful way to explore our oceans."
+    },
+    "why": {
+      "title": "Why did we create GuardianMap?",
+      "problemTitle": "The problem",
+      "solutionTitle": "The solution",
+      "problem": "Many travellers, with good intentions, don’t always know how to behave responsibly around the ocean. We dream of seeing marine beauty… but sometimes, without realising it, we contribute to harming it.",
+      "solution": "GuardianMap makes responsible marine travel easy by highlighting certified sustainable operators and inspiring travellers through education. Our goal: empower everyone to protect the ocean while exploring it."
+    }
   },
-
-  "jade": {
-    "name": "Jade",
-    "role": "Co-founder",
-    "bio": "A passionate diver and travel enthusiast, Jade brings her creativity and vision to build a more respectful way to explore our oceans."
-  },
-
-  "why": {
-    "title": "Why did we create GuardianMap?",
-    "problemTitle": "The problem",
-    "solutionTitle": "The solution",
-
-    "problem": "Many travellers, with good intentions, don’t always know how to behave responsibly around the ocean. We dream of seeing marine beauty… but sometimes, without realising it, we contribute to harming it.",
-    
-    "solution": "GuardianMap makes responsible marine travel easy by highlighting certified sustainable operators and inspiring travellers through education. Our goal: empower everyone to protect the ocean while exploring it."
-  }
-},
-
 
   "activitiesDiving": {
     "hero": {
@@ -301,8 +342,7 @@
         "text": "Environmental label for beaches and marinas: water quality, waste management, environmental education."
       }
     }
-  }
-, 
+  },
 
   "divingPage": {
     "intro": "Together, let’s discover dive centers that truly <b>respect</b> nature and are <b>committed</b> to protecting the <b>ocean</b>.",
@@ -317,8 +357,7 @@
       "europe": "Europe",
       "oceania": "Oceania"
     }
-  }, 
-
+  },
 
   "countries": {
     "cape-verde": "Cape Verde",
@@ -418,7 +457,7 @@
     "french-polynesia": "French Polynesia",
     "nouvelle-zelande": "New Zealand",
     "polynesie-francaise": "French Polynesia",
-    "vanuatu": "Vanuatu", 
+    "vanuatu": "Vanuatu",
 
     "cap-vert": "Cape Verde",
     "etats-unis": "United States",
@@ -430,9 +469,7 @@
     "coree-du-sud": "South Korea",
     "emirats-arabes-unis": "United Arab Emirates",
     "royaume-uni": "United Kingdom"
-
   },
-
 
   "countryPage": {
     "panel": {
@@ -462,7 +499,6 @@
       },
       "gfNote": "Note: these levels filter Green Fins centers only."
     },
-
     "why": {
       "title": "Why choose a certified center?",
       "text1": "Choosing a certified operator reduces the environmental impact of your trips and supports practices that protect marine ecosystems.",
@@ -475,7 +511,6 @@
       "boxTitle": "In short",
       "boxText": "You vote with your wallet for committed operators while maximising your chances of seeing abundant, healthy marine life."
     },
-
     "gf": {
       "title": "What is Green Fins?",
       "text1": "Green Fins (Reef-World Foundation & UNEP) supports dive and snorkel operators in adopting responsible practices: waste management, anchoring, group sizes, awareness-raising, and more.",
@@ -487,7 +522,6 @@
         "point3": "Focused on the ocean and coral reefs"
       }
     },
-
     "bf": {
       "title": "What is Blue Flag?",
       "text1": "Blue Flag recognises beaches, marinas and boats that meet strict criteria: water quality, waste management, safety, public information and environmental education.",
@@ -501,7 +535,6 @@
     }
   },
 
-  
   "continents": {
     "africa": "Africa",
     "north-america": "North America",
@@ -510,20 +543,60 @@
     "europe": "Europe",
     "oceania": "Oceania"
   },
+
   "continentPage": {
     "searchPlaceholder": "Search for a country…",
     "noCountry": "No country found.",
     "centersShort": "center(s)"
-  }
+  },
+
+  "especes": {
+  "title": "Where to see them",
+  "subtitle": "A map of key observation areas where you can encounter different marine species, depending on seasons and regions.",
+    "search": {
+      "label": "Search for a site, country, continent or species",
+      "placeholder": "e.g. Maldives, Asia, Whale shark…",
+      "type": {
+        "site": "Site",
+        "country": "Country",
+        "continent": "Continent",
+        "species": "Species"
+      }
+    },
+    "filters": {
+      "continent": "Continent",
+      "allContinents": "All continents",
+      "country": "Country",
+      "allCountries": "All countries",
+      "species": "Species",
+      "allSpecies": "All species",
+      "month": "Month",
+      "allMonths": "All months"
+    },
+    "popup": {
+      "unethicalTitle": "Non-ethical site"
+    },
+    "legend": "Dark <blue>blue pins</blue> show observation areas; <red>red pins</red> are reported as non-ethical."
+  },
+
+  "months": {
+    "1": "January",
+    "2": "February",
+    "3": "March",
+    "4": "April",
+    "5": "May",
+    "6": "June",
+    "7": "July",
+    "8": "August",
+    "9": "September",
+    "10": "October",
+    "11": "November",
+    "12": "December"
+  },
+
+  "animals": {
+  "whale": "Whale",
+  "dolphin": "Dolphin"
 }
 
-
-
-
-
-
-
-
-
-
-
+}
