@@ -15,36 +15,31 @@ export default function Circuits() {
 
   const handleQuizSubmit = async (e) => {
     e.preventDefault();
-    setQuizError("");
-    setIsSending(true);
+    setError(null);
 
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
+    const payload = Object.fromEntries(formData.entries());
 
     try {
-      const res = await fetch("http://localhost:4000/api/circuits-quiz", {
+      const res = await fetch("/api/send-circuit-quiz", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) {
-        throw new Error("Status " + res.status);
+        throw new Error("Réponse serveur non ok");
       }
 
       setQuizSubmitted(true);
     } catch (err) {
-      console.error("Erreur envoi quiz circuits:", err);
-      setQuizError(
+      console.error("Erreur envoi quiz circuits :", err);
+      setError(
         "Oups, une erreur est survenue pendant l’envoi. Tu peux réessayer dans quelques instants."
       );
-      setQuizSubmitted(false);
-    } finally {
-      setIsSending(false);
     }
   };
+
 
   return (
     <div className="w-full">
