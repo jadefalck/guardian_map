@@ -13,7 +13,7 @@ export default function Circuits() {
   const [quizError, setQuizError] = useState("");
   const [isSending, setIsSending] = useState(false);
 
-const handleQuizSubmit = async (e) => {
+  const handleQuizSubmit = async (e) => {
     e.preventDefault();
     setQuizError("");
     setIsSending(true);
@@ -42,6 +42,7 @@ const handleQuizSubmit = async (e) => {
       setIsSending(false);
     }
   };
+
 
   return (
     <div className="w-full">

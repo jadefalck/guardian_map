@@ -1,7 +1,26 @@
 // api/send-circuit-quiz.js
-const nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 
-module.exports = async (req, res) => {
+// Petite fonction utilitaire pour lire le JSON brut si besoin
+function getBody(req) {
+  return new Promise((resolve, reject) => {
+    let data = "";
+    req.on("data", (chunk) => {
+      data += chunk;
+    });
+    req.on("end", () => {
+      try {
+        const json = JSON.parse(data || "{}");
+        resolve(json);
+      } catch (e) {
+        reject(e);
+      }
+    });
+    req.on("error", reject);
+  });
+}
+
+export default async function handler(req, res) {
   // Autoriser uniquement POST
   if (req.method !== "POST") {
     res.status(405).json({ message: "Method not allowed" });
@@ -9,10 +28,11 @@ module.exports = async (req, res) => {
   }
 
   try {
-    // Récupérer le JSON envoyé par le front
-    const body = await getBody(req);
+    // Vercel parse parfois déjà le body, sinon on lit à la main
+    const body =
+      (req.body && typeof req.body === "object" ? req.body : await getBody(req)) ||
+      {};
 
-    // Tu peux adapter les champs selon ton formulaire
     const {
       name,
       email,
@@ -31,19 +51,18 @@ module.exports = async (req, res) => {
       extra,
     } = body;
 
-    // Transporter SMTP avec variables d'environnement Vercel
+    // Transport SMTP configuré avec tes variables d'env Vercel
     const transporter = nodemailer.createTransport({
       host: process.env.QUIZ_MAIL_HOST, // ex. smtp.gmail.com
       port: Number(process.env.QUIZ_MAIL_PORT || 465),
       secure: true,
       auth: {
         user: process.env.QUIZ_MAIL_USER, // ton adresse Gmail
-        pass: process.env.QUIZ_MAIL_PASS, // mot de passe d'application
+        pass: process.env.QUIZ_MAIL_PASS, // mot de passe d’application
       },
     });
 
     const to = process.env.QUIZ_MAIL_TO || process.env.QUIZ_MAIL_USER;
-
     const subject = `Nouveau quiz circuits – ${name || "Sans nom"}`;
 
     const text = `
@@ -71,7 +90,7 @@ Style d’hébergement : ${accommodation || "-"}
 
 Infos supplémentaires :
 ${extra || "-"}
-    `;
+`;
 
     await transporter.sendMail({
       from: `"GuardianMap – Quiz circuits" <${process.env.QUIZ_MAIL_USER}>`,
@@ -88,23 +107,4 @@ ${extra || "-"}
       message: "Erreur interne lors de l’envoi du mail.",
     });
   }
-};
-
-// Petite fonction utilitaire pour lire le JSON dans une fonction Vercel
-function getBody(req) {
-  return new Promise((resolve, reject) => {
-    let data = "";
-    req.on("data", (chunk) => {
-      data += chunk;
-    });
-    req.on("end", () => {
-      try {
-        const json = JSON.parse(data || "{}");
-        resolve(json);
-      } catch (e) {
-        reject(e);
-      }
-    });
-    req.on("error", reject);
-  });
 }
