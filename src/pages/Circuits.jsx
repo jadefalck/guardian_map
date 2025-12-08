@@ -13,10 +13,9 @@ export default function Circuits() {
   const [quizError, setQuizError] = useState("");
   const [isSending, setIsSending] = useState(false);
 
-  const handleQuizSubmit = async (e) => {
+const handleQuizSubmit = async (e) => {
     e.preventDefault();
     setQuizError("");
-    setQuizSubmitted(false);
     setIsSending(true);
 
     const formData = new FormData(e.target);
@@ -34,7 +33,6 @@ export default function Circuits() {
       }
 
       setQuizSubmitted(true);
-      e.target.reset();
     } catch (err) {
       console.error("Erreur envoi quiz circuits :", err);
       setQuizError(
@@ -344,6 +342,7 @@ export default function Circuits() {
                   >
                     {isSending ? "Envoi en cours..." : "Envoyer le quizz"}
                   </button>
+
                 </form>
               </>
             ) : (
