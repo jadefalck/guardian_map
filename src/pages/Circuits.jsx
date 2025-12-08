@@ -15,7 +15,9 @@ export default function Circuits() {
 
   const handleQuizSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
+    setQuizError("");
+    setQuizSubmitted(false);
+    setIsSending(true);
 
     const formData = new FormData(e.target);
     const payload = Object.fromEntries(formData.entries());
@@ -32,14 +34,16 @@ export default function Circuits() {
       }
 
       setQuizSubmitted(true);
+      e.target.reset();
     } catch (err) {
       console.error("Erreur envoi quiz circuits :", err);
-      setError(
+      setQuizError(
         "Oups, une erreur est survenue pendant l’envoi. Tu peux réessayer dans quelques instants."
       );
+    } finally {
+      setIsSending(false);
     }
   };
-
 
   return (
     <div className="w-full">
@@ -130,9 +134,7 @@ export default function Circuits() {
                 </p>
 
                 {quizError && (
-                  <p className="text-sm text-red-600 mb-3">
-                    {quizError}
-                  </p>
+                  <p className="text-sm text-red-600 mb-3">{quizError}</p>
                 )}
 
                 <form className="space-y-4 text-sm" onSubmit={handleQuizSubmit}>
