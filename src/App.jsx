@@ -16,6 +16,8 @@ import Especes from "./pages/Especes";
 import RequinsBaleines from "./pages/blog/RequinsBaleines";
 import WorldMaritimeDay from "./pages/blog/WorldMaritimeDay";
 import Oman from "./pages/blog/Oman";
+import TortuesVertes from "./pages/blog/TortuesVertes";
+import CorauxBlancs from "./pages/blog/CorauxBlancs";
 
 // Activités
 import Activites from "./pages/activites/Activités";
@@ -277,6 +279,8 @@ export default function App() {
           <Route path="/continents/:slug" element={<ContinentRouter />} />
           <Route path="/pays2/:slug" element={<CountryPage />} />
           <Route path="/especes" element={<Especes />} />
+          <Route path="/blog/tortues-vertes" element={<TortuesVertes />} />
+          <Route path="/blog/coraux-blancs" element={<CorauxBlancs />} />
         </Routes>
       </main>
 

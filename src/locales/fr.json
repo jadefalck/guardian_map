@@ -141,38 +141,58 @@
     "illustrationAlt": "Illustration circuit"
   },
 
-  "blog": {
-    "hero": {
-      "title": "Blog",
-      "subtitle": "<b>GuardianMap</b>, la plateforme qui met en avant le <b>tourisme marin responsable</b>."
-    },
-    "bannerAlt": "Fond Blog",
-    "intro": {
-      "title": "On ne naît pas bon touriste, on le devient",
-      "text": "Ici, on informe, on sensibilise et on partage : les bonnes pratiques à suivre et les mauvaises habitudes à oublier. Le tourisme peut protéger… ou détruire."
-    },
-    "read": "Lire l’article",
-    "articles": {
-      "ws": {
-        "aria": "Lire l’article Requins-baleines",
-        "alt": "Tourisme autour des requins-baleines",
-        "title": "Requins-baleines : quand le rêve devient un danger",
-        "excerpt": "Qui n’a jamais rêvé de voir un requin-baleine ? Ce géant des océans fascine…"
-      },
-      "wmd": {
-        "aria": "Lire l’article World Maritime Day",
-        "alt": "World Maritime Day / Journée maritime mondiale",
-        "title": "World Maritime Day : pourquoi le maritime nous concerne tous",
-        "excerpt": "Instaurée par l’OMI, la Journée maritime mondiale rappelle que 80–90 % des échanges transitent par la mer…"
-      },
-      "oman": {
-        "aria": "Lire l’article Oman (Daymaniyat, tortues, requins de récif)",
-        "alt": "Oman : îles Daymaniyat, tortues et requins de récif",
-        "title": "Oman : protéger, patienter… et vivre des rencontres magiques",
-        "excerpt": "Un pays qui prend vraiment soin de sa faune marine : accès régulé aux tortues, zones protégées aux Daymaniyat, requins de récif non nourris… Ici, on observe en douceur et on accepte la part d’imprévu."
-      }
-    }
+"blog": {
+  "pageTitle": "Blog",
+  "pageSubtitle": "Ici, on informe, on sensibilise et on partage les infos de la mer.",
+  "bannerAlt": "Fond Blog",
+  "read": "Lire l’article",
+
+  "search": {
+    "title": "Tu cherches un sujet ?",
+    "placeholder": "Ex : coraux, tortues, plongée, pollution…",
+    "results": "{{count}} article(s) trouvé(s)"
   },
+
+  "sections": {
+    "sensibilisation": "Sensibilisation",
+    "infos": "Infos",
+    "partage": "Partage"
+  },
+
+  "articles": {
+    "ws": {
+      "aria": "Lire l’article Requins-baleines",
+      "alt": "Tourisme autour des requins-baleines",
+      "title": "Requins-baleines : quand le rêve devient un danger",
+      "excerpt": "Qui n’a jamais rêvé de voir un requin-baleine ? Ce géant des océans fascine…"
+    },
+    "coraux": {
+      "aria": "Lire l’article sur les coraux blanchis",
+      "alt": "Coraux blanchis",
+      "title": "Les coraux blancs ne sont pas forcément morts : comprendre, agir, protéger",
+      "excerpt": "Un corail blanchi est en détresse, pas forcément mort. Comprendre le phénomène, savoir reconnaître un récif récupérable et agir pour réduire les pressions locales."
+    },
+    "wmd": {
+      "aria": "Lire l’article World Maritime Day",
+      "alt": "World Maritime Day / Journée maritime mondiale",
+      "title": "World Maritime Day : pourquoi le maritime nous concerne tous",
+      "excerpt": "Instaurée par l’OMI, la Journée maritime mondiale rappelle que 80–90 % des échanges transitent par la mer…"
+    },
+    "turtles": {
+      "aria": "Lire l’article sur les tortues vertes",
+      "alt": "Tortue marine",
+      "title": "Les tortues vertes ne sont plus considérées comme en danger : une victoire… mais fragile",
+      "excerpt": "Bonne nouvelle : la tortue verte recule d’un cran sur la liste des menaces. Mais le climat, le tourisme et les prises accidentelles restent des risques majeurs."
+    },
+    "oman": {
+      "aria": "Lire l’article Oman (Daymaniyat, tortues, requins de récif)",
+      "alt": "Oman : îles Daymaniyat, tortues et requins de récif",
+      "title": "Oman : protéger, patienter… et vivre des rencontres magiques",
+      "excerpt": "Un pays qui prend vraiment soin de sa faune marine : accès régulé aux tortues, zones protégées aux Daymaniyat, requins de récif non nourris… Ici, on observe en douceur et on accepte la part d’imprévu."
+    }
+  }
+},
+
 
   "articles": {
     "common": { "backToBlog": "← Retour au blog" },
@@ -275,7 +295,89 @@
       "why2": "Des <b>routes maritimes plus propres et plus sûres</b> bénéficient à la biodiversité.",
       "why3": "Comprendre ces enjeux nous aide à voyager mieux et à soutenir les opérateurs responsables.",
       "quote": "Protéger l’océan, c’est aussi s’intéresser à la manière dont nos marchandises circulent et au travail de celles et ceux qui font vivre la mer."
+    }, 
+
+    "coraux": {
+      "title": "Les coraux blancs ne sont pas forcément morts : comprendre, agir, protéger",
+      "subtitle": "Blanchissement ≠ mort immédiate : un signal de stress. Comprendre la nuance change tout pour la protection des récifs.",
+      "heroAlt": "Coraux blanchis",
+
+      "h2_bleaching": "Le blanchissement : un signal de détresse, pas une mort immédiate",
+      "p1": "Lorsqu’un corail devient blanc, beaucoup pensent qu’il est déjà mort. Pourtant, un corail blanchi n’est pas nécessairement condamné. Le blanchissement est avant tout une réaction de stress : lorsque la température de l’eau augmente ou que l’environnement se dégrade, le corail expulse les micro-algues symbiotiques, les <b>zooxanthelles</b>, responsables de sa couleur et d’une grande partie de son énergie.",
+      "p2": "Tant que le corail est vivant, il peut réaccueillir ses algues si les conditions redeviennent favorables. Des récifs ayant subi des épisodes de blanchissement massif ont parfois montré des récupérations spectaculaires, surtout lorsque la chaleur retombe rapidement ou que les pressions locales diminuent.",
+
+      "h2_when_die": "Quand est-ce qu’un corail blanchi meurt vraiment ?",
+      "p3": "Si le stress persiste plusieurs semaines, le corail n’a plus d’énergie pour vivre : il finit par mourir. Un corail mort devient souvent d’un blanc très vif, presque crayeux, avant d’être recouvert d’algues opportunistes.",
+
+      "box1": {
+        "title": "Pourquoi cela arrive trop souvent aujourd’hui",
+        "b1": "Épisodes de chaleur marine plus fréquents et plus intenses (changement climatique).",
+        "b2": "Pollution, turbidité, surpêche, ancrage et maladies.",
+        "b3": "Crèmes solaires toxiques et pratiques touristiques inadaptées."
+      },
+
+      "quote": "Un corail blanc n’est pas un corail mort : il est vivant, affaibli, mais encore récupérable.",
+
+      "h2_how_help": "Comment favoriser la survie et la récupération des coraux",
+      "p4": "La récupération dépend de deux leviers : <b>réduire le stress global</b> (climat) et <b>limiter les pressions locales</b>. Même si chacun ne peut pas agir directement sur la température de l’océan, on peut réduire les impacts locaux qui aggravent la situation.",
+
+      "box2": {
+        "title": "Concrètement, tu peux agir sur :",
+        "b1": "La réduction des déchets (notamment plastique).",
+        "b2": "Le choix de crèmes solaires non toxiques.",
+        "b3": "La qualité des pratiques touristiques (pas de contact, flottabilité, pas d’ancrage sur récif).",
+        "b4": "La sélection d’opérateurs de plongée responsables.",
+        "b5": "Le soutien aux programmes de restauration et de recherche."
+      },
+
+      "h2_cg": "Coral Guardian : une organisation qui redonne vie aux récifs",
+      "cg": {
+        "logoAlt": "Logo Coral Guardian",
+        "p1": "Coral Guardian est une ONG française fondée en 2012, avec une idée forte : la protection des récifs fonctionne mieux quand les <b>communautés locales</b> deviennent les premières gardiennes.",
+        "h3": "Leur méthode repose sur trois piliers :",
+        "b1": "<b>Restauration écologique</b> : replanter des fragments de coraux résistants.",
+        "b2": "<b>Sensibilisation</b> : éduquer communautés et touristes.",
+        "b3": "<b>Implication économique</b> : créer des revenus durables liés à la conservation.",
+        "p2": "Sur l’île de Hatamin (Indonésie), la restauration communautaire a permis de replanter plus de 100 000 coraux et d’observer un retour marqué de la biodiversité."
+      },
+
+      "h2_conclusion": "Conclusion : une nuance qui change tout",
+      "p5": "Le blanchissement est une alerte. Un récif blanchi peut encore être sauvé si les pressions diminuent et si les conditions se stabilisent. Comprendre cette nuance, c’est éviter le fatalisme et renforcer les bons choix — sur le terrain, en voyage, et au quotidien."
+    }, 
+
+  "turtles": {
+    "title": "Les tortues vertes ne sont plus considérées comme en danger : une victoire… mais fragile",
+    "subtitle": "Une amélioration réelle grâce à la conservation, mais des menaces importantes persistent. Vigilance collective obligatoire.",
+    "heroAlt": "Tortue marine",
+    "h2_threatened": "Une espèce longtemps menacée",
+    "p1": "Pendant longtemps, la tortue verte (<em>Chelonia mydas</em>) a été l’un des symboles majeurs des espèces marines en détresse. Intensément chassée pour sa chair, ses œufs et sa carapace, menacée par la destruction de ses plages de ponte et victime de prises accidentelles dans les filets de pêche, elle figurait parmi les espèces en danger d’extinction.",
+    "p2": "Aujourd’hui, pourtant, une nouvelle porteuse d’espoir émerge : les tortues vertes ne sont plus officiellement classées comme « en danger ». L’UICN les place désormais dans la catégorie <b>« vulnérable »</b>, signe qu’un retour positif est en cours.",
+    "h2_recovery": "Une amélioration spectaculaire grâce à la conservation",
+    "p3": "Le changement de statut est le résultat direct de décennies d’efforts. Plusieurs mesures ont porté leurs fruits : la protection stricte des plages de ponte, l’interdiction du commerce international de carapaces, l’amélioration des pratiques de pêche via les <b>Turtle Excluder Devices</b>, et l’implication déterminante des communautés locales.",
+    "p4": "Dans certains pays, le nombre de nids a été multiplié par dix en vingt ans. Des plages autrefois désertées accueillent de nouveau des centaines de femelles prêtes à pondre. C’est l’un des succès écologiques les plus encourageants de notre époque.",
+    "h2_caution": "Une victoire à relativiser : la menace plane toujours",
+    "threats": {
+      "intro": "Malgré cette avancée, la tortue verte est loin d’être tirée d’affaire. Elle reste exposée à des menaces majeures :",
+      "li1": "<b>Changement climatique</b> : sable plus chaud (déséquilibre du sex-ratio), montée des eaux, tempêtes qui détruisent les nids.",
+      "li2": "<b>Tourisme de masse</b> : perturbation des plages de ponte, collisions avec les bateaux, pollution.",
+      "li3": "<b>Pêche</b> : prises accidentelles qui tuent encore des milliers d’individus.",
+      "li4": "<b>Pollution & maladies</b> : plastique, fibropapillomatose, etc."
+    },
+    "h2_proof": "La preuve que la conservation fonctionne",
+    "p5": "Malgré les menaces, l’histoire de la tortue verte est une preuve remarquable du pouvoir de la conservation. Lorsque les lois sont appliquées, que les scientifiques sont écoutés, que les populations locales sont impliquées et que les voyageurs adoptent des comportements responsables, la nature peut se régénérer.",
+    "h2_role": "Le rôle que chacun peut jouer",
+    "p6": "Même les voyageurs peuvent contribuer au rétablissement de l’espèce : choisir des activités éthiques, éviter de déranger les tortues sur les plages ou en mer, réduire ses déchets plastiques, soutenir les programmes de conservation ou simplement s’informer.",
+    "quote": "La tortue verte n’est plus en danger immédiat, mais elle dépend encore fortement de notre vigilance collective.",
+    "h2_conclusion": "Conclusion : une victoire fragile et un appel à la vigilance",
+    "p7": "La reclassification de la tortue verte est une victoire rare, fruit d’un effort mondial. Mais c’est une victoire fragile. Le rétablissement de l’espèce reste réversible, et son avenir dépend de la persistance des protections actuelles.",
+    "ps": {
+      "title": "PS",
+      "text": "On te conseille de lire cette brochure de l’UICN sur la conservation des tortues marines en Méditerranée :",
+      "href": "https://iucn.org/sites/default/files/2022-06/consevationtortuesmarines_fr-2.pdf",
+      "linkLabel": "Télécharger la brochure (PDF)"
     }
+  }
+
   },
 
   "footer": {
@@ -291,26 +393,107 @@
   },
 
   "about": {
-    "title": "À propos de nous",
-    "subtitle": "Derrière GuardianMap, deux passionnés de l’océan qui veulent protéger la vie marine.",
-    "thomas": {
-      "name": "Thomas",
-      "role": "Co-fondateur",
-      "bio": "Aventurier dans l’âme et passionné par la mer, Thomas apporte son énergie et son sens de l’organisation pour faire grandir GuardianMap."
+    "about": {
+      "title": "À propos de nous",
+      "subtitle": "Derrière GuardianMap, deux passionnés de l’océan qui veulent protéger la vie marine."
+  }, 
+
+    
+  "thomas": {
+    "name": "Thomas",
+    "role": "Co-fondateur & Développeur",
+    "bio": "Passionné par la technologie et les projets à impact, Thomas développe les outils qui permettent à GuardianMap d’exister. Son objectif : créer une plateforme fiable, claire et accessible pour aider les voyageurs à faire de meilleurs choix, sans greenwashing."
+  },
+
+  "jade": {
+    "name": "Jade",
+    "role": "Co-fondatrice & Vision",
+    "bio": "Après plusieurs voyages marquants, Jade a pris conscience des dérives du tourisme marin. GuardianMap est né de cette envie de mieux informer, de sensibiliser et de mettre en avant les acteurs réellement engagés pour la protection de l’océan."
+  },
+
+    "nav": {
+      "presentation": "Présentation",
+      "contact": "Contact",
+      "history": "Histoire",
+      "faq": "FAQ"
     },
-    "jade": {
-      "name": "Jade",
-      "role": "Co-fondatrice",
-      "bio": "Plongeuse passionnée et amoureuse des voyages, Jade met sa créativité et sa vision au service d’un tourisme marin plus respectueux."
+
+    "contact": {
+      "title": "Nous contacter",
+      "subtitle": "Une idée, une question, un projet de voyage dont tu veux nous parler ? Écris-nous un petit mot.",
+      "success": "Merci pour ton message ! Nous reviendrons vers toi au plus vite.",
+      "error": "Oups, une erreur est survenue pendant l’envoi. Tu peux réessayer dans quelques instants.",
+      "form": {
+        "nameLabel": "Nom / Pseudo",
+        "emailLabel": "E-mail",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Parle-nous de ton projet, de tes envies, ou de ce que tu aimerais voir sur GuardianMap…",
+        "submit": "Envoyer le message",
+        "sending": "Envoi en cours..."
+      }
     },
-    "why": {
+
+    "history": {
       "title": "Pourquoi avoir créé GuardianMap ?",
-      "problemTitle": "Le problème",
-      "solutionTitle": "La solution",
-      "problem": "Beaucoup de touristes ne savent pas toujours comment adopter les bons comportements face à l’océan. On veut voir la beauté marine… mais parfois, on participe à sa destruction.",
-      "solution": "GuardianMap rend le tourisme marin responsable plus simple, en mettant en avant des expériences respectueuses et une sensibilisation active."
+      "intro": "Beaucoup de touristes ne savent pas toujours comment adopter les bons comportements face à l’océan. On veut voir la beauté marine… mais parfois, on participe sans le vouloir à sa destruction. GuardianMap est là pour éclairer ces zones grises et rendre les bons choix plus faciles.",
+      "timeline": {
+        "storyTitle": "Notre histoire",
+        "storyText": "Le projet est né après plusieurs voyages où Jade a réalisé qu’elle avait participé à des activités néfastes pour l’océan : bateaux trop nombreux autour des animaux, coraux piétinés, pratiques peu transparentes… De là est née une question centrale : comment aider les voyageurs à choisir des expériences plus respectueuses ? Jade a ensuite présenté GuardianMap au concours Altern’Up et est arrivée en finale. Même sans remporter le prix, cette étape a renforcé l’envie d’aller plus loin. Elle a embarqué Thomas dans l’aventure, après plusieurs projets menés ensemble, pour bâtir un outil utile aux voyageurs et aux acteurs engagés.",
+        "missionTitle": "Notre mission",
+        "missionText": "Mettre en avant un tourisme marin plus éthique, où chaque activité est choisie en conscience. GuardianMap a pour mission de rendre visibles les structures engagées, d’expliquer les bons réflexes à adopter en mer et de proposer des itinéraires qui respectent les écosystèmes locaux comme les communautés qui y vivent.",
+        "commitTitle": "Notre engagement",
+        "commitText": "Nous sélectionnons les activités selon des critères clairs : labels reconnus, formation des équipes, respect de la faune, limitation du nombre de bateaux, sensibilisation des voyageurs… GuardianMap n’est pas une vitrine de tout ce qui existe, mais un filtre pour mettre en avant les acteurs qui font réellement des efforts pour protéger l’océan."
+      }
+    },
+
+    "massTourism": {
+      "title": "Le tourisme de masse, côté coulisses",
+      "alt": "Tourisme de masse {index}"
+    },
+
+    "labels": {
+      "title": "Les labels que nous soutenons",
+      "text": "Pour sélectionner les activités présentes sur GuardianMap, nous nous appuyons sur des labels reconnus et des démarches structurées, ce qui nous permet de distinguer les opérateurs les plus engagés.",
+      "greenFins": "Green Fins",
+      "blueFlag": "Blue Flag",
+      "wca": "World Cetacean Alliance",
+      "fots": "Friend of the Sea",
+      "greenFinsAlt": "Logo Green Fins",
+      "blueFlagAlt": "Logo Blue Flag",
+      "wcaAlt": "Logo World Cetacean Alliance",
+      "fotsAlt": "Logo Friend of the Sea"
+    },
+
+    "faq": {
+      "title": "FAQ : As-tu des questions ?",
+      "cta": "Une autre question ? Contacte-nous",
+      "userAlt": "Utilisateur",
+      "jadeAlt": "Jade",
+      "thomasAlt": "Thomas",
+      "q1": {
+        "q": "Est-ce que GuardianMap organise directement les activités ?",
+        "a": "Non, GuardianMap n’est pas une agence de voyage. Nous mettons en avant des centres de plongée et des opérateurs déjà existants, que tu peux ensuite contacter ou réserver via leurs propres canaux."
+      },
+      "q2": {
+        "q": "Comment choisissez-vous les centres affichés sur la carte ?",
+        "a": "On se base sur des labels officiels, des chartes d’engagement, des audits existants et, quand c’est possible, sur des échanges directs avec les structures. Le but est de garder une sélection exigeante plutôt que d’être exhaustifs."
+      },
+      "q3": {
+        "q": "Et si je vois une activité problématique sur place, est-ce que je peux vous la signaler ?",
+        "a": "Oui, clairement ! Tes retours sont précieux. Tu peux nous écrire via le formulaire de contact ou sur nos réseaux pour nous signaler une dérive, un mauvais comportement ou au contraire un super opérateur à valoriser."
+      }
+    },
+
+    "explore": {
+      "title": "Explorer GuardianMap",
+      "activities": "Activités",
+      "species": "Espèces",
+      "circuits": "Circuits",
+      "blog": "Blog"
     }
   },
+
+
 
   "divingPage": {
     "intro": "Ensemble, découvrons les centres de plongée qui <b>respectent</b> la nature et <b>s'engagent</b> pour l’<b>océan</b>.",

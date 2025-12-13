@@ -141,38 +141,58 @@
     "illustrationAlt": "Tour illustration"
   },
 
-  "blog": {
-    "hero": {
-      "title": "Blog",
-      "subtitle": "<b>GuardianMap</b>, the platform that highlights <b>responsible marine tourism</b>."
-    },
-    "bannerAlt": "Blog background",
-    "intro": {
-      "title": "Good tourists aren’t born, they’re made",
-      "text": "Here we inform, raise awareness and share: good practices to adopt, bad habits to drop. Tourism can protect… or destroy."
-    },
-    "read": "Read article",
-    "articles": {
-      "ws": {
-        "aria": "Read the Whale Shark article",
-        "alt": "Tourism around whale sharks",
-        "title": "Whale sharks: when the dream turns dangerous",
-        "excerpt": "Who hasn’t dreamed of seeing a whale shark? This gentle giant fascinates…"
-      },
-      "wmd": {
-        "aria": "Read the World Maritime Day article",
-        "alt": "World Maritime Day",
-        "title": "World Maritime Day: why maritime matters to everyone",
-        "excerpt": "Created by the IMO, World Maritime Day reminds us that 80–90% of trade moves by sea…"
-      },
-      "oman": {
-        "aria": "Read the Oman article (Daymaniyat, turtles, reef sharks)",
-        "alt": "Oman: Daymaniyat Islands, turtles and reef sharks",
-        "title": "Oman: protect, be patient… and live magical encounters",
-        "excerpt": "A country that truly cares for marine life: regulated turtle access, protected Daymaniyat sites, no shark feeding… Here, we observe gently and embrace the unexpected."
-      }
-    }
+"blog": {
+  "pageTitle": "Blog",
+  "pageSubtitle": "Here we inform, raise awareness, and share ocean-related insights.",
+  "bannerAlt": "Blog background",
+  "read": "Read the article",
+
+  "search": {
+    "title": "Looking for a topic?",
+    "placeholder": "e.g. coral, turtles, diving, pollution…",
+    "results": "{{count}} article(s) found"
   },
+
+  "sections": {
+    "sensibilisation": "Awareness",
+    "infos": "News",
+    "partage": "Stories"
+  },
+
+  "articles": {
+    "ws": {
+      "aria": "Read the Whale Sharks article",
+      "alt": "Whale shark tourism",
+      "title": "Whale sharks: when a dream becomes a threat",
+      "excerpt": "Who hasn’t dreamed of seeing a whale shark? This gentle giant fascinates…"
+    },
+    "coraux": {
+      "aria": "Read the coral bleaching article",
+      "alt": "Bleached corals",
+      "title": "White corals aren’t always dead: understand, act, protect",
+      "excerpt": "Bleaching is a stress response, not always death. Learn how to identify recoverable reefs and reduce local pressures."
+    },
+    "wmd": {
+      "aria": "Read the World Maritime Day article",
+      "alt": "World Maritime Day",
+      "title": "World Maritime Day: why shipping matters to all of us",
+      "excerpt": "Created by the IMO, World Maritime Day reminds us that 80–90% of global trade moves by sea…"
+    },
+    "turtles": {
+      "aria": "Read the green turtles article",
+      "alt": "Sea turtle",
+      "title": "Green turtles are no longer listed as endangered: a win… but a fragile one",
+      "excerpt": "Good news: green turtles have improved their status. But climate, tourism, and bycatch remain major threats."
+    },
+    "oman": {
+      "aria": "Read the Oman article",
+      "alt": "Oman: Daymaniyat Islands, turtles and reef sharks",
+      "title": "Oman: protect, be patient… and experience magical encounters",
+      "excerpt": "A country that truly cares for marine wildlife: regulated turtle access, protected Daymaniyat areas, and no shark feeding…"
+    }
+  }
+},
+
 
   "articles": {
     "common": { "backToBlog": "← Back to blog" },
@@ -275,7 +295,90 @@
       "why2": "<b>Cleaner, safer shipping lanes</b> benefit biodiversity and coastal communities.",
       "why3": "Understanding these issues helps us <b>travel better</b> and support responsible operators.",
       "quote": "Protecting the ocean also means caring about how our goods move and those who make the sea economy run."
+    }, 
+
+    "coraux": {
+      "title": "White corals are not necessarily dead: understand, act, protect",
+      "subtitle": "Bleaching ≠ immediate death: it’s a stress signal. Understanding this nuance changes everything for reef protection.",
+      "heroAlt": "Bleached corals",
+
+      "h2_bleaching": "Bleaching: a distress signal, not immediate death",
+      "p1": "When a coral turns white, many people assume it is already dead. Yet a bleached coral is not necessarily doomed. Bleaching is primarily a stress response: when water temperature rises or the environment deteriorates, corals expel their symbiotic microalgae, the <b>zooxanthellae</b>, which give them color and provide a large share of their energy.",
+      "p2": "As long as the coral is still alive, it can take the algae back if conditions become favorable again. Reefs that experienced mass bleaching have sometimes shown remarkable recovery, especially when heat stress drops quickly or local pressures decrease.",
+
+      "h2_when_die": "When does a bleached coral actually die?",
+      "p3": "If stress persists for several weeks, the coral runs out of energy and may die. A dead coral often appears bright chalky white before being covered by opportunistic algae.",
+
+      "box1": {
+        "title": "Why this happens more and more today",
+        "b1": "More frequent and more intense marine heatwaves (climate change).",
+        "b2": "Pollution, turbidity, overfishing, anchoring, and diseases.",
+        "b3": "Toxic sunscreens and unsuitable tourism practices."
+      },
+
+      "quote": "A white coral is not a dead coral: it can be alive, weakened, but still recoverable.",
+
+      "h2_how_help": "How to support coral survival and recovery",
+      "p4": "Recovery depends on two levers: <b>reducing global stress</b> (climate) and <b>limiting local pressures</b>. Even if we can’t directly control ocean temperatures, we can reduce local impacts that make things worse.",
+
+      "box2": {
+        "title": "Concretely, you can act on:",
+        "b1": "Reducing waste (especially plastic).",
+        "b2": "Choosing reef-safe, non-toxic sunscreens.",
+        "b3": "Improving tourism practices (no contact, good buoyancy, no anchoring on reefs).",
+        "b4": "Choosing responsible dive operators.",
+        "b5": "Supporting restoration and research programs."
+      },
+
+      "h2_cg": "Coral Guardian: an organization bringing reefs back to life",
+      "cg": {
+        "logoAlt": "Coral Guardian logo",
+        "p1": "Coral Guardian is a French NGO founded in 2012, built around a strong idea: reef protection works best when <b>local communities</b> become the first guardians.",
+        "h3": "Their approach relies on three pillars:",
+        "b1": "<b>Ecological restoration</b>: replanting fragments of resilient corals.",
+        "b2": "<b>Awareness</b>: educating communities and travelers.",
+        "b3": "<b>Economic involvement</b>: creating sustainable incomes linked to conservation.",
+        "p2": "On Hatamin Island (Indonesia), community-based restoration has replanted over 100,000 corals and led to a clear return of biodiversity."
+      },
+
+      "h2_conclusion": "Conclusion: a nuance that changes everything",
+      "p5": "Bleaching is an alarm. A bleached reef can still be saved if pressures decrease and conditions stabilize. Understanding this nuance helps avoid fatalism—and strengthens better choices in the field, while traveling, and in daily life."
+    }, 
+
+  
+  "turtles": {
+    "title": "Green turtles are no longer listed as endangered: a win… but a fragile one",
+    "subtitle": "Real progress thanks to conservation — but major threats still remain. Collective vigilance is essential.",
+    "heroAlt": "Sea turtle",
+    "h2_threatened": "A species that was long threatened",
+    "p1": "For a long time, the green turtle (<em>Chelonia mydas</em>) was one of the strongest symbols of marine species in trouble. Intensively hunted for meat, eggs and shell, threatened by the loss of nesting beaches, and impacted by bycatch in fishing nets, it was listed among endangered species.",
+    "p2": "Today, a hopeful signal has emerged: green turtles are no longer officially classified as “Endangered”. The IUCN now places them in the <b>“Vulnerable”</b> category, indicating a positive recovery trend.",
+    "h2_recovery": "A remarkable improvement thanks to conservation",
+    "p3": "This status change is the direct result of decades of effort: strict protection of nesting beaches, bans on international trade of shells, improved fishing practices through <b>Turtle Excluder Devices</b>, and the crucial involvement of local communities.",
+    "p4": "In some countries, nest numbers have increased tenfold over twenty years. Beaches that were once deserted now welcome hundreds of nesting females again. It is one of the most encouraging ecological success stories of our time.",
+    "h2_caution": "A victory to put in perspective: threats are still present",
+    "threats": {
+      "intro": "Despite this progress, green turtles are far from safe. They are still exposed to major threats:",
+      "li1": "<b>Climate change</b>: hotter sand (sex ratio imbalance), sea-level rise, storms destroying nests.",
+      "li2": "<b>Mass tourism</b>: disturbance of nesting beaches, boat strikes, pollution.",
+      "li3": "<b>Fishing</b>: bycatch still kills thousands of individuals every year.",
+      "li4": "<b>Pollution & diseases</b>: plastic, fibropapillomatosis, etc."
+    },
+    "h2_proof": "Proof that conservation works",
+    "p5": "Even with these threats, the green turtle story is a powerful example of what conservation can achieve. When laws are enforced, scientists are listened to, local communities are involved, and travelers adopt responsible behaviors, nature can recover.",
+    "h2_role": "What each of us can do",
+    "p6": "Travelers can contribute too: choose ethical activities, avoid disturbing turtles on beaches or at sea, reduce plastic waste, support conservation programs — or simply learn and share the right information.",
+    "quote": "Green turtles are no longer in immediate danger — but they still depend heavily on our collective vigilance.",
+    "h2_conclusion": "Conclusion: a fragile victory and a call for vigilance",
+    "p7": "The green turtle’s reclassification is a rare victory, the result of global efforts. But it remains fragile. Recovery can be reversed, and the future of the species depends on maintaining strong protections over time.",
+    "ps": {
+      "title": "PS",
+      "text": "We recommend this IUCN brochure about sea turtle conservation in the Mediterranean:",
+      "href": "https://iucn.org/sites/default/files/2022-06/consevationtortuesmarines_fr-2.pdf",
+      "linkLabel": "Download the brochure (PDF)"
     }
+  }
+
   },
 
   "footer": {
@@ -290,27 +393,108 @@
     }
   },
 
+
   "about": {
-    "title": "About us",
-    "subtitle": "Behind GuardianMap are two ocean lovers who decided to act to protect what they cherish most: marine life.",
+    "about": {
+      "title": "About us",
+      "subtitle": "Behind GuardianMap: two ocean lovers working to protect marine life."
+  },
+ 
     "thomas": {
       "name": "Thomas",
-      "role": "Co-founder",
-      "bio": "An adventurer at heart and ocean lover, Thomas brings his energy and strong organisational spirit to turn GuardianMap into reality."
+      "role": "Co-founder & Developer",
+      "bio": "Passionate about technology and impact-driven projects, Thomas focuses on building reliable and scalable tools. With GuardianMap, he works on turning ethical tourism values into concrete digital solutions that help travelers make better choices."
     },
+
     "jade": {
       "name": "Jade",
-      "role": "Co-founder",
-      "bio": "A passionate diver and travel enthusiast, Jade brings her creativity and vision to build a more respectful way to explore our oceans."
+      "role": "Co-founder & Project Lead",
+      "bio": "Driven by her love for the ocean and marine life, Jade created GuardianMap after realizing how easy it is to unintentionally harm ecosystems while traveling. She works on research, partnerships and content to make ethical marine tourism more accessible."
+    }, 
+
+    "nav": {
+      "presentation": "Overview",
+      "contact": "Contact",
+      "history": "Story",
+      "faq": "FAQ"
     },
-    "why": {
+
+    "contact": {
+      "title": "Contact us",
+      "subtitle": "An idea, a question, a trip project you want to share? Send us a message.",
+      "success": "Thanks for your message! We’ll get back to you soon.",
+      "error": "Oops, something went wrong while sending. Please try again in a moment.",
+      "form": {
+        "nameLabel": "Name / Nickname",
+        "emailLabel": "Email",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Tell us about your project, your wishes, or what you’d like to see on GuardianMap…",
+        "submit": "Send message",
+        "sending": "Sending..."
+      }
+    },
+
+    "history": {
       "title": "Why did we create GuardianMap?",
-      "problemTitle": "The problem",
-      "solutionTitle": "The solution",
-      "problem": "Many travellers, with good intentions, don’t always know how to behave responsibly around the ocean. We dream of seeing marine beauty… but sometimes, without realising it, we contribute to harming it.",
-      "solution": "GuardianMap makes responsible marine travel easy by highlighting certified sustainable operators and inspiring travellers through education. Our goal: empower everyone to protect the ocean while exploring it."
+      "intro": "Many travelers don’t always know the right behaviors to adopt around the ocean. We want to see marine beauty… but sometimes we unintentionally contribute to its destruction. GuardianMap helps clarify these gray areas and makes better choices easier.",
+      "timeline": {
+        "storyTitle": "Our story",
+        "storyText": "The project started after several trips where Jade realized she had taken part in activities that were harmful to the ocean: too many boats around animals, corals stepped on, unclear practices… This sparked a core question: how can we help travelers choose more respectful experiences? Jade then presented GuardianMap at the Altern’Up competition and reached the final. Even without winning, it strengthened the drive to keep going. She brought Thomas into the adventure—after working together on previous projects—to build a tool useful for both travelers and committed local operators.",
+        "missionTitle": "Our mission",
+        "missionText": "To promote more ethical marine tourism, where each activity is chosen consciously. GuardianMap aims to highlight committed operators, share the right practices at sea, and propose itineraries that respect ecosystems and the communities who rely on them.",
+        "commitTitle": "Our commitment",
+        "commitText": "We select activities using clear criteria: recognized labels, trained teams, respect for wildlife, limited boat numbers, traveler education… GuardianMap isn’t a showcase of everything—it’s a filter to spotlight the operators who truly make efforts to protect the ocean."
+      }
+    },
+
+    "massTourism": {
+      "title": "Mass tourism: behind the scenes",
+      "alt": "Mass tourism {index}"
+    },
+
+    "labels": {
+      "title": "Labels we support",
+      "text": "To select the activities listed on GuardianMap, we rely on recognized labels and structured initiatives, helping us highlight the most committed operators.",
+      "greenFins": "Green Fins",
+      "blueFlag": "Blue Flag",
+      "wca": "World Cetacean Alliance",
+      "fots": "Friend of the Sea",
+      "greenFinsAlt": "Green Fins logo",
+      "blueFlagAlt": "Blue Flag logo",
+      "wcaAlt": "World Cetacean Alliance logo",
+      "fotsAlt": "Friend of the Sea logo"
+    },
+
+    "faq": {
+      "title": "FAQ: do you have questions?",
+      "cta": "Another question? Contact us",
+      "userAlt": "User",
+      "jadeAlt": "Jade",
+      "thomasAlt": "Thomas",
+      "q1": {
+        "q": "Does GuardianMap organize activities directly?",
+        "a": "No—GuardianMap is not a travel agency. We highlight existing dive centers and operators, which you can then contact or book through their own channels."
+      },
+      "q2": {
+        "q": "How do you choose the centers displayed on the map?",
+        "a": "We rely on official labels, commitments/charters, existing audits and, when possible, direct exchanges with operators. We prefer a strict selection rather than being exhaustive."
+      },
+      "q3": {
+        "q": "If I see a problematic activity on site, can I report it?",
+        "a": "Yes! Your feedback is valuable. You can message us via the contact form or our social networks to report issues—or to recommend great operators to highlight."
+      }
+    },
+
+    "explore": {
+      "title": "Explore GuardianMap",
+      "activities": "Activities",
+      "species": "Species",
+      "circuits": "Trips",
+      "blog": "Blog"
     }
   },
+
+
 
   "activitiesDiving": {
     "hero": {
