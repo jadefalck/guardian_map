@@ -20,7 +20,7 @@ import userImg from "../../assets/images/utilisateur.png";
 
 // ✅ Niveaux GF (images)
 import gfGoldImg from "../../assets/images/labels_greenfins/GF_Gold.png";
-import gfSilverImg from "../../assets/images/labels_greenfins/GF_silver.png";
+import gfSilverImg from "../../assets/images/labels_greenfins/GF_Silver.png";
 import gfBronzeImg from "../../assets/images/labels_greenfins/GF_Bronze.png";
 
 // images pourquoi centre labellisé
