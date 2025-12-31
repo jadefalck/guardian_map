@@ -6,6 +6,7 @@
   "menu.blog": "Blog",
   "menu.about": "À propos",
   "menu.especes": "Espèces",
+  "menu.voyages" : "Voyages",
 
   "home": {
     "hero": {
@@ -738,7 +739,131 @@
   "animals": {
   "whale": "Baleine",
   "dolphin": "Dauphin"
-}
+}, 
+
+
+  "voyages": {
+    "heroTitle": "Voyages",
+
+    "news": {
+      "label": "Nouveauté :",
+      "text": "Un guide de voyage personnalisé en fonction de vos envies",
+      "hint": "↓ Découvre le guide juste en dessous",
+      "cta": "Voir le guide"
+    },
+
+    "search": {
+      "where": {
+        "label": "Où voulez-vous partir ?",
+        "placeholder": "Ex : Philippines, Oman, Indonésie…"
+      },
+      "activity": {
+        "label": "Quelle activité voulez-vous faire ?",
+        "placeholder": "Ex : plongée, snorkeling, randonnée…"
+      },
+      "animals": {
+        "label": "Quels animaux voulez-vous voir ?",
+        "placeholder": "Ex : requin-baleine, tortues, manta…"
+      }
+    },
+
+    "destinations": {
+      "error": "Impossible de charger les destinations depuis le fichier, affichage par défaut."
+    },
+
+    "choices": {
+      "pickActivity": "Choisis une activité",
+      "pickAnimal": "Choisis un animal",
+      "pickDestination": "Choisis une destination",
+
+      "activities": {
+        "diving": "Plongée",
+        "divingSub": "",
+        "wildlife": "Observation d’animaux",
+        "wildlifeSub": ""
+      },
+
+      "animals": {
+        "whaleShark": "Requin-baleine",
+        "whaleSharkSub": ""
+      }
+    },
+
+    "guide": {
+      "bannerAlt": "Fond guide de voyage",
+      "title": "Guide de voyage personnalisé",
+      "coverAlt": "Couverture du guide de voyage",
+      "cardTitle": "Un itinéraire pensé pour toi",
+      "price": "25 €",
+      "description": "Nous créons plusieurs propositions d’itinéraires sur mesure, en fonction de ton rythme, de ton budget, de tes envies et de ton rapport à la nature et à l’océan.",
+      "cta": "Intéressé ?"
+    },
+
+    "quiz": {
+      "title": "Quelques questions pour créer ton voyage",
+      "subtitle": "Plus tu nous donnes de détails, plus l’itinéraire pourra coller à tes envies.",
+      "error": "Oups, une erreur est survenue pendant l’envoi. Tu peux réessayer dans quelques instants.",
+      "sending": "Envoi en cours...",
+      "send": "Envoyer le quizz",
+      "thanks": "Merci ! Nous vous contacterons par mail avec une proposition personnalisée.",
+
+      "form": {
+        "name": "Prénom / pseudo",
+        "email": "E-mail de contact",
+        "groupType": "Tu voyages…",
+        "people": "Nombre de personnes",
+        "destination": "Destination souhaitée",
+        "destinationPh": "Ex : Philippines, Oman…",
+        "days": "Durée du séjour (jours)",
+        "period": "Période envisagée",
+        "periodPh": "Ex : février 2026, été, vacances de Pâques…",
+        "travelStyle": "Tu préfères un voyage…",
+        "transfers": "Ton niveau de tolérance aux longs trajets",
+        "likes": "Ce que tu aimes le plus",
+        "budget": "Budget / personne (hors vol)",
+        "accommodation": "Style d’hébergement",
+        "extra": "Autres infos utiles",
+        "extraPh": "Dates précises, contraintes, envies très spécifiques…",
+
+        "options": {
+          "solo": "Seul(e)",
+          "couple": "En couple",
+          "friends": "Entre ami(e)s",
+          "family": "En famille"
+        },
+
+        "travelStyleOptions": {
+          "moveALot": "Avec beaucoup de déplacements",
+          "stayOnePlace": "Principalement au même endroit",
+          "balanced": "Mix équilibré"
+        },
+
+        "transferOptions": {
+          "shortOnly": "Plutôt courts trajets, je n’aime pas passer des heures sur la route",
+          "okSome": "Quelques longs transferts ne me dérangent pas",
+          "loveRoadtrips": "J’adore les road-trips et les trajets un peu longs"
+        },
+
+        "likesOptions": {
+          "water": "Mer / activités nautiques",
+          "nature": "Nature / randos",
+          "culture": "Culture / gastronomie"
+        },
+
+        "budgetOptions": {
+          "b1": "Moins de 1000 €",
+          "b2": "1000–2000 €",
+          "b3": "Plus de 2000 €"
+        },
+
+        "accommodationOptions": {
+          "a1": "Petits budgets",
+          "a2": "Confort simple (2–3★)",
+          "a3": "Plus de confort (3–4★)"
+        }
+      }
+    }
+  }
 
 }
 

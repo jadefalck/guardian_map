@@ -140,7 +140,7 @@ export default function Observation() {
 
       {/* GRAND ENCADRÉ : fond océan + carte + filtres */}
       <section className="w-full bg-white pt-10 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="w-full">
           <div className="relative rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
             {/* Fond océan */}
             <img
@@ -173,46 +173,35 @@ export default function Observation() {
                   <button
                     type="button"
                     onClick={() => handleAnimalClick("Baleine")}
-                    className={`flex items-center gap-3 px-3 py-3 rounded-2xl border text-left text-sm transition
+                    className={`w-full max-w-[180px] px-6 py-3 rounded-2xl border text-center text-sm font-semibold transition
                       ${
                         isWhaleActive
-                          ? "border-[#1113a2]"
-                          : "border-gray-200 hover:border-[#1113a2]/70"
+                          ? "border-[#1113a2] bg-[#1113a2]/5 text-[#1113a2]"
+                          : "border-gray-300 hover:border-[#1113a2]/70 text-gray-900"
                       }`}
                   >
-                    <img
-                      src={whaleFilterImg}
-                      alt={t("animals.whale")}
-                      className="w-11 h-11 rounded-xl object-cover flex-shrink-0"
-                    />
-                    <p className="font-semibold text-gray-900 text-sm">
-                      {t("animals.whale")}
-                    </p>
+                    {t("animals.whale")}
                   </button>
+
 
                   {/* Dauphin */}
                   <button
                     type="button"
                     onClick={() => handleAnimalClick("Dauphin")}
-                    className={`flex items-center gap-3 px-3 py-3 rounded-2xl border text-left text-sm transition
+                    className={`w-full max-w-[180px] px-6 py-3 rounded-2xl border text-center text-sm font-semibold transition
                       ${
                         isDolphinActive
-                          ? "border-[#1113a2]"
-                          : "border-gray-200 hover:border-[#1113a2]/70"
+                          ? "border-[#1113a2] bg-[#1113a2]/5 text-[#1113a2]"
+                          : "border-gray-300 hover:border-[#1113a2]/70 text-gray-900"
                       }`}
                   >
-                    <img
-                      src={dolphinFilterImg}
-                      alt={t("animals.dolphin")}
-                      className="w-11 h-11 rounded-xl object-cover flex-shrink-0"
-                    />
                     <p className="font-semibold text-gray-900 text-sm">
                       {t("animals.dolphin")}
                     </p>
                   </button>
                 </div>
 
-                <p className="text-[11px] text-gray-500">
+                <p className="text-[11px] text-gray-500 mt-3 text-center">
                   {t("activities.observation.filters.hint")}
                 </p>
               </div>

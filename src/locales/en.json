@@ -781,6 +781,128 @@
   "animals": {
   "whale": "Whale",
   "dolphin": "Dolphin"
-}
+}, 
 
+"voyages": {
+  "heroTitle": "Trips",
+
+  "news": {
+    "label": "New:",
+    "text": "A personalized travel guide tailored to your preferences",
+    "hint": "↓ Check out the guide just below",
+    "cta": "View the guide"
+  },
+
+  "search": {
+    "where": {
+      "label": "Where would you like to go?",
+      "placeholder": "E.g.: Philippines, Oman, Indonesia…"
+    },
+    "activity": {
+      "label": "What activity would you like to do?",
+      "placeholder": "E.g.: scuba diving, snorkeling, hiking…"
+    },
+    "animals": {
+      "label": "Which animals would you like to see?",
+      "placeholder": "E.g.: whale shark, turtles, manta rays…"
+    }
+  },
+
+  "destinations": {
+    "error": "Unable to load destinations from the file, showing the default list."
+  },
+
+  "choices": {
+    "pickActivity": "Choose an activity",
+    "pickAnimal": "Choose an animal",
+    "pickDestination": "Choose a destination",
+
+    "activities": {
+      "diving": "Scuba diving",
+      "divingSub": "",
+      "wildlife": "Wildlife watching",
+      "wildlifeSub": ""
+    },
+
+    "animals": {
+      "whaleShark": "Whale shark",
+      "whaleSharkSub": ""
+    }
+  },
+
+  "guide": {
+    "bannerAlt": "Travel guide background",
+    "title": "Personalized travel guide",
+    "coverAlt": "Travel guide cover",
+    "cardTitle": "An itinerary designed for you",
+    "price": "€25",
+    "description": "We create several tailored itinerary proposals based on your pace, your budget, your preferences, and your relationship with nature and the ocean.",
+    "cta": "Interested?"
+  },
+
+  "quiz": {
+    "title": "A few questions to create your trip",
+    "subtitle": "The more details you share, the better the itinerary will match what you want.",
+    "error": "Oops, something went wrong while sending. Please try again in a few moments.",
+    "sending": "Sending...",
+    "send": "Send the quiz",
+    "thanks": "Thank you! We’ll contact you by email with a personalized proposal.",
+
+    "form": {
+      "name": "First name / nickname",
+      "email": "Contact email",
+      "groupType": "You’re traveling…",
+      "people": "Number of people",
+      "destination": "Desired destination",
+      "destinationPh": "E.g.: Philippines, Oman…",
+      "days": "Trip length (days)",
+      "period": "Preferred time period",
+      "periodPh": "E.g.: February 2026, summer, Easter holidays…",
+      "travelStyle": "You prefer a trip…",
+      "transfers": "Your tolerance for long journeys",
+      "likes": "What you enjoy the most",
+      "budget": "Budget per person (excluding flights)",
+      "accommodation": "Accommodation style",
+      "extra": "Other helpful info",
+      "extraPh": "Exact dates, constraints, very specific requests…",
+
+      "options": {
+        "solo": "Solo",
+        "couple": "As a couple",
+        "friends": "With friends",
+        "family": "With family"
+      },
+
+      "travelStyleOptions": {
+        "moveALot": "With lots of moving around",
+        "stayOnePlace": "Mostly staying in one place",
+        "balanced": "A balanced mix"
+      },
+
+      "transferOptions": {
+        "shortOnly": "Mostly short trips — I don’t like spending hours on the road",
+        "okSome": "A few long transfers are fine",
+        "loveRoadtrips": "I love road trips and longer journeys"
+      },
+
+      "likesOptions": {
+        "water": "Sea / water activities",
+        "nature": "Nature / hiking",
+        "culture": "Culture / food"
+      },
+
+      "budgetOptions": {
+        "b1": "Under €1,000",
+        "b2": "€1,000–€2,000",
+        "b3": "Over €2,000"
+      },
+
+      "accommodationOptions": {
+        "a1": "Budget-friendly",
+        "a2": "Simple comfort (2–3★)",
+        "a3": "More comfort (3–4★)"
+      }
+    }
+  }
+}
 }

@@ -1,7 +1,7 @@
 // src/pages/Blog.jsx
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import requinBaleineImg from "../assets/images/articles_blog/requin_baleine_tourisme.jpg";
 import corauxBlancsImg from "../assets/images/articles_blog/coraux_blancs.jpg";
@@ -10,11 +10,64 @@ import tortueImg from "../assets/images/articles_blog/tortue_marine.jpg";
 import omanImg from "../assets/images/articles_blog/oman.jpg";
 import blogBanner from "../assets/images/bannière_blog.jpg";
 
+/* ================= UI helpers (style Accueil) ================= */
+
+function CardShell({ children, className = "" }) {
+  return (
+    <div
+      className={[
+        "group relative overflow-hidden rounded-[3rem] border border-gray-200 bg-white",
+        "shadow-sm hover:shadow-xl transition-all duration-300",
+        "ring-0 hover:ring-4 hover:ring-[#1113a2]/10",
+        className,
+      ].join(" ")}
+    >
+      {children}
+    </div>
+  );
+}
+
+function ArticleCardPremium({ a, ctaLabel }) {
+  return (
+    <CardShell className="hover:-translate-y-0.5">
+      <Link to={a.to} aria-label={a.aria} className="absolute inset-0 z-10" />
+
+      <div className="flex gap-5 p-5 md:p-6">
+        <div className="w-28 h-20 md:w-36 md:h-24 flex-shrink-0 rounded-2xl overflow-hidden border border-gray-100 bg-gray-100">
+          <img
+            src={a.img}
+            alt={a.alt}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <p className="text-[10px] font-black uppercase tracking-[0.35em] text-[#1113a2]">
+            Blog
+          </p>
+
+          <h3 className="mt-2 text-base md:text-lg font-black text-gray-900 uppercase tracking-tight leading-snug line-clamp-2">
+            <span className="relative z-20">{a.title}</span>
+          </h3>
+
+          <p className="mt-2 text-sm md:text-base text-gray-700 leading-relaxed line-clamp-2">
+            {a.excerpt}
+          </p>
+
+          <div className="mt-4 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-900">
+            {ctaLabel} <span className="text-base">→</span>
+          </div>
+        </div>
+      </div>
+    </CardShell>
+  );
+}
+
 export default function Blog() {
   const { t } = useTranslation();
   const [q, setQ] = useState("");
 
-  // --- Définition des articles (pour recherche + affichage) ---
   const articles = useMemo(
     () => [
       {
@@ -78,7 +131,7 @@ export default function Blog() {
     [t]
   );
 
-  // --- Recherche (titre + excerpt + keywords) ---
+  // --- Recherche (titre + excerpt + keywords)
   const filtered = useMemo(() => {
     const s = q.trim().toLowerCase();
     if (!s) return articles;
@@ -90,52 +143,11 @@ export default function Blog() {
 
   const section = (name) => filtered.filter((a) => a.section === name);
 
-  // --- Carte compacte réutilisable ---
-  const ArticleCardSmall = ({ a }) => (
-    <article className="relative bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition">
-      <Link to={a.to} aria-label={a.aria}>
-        <span className="absolute inset-0 z-10" />
-      </Link>
-
-      <div className="flex gap-4 p-4 md:p-5">
-        <div className="w-28 h-20 md:w-32 md:h-24 flex-shrink-0 rounded-xl overflow-hidden border border-gray-100">
-          <img
-            src={a.img}
-            alt={a.alt}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-
-        <div className="min-w-0 flex-1">
-          <h3 className="text-base md:text-lg font-bold text-[#1113a2] leading-snug line-clamp-2">
-            <Link to={a.to} className="hover:underline relative z-20">
-              {a.title}
-            </Link>
-          </h3>
-
-          <p className="mt-1 text-sm text-gray-700 line-clamp-2">
-            {a.excerpt}
-          </p>
-
-          <div className="mt-3 relative z-20">
-            <Link
-              to={a.to}
-              className="inline-block rounded-xl bg-[#1113a2] px-4 py-2 text-white text-sm font-medium hover:opacity-90 transition"
-            >
-              {t("blog.read")}
-            </Link>
-          </div>
-        </div>
-      </div>
-    </article>
-  );
-
   return (
-    <div className="w-full">
-      {/* ======= SECTION 1 — TITRE (style Activities) ======= */}
-      <section className="py-10 px-6 text-center bg-gray-200">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-3">
+    <div className="w-full bg-white">
+      {/* ======= HERO (style Accueil) ======= */}
+      <section className="py-12 px-6 text-center bg-gray-200 border-b border-gray-200">
+        <h1 className="text-4xl md:text-6xl font-black text-gray-900 uppercase tracking-tight mb-3">
           Blog
         </h1>
         <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto">
@@ -143,77 +155,106 @@ export default function Blog() {
         </p>
       </section>
 
-      {/* ======= SECTION 1bis — Recherche ======= */}
+      {/* ======= SEARCH (premium) ======= */}
       <section className="w-full bg-white border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-6 py-8">
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-800 text-center mb-4">
-            Tu cherches un sujet ?
-          </h2>
+        <div className="max-w-5xl mx-auto px-6 py-10">
+          <div className="text-center mb-6">
+            <h2 className="text-xl md:text-2xl font-black text-gray-900 uppercase tracking-tight">
+              Tu cherches un sujet ?
+            </h2>
+            <p className="mt-2 text-sm text-gray-600">
+              Tape un mot-clé : coraux, tortues, plongée, pollution…
+            </p>
+          </div>
 
           <div className="max-w-2xl mx-auto">
-            <input
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              type="search"
-              placeholder="Ex : coraux, tortues, plongée, pollution…"
-              className="w-full rounded-2xl border border-gray-200 px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#1113a2]/30"
-            />
-            <p className="mt-2 text-center text-xs text-gray-500">
+            <div className="bg-white rounded-[2rem] border border-gray-200 shadow-sm hover:shadow-md transition p-2">
+              <input
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                type="search"
+                placeholder="Ex : coraux, tortues, plongée, pollution…"
+                className="w-full rounded-[1.5rem] border border-transparent px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#1113a2]/30"
+              />
+            </div>
+
+            <p className="mt-3 text-center text-xs text-gray-500">
               {filtered.length} article(s) trouvé(s)
             </p>
           </div>
         </div>
       </section>
 
-      {/* ======= SECTION 2 — Fond image bleu (sans gros rectangle) ======= */}
-      <section className="relative w-full py-12 px-4 md:px-8 overflow-hidden">
+      {/* ======= CONTENT (banner + sections, style Accueil) ======= */}
+      <section className="relative w-full py-14 px-4 md:px-8 overflow-hidden">
         <img
           src={blogBanner}
           alt={t("blog.bannerAlt")}
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-black/25 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-white" />
 
         <div className="relative z-10 max-w-6xl mx-auto space-y-10">
           {/* --- Sensibilisation --- */}
-          <div className="bg-white/85 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-sm p-5 md:p-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Sensibilisation
-            </h2>
+          <CardShell className="bg-white/90 backdrop-blur-md">
+            <div className="p-7 md:p-8">
+              <div className="flex items-baseline justify-between gap-4">
+                <h2 className="text-2xl md:text-3xl font-black text-gray-900 uppercase tracking-tight">
+                  Sensibilisation
+                </h2>
+                <span className="text-[10px] font-black uppercase tracking-[0.35em] text-[#1113a2]">
+                  {section("sensibilisation").length} article(s)
+                </span>
+              </div>
 
-            <div className="grid gap-4">
-              {section("sensibilisation").map((a) => (
-                <ArticleCardSmall key={a.id} a={a} />
-              ))}
+              <div className="mt-6 grid gap-5">
+                {section("sensibilisation").map((a) => (
+                  <ArticleCardPremium key={a.id} a={a} ctaLabel={t("blog.read")} />
+                ))}
+              </div>
             </div>
-          </div>
+          </CardShell>
 
           {/* --- Infos --- */}
-          <div className="bg-white/85 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-sm p-5 md:p-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Infos
-            </h2>
+          <CardShell className="bg-white/90 backdrop-blur-md">
+            <div className="p-7 md:p-8">
+              <div className="flex items-baseline justify-between gap-4">
+                <h2 className="text-2xl md:text-3xl font-black text-gray-900 uppercase tracking-tight">
+                  Infos
+                </h2>
+                <span className="text-[10px] font-black uppercase tracking-[0.35em] text-[#1113a2]">
+                  {section("infos").length} article(s)
+                </span>
+              </div>
 
-            <div className="grid gap-4">
-              {section("infos").map((a) => (
-                <ArticleCardSmall key={a.id} a={a} />
-              ))}
+              <div className="mt-6 grid gap-5">
+                {section("infos").map((a) => (
+                  <ArticleCardPremium key={a.id} a={a} ctaLabel={t("blog.read")} />
+                ))}
+              </div>
             </div>
-          </div>
+          </CardShell>
 
           {/* --- Partage --- */}
-          <div className="bg-white/85 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-sm p-5 md:p-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Partage
-            </h2>
+          <CardShell className="bg-white/90 backdrop-blur-md">
+            <div className="p-7 md:p-8">
+              <div className="flex items-baseline justify-between gap-4">
+                <h2 className="text-2xl md:text-3xl font-black text-gray-900 uppercase tracking-tight">
+                  Partage
+                </h2>
+                <span className="text-[10px] font-black uppercase tracking-[0.35em] text-[#1113a2]">
+                  {section("partage").length} article(s)
+                </span>
+              </div>
 
-            <div className="grid gap-4">
-              {section("partage").map((a) => (
-                <ArticleCardSmall key={a.id} a={a} />
-              ))}
+              <div className="mt-6 grid gap-5">
+                {section("partage").map((a) => (
+                  <ArticleCardPremium key={a.id} a={a} ctaLabel={t("blog.read")} />
+                ))}
+              </div>
             </div>
-          </div>
+          </CardShell>
         </div>
       </section>
     </div>
