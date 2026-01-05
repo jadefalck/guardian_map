@@ -10,6 +10,7 @@ html, body, #root {
 /* Pour éviter tout centrage ou limitation */
 #root {
   max-width: none;
+  color-scheme: light;
 }
 
 /* Pour supprimer les décorations sur les liens */
