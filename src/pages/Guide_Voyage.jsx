@@ -281,7 +281,7 @@ export default function GuideVoyage() {
               {/* PRIX */}
               <div className="bg-[#1113a2] text-white p-7 rounded-[3rem] shadow-xl">
                 <p className="text-[10px] font-black uppercase tracking-[0.22em] text-white/70">Tarif</p>
-                <h3 className="text-3xl font-black mt-2">29€</h3>
+                <h3 className="text-3xl font-black mt-2">19€</h3>
                 <p className="mt-1 text-sm text-white/90">
                   Paiement via <b>Wero</b> (pour le moment)
                 </p>

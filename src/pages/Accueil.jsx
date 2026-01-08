@@ -359,7 +359,7 @@ export default function Accueil() {
                 <span className="text-[10px] font-black uppercase tracking-widest opacity-60">
                   Pack Complet
                 </span>
-                <span className="text-4xl font-black">29€</span>
+                <span className="text-4xl font-black">19€</span>
               </div>
 
               {/* ✅ route vers /guide-voyage */}

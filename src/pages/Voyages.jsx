@@ -368,7 +368,7 @@ export default function Voyages() {
                     Un guide clair, fait pour ton style de voyage
                   </h3>
 
-                  <p className="text-3xl font-extrabold text-[#1a3936]">29€</p>
+                  <p className="text-3xl font-extrabold text-[#1a3936]">19€</p>
 
                   <p className="text-gray-700 text-sm md:text-base leading-relaxed">
                     On te prépare un guide sur-mesure : itinéraire, spots, saisons, déplacements, conseils concrets,
