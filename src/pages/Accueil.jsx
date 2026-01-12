@@ -1,7 +1,6 @@
 // src/pages/Accueil.jsx
-import React, { useMemo, useRef } from "react";
+import React, { useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useTranslation, Trans } from "react-i18next";
 
 import fondVideo from "../assets/videos/vidéo_accueil_fond.mp4";
 import carteEspecesImg from "../assets/images/carte_especes.png";
@@ -21,8 +20,8 @@ import wmdImg from "../assets/images/articles_blog/world_maritime_day.webp";
 function MissionCard({ title, desc, accent = "blue" }) {
   const accentMap = {
     blue: { ring: "hover:ring-[#1113a2]/20", bar: "bg-[#1113a2]", soft: "bg-[#1113a2]/5" },
-    mint: { ring: "hover:ring-emerald-500/20", bar: "bg-emerald-500", soft: "bg-emerald-500/5" },
-    pink: { ring: "hover:ring-rose-500/20", bar: "bg-rose-500", soft: "bg-rose-500/5" },
+    white: { ring: "hover:ring-gray-300/40", bar: "bg-gray-200", soft: "bg-gray-100" }, // ✅ "blanc" (accent neutre)
+    red: { ring: "hover:ring-rose-500/20", bar: "bg-rose-500", soft: "bg-rose-500/5" },
   };
   const a = accentMap[accent] || accentMap.blue;
 
@@ -123,7 +122,9 @@ function BlogStripCard({ a }) {
       </div>
 
       <div className="p-5">
-        <p className="text-[10px] font-black uppercase tracking-widest text-[#1113a2]">Blog</p>
+        {/* ✅ Tag au lieu de "Blog" */}
+        <p className="text-[10px] font-black uppercase tracking-widest text-[#1113a2]">{a.tag}</p>
+
         <h3 className="mt-2 text-sm md:text-base font-black text-gray-900 uppercase tracking-tight line-clamp-2">
           {a.title}
         </h3>
@@ -138,11 +139,10 @@ function BlogStripCard({ a }) {
 }
 
 export default function Accueil() {
-  const { t } = useTranslation();
   const navigate = useNavigate();
-  const guideRef = useRef(null);
 
-  const scrollToGuide = () => guideRef.current?.scrollIntoView({ behavior: "smooth" });
+  // ✅ bleu hover proche de ta capture
+  const HOVER_BLUE = "#001a53";
 
   const articles = useMemo(
     () => [
@@ -150,13 +150,15 @@ export default function Accueil() {
         id: "ws",
         to: "/blog/requins-baleines",
         img: requinBaleineImg,
-        title: t("blog.articles.ws.title"),
-        excerpt: t("blog.articles.ws.excerpt"),
+        tag: "Sensibilisation",
+        title: "Requins baleines : les règles d’or pour les observer sans les déranger",
+        excerpt: "Distances, comportements à éviter, et conseils pour une observation responsable.",
       },
       {
         id: "coraux",
         to: "/blog/coraux-blancs",
         img: corauxBlancsImg,
+        tag: "Sensibilisation",
         title: "Les coraux blancs ne sont pas morts",
         excerpt: "Un corail blanchi est en détresse, pas forcément mort. Apprenez à le protéger.",
       },
@@ -164,11 +166,12 @@ export default function Accueil() {
         id: "wmd",
         to: "/blog/world-maritime-day",
         img: wmdImg,
-        title: t("blog.articles.wmd.title"),
-        excerpt: t("blog.articles.wmd.excerpt"),
+        tag: "Infos",
+        title: "World Maritime Day : pourquoi cette journée existe ?",
+        excerpt: "Origines, objectifs et enjeux autour de la journée maritime mondiale.",
       },
     ],
-    [t]
+    []
   );
 
   return (
@@ -178,94 +181,125 @@ export default function Accueil() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <p className="text-sm md:text-base font-semibold text-gray-900">
-              {t("voyages.news.label")}{" "}
-              <span className="text-[#1113a2]">{t("voyages.news.text")}</span>
+              Nouveau : <span className="text-[#1113a2]">Guide de voyage personnalisé</span>
             </p>
-            <p className="text-xs text-gray-600 mt-1">{t("voyages.news.hint")}</p>
           </div>
+
           <button
-            onClick={scrollToGuide}
+            onClick={() => navigate("/guide-voyage")}
             className="rounded-xl border border-[#1113a2]/30 bg-white text-[#1113a2] font-bold px-5 py-2 shadow-sm hover:bg-[#1113a2]/10 transition"
           >
-            {t("voyages.news.cta")}
+            Découvre le guide
           </button>
         </div>
       </section>
 
       {/* 2) HERO VIDEO */}
       <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
-        <video src={fondVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-white" />
+        <video
+          src={fondVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* ✅ fondu vers un gris un peu plus présent (pour matcher la section suivante) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-gray-300" />
+
         <div className="relative z-10 text-center px-6 max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 drop-shadow-2xl">
-            {t("home.hero.title")}
+          {/* ✅ Titre demandé */}
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-6 drop-shadow-2xl tracking-tight">
+            Un tourisme{" "}
+            <span className="text-blue-200 font-black">
+              respectueux
+            </span>{" "}
+            des océans
           </h1>
 
+          {/* ✅ Notre mission + retour à la ligne + gras sur “Notre mission” et sur la 2e partie */}
           <p className="text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed drop-shadow-lg">
-            <Trans i18nKey="home.hero.subtitle" components={{ b: <span className="font-bold text-white" /> }} />
+            <span className="font-black text-white">Notre mission :</span> 
+            <br />
+            <span className="text-white">Aider chaque voyageur à faire des choix qui </span>
+            <br />
+            <span className="font-black text-white">
+              protègent l’océan, ses habitants et les communautés locales.
+            </span>
           </p>
 
-          {/* ✅ deux boutons identiques (style bouton Explorer la carte) */}
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          {/* ✅ un seul bouton “Où pars-tu ?” + hover bleu capture */}
+          <div className="mt-10 flex flex-wrap justify-center">
             <button
-              onClick={() => navigate("/especes/requin_baleine")}
-              className="px-8 py-4 bg-white text-[#1113a2] rounded-full font-bold shadow-xl hover:scale-105 transition"
+              onClick={() => navigate("/continents/afrique")}
+              style={{ ["--hoverBlue"]: HOVER_BLUE }}
+              className="px-10 py-4 bg-white text-[#1113a2] rounded-full font-bold shadow-xl transition
+                         hover:scale-105 hover:text-white"
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = HOVER_BLUE)}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "white")}
             >
-              Où voir ces animaux
-            </button>
-            <button
-              onClick={() => navigate("/activites/plongée")}
-              className="px-8 py-4 bg-white text-[#1113a2] rounded-full font-bold shadow-xl hover:scale-105 transition"
-            >
-              Activités labellisées
+              Où pars-tu ?
             </button>
           </div>
         </div>
       </section>
 
-      {/* 3) CE QUE FAIT GuardianMap */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
-            Ce que fait GuardianMap
-          </h2>
-          <p className="mt-5 text-base md:text-lg text-gray-800 max-w-3xl mx-auto leading-relaxed">
-            Des repères clairs pour voyager, observer et plonger de façon plus respectueuse du vivant.
-          </p>
+      {/* 3) CE QUE FAIT GuardianMap (fond plus gris) */}
+      <section className="py-24 px-6 bg-gray-300">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
+              Ce que fait GuardianMap
+            </h2>
+            <p className="mt-5 text-base md:text-lg text-gray-800 max-w-3xl mx-auto leading-relaxed">
+              Des repères clairs pour voyager, observer et plonger de façon plus respectueuse du vivant.
+            </p>
+          </div>
+
+          
+
+          {/* ✅ accents bleu / blanc / rouge */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <MissionCard
+              accent="blue"
+              title="Activités éthiques"
+              desc={
+                <>
+                  <span className="font-semibold">Labels certifiés et bons réflexes :</span>
+                  <br />
+                  on trie le vrai du faux pour des sorties en mer plus responsables.
+                </>
+              }
+            />
+            <MissionCard
+              accent="white"
+              title="Itinéraires sur mesure"
+              desc={
+                <>
+                  <span className="font-semibold">Des itinéraires pensés pour les voyageurs :</span>
+                  <br />
+                  selon vos envies, votre rythme, et votre façon de voyager.
+                </>
+              }
+            />
+            <MissionCard
+              accent="red"
+              title="Sensibilisation"
+              desc={
+                <>
+                  <span className="font-semibold">Comprendre pour mieux protéger :</span>
+                  <br />
+                  nous expliquons les enjeux marins pour que vous observiez mieux et avec plus de conscience.
+                </>
+              }
+            />
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <MissionCard
-            accent="blue"
-            title="Activités éthiques"
-            desc={
-              <>
-                Labels certifiés et <b>bons réflexes</b> : on trie le vrai du faux pour des sorties en mer plus responsables.
-              </>
-            }
-          />
-          <MissionCard
-            accent="mint"
-            title="Itinéraires sur mesure"
-            desc={
-              <>
-                Des itinéraires pensés pour <b>les voyageurs</b> : selon vos envies, votre rythme, et votre façon de voyager.
-              </>
-            }
-          />
-          <MissionCard
-            accent="pink"
-            title="Sensibilisation"
-            desc={
-              <>
-                Comprendre les <b>enjeux marins</b> pour mieux observer, mieux respecter, et voyager avec plus de conscience.
-              </>
-            }
-          />
-        </div>
       </section>
 
-      {/* 4) 2 cartes + Wide CTA (style existant conservé) */}
+      {/* 4) 2 cartes + Wide CTA (inchangé) */}
       <section className="bg-gray-50 py-24 px-6 border-y border-gray-100">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -283,7 +317,6 @@ export default function Accueil() {
             />
           </div>
 
-          {/* ✅ nouvelle carte (Wide CTA) */}
           <div className="mt-8">
             <WideCTA
               title="Carte globale"
@@ -304,7 +337,7 @@ export default function Accueil() {
                 Blog
               </h2>
               <p className="mt-4 text-gray-700 max-w-2xl">
-                Articles courts : espèces, enjeux, bons réflexes, tourisme responsable.
+                Espèces, enjeux et bons réflexes, tout pour un tourisme responsable.
               </p>
             </div>
 
@@ -327,11 +360,10 @@ export default function Accueil() {
       </section>
 
       {/* 6) FINAL GUIDE SECTION */}
-      <section ref={guideRef} className="py-24 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto bg-[#1113a2] rounded-[3.5rem] p-10 md:p-16 text-white flex flex-col md:flex-row items-center gap-12 shadow-2xl relative overflow-hidden">
+      <section className="py-24 px-6 bg-gray-50">
+        <div className="max-w-6xl mx-auto bg-[#004455] rounded-[3.5rem] p-10 md:p-16 text-white flex flex-col md:flex-row items-center gap-12 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32" />
 
-          {/* ✅ image du guide */}
           <div className="w-full md:w-1/4 flex justify-center">
             <div className="w-44 md:w-48 aspect-[3/4] bg-white rounded-2xl shadow-2xl rotate-[-4deg] overflow-hidden">
               <img
@@ -344,12 +376,10 @@ export default function Accueil() {
           </div>
 
           <div className="w-full md:w-3/4 space-y-6">
-            {/* ✅ titre modifié */}
             <h2 className="text-2xl md:text-4xl font-black leading-tight tracking-tighter uppercase">
               Le voyage, <br /> sans l&apos;effort de la préparation
             </h2>
 
-            {/* ✅ phrase modifiée */}
             <p className="text-lg text-blue-100 font-light max-w-xl leading-relaxed">
               Un itinéraire pensé pour vous : itinéraires, activités responsables et conseils de voyages personnalisés.
             </p>
@@ -362,13 +392,22 @@ export default function Accueil() {
                 <span className="text-4xl font-black">19€</span>
               </div>
 
-              {/* ✅ route vers /guide-voyage */}
-              <Link
-                to="/guide-voyage"
-                className="px-10 py-5 bg-white text-[#1113a2] rounded-[1.5rem] font-black uppercase text-xs tracking-widest hover:shadow-xl hover:-translate-y-1 transition-all"
-              >
-                Créer mon itinéraire
-              </Link>
+            <Link
+              to="/guide-voyage"
+              className="
+                px-10 py-5
+                bg-white text-[#004455]
+                rounded-[1.5rem]
+                font-black uppercase text-xs tracking-widest
+                shadow-xl
+                transition-all duration-300
+                hover:bg-[#00586e] hover:text-white
+                hover:-translate-y-1
+              "
+            >
+              Créer mon itinéraire
+            </Link>
+
             </div>
           </div>
         </div>
