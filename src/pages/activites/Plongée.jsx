@@ -845,10 +845,10 @@ export default function Plongee() {
       {/* TITRE */}
       <section className="py-12 px-6 text-center bg-gray-200">
         <div className="text-[10px] md:text-xs font-black uppercase tracking-[0.35em] text-[#1113a2]">
-          {t("activities.diving.kicker", { defaultValue: "Plongée" })}
+          Plongée
         </div>
         <h1 className="mt-3 text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-gray-900">
-          {t("activities.diving.title", { defaultValue: "Où veux-tu plonger ?" })}
+          Où veux-tu plonger ?
         </h1>
       </section>
 
