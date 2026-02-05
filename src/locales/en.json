@@ -189,6 +189,12 @@
       "alt": "Oman: Daymaniyat Islands, turtles and reef sharks",
       "title": "Oman: protect, be patient… and experience magical encounters",
       "excerpt": "A country that truly cares for marine wildlife: regulated turtle access, protected Daymaniyat areas, and no shark feeding…"
+    }, 
+    "ailerons_adn": {
+      "aria": "Read the article about the DNA-revealed shark fin trade",
+      "alt": "Dried shark fins at a market",
+      "title": "Shark fins: DNA exposes an invisible trade",
+      "excerpt": "A DNA investigation of more than 16,000 fins reveals a global illegal trade involving protected species."
     }
   }
 },
@@ -377,7 +383,151 @@
       "href": "https://iucn.org/sites/default/files/2022-06/consevationtortuesmarines_fr-2.pdf",
       "linkLabel": "Download the brochure (PDF)"
     }
-  }
+  }, 
+
+      "ailerons_adn": {
+      "date": "02/02/2026",
+      "title": "Shark fins: DNA exposes an invisible trade",
+      "subtitle": "A DNA investigation reveals a global market thriving in the shadows, affecting species that are supposed to be protected. And DNA is what uncovered it all.",
+      "heroAlt": "Shark fins at a market",
+
+      "intro1": "Thought shark finning was a thing of the past? <b>Think again.</b> A new scientific investigation has pulled back the curtain on a global trade that thrives in the shadows, involving species that are supposedly protected. And it was <b>DNA</b> that revealed everything.",
+
+      "h2_number": "The number that changes everything",
+      "number_p1": "Picture this: <b>nearly 20,000 fins</b> analyzed in <b>Hong Kong</b> markets between <b>2015 and 2021</b>. The verdict? Dozens of species protected by international agreements appear in quantities that would be impossible… if everything were legal.",
+      "number_li1": "For the <b>oceanic whitetip shark</b>, a species on the brink: <b>70 times more</b> fins than governments officially report.",
+      "number_li2": "For <b>hammerhead sharks</b>: <b>10 times more</b> than documented.",
+      "number_li3": "In short: <b>over 95%</b> of the oceanic whitetip fin trade is <b>illegal</b>.",
+
+      "paper_p1": "Published in <b>November 2025</b> in <i>Science Advances</i> by an international team led by Dr <b>Diego Cardeñosa</b> (Florida International University) and Dr <b>Demian Chapman</b> (Mote Marine Laboratory), these findings reshape how we understand the problem. The fin trade didn’t disappear: it adapted, bypassed rules, and became harder to see.",
+      "quote_cardenosa": "“There is a huge gap between what’s on paper and what’s happening in the real world. The DNA evidence clearly shows that these protected species are still entering the global market at alarming rates.”",
+
+      "h2_why": "Why does this trade persist?",
+      "why_gold": {
+        "title": "A product worth its weight in gold",
+        "text": "Dried shark fin is considered a luxury product in some cultures, traditionally served as soup at important events as a status symbol. The global market? Wildlife trafficking is estimated at roughly <b>$20 billion a year</b>, and shark fins represent a significant share. The issue: once fins are dried and cut, it’s <b>impossible</b> to tell which species they came from. That opacity makes mixing and fraud easy."
+      },
+      "why_bonus": {
+        "title": "The deadly “bonus”",
+        "text": "Even fishers who are not specifically targeting sharks have long viewed fins as the cherry on top: a shark caught incidentally suddenly becomes far more profitable if its fins can be sold separately on a parallel market.",
+        "note": ""
+      },
+      "quote_chapman_1": "“Many sharks are at risk of extinction, with the international trade of shark products, like dried fins used in the expensive luxury dish shark fin soup, often pushing fishing pressure beyond species’ ability to reproduce and rebuild their populations.”",
+      "why_hk": {
+        "title": "A trade labyrinth: Hong Kong, the global hub",
+        "text": "Between capture at sea, intermediaries, drying, processors, exporters, wholesalers, and end markets, there can be a dozen steps. Each one is a gray zone where illegality can blur until it becomes invisible. <b>Hong Kong</b> remains the world hub of the fin trade: this is where volumes converge, prices are set, and flows are negotiated."
+      },
+
+      "h2_context": "100 million sharks killed every year",
+      "context_p1": "Scientists estimate that around <b>100 million</b> sharks die each year in global fisheries (a range of <i>63 to 273 million</i> depending on methods). Since the 1970s, shark populations have declined by roughly <b>70%</b>, mainly due to overfishing and <i>finning</i> (cutting off fins and discarding the shark). Note: not all of these sharks are killed solely for fins, but the fin trade remains a major driver because it increases profitability. The context is urgent: with slow reproduction, many species are highly vulnerable, with at least <b>30 species</b> close to extinction. About <b>37%</b> of sharks and rays are already threatened according to the IUCN (2020 data).",
+
+      "h2_dna": "The investigation that changes everything: when DNA speaks",
+      "dna_p1": "In 2013, during a global <b>CITES</b> meeting, trade regulations were imposed on five particularly threatened species: three large <b>hammerhead sharks</b> (scalloped, smooth, and great), the <b>shortfin mako</b>, and the <b>oceanic whitetip</b>. Added to <b>Appendix II</b> in 2013, these protections came into force in <b>2014</b>. “Since the 2014 CITES listings for these species, very little trade has been reported and certified,” Chapman explains. “Based on those numbers, we expected to find very few of their fins in Hong Kong.”",
+      "h3_method": "The method: genetic “barcoding”",
+      "method_p1": "The team collected samples from major Hong Kong markets and used <b>genetic barcoding</b> to identify species from DNA. They analyzed <i>fin trimmings</i>: small tissue pieces taken from whole, recently imported fins—allowing them to estimate market species composition without destroying the fins.",
+      "h4_scope": "The scale of the study",
+      "scope_li1": "Nearly 20,000 samples analyzed between 2014 and 2021",
+      "scope_li2": "Systematic collection across Hong Kong markets",
+      "scope_li3": "Parallel analysis of official trade records",
+      "scope_li4": "Direct comparison between what is declared and what is sold",
+
+      "h3_results": "Shocking results: the gaping gap",
+      "results_li1": "<b>6.5%</b> of samples contained CITES-listed species : significantly higher than what official reports suggest.",
+      "results_li2": "For <i>Carcharhinus longimanus</i> (oceanic whitetip), listed as <b>Critically Endangered</b> (IUCN): about <b>70×</b> higher than records imply.",
+      "results_li3": "For <b>hammerhead sharks</b>: about <b>10×</b> more common than documented by CITES.",
+      "results_li4": "For the <b>shortfin mako</b>: no CITES trade reported, yet its fins were found in markets.",
+
+      "quote_chapman_2": "“Our results show that while global trade regulations are a powerful tool, their effectiveness depends on countries actually enforcing them. We see clear evidence of widespread non-compliance. Illegal trade continues at a massive scale.”",
+
+      "h3_verdict": "A clear verdict",
+      "verdict_p1": "In short: <b>81%</b> of fin-exporting countries have <b>never</b> reported trade for these listed species : suggesting illegal exports are occurring. Hammerhead sharks and oceanic whitetips are listed as <b>Critically Endangered</b> or <b>Vulnerable</b> (IUCN), and continued exploitation risks pushing populations even closer to collapse.",
+      "quote_tipping": "“We are reaching a major tipping point where if fishing and trade of these species are not significantly reduced, then these sharks will disappear. That would be an enormous loss of apex predators… and it could trigger serious and unpredictable ecosystem changes.”",
+
+      "h2_countries": "The culprits: countries involved in the trade",
+      "countries_p1": "Genetic tracing highlighted countries of origin likely involved at high levels:",
+      "country_es": "Spain",
+      "country_tw": "Taiwan",
+      "country_ae": "United Arab Emirates",
+      "country_cn": "China",
+      "country_ph": "Philippines",
+      "country_gh": "Ghana",
+      "country_br": "Brazil",
+
+      "h2_cites": "“Protected species”: what does it really mean?",
+      "cites_p1": "Protected under CITES does not mean “untouchable.” It means trade is only possible with <b>strict permits</b>, full <b>traceability</b>, and proof that fishing does not harm the species (<i>Non-Detriment Finding</i>).",
+      "cites_annexes_title": "The two CITES appendices",
+      "cites_annexe1": "<b>Appendix I</b>: commercial international trade is generally prohibited (maximum protection). Historical example: green turtles were listed, trade stopped, and populations rebounded.",
+      "cites_annexe2": "<b>Appendix II</b>: trade is possible only if the exporting State issues a permit proving legal origin + no negative impact (NDF).",
+      "cites_growth": "Today, more than <b>90</b> shark and ray species have some CITES protection. In fact, <b>149 species</b> are now listed, representing about <b>68%</b> of the global fin trade. The issue? On paper everything is regulated; on markets, observed volumes remain incompatible with “legal” flows.",
+
+      "h2_portable": "The game-changer: a portable DNA test",
+      "portable_p1": "Faced with the scale of trafficking, Cardeñosa developed a <b>portable DNA tool</b> designed for field use (ports, customs). The goal: give officers preliminary evidence fast, without waiting for lab delays.",
+      "portable_24h_title": "Why it’s crucial: the 24-hour constraint",
+      "quote_24h": "“A lot of law enforcement agencies… say that if they can’t get preliminary evidence within 24 hours, they have to let the container go.”",
+      "portable_cap_title": "What the tool can do",
+      "portable_li1": "Results in <b>under 4 hours</b> (vs 24h+ in a lab)",
+      "portable_li2": "Cost: <b>under $100</b> for <b>90+ samples</b>",
+      "portable_li3": "Portable: usable directly in ports",
+      "portable_li4": "Can flag unknown species (outside the reference database)",
+      "portable_deploy": "Cardeñosa hopes to deploy the device from Sri Lanka and Indonesia to Ecuador, Peru, Mexico, Costa Rica, Brazil… making illegal fins harder to sell and creating a deterrent effect.",
+
+      "h2_rights": "Who is allowed to sell shark fins?",
+      "rights_intro": "In theory, it’s allowed if:",
+      "rights_li1": "The species is not fully prohibited from being fished",
+      "rights_li2": "National regulations are respected (quotas, licenses, zones)",
+      "rights_li3": "For CITES Appendix II species: official permits + NDF + full traceability",
+      "rights_outro": "In practice? The DNA study shows the <b>gaping gap</b> between theory and reality.",
+
+      "h2_bans": "Some countries have truly banned the trade",
+      "bans_a_title": "A) Strict finning bans",
+      "bans_a_text": "Banned in many places, including across the <b>European Union</b>, which requires sharks to be landed with <b>fins naturally attached</b> (<i>Fins Naturally Attached</i>). This practice is estimated to kill up to <b>70 million</b> sharks per year.",
+      "bans_b_title": "B) Trade in detached fins",
+      "bans_b_uk": "United Kingdom: <i>Shark Fins Act 2023</i>, import/export of detached fins banned, including canned products",
+      "bans_b_ca": "Canada: strengthened restrictions on import/export of fins not naturally attached",
+      "bans_b_us": "United States: strengthened federal framework to exit the fin trade",
+      "bans_apply_title": "The enforcement problem",
+      "bans_apply_text": "In most countries, even when finning is banned “on paper,” port controls, species identification, and traceability remain weak. Visual inspection is not enough: many dried fins look alike.",
+
+      "h2_small": "The small-shark problem: a regulatory loophole",
+      "small_p1": "In 2024, the same team highlighted another blind spot: trade in <b>small sharks</b> and <b>juveniles</b>. Roughly 4,000 small fins analyzed in Hong Kong revealed increased diversity and threatened species that are not regulated.",
+      "small_numbers_title": "The numbers",
+      "small_li1": "Nearly <b>75%</b> of small fins came from small shark species",
+      "small_li2": "<b>58.1%</b> of the small species identified were threatened with extinction",
+      "small_li3": "A quarter came from large sharks (substantial exploitation of <b>juveniles</b>)",
+      "small_gap_title": "A major CITES loophole",
+      "small_gap_text": "Trade in 19 threatened small species (notably Triakidae) is not regulated despite significant volumes.",
+      "small_examples_title": "Examples of threatened small species heavily traded but not listed",
+      "small_ex1": "Blackspotted smooth-hound (<i>Mustelus punctulatus</i>)",
+      "small_ex2": "Narrownose smooth-hound (<i>Mustelus schmitti</i>)",
+      "small_ex3": "Tope shark (<i>Galeorhinus galeus</i>)",
+      "small_juveniles_title": "Juvenile exploitation",
+      "small_juveniles_text": "If young sharks are killed before they reproduce, populations can’t recove : this is a major sustainability lock.",
+
+      "h2_solutions": "Solutions: what needs to change",
+      "sol1_title": "Strengthen CITES compliance mechanisms",
+      "sol1_text": "Take stricter action against non-compliant countries and address illegal trade through CITES internal mechanisms.",
+      "sol2_title": "Uplist to Appendix I for the most critical species",
+      "sol2_text": "For some species (e.g., oceanic whitetip), maximum protection is being considered: <i>the study shows why it may be necessary</i>.",
+      "sol3_title": "Stronger enforcement and transparency",
+      "sol3_text": "Increase inspections, improve reporting, boost transparency, and expand genetic monitoring along supply chains.",
+      "sol4_title": "Deploy portable DNA tools",
+      "sol4_text": "Give authorities fast evidence (hours, not days) and create a deterrent effect.",
+      "sol5_title": "Full traceability",
+      "sol5_text": "Track each fin from capture to final consumer (traceability tech, registries, controls).",
+
+      "h2_conclusion": "Conclusion: making the invisible visible",
+      "concl_p1": "Rules exist. Treaties are signed. Laws are passed. But as long as identification and traceability remain insufficient, protected species will keep quietly feeding the market. <b>DNA doesn’t lie.</b>",
+      "quote_concl": "“Shining a light on this problem is a major step toward solving it… This study reveals a systemic failure to uphold existing protections.”",
+      "concl_p2": "Still, the team remains optimistic: for Cardeñosa, the new device is “another front” in the battle. Each fin identified isn’t just a scientific breakthrough : it’s a step toward protecting ecosystems on the edge of collapse.",
+
+      "h2_orgs": "Who is fighting on the ground?",
+      "orgs_intro": "Against this global trade, several organizations fight every day : market monitoring, advocacy, demand campaigns, science, and diver mobilization:",
+
+      "h2_guardianmap": "And on the ground: GuardianMap",
+      "guardianmap_p1": "In the Mediterranean field, our GuardianMap team recently met <b>Dr Emir Berkane</b> (Probium Foundation) at the Salon de la Plongée. With educational kits using <i>virtual reality</i>, he raises awareness among children and adults alike about shark protection through immersive workshops that radically change perceptions of these often misunderstood animals.",
+
+      "sourcesTitle": "Sources and references:"
+    }
 
   },
 

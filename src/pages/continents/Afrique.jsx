@@ -4,6 +4,7 @@ import * as XLSX from "xlsx";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 
 // ===== Données =====
 import EXCEL_URL from "../../data/BDD_centres_plongees.xlsx?url";
@@ -136,6 +137,7 @@ function CardShell({ children, className = "" }) {
 
 export default function ExplorationTotale() {
   const { t } = useTranslation();
+  const location = useLocation();
 
   const mapRef = useRef(null);
   const mapObj = useRef(null);
@@ -158,7 +160,7 @@ export default function ExplorationTotale() {
 
   const [noCountryData, setNoCountryData] = useState(false);
 
-  // signalement (UI)
+  // ✅ Signalement (UI)
   const [reportForm, setReportForm] = useState({
     operator: "",
     country: "",
@@ -191,6 +193,13 @@ export default function ExplorationTotale() {
     });
     setOpenReport(false);
   };
+
+  // ✅ Lire ?country=... et pré-remplir la recherche (comme si tu avais tapé)
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const c = (params.get("country") || "").trim();
+    if (c) setSearchCountry(c);
+  }, [location.search]);
 
   // ========= Load Excel =========
   useEffect(() => {
@@ -232,6 +241,7 @@ export default function ExplorationTotale() {
           r.X
       );
 
+      // swap si inversé
       if (lat != null && lon != null && Math.abs(lat) > 90 && Math.abs(lon) <= 90) {
         [lat, lon] = [lon, lat];
       }
@@ -246,6 +256,7 @@ export default function ExplorationTotale() {
       const isAMP = label === "blueflag" || label === "both";
       const isDive = label === "greenfins" || label === "both";
 
+      // filtres globaux
       if (mainCategory === "amp" && !isAMP) return;
       if (mainCategory === "activities" && subCategory === "dive" && !isDive) return;
       if (mainCategory === "activities" && subCategory === "obs") return;
@@ -287,6 +298,7 @@ export default function ExplorationTotale() {
       }
     });
 
+    // Observation
     if (mainCategory === "all" || (mainCategory === "activities" && (subCategory === "all" || subCategory === "obs"))) {
       (observationData || []).forEach((p) => {
         const lat = toNum(p.lat);
@@ -310,6 +322,7 @@ export default function ExplorationTotale() {
       });
     }
 
+    // Espèces
     if (mainCategory === "all" || mainCategory === "animals") {
       (speciesData || []).forEach((p) => {
         const lat = toNum(p.lat);
@@ -345,8 +358,9 @@ export default function ExplorationTotale() {
   // ========= Counts =========
   const counters = useMemo(() => {
     const speciesCount = (speciesData || []).length;
+
     const gfCount = excelRows.filter((r) => {
-      const label = normLabel(r.label ?? r.Label ?? "");
+      const label = normLabel(r.label ?? r.Label ?? r.certif ?? r.certification ?? "");
       return label === "greenfins" || label === "both";
     }).length;
 
@@ -358,11 +372,14 @@ export default function ExplorationTotale() {
     return { speciesCount, gfCount, obsCount };
   }, [excelRows]);
 
+  // ✅ Animated counters (sinon "animated is not defined")
   const [animated, setAnimated] = useState({ species: 0, gf: 0, obs: 0 });
 
   useEffect(() => {
     const prefersReduce =
-      typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReduce) {
       setAnimated({ species: counters.speciesCount, gf: counters.gfCount, obs: counters.obsCount });
@@ -373,7 +390,7 @@ export default function ExplorationTotale() {
     const start = performance.now();
     const duration = 650;
 
-    const from = { species: animated.species, gf: animated.gf, obs: animated.obs };
+    const from = { ...animated };
     const to = { species: counters.speciesCount, gf: counters.gfCount, obs: counters.obsCount };
 
     const tick = (now) => {
@@ -654,7 +671,7 @@ export default function ExplorationTotale() {
 
                 {noCountryData && searchCountry.trim() && (
                   <div className="mt-3 rounded-2xl border border-orange-200 bg-orange-50 px-5 py-4 text-sm text-slate-800">
-                    Nous n’avons pas encore d’infos sur <b>{searchCountry.trim()}</b>.
+                    Nous n’avons pas encore de données pour <b>{searchCountry.trim()}</b>. Essaie un autre pays.
                   </div>
                 )}
 
@@ -778,7 +795,9 @@ export default function ExplorationTotale() {
           </CardShell>
 
           <div className="bg-[#1113a2] text-white rounded-2xl px-5 py-4 shadow-lg">
-            <p className="text-sm font-semibold">Astuce : zoome sur la carte pour voir tous les pins (centres, opérateurs, spots).</p>
+            <p className="text-sm font-semibold">
+              Astuce : zoome sur la carte pour voir tous les pins (centres, opérateurs, spots).
+            </p>
           </div>
         </aside>
 
@@ -806,7 +825,7 @@ export default function ExplorationTotale() {
         </div>
       </section>
 
-      {/* Top 3 destinations (même vibe que tes cards) */}
+      {/* Top 3 destinations */}
       <section className="w-full bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-10 py-12">
           <CardShell className="p-6 md:p-10">
@@ -936,7 +955,7 @@ export default function ExplorationTotale() {
           </div>
         </div>
 
-        {/* Questionnaire (blanc, arrondi, “posé” sur le fond gris) */}
+        {/* Questionnaire */}
         {openReport && (
           <div className="max-w-7xl mx-auto px-6 -mt-10 pb-16">
             <CardShell className="p-6 md:p-8 shadow-xl">

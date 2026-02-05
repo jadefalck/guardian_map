@@ -13,6 +13,7 @@ import LabelsCertifications from "./pages/LabelsCertifications";
 import Circuits from "./pages/Circuits";
 import Especes from "./pages/Especes";
 import Voyages from "./pages/Voyages";
+import Zones from "./pages/Zones_protegees";
 
 // Blog articles
 import RequinsBaleines from "./pages/blog/RequinsBaleines";
@@ -20,6 +21,7 @@ import WorldMaritimeDay from "./pages/blog/WorldMaritimeDay";
 import Oman from "./pages/blog/Oman";
 import TortuesVertes from "./pages/blog/TortuesVertes";
 import CorauxBlancs from "./pages/blog/CorauxBlancs";
+import AileronsRequinsADN from "./pages/blog/AileronsRequinsADN";
 
 // Activités
 import Activites from "./pages/activites/Activités";
@@ -231,6 +233,7 @@ function AppLayout() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/requins-baleines" element={<RequinsBaleines />} />
           <Route path="/blog/world-maritime-day" element={<WorldMaritimeDay />} />
+          <Route path="/blog/ailerons-requins-adn" element={<AileronsRequinsADN />} />
           <Route path="/blog/oman" element={<Oman />} />
           <Route path="/circuits" element={<Circuits />} />
           <Route path="/activites" element={<Activites />} />
@@ -246,6 +249,7 @@ function AppLayout() {
           <Route path="/activites/plongée" element={<Plongée />} />
           <Route path="/especes/requin_baleine" element={<RequinBaleine />} />
           <Route path="/guide-voyage" element={<GuideVoyage />} />
+          <Route path="/zones" element={<Zones />} />
         </Routes>
       </main>
 

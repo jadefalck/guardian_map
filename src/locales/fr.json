@@ -190,7 +190,14 @@
       "alt": "Oman : îles Daymaniyat, tortues et requins de récif",
       "title": "Oman : protéger, patienter… et vivre des rencontres magiques",
       "excerpt": "Un pays qui prend vraiment soin de sa faune marine : accès régulé aux tortues, zones protégées aux Daymaniyat, requins de récif non nourris… Ici, on observe en douceur et on accepte la part d’imprévu."
+    }, 
+    "ailerons_adn": {
+      "aria": "Lire l’article sur le trafic d’ailerons révélé par l’ADN",
+      "alt": "Ailerons de requins séchés sur un marché",
+      "title": "Ailerons de requins : l’ADN révèle un trafic invisible",
+      "excerpt": "Une enquête ADN sur plus de 16 000 ailerons révèle un commerce mondial illégal, incluant des espèces protégées."
     }
+
   }
 },
 
@@ -377,7 +384,154 @@
       "href": "https://iucn.org/sites/default/files/2022-06/consevationtortuesmarines_fr-2.pdf",
       "linkLabel": "Télécharger la brochure (PDF)"
     }
+  }, 
+
+  "ailerons_adn": {
+    "date": "02/02/2026",
+    "title": "Ailerons de requins : l'ADN révèle un trafic invisible",
+    "subtitle": "Une enquête ADN met au jour un commerce mondial qui prospère dans l’ombre, touchant des espèces censément protégées. Et c’est l’ADN qui a tout révélé.",
+    "heroAlt": "Ailerons de requins sur un marché",
+
+    "intro1": "Vous pensiez que couper les ailerons de requins appartenait au passé ? <b>Détrompez-vous.</b> Une enquête scientifique vient de lever le voile sur un commerce mondial qui prospère dans l'ombre, touchant des espèces censément protégées. Et c'est l'ADN qui a tout révélé.",
+
+    "h2_number": "Le chiffre qui change tout",
+    "number_p1": "Imaginez : <b>près de 20 000 ailerons</b> analysés dans les marchés de <b>Hong Kong</b> entre <b>2015 et 2021</b>. Le verdict ? Des dizaines d'espèces protégées par les traités internationaux apparaissent en quantités impossibles... si tout était légal.",
+    "number_li1": "Pour le <b>requin océanique longimane</b>, une espèce au bord de l’extinction : <b>70 fois plus</b> d’ailerons que ce que les gouvernements déclarent officiellement.",
+    "number_li2": "Pour les <b>requins-marteaux</b> : <b>10 fois plus</b> que documenté.",
+    "number_li3": "En clair : <b>plus de 95%</b> du commerce de requins longimanes est <b>illégal</b>.",
+
+    "paper_p1": "Cette découverte, publiée en <b>novembre 2025</b> dans <i>Science Advances</i> par une équipe internationale dirigée par le Dr <b>Diego Cardeñosa</b> (Florida International University) et le Dr <b>Demian Chapman</b> (Mote Marine Laboratory), chamboule notre compréhension du problème. Le commerce des ailerons n'a pas disparu : il s'est adapté, contourné, rendu invisible.",
+    "quote_cardenosa": "« Il y a un fossé énorme entre ce qui est sur le papier et ce qui se passe dans le monde réel. Les preuves ADN montrent clairement que ces espèces protégées entrent encore sur le marché mondial à des taux alarmants. »",
+
+    "h2_why": "Pourquoi ce commerce persiste-t-il ?",
+    "why_gold": {
+      "title": "Un produit qui vaut de l'or",
+      "text": "L'aileron de requin séché est un produit de luxe dans certaines cultures, traditionnellement servi en soupe lors d'événements importants comme symbole de statut social. Le marché mondial ? Environ <b>20 milliards de dollars par an</b> pour le trafic d'espèces sauvages, dont les ailerons de requins représentent une part considérable. Le problème ? Une fois séché et découpé, <b>impossible</b> de dire à quelle espèce il appartient. Cette opacité facilite tous les mélanges et toutes les fraudes."
+    },
+    "why_bonus": {
+      "title": "Le \"bonus\" qui tue",
+      "text": "Même les pêcheurs qui ne chassent pas spécifiquement les requins ont longtemps vu l'aileron comme la cerise sur le gâteau : un poisson capturé pour sa chair devient soudain beaucoup plus rentable si on peut vendre ses ailerons séparément sur un marché parallèle.",
+      "note": ""
+    },
+    "quote_chapman_1": "« Beaucoup de requins risquent l'extinction, le commerce international de produits de requins, comme les ailerons séchés utilisés dans le plat de luxe coûteux qu'est la soupe d'ailerons, poussant souvent la pression de pêche au-delà de la capacité des espèces à se reproduire et reconstituer leurs populations. »",
+    "why_hk": {
+      "title": "Un labyrinthe commercial : Hong Kong, épicentre mondial",
+      "text": "Entre la capture en mer, les intermédiaires, le séchage, les transformateurs, les exportateurs, les grossistes et les marchés finaux, il y a une dizaine d'étapes. Autant de zones grises où l'illégalité peut se diluer jusqu'à devenir invisible. <b>Hong Kong</b> reste le hub mondial du commerce d'ailerons : c’est là que convergent les volumes, que les prix se font et que les flux se négocient."
+    },
+
+    "h2_context": "100 millions de requins tués chaque année",
+    "context_p1": "Les scientifiques estiment qu'environ <b>100 millions</b> de requins meurent annuellement dans les pêcheries mondiales (fourchette <i>63 à 273 millions</i> selon les méthodes). Depuis les années 1970, les populations de requins ont chuté d’environ <b>70%</b>, principalement à cause de la surpêche et du <i>finning</i> (couper les ailerons et rejeter le requin). Attention : tous ces requins ne sont pas tués uniquement pour leurs ailerons, mais ce commerce reste un moteur majeur car il rend la capture plus lucrative. Le contexte est urgent : à reproduction lente, de nombreuses espèces sont hautement vulnérables, avec au moins <b>30 espèces</b> au bord de l’extinction. Environ <b>37%</b> des espèces de requins et raies sont déjà menacées selon l’IUCN (données 2020).",
+
+    "h2_dna": "L'enquête qui change tout : quand l'ADN parle",
+    "dna_p1": "En 2013, lors d’une réunion mondiale de la <b>CITES</b>, des régulations commerciales ont été imposées sur cinq espèces particulièrement menacées : trois grandes espèces de <b>requins-marteaux</b> (halicorne, lisse et grand), le <b>requin-taupe commun</b> et le <b>requin océanique longimane</b>. Ajoutées à l’<b>Annexe II</b> en 2013, ces protections sont entrées en vigueur en <b>2014</b>. \"Depuis les listings CITES de 2014 pour ces espèces, très peu de commerce a été rapporté et certifié\", explique Chapman. \"Vu ces chiffres, nous nous attendions à trouver très peu de leurs ailerons à Hong Kong.\"",
+    "h3_method": "La méthode : le \"barcoding\" génétique",
+    "method_p1": "L’équipe a collecté des échantillons sur les grands marchés de Hong Kong et utilisé le <b>barcoding génétique</b> pour identifier les espèces à partir de l’ADN. Ils ont analysé des <i>fin trimmings</i> : de petits morceaux de tissu prélevés sur des ailerons entiers récemment importés, ce qui permet d’évaluer la composition en espèces du marché sans détruire les ailerons.",
+    "h4_scope": "L’ampleur de l’étude",
+    "scope_li1": "Près de 20 000 échantillons analysés entre 2014 et 2021",
+    "scope_li2": "Collecte systématique dans les marchés de Hong Kong",
+    "scope_li3": "Analyse des registres commerciaux officiels en parallèle",
+    "scope_li4": "Comparaison directe entre ce qui est déclaré et ce qui est vendu",
+
+    "h3_results": "Les résultats chocs : l'écart béant",
+    "results_li1": "<b>6,5%</b> des échantillons contenaient des espèces listées par la CITES — significativement plus élevé que les rapports officiels.",
+    "results_li2": "Pour le <i>Carcharhinus longimanus</i> (requin océanique longimane), classé <b>En danger critique</b> (IUCN) : environ <b>70x</b> plus que suggéré par les registres.",
+    "results_li3": "Pour les <b>requins-marteaux</b> : environ <b>10x</b> plus communs que documenté par la CITES.",
+    "results_li4": "Pour le <b>requin-taupe commun</b> : aucun commerce CITES rapporté, pourtant ses ailerons étaient présents sur les marchés.",
+
+    "quote_chapman_2": "« Nos résultats montrent que bien que les régulations commerciales mondiales soient un outil puissant, leur efficacité dépend du fait que les pays les appliquent réellement. Nous voyons des preuves claires d'une non-conformité généralisée. Le commerce illégal continue à se produire à une échelle massive. »",
+
+    "h3_verdict": "Le verdict sans appel",
+    "verdict_p1": "En clair : <b>81%</b> des pays exportateurs d’ailerons n’ont <b>jamais</b> rapporté de commerce pour ces espèces listées, suggérant que des exportations illégales sont en cours. Les requins-marteaux et les requins océaniques longimanes sont classés <b>En danger critique</b> ou <b>Vulnérables</b> (IUCN), et leur exploitation continue risque de pousser les populations encore plus près de l’effondrement.",
+    "quote_tipping": "« Nous atteignons un point de bascule majeur où si la pêche et le commerce de ces espèces ne sont pas significativement réduits, alors ces requins vont disparaître. Ce serait une perte énorme de prédateurs apex… et cela pourrait déclencher des changements écosystémiques sérieux et imprévisibles. »",
+
+    "h2_countries": "Les coupables : pays impliqués dans le trafic",
+    "countries_p1": "Le traçage génétique a permis d’identifier des pays d’origine très probablement impliqués à un niveau élevé :",
+    "country_es": "Espagne",
+    "country_tw": "Taïwan",
+    "country_ae": "Émirats Arabes Unis",
+    "country_cn": "Chine",
+    "country_ph": "Philippines",
+    "country_gh": "Ghana",
+    "country_br": "Brésil",
+
+    "h2_cites": "\"Espèce protégée\" : qu'est-ce que ça signifie vraiment ?",
+    "cites_p1": "Protégé par la CITES ne veut pas dire \"intouchable\". Cela signifie : commerce possible uniquement avec des <b>permis stricts</b>, une <b>traçabilité</b> complète et la preuve que la pêche ne nuit pas à l’espèce (<i>Non-Detriment Finding</i>).",
+    "cites_annexes_title": "Les deux annexes de la CITES",
+    "cites_annexe1": "<b>Annexe I</b> : commerce international commercial en principe interdit (protection maximale). Exemple historique : les tortues vertes étaient listées, le commerce s’est arrêté et les populations ont rebondi.",
+    "cites_annexe2": "<b>Annexe II</b> : commerce possible seulement si l’État exportateur délivre un permis attestant origine légale + absence d’impact négatif (NDF).",
+    "cites_growth": "Aujourd’hui, plus de <b>90</b> espèces de requins et raies ont une protection CITES. En fait, <b>149 espèces</b> sont maintenant listées, représentant environ <b>68%</b> du commerce mondial d’ailerons. Le problème ? Sur le papier tout est encadré ; sur les marchés, les volumes observés restent incompatibles avec les flux \"légaux\".",
+
+    "h2_portable": "L'innovation qui change la donne : le test ADN portable",
+    "portable_p1": "Face à ce trafic massif, Cardeñosa a développé un <b>outil ADN portable</b> conçu pour le terrain (ports, douanes). Objectif : donner aux agents des preuves préliminaires rapidement, sans attendre les délais d’un laboratoire.",
+    "portable_24h_title": "Pourquoi c'est crucial : la contrainte des 24 heures",
+    "quote_24h": "« Beaucoup des services d'application de la loi… disent que s'ils ne peuvent pas avoir de preuves préliminaires dans les 24 heures, ils doivent laisser partir le conteneur. »",
+    "portable_cap_title": "Les capacités de l’outil",
+    "portable_li1": "Résultats en <b>moins de 4 heures</b> (vs 24h+ en labo)",
+    "portable_li2": "Coût : <b>moins de 100$</b> pour <b>90+ échantillons</b>",
+    "portable_li3": "Portable : utilisable directement dans les ports",
+    "portable_li4": "Peut signaler des espèces inconnues (hors base de données)",
+    "portable_deploy": "Cardeñosa espère déployer l’appareil du Sri Lanka et de l’Indonésie jusqu’à l’Équateur, le Pérou, le Mexique, le Costa Rica, le Brésil… pour rendre plus difficile la vente d’ailerons illégaux et créer un effet dissuasif.",
+
+    "h2_rights": "Qui a le droit de vendre des ailerons ?",
+    "rights_intro": "En théorie, c'est autorisé si :",
+    "rights_li1": "L'espèce n'est pas totalement interdite à la pêche",
+    "rights_li2": "La réglementation nationale est respectée (quotas, licences, zones)",
+    "rights_li3": "Pour les espèces CITES Annexe II : permis officiels + NDF + traçabilité complète",
+    "rights_outro": "En pratique ? L’étude ADN montre <b>l’écart béant</b> entre théorie et réalité.",
+
+    "h2_bans": "Quelques pays ont vraiment interdit le commerce",
+    "bans_a_title": "A) Le \"finning\" strict",
+    "bans_a_text": "Interdit dans beaucoup de pays, notamment dans toute l’<b>Union Européenne</b> qui impose un débarquement avec <b>ailerons naturellement attachés</b> (<i>Fins Naturally Attached</i>). Cette pratique est estimée tuer jusqu'à <b>70 millions</b> de requins par an.",
+    "bans_b_title": "B) Le commerce d’ailerons détachés",
+    "bans_b_uk": "Royaume-Uni : <i>Shark Fins Act 2023</i> — import/export d’ailerons détachés interdit, même en conserve",
+    "bans_b_ca": "Canada : restrictions renforcées sur l’import/export d’ailerons non attachés",
+    "bans_b_us": "États-Unis : cadre fédéral renforcé pour sortir du commerce d’ailerons",
+    "bans_apply_title": "Le problème de l'application",
+    "bans_apply_text": "Dans la majorité des pays, même quand le finning est interdit \"sur le papier\", les contrôles portuaires, l’identification des espèces et la traçabilité restent faibles. L’inspection visuelle ne suffit pas : beaucoup d’ailerons séchés se ressemblent.",
+
+    "h2_small": "Le problème des petits requins : une faille réglementaire",
+    "small_p1": "En 2024, la même équipe a montré un autre angle mort : le commerce de <b>petits requins</b> et de <b>juvéniles</b>. Environ 4 000 petits ailerons analysés à Hong Kong ont révélé une diversité accrue et des espèces menacées non réglementées.",
+    "small_numbers_title": "Les chiffres",
+    "small_li1": "Près de <b>75%</b> des petits ailerons provenaient de petites espèces de requins",
+    "small_li2": "<b>58,1%</b> des petites espèces identifiées étaient menacées d’extinction",
+    "small_li3": "Un quart provenait de grands requins (exploitation substantielle de <b>juvéniles</b>)",
+    "small_gap_title": "Une faille importante de la CITES",
+    "small_gap_text": "Le commerce de 19 petites espèces menacées (notamment Triakidae) n’est pas réglementé, malgré des volumes importants.",
+    "small_examples_title": "Exemples de petites espèces menacées très échangées mais non listées",
+    "small_ex1": "Émissoles tachetées noires (Mustelus punctulatus)",
+    "small_ex2": "Émissoles à museau étroit (Mustelus schmitti)",
+    "small_ex3": "Milandres (Galeorhinus galeus)",
+    "small_juveniles_title": "L’exploitation des juvéniles",
+    "small_juveniles_text": "Si les jeunes requins sont tués avant de se reproduire, les populations ne peuvent pas se reconstituer : c’est un verrou majeur de durabilité.",
+
+    "h2_solutions": "Les solutions : ce qui doit changer",
+    "sol1_title": "Renforcer les mécanismes de conformité de la CITES",
+    "sol1_text": "Engager des actions plus strictes contre les pays non conformes et traiter le commerce illégal via les mécanismes internes de la CITES.",
+    "sol2_title": "Uplisting vers l’Annexe I pour les espèces les plus critiques",
+    "sol2_text": "Pour certaines espèces (ex. requin océanique longimane), un niveau de protection maximal est envisagé : <i>l’étude montre à quel point c’est nécessaire</i>.",
+    "sol3_title": "Application plus stricte et transparence",
+    "sol3_text": "Renforcer les contrôles, améliorer le reporting, augmenter la transparence et étendre le monitoring génétique le long des chaînes d’approvisionnement.",
+    "sol4_title": "Déployer les outils ADN portables",
+    "sol4_text": "Donner aux autorités une preuve rapide (heures, pas jours) et créer un effet dissuasif.",
+    "sol5_title": "Traçabilité complète",
+    "sol5_text": "Tracer chaque aileron de la capture au consommateur final (technos de traçabilité, registres, contrôles).",
+
+    "h2_conclusion": "Conclusion : rendre visible l'invisible",
+    "concl_p1": "Les règles existent, les traités sont signés, les lois sont votées. Mais tant que l’identification et la traçabilité restent insuffisantes, des espèces protégées continuent d’alimenter discrètement le commerce. <b>L’ADN, lui, ne ment pas.</b>",
+    "quote_concl": "« Mettre en lumière ce problème est un pas majeur vers sa résolution… Cette étude révèle une défaillance systémique dans le maintien des protections existantes. »",
+    "concl_p2": "Pourtant, l’équipe reste optimiste : pour Cardeñosa, le nouvel appareil est “un autre front” dans la bataille. Chaque aileron identifié n’est pas seulement une percée scientifique : c’est un pas vers la sauvegarde d’écosystèmes au bord de l’effondrement.",
+
+    "h2_orgs": "Qui se bat sur le terrain ?",
+    "orgs_intro": "Face à ce trafic mondial, plusieurs organisations mènent le combat au quotidien — surveillance des marchés, plaidoyer, campagnes de demande, science et mobilisation des plongeurs :",
+
+    "h2_guardianmap": "Et sur le terrain : GuardianMap",
+    "guardianmap_p1": "Sur le terrain méditerranéen, notre équipe GuardianMap a récemment rencontré <b>Dr Emir Berkane</b> (Fondation Probium) au Salon de la Plongée. Avec ses kits pédagogiques utilisant la <i>réalité virtuelle</i>, il sensibilise petits et grands à la protection des requins à travers des ateliers immersifs qui changent radicalement la perception de ces animaux souvent mal-aimés.",
+
+    "sourcesTitle": "Sources et références :"
   }
+
+
+
 
   },
 

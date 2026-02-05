@@ -1,5 +1,5 @@
 // src/pages/Voyages.jsx
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as XLSX from "xlsx";
 import { useTranslation } from "react-i18next";
@@ -9,11 +9,16 @@ import videoEau from "../assets/videos/eau_titre.mp4";
 // Images
 import carteEspecesImg from "../assets/images/carte_especes.png";
 import carteActiviteImg from "../assets/images/carte_activite.png";
+import zonesProtegeesImg from "../assets/images/carte_zones.png";
 import bannerCircuit from "../assets/images/bannière_circuit.jpg";
 import guideCover from "../assets/images/Guide_voyage_couv.png";
 
 // Excel destinations
 import EXCEL_URL from "../data/BDD_centres_plongees.xlsx?url";
+
+// JSON (mêmes sources que la carte globale)
+import observationData from "../data/BDD_observation.json";
+import speciesData from "../data/BDD_especes_marines.json";
 
 /* ================= UI helpers (style Accueil) ================= */
 
@@ -36,7 +41,6 @@ function CardShell({ children, className = "" }) {
   );
 }
 
-/** ✅ Carte “screen” (style Accueil) : image rectangle + hover zoom + bouton premium */
 function ScreenCardLarge({ title, desc, buttonLabel, onClick, img }) {
   return (
     <CardShell className="hover:-translate-y-0.5">
@@ -74,32 +78,50 @@ function ScreenCardLarge({ title, desc, buttonLabel, onClick, img }) {
   );
 }
 
-/** ✅ Wide CTA (style Accueil) */
-function WideCTA({ title, desc, buttonLabel, onClick }) {
-  return (
-    <CardShell className="hover:-translate-y-0.5">
-      <div className="p-7 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div className="min-w-0">
-          <h3 className="text-xl md:text-2xl font-black text-gray-900 uppercase tracking-tight">
-            {title}
-          </h3>
-          {desc ? (
-            <p className="mt-3 text-sm md:text-base text-gray-700 leading-relaxed">
-              {desc}
-            </p>
-          ) : null}
-        </div>
+/* ================= Utils ================= */
 
-        <button
-          type="button"
-          onClick={onClick}
-          className="inline-flex items-center justify-center rounded-2xl bg-[#1113a2] px-7 py-3 text-white font-bold shadow-sm hover:bg-[#0e128c] hover:shadow-md transition flex-none"
-        >
-          {buttonLabel}
-        </button>
-      </div>
-    </CardShell>
-  );
+const normalize = (s) =>
+  String(s || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+
+/** essaie de trouver une valeur "pays" probable dans une ligne Excel */
+function extractCountryFromRow(row) {
+  if (!row || typeof row !== "object") return "";
+  const keys = Object.keys(row);
+  if (!keys.length) return "";
+
+  const candidates = [
+    "pays",
+    "country",
+    "nation",
+    "pays/etat",
+    "pays - country",
+    "pays (country)",
+    "country_name",
+    "nom_pays",
+    "pays / country",
+  ];
+
+  for (const k of keys) {
+    const nk = normalize(k);
+    if (candidates.includes(nk)) {
+      const v = row[k];
+      return v ? String(v).trim() : "";
+    }
+  }
+
+  for (const k of keys) {
+    const nk = normalize(k);
+    if (nk.includes("pays") || nk.includes("country")) {
+      const v = row[k];
+      return v ? String(v).trim() : "";
+    }
+  }
+
+  return "";
 }
 
 /* ================= Page ================= */
@@ -108,24 +130,53 @@ export default function Voyages() {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const [where, setWhere] = useState("");
-  const [activityFilter, setActivityFilter] = useState("");
-  const [animalFilter, setAnimalFilter] = useState("");
+  // ✅ TA ROUTE VOULUE
+  const MAP_ROUTE = "/continents/afrique";
 
-  // (Optionnel) si tu veux exploiter l’excel
-  const [, setHasError] = useState(false);
-  const [, setContinents] = useState([]);
+  const [where, setWhere] = useState("");
+  const [countries, setCountries] = useState([]);
+  const [suggestionsOpen, setSuggestionsOpen] = useState(false);
+  const [highlightIndex, setHighlightIndex] = useState(-1);
+  const [hasError, setHasError] = useState(false);
+
+  const wrapperRef = useRef(null);
 
   useEffect(() => {
     (async () => {
       try {
+        const set = new Set();
+
+        // Excel
         const res = await fetch(EXCEL_URL);
         if (!res.ok) throw new Error("Excel not found");
         const buf = await res.arrayBuffer();
         const wb = XLSX.read(buf, { type: "array" });
         const ws = wb.Sheets[wb.SheetNames[0]];
         const rows = XLSX.utils.sheet_to_json(ws, { defval: "" });
-        setContinents(rows);
+
+        rows.forEach((r) => {
+          const c = extractCountryFromRow(r);
+          if (c) set.add(c.trim());
+        });
+
+        // Observation
+        (observationData || []).forEach((p) => {
+          const c = String(p.country || p.pays || "").trim();
+          if (c) set.add(c);
+        });
+
+        // Espèces
+        (speciesData || []).forEach((p) => {
+          const c = String(p.country || p.pays || "").trim();
+          if (c) set.add(c);
+        });
+
+        const list = Array.from(set)
+          .filter(Boolean)
+          .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
+
+        setCountries(list);
+        setHasError(false);
       } catch (e) {
         console.error(e);
         setHasError(true);
@@ -133,45 +184,72 @@ export default function Voyages() {
     })();
   }, []);
 
-  /* ================= DROPDOWNS ================= */
+  // Close dropdown on outside click
+  useEffect(() => {
+    const onDocClick = (e) => {
+      if (!wrapperRef.current) return;
+      if (!wrapperRef.current.contains(e.target)) {
+        setSuggestionsOpen(false);
+        setHighlightIndex(-1);
+      }
+    };
+    document.addEventListener("mousedown", onDocClick);
+    return () => document.removeEventListener("mousedown", onDocClick);
+  }, []);
 
-  const activityOptions = useMemo(
-    () => [
-      { value: "", label: "Sélectionner…" },
-      { value: "dive", label: "Plongée" },
-      { value: "observation", label: "Observation" },
-      { value: "zones", label: "Zones protégées" },
-    ],
-    []
-  );
-
-  const animalOptions = useMemo(
-    () => [
-      { value: "", label: "Sélectionner…" },
-      { value: "Baleine Bleue", label: "Baleine Bleue" },
-      { value: "Baleine À Bosse", label: "Baleine À Bosse" },
-      { value: "Dauphins", label: "Dauphins" },
-      { value: "Raie Manta", label: "Raie Manta" },
-      { value: "Requins", label: "Requins" },
-      { value: "Requin-baleine", label: "Requin-baleine" },
-      { value: "Tortue-marine", label: "Tortue-marine" },
-    ],
-    []
-  );
-
-  const handleActivitySelect = (val) => {
-    setActivityFilter(val);
-    if (!val) return;
-    navigate(`/activites/plongée?category=${encodeURIComponent(val)}`);
+  const goToMap = (countryMaybe = "") => {
+    const country = String(countryMaybe || where || "").trim();
+    const qs = country ? `?country=${encodeURIComponent(country)}` : "";
+    navigate(`${MAP_ROUTE}${qs}`);
   };
 
-  const handleAnimalSelect = (val) => {
-    setAnimalFilter(val);
-    if (!val) return;
-    navigate(`/especes/requin_baleine?species=${encodeURIComponent(val)}`);
+  const filteredSuggestions = useMemo(() => {
+    const q = normalize(where);
+    if (!q) return [];
+    return countries.filter((c) => normalize(c).includes(q)).slice(0, 10);
+  }, [where, countries]);
+
+  const handleSelectCountry = (country) => {
+    setWhere(country);
+    setSuggestionsOpen(false);
+    setHighlightIndex(-1);
+    goToMap(country);
   };
 
-  /* ================= Cartes sous la vidéo ================= */
+  const handleInputKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (suggestionsOpen && filteredSuggestions.length > 0 && highlightIndex >= 0) {
+        handleSelectCountry(filteredSuggestions[highlightIndex]);
+        return;
+      }
+      goToMap(where);
+    }
+
+    if (!suggestionsOpen) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setHighlightIndex((prev) => {
+        const next = prev + 1;
+        return next >= filteredSuggestions.length ? 0 : next;
+      });
+    }
+
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHighlightIndex((prev) => {
+        const next = prev - 1;
+        return next < 0 ? filteredSuggestions.length - 1 : next;
+      });
+    }
+
+    if (e.key === "Escape") {
+      setSuggestionsOpen(false);
+      setHighlightIndex(-1);
+    }
+  };
+
 
   const screenCards = useMemo(
     () => [
@@ -180,29 +258,40 @@ export default function Voyages() {
         title: "Carte des animaux marins",
         desc: (
           <>
-            Trouvez où observer chaque espèce et découvrez les{" "}
-            <NavyStrong>règles d’observation éthique</NavyStrong>. Repérez les{" "}
-            <NavyStrong>meilleures saisons</NavyStrong> et les{" "}
-            <NavyStrong>zones à éviter</NavyStrong>.
+            Repérez où observer chaque espèce, les <NavyStrong>meilleures saisons</NavyStrong> et les{" "}
+            <NavyStrong>règles d’observation éthique</NavyStrong>. Identifiez aussi les zones plus sensibles à éviter.
           </>
         ),
-        buttonLabel: "Accéder à la carte",
+        buttonLabel: "Voir la carte",
         to: "/especes/requin_baleine",
         img: carteEspecesImg,
       },
       {
-        key: "certified-activities",
-        title: "Cartes des activités certifiées",
+        key: "certified-diving",
+        title: "Carte des plongées certifiées",
         desc: (
           <>
-            Repérez les <NavyStrong>centres certifiés</NavyStrong> et comparez les{" "}
-            <NavyStrong>labels</NavyStrong> +{" "}
-            <NavyStrong>bonnes pratiques</NavyStrong>.
+            Trouvez des <NavyStrong>centres certifiés</NavyStrong>, comparez les <NavyStrong>labels</NavyStrong> et
+            découvrez des <NavyStrong>bonnes pratiques</NavyStrong> pour plonger plus responsable.
           </>
         ),
-        buttonLabel: "Découvrir les activités",
+        buttonLabel: "Voir la carte",
         to: "/activites/plongée",
         img: carteActiviteImg,
+      },
+      {
+        key: "protected-areas",
+        title: "Carte des zones maritimes protégées",
+        desc: (
+          <>
+            Visualisez les <NavyStrong>aires marines protégées</NavyStrong>, comprenez les{" "}
+            <NavyStrong>règles locales</NavyStrong> et repérez des spots plus <NavyStrong>durables</NavyStrong> pour
+            voyager en minimisant l’impact.
+          </>
+        ),
+        buttonLabel: "Voir la carte",
+        to: "/zones",
+        img: zonesProtegeesImg,
       },
     ],
     []
@@ -210,13 +299,12 @@ export default function Voyages() {
 
   return (
     <div className="w-full bg-white">
-      {/* Bandeau (style Accueil) */}
+      {/* Bandeau */}
       <section className="bg-gray-100 py-8 px-4 border-b border-gray-200">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <p className="text-sm md:text-base font-semibold text-gray-900">
-              {t("voyages.news.label")}{" "}
-              <span className="text-[#1113a2]">{t("voyages.news.text")}</span>
+              {t("voyages.news.label")} <span className="text-[#1113a2]">{t("voyages.news.text")}</span>
             </p>
             <p className="text-xs text-gray-600 mt-1">{t("voyages.news.hint")}</p>
           </div>
@@ -231,7 +319,7 @@ export default function Voyages() {
         </div>
       </section>
 
-      {/* Vidéo + 3 champs (style Accueil : plus premium) */}
+      {/* Vidéo + recherche + bouton */}
       <section className="relative w-full h-[300px] md:h-[360px] overflow-hidden">
         <video autoPlay muted loop playsInline className="absolute w-full h-full object-cover top-0 left-0">
           <source src={videoEau} type="video/mp4" />
@@ -246,67 +334,80 @@ export default function Voyages() {
                 {t("voyages.heroTitle")}
               </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+              <div ref={wrapperRef} className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 items-end">
+                <div className="relative">
+                  <label className="block text-base md:text-lg font-extrabold text-gray-900 mb-2">
                     {t("voyages.search.where.label")}
                   </label>
+
                   <input
                     value={where}
-                    onChange={(e) => setWhere(e.target.value)}
+                    onChange={(e) => {
+                      setWhere(e.target.value);
+                      setSuggestionsOpen(true);
+                      setHighlightIndex(-1);
+                    }}
+                    onFocus={() => {
+                      if (where.trim()) setSuggestionsOpen(true);
+                    }}
+                    onKeyDown={handleInputKeyDown}
                     type="search"
                     placeholder={t("voyages.search.where.placeholder")}
                     className="w-full rounded-xl bg-white border border-gray-200 px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#1113a2]/30"
                   />
+
+                  {suggestionsOpen && filteredSuggestions.length > 0 && (
+                    <div className="absolute z-20 mt-2 w-full rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden">
+                      <ul className="max-h-64 overflow-auto py-1">
+                        {filteredSuggestions.map((c, idx) => {
+                          const active = idx === highlightIndex;
+                          return (
+                            <li key={c}>
+                              <button
+                                type="button"
+                                onClick={() => handleSelectCountry(c)}
+                                onMouseEnter={() => setHighlightIndex(idx)}
+                                className={[
+                                  "w-full text-left px-4 py-3 text-sm",
+                                  "transition",
+                                  active
+                                    ? "bg-[#1113a2]/10 text-[#1113a2] font-semibold"
+                                    : "hover:bg-gray-50",
+                                ].join(" ")}
+                              >
+                                {c}
+                              </button>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
+
+                  {hasError && (
+                    <p className="mt-2 text-xs text-orange-600">
+                      Impossible de charger la liste des pays pour l’instant.
+                    </p>
+                  )}
                 </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
-                    Quelle activité voulez-vous faire ?
-                  </label>
-                  <select
-                    value={activityFilter}
-                    onChange={(e) => handleActivitySelect(e.target.value)}
-                    className="w-full rounded-xl bg-white border border-gray-200 px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#1113a2]/30"
-                  >
-                    {activityOptions.map((opt) => (
-                      <option key={opt.value || "empty"} value={opt.value}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
-                    Quels animaux voulez-vous voir ?
-                  </label>
-                  <select
-                    value={animalFilter}
-                    onChange={(e) => handleAnimalSelect(e.target.value)}
-                    className="w-full rounded-xl bg-white border border-gray-200 px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#1113a2]/30"
-                  >
-                    {animalOptions.map((opt) => (
-                      <option key={opt.value || "empty"} value={opt.value}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => goToMap(where)}
+                  className="inline-flex items-center justify-center rounded-2xl bg-[#1113a2] px-6 py-3 text-white font-bold shadow-sm hover:bg-[#0e128c] hover:shadow-md transition md:w-auto w-full"
+                >
+                  Voir la carte du monde
+                </button>
               </div>
-
-              <p className="mt-3 text-xs text-gray-600 text-center">
-                Sélectionne une activité ou un animal pour être redirigé vers la page déjà filtrée.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2 cartes + Wide CTA */}
+      {/* 3 cartes */}
       <section className="w-full bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {screenCards.map((c) => (
               <ScreenCardLarge
                 key={c.key}
@@ -318,29 +419,15 @@ export default function Voyages() {
               />
             ))}
           </div>
-
-          <div className="mt-8">
-            <WideCTA
-              title="Carte globale"
-              desc="Explore les pays et accède rapidement aux points d’intérêt."
-              buttonLabel="Explorer le monde"
-              onClick={() => navigate("/continents/afrique")}
-            />
-          </div>
         </div>
       </section>
 
-      {/* Bloc Guide (style Accueil : plus premium) */}
+      {/* Bloc Guide */}
       <section className="w-full bg-white py-12 px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
           <CardShell className="rounded-[3rem]">
             <div className="relative h-[120px] md:h-[150px] overflow-hidden">
-              <img
-                src={bannerCircuit}
-                alt="Bannière guide"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
+              <img src={bannerCircuit} alt="Bannière guide" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-black/35" />
 
               <div className="relative z-10 h-full flex items-center justify-center px-4">
@@ -355,12 +442,7 @@ export default function Voyages() {
             <div className="bg-gray-50 border-t border-gray-200 p-6 md:p-9">
               <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-10 items-center">
                 <div className="flex justify-center md:justify-start">
-                  <img
-                    src={guideCover}
-                    alt="Guide"
-                    className="w-full max-w-[190px] rounded-2xl shadow-md"
-                    loading="lazy"
-                  />
+                  <img src={guideCover} alt="Guide" className="w-full max-w-[190px] rounded-2xl shadow-md" loading="lazy" />
                 </div>
 
                 <div className="space-y-4">
@@ -372,7 +454,7 @@ export default function Voyages() {
 
                   <p className="text-gray-700 text-sm md:text-base leading-relaxed">
                     On te prépare un guide sur-mesure : itinéraire, spots, saisons, déplacements, conseils concrets,
-                    et bien d'autres.
+                    et bien d&apos;autres.
                   </p>
 
                   <button
@@ -383,9 +465,7 @@ export default function Voyages() {
                     Je suis intéressé(e)
                   </button>
 
-                  <p className="text-xs text-gray-500">
-                    Tu arrives sur un questionnaire simple à envoyer. On te recontacte ensuite.
-                  </p>
+                  <p className="text-xs text-gray-500">Tu arrives sur un questionnaire simple à envoyer. On te recontacte ensuite.</p>
                 </div>
               </div>
             </div>
@@ -395,3 +475,4 @@ export default function Voyages() {
     </div>
   );
 }
+

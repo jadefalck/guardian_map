@@ -9,6 +9,7 @@ import wmdImg from "../assets/images/articles_blog/world_maritime_day.webp";
 import tortueImg from "../assets/images/articles_blog/tortue_marine.jpg";
 import omanImg from "../assets/images/articles_blog/oman.jpg";
 import blogBanner from "../assets/images/bannière_blog.jpg";
+import aileronsAdnImg from "../assets/images/articles_blog/ailerons_requins_adn.jpg";
 
 /* ================= UI helpers (style Accueil) ================= */
 
@@ -127,6 +128,32 @@ export default function Blog() {
         aria: t("blog.articles.oman.aria"),
         keywords: ["oman", "voyage", "plongée", "itinéraire", "mer"],
       },
+      {
+        id: "ailerons_adn",
+        section: "sensibilisation",
+        to: "/blog/ailerons-requins-adn",
+        img: aileronsAdnImg,
+        title: "Ailerons de requins : l’ADN révèle un trafic invisible",
+        excerpt:
+          "Une enquête ADN sur plus de 16 000 ailerons révèle un commerce mondial illégal, incluant des espèces protégées. Quand l’ADN parle, la fraude devient indéniable.",
+        alt: "Ailerons de requins séchés sur un marché",
+        aria: "Lire l’article sur le trafic d’ailerons révélé par l’ADN",
+        keywords: [
+          "ailerons",
+          "requin",
+          "requins",
+          "finning",
+          "trafic",
+          "cites",
+          "adn",
+          "barcoding",
+          "science advances",
+          "longimane",
+          "commerce",
+          "illégal"
+        ],
+      },
+
     ],
     [t]
   );
