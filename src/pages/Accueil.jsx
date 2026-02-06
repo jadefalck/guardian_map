@@ -181,7 +181,7 @@ export default function Accueil() {
           </>
         ),
         buttonLabel: "Voir la carte",
-        to: "/especes/requin_baleine",
+        to: "/especes",
         img: carteEspecesImg,
       },
       {
@@ -194,7 +194,7 @@ export default function Accueil() {
           </>
         ),
         buttonLabel: "Voir la carte",
-        to: "/activites/plongée",
+        to: "/plongée",
         img: carteActiviteImg,
       },
       {
@@ -258,7 +258,7 @@ export default function Accueil() {
 
           <div className="mt-10 flex flex-wrap justify-center">
             <button
-              onClick={() => navigate("/continents/afrique")}
+              onClick={() => navigate("/exploration")}
               style={{ ["--hoverBlue"]: HOVER_BLUE }}
               className="px-10 py-4 bg-white text-[#1113a2] rounded-full font-bold shadow-xl transition hover:scale-105 hover:text-white"
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = HOVER_BLUE)}

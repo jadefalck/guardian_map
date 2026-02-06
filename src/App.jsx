@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
 import Accueil from "./pages/Accueil";
 import APropos from "./pages/APropos";
 import Blog from "./pages/Blog";
-import Circuits from "./pages/Circuits";
 import Especes from "./pages/Especes";
 import Voyages from "./pages/Voyages";
 import Zones from "./pages/Zones_protegees";
+import ExplorationTotale from "./pages/ExplorationTotale";
+import Plongée from "./pages/Plongée.jsx"
 
-import Afrique from "./pages/continents/Afrique";
 
 // Blog articles
 import RequinsBaleines from "./pages/blog/RequinsBaleines";
@@ -21,13 +21,6 @@ import TortuesVertes from "./pages/blog/TortuesVertes";
 import CorauxBlancs from "./pages/blog/CorauxBlancs";
 import AileronsRequinsADN from "./pages/blog/AileronsRequinsADN";
 
-// Activités
-import Activites from "./pages/activites/Activités";
-import Plongée from "./pages/activites/Plongée";
-import Observation from "./pages/activites/Observation";
-
-// Espèces
-import RequinBaleine from "./pages/especes/RequinBaleine";
 
 import GuideVoyage from "./pages/Guide_Voyage";
 
@@ -209,20 +202,14 @@ function AppLayout() {
           <Route path="/blog/world-maritime-day" element={<WorldMaritimeDay />} />
           <Route path="/blog/ailerons-requins-adn" element={<AileronsRequinsADN />} />
           <Route path="/blog/oman" element={<Oman />} />
-          <Route path="/circuits" element={<Circuits />} />
-          <Route path="/activites" element={<Activites />} />
           <Route path="/plongée" element={<Plongée />} />
-          <Route path="/observation" element={<Observation />} />
           <Route path="/especes" element={<Especes />} />
           <Route path="/blog/tortues-vertes" element={<TortuesVertes />} />
           <Route path="/blog/coraux-blancs" element={<CorauxBlancs />} />
           <Route path="/voyages" element={<Voyages />} />
-          <Route path="/activites/observation" element={<Observation />} />
-          <Route path="/activites/plongée" element={<Plongée />} />
-          <Route path="/especes/requin_baleine" element={<RequinBaleine />} />
           <Route path="/guide-voyage" element={<GuideVoyage />} />
           <Route path="/zones" element={<Zones />} />
-          <Route path="/continents/afrique" element={<Afrique />} />
+          <Route path="/exploration" element={<ExplorationTotale />} />
         </Routes>
       </main>
 

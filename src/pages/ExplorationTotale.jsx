@@ -7,13 +7,13 @@ import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 
 // ===== Données =====
-import EXCEL_URL from "../../data/BDD_centres_plongees.xlsx?url";
-import ZONES_EXCEL_URL from "../../data/BDD_zones_protegees.xlsx?url";
-import observationData from "../../data/BDD_observation.json";
-import speciesData from "../../data/BDD_especes_marines.json";
+import EXCEL_URL from "../data/BDD_centres_plongees.xlsx?url";
+import ZONES_EXCEL_URL from "../data/BDD_zones_protegees.xlsx?url";
+import observationData from "../data/BDD_observation.json";
+import speciesData from "../data/BDD_especes_marines.json";
 
 // ===== Assets =====
-import oceanImage from "../../assets/images/bannière_blog2.jpg";
+import oceanImage from "../assets/images/bannière_blog2.jpg";
 
 const KEY = "gsmNeDjg2V0pS8etxXtI";
 const STYLE = `https://api.maptiler.com/maps/streets/style.json?key=${KEY}`;

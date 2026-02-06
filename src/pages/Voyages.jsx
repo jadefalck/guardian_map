@@ -131,7 +131,7 @@ export default function Voyages() {
   const { t } = useTranslation();
 
   // ✅ TA ROUTE VOULUE
-  const MAP_ROUTE = "/continents/afrique";
+  const MAP_ROUTE = "/exploration";
 
   const [where, setWhere] = useState("");
   const [countries, setCountries] = useState([]);
@@ -263,7 +263,7 @@ export default function Voyages() {
           </>
         ),
         buttonLabel: "Voir la carte",
-        to: "/especes/requin_baleine",
+        to: "/especes",
         img: carteEspecesImg,
       },
       {
@@ -276,7 +276,7 @@ export default function Voyages() {
           </>
         ),
         buttonLabel: "Voir la carte",
-        to: "/activites/plongée",
+        to: "/plongée",
         img: carteActiviteImg,
       },
       {

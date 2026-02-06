@@ -5,30 +5,30 @@ import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useTranslation } from "react-i18next";
 
-import EXCEL_URL from "../../data/BDD_centres_plongees.xlsx?url";
-import oceanImage from "../../assets/images/bannière_blog2.jpg";
+import EXCEL_URL from "../data/BDD_centres_plongees.xlsx?url";
+import oceanImage from "../assets/images/bannière_blog2.jpg";
 
-import userImg from "../../assets/images/utilisateur.png";
+import userImg from "../assets/images/utilisateur.png";
 
 // images pourquoi centre labellisé
-import safetyImg1 from "../../assets/images/plongee_securite_humain_1.png";
-import safetyImg2 from "../../assets/images/plongee_securite_humain_2.png";
-import safetyImg3 from "../../assets/images/plongee_securite_humain_3.png";
-import safetyImg4 from "../../assets/images/plongee_securite_humain_4.png";
+import safetyImg1 from "../assets/images/plongee_securite_humain_1.png";
+import safetyImg2 from "../assets/images/plongee_securite_humain_2.png";
+import safetyImg3 from "../assets/images/plongee_securite_humain_3.png";
+import safetyImg4 from "../assets/images/plongee_securite_humain_4.png";
 
-import faunaImg1 from "../../assets/images/plongee_securite_faune_1.png";
-import faunaImg2 from "../../assets/images/plongee_securite_faune_2.png";
-import faunaImg3 from "../../assets/images/plongee_securite_faune_3.png";
-import faunaImg4 from "../../assets/images/plongee_securite_faune_4.png";
+import faunaImg1 from "../assets/images/plongee_securite_faune_1.png";
+import faunaImg2 from "../assets/images/plongee_securite_faune_2.png";
+import faunaImg3 from "../assets/images/plongee_securite_faune_3.png";
+import faunaImg4 from "../assets/images/plongee_securite_faune_4.png";
 
 /* ✅ Logos labels (assets/images/logos) */
-import gfLogo from "../../assets/images/logos/GF_Logo.png";
-import hiraLogo from "../../assets/images/logos/HIRA.png";
-import long181Logo from "../../assets/images/logos/longitude181.png";
-import mantaTrustLogo from "../../assets/images/logos/manta_trust.png";
-import padiEcoLogo from "../../assets/images/logos/PADI_ECO_Logo.webp";
-import reefRenewalLogo from "../../assets/images/logos/reef_renewal.png";
-import wcaLogo from "../../assets/images/logos/WCA.webp";
+import gfLogo from "../assets/images/logos/GF_Logo.png";
+import hiraLogo from "../assets/images/logos/HIRA.png";
+import long181Logo from "../assets/images/logos/longitude181.png";
+import mantaTrustLogo from "../assets/images/logos/manta_trust.png";
+import padiEcoLogo from "../assets/images/logos/PADI_ECO_Logo.webp";
+import reefRenewalLogo from "../assets/images/logos/reef_renewal.png";
+import wcaLogo from "../assets/images/logos/WCA.webp";
 
 const KEY = "gsmNeDjg2V0pS8etxXtI";
 const STYLE = `https://api.maptiler.com/maps/streets/style.json?key=${KEY}`;
