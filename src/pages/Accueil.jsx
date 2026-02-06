@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import fondVideo from "../assets/videos/vidéo_accueil_fond.mp4";
 import carteEspecesImg from "../assets/images/carte_especes.png";
 import carteActiviteImg from "../assets/images/carte_activite.png";
+import zonesProtegeesImg from "../assets/images/carte_zones.png"; // ✅ AJOUT
 
 // ✅ image guide
 import guideCover from "../assets/images/Guide_voyage_couv.png";
@@ -16,11 +17,15 @@ import wmdImg from "../assets/images/articles_blog/world_maritime_day.webp";
 
 /* -------------------- UI COMPONENTS -------------------- */
 
+function NavyStrong({ children }) {
+  return <span className="font-semibold text-[#1113a2]">{children}</span>;
+}
+
 /** ✅ Ce que fait GuardianMap : style premium, sans emojis */
 function MissionCard({ title, desc, accent = "blue" }) {
   const accentMap = {
     blue: { ring: "hover:ring-[#1113a2]/20", bar: "bg-[#1113a2]", soft: "bg-[#1113a2]/5" },
-    white: { ring: "hover:ring-gray-300/40", bar: "bg-gray-200", soft: "bg-gray-100" }, // ✅ "blanc" (accent neutre)
+    white: { ring: "hover:ring-gray-300/40", bar: "bg-gray-200", soft: "bg-gray-100" },
     red: { ring: "hover:ring-rose-500/20", bar: "bg-rose-500", soft: "bg-rose-500/5" },
   };
   const a = accentMap[accent] || accentMap.blue;
@@ -39,73 +44,63 @@ function MissionCard({ title, desc, accent = "blue" }) {
         className={`absolute -right-10 -top-10 h-32 w-32 rounded-full ${a.soft} blur-2xl opacity-0 group-hover:opacity-100 transition`}
         aria-hidden="true"
       />
-      <h3 className="text-lg md:text-xl font-black text-gray-900 uppercase tracking-tight leading-tight">
-        {title}
-      </h3>
+      <h3 className="text-lg md:text-xl font-black text-gray-900 uppercase tracking-tight leading-tight">{title}</h3>
       <p className="mt-4 text-sm md:text-base text-gray-800 leading-relaxed">{desc}</p>
     </div>
   );
 }
 
-/** ✅ Cartes “screen” : toute la carte est cliquable */
-function ScreenCardLarge({ title, desc, onClick, img }) {
+/* ✅ Shell identique à Voyages */
+function CardShell({ children, className = "" }) {
   return (
     <div
-      role="button"
-      tabIndex={0}
-      onClick={onClick}
-      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onClick?.()}
-      className="group relative bg-white rounded-[3rem] border border-gray-100 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer focus:outline-none focus:ring-4 focus:ring-[#1113a2]/20"
-      aria-label={title}
+      className={[
+        "group relative overflow-hidden rounded-[3rem] border border-gray-200 bg-white",
+        "shadow-sm hover:shadow-xl transition-all duration-300",
+        "ring-0 hover:ring-4 hover:ring-[#1113a2]/10",
+        className,
+      ].join(" ")}
     >
-      <div className="aspect-[16/9] overflow-hidden">
-        <img
-          src={img}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          loading="lazy"
-        />
-      </div>
-
-      <div className="p-10">
-        <h3 className="text-2xl font-black text-gray-900 mb-4 uppercase tracking-tighter">
-          {title}
-        </h3>
-        <p className="text-gray-600 leading-relaxed line-clamp-2">{desc}</p>
-
-        <div className="mt-8 text-[10px] font-black uppercase tracking-[0.25em] text-[#1113a2]">
-          Découvrir →
-        </div>
-      </div>
+      {children}
     </div>
   );
 }
 
-/** ✅ Wide CTA (même esprit premium) */
-function WideCTA({ title, desc, buttonLabel, onClick }) {
+/* ✅ ScreenCardLarge identique à Voyages (bouton en bas) */
+function ScreenCardLarge({ title, desc, buttonLabel, onClick, img }) {
   return (
-    <div className="w-full rounded-[2.5rem] border border-gray-200 bg-white shadow-sm hover:shadow-lg transition overflow-hidden">
-      <div className="p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        <div>
-          <p className="text-[10px] font-black uppercase tracking-widest text-[#1113a2]">Carte</p>
-          <h3 className="mt-2 text-2xl md:text-3xl font-black uppercase tracking-tight text-gray-900">
-            {title}
-          </h3>
-          <p className="mt-3 text-sm md:text-base text-gray-700 max-w-2xl leading-relaxed">{desc}</p>
+    <CardShell className="hover:-translate-y-0.5">
+      {img ? (
+        <div className="w-full h-40 md:h-48 bg-gray-100 overflow-hidden">
+          <img
+            src={img}
+            alt=""
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
         </div>
+      ) : (
+        <div className="w-full h-40 md:h-48 bg-gray-100" />
+      )}
+
+      <div className="p-7 md:p-8">
+        <h3 className="text-lg md:text-xl font-black text-gray-900 uppercase tracking-tight leading-snug">{title}</h3>
+
+        <div className="text-sm md:text-base text-gray-700 mt-3 leading-relaxed">{desc}</div>
 
         <button
+          type="button"
           onClick={onClick}
-          className="px-8 py-4 bg-[#1113a2] text-white rounded-[1.25rem] font-black uppercase text-xs tracking-widest shadow-sm hover:bg-[#0e128c] transition"
+          className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-[#1113a2] px-6 py-3 text-white font-bold shadow-sm hover:bg-[#0e128c] hover:shadow-md transition"
         >
           {buttonLabel}
         </button>
       </div>
-    </div>
+    </CardShell>
   );
 }
 
-/* ✅ Blog card (centré, sans strip) */
+/* ✅ Blog card */
 function BlogStripCard({ a }) {
   return (
     <Link
@@ -122,7 +117,6 @@ function BlogStripCard({ a }) {
       </div>
 
       <div className="p-5">
-        {/* ✅ Tag au lieu de "Blog" */}
         <p className="text-[10px] font-black uppercase tracking-widest text-[#1113a2]">{a.tag}</p>
 
         <h3 className="mt-2 text-sm md:text-base font-black text-gray-900 uppercase tracking-tight line-clamp-2">
@@ -174,6 +168,53 @@ export default function Accueil() {
     []
   );
 
+  // ✅ 3 cartes comme dans Voyages.jsx
+  const screenCards = useMemo(
+    () => [
+      {
+        key: "marine-animals",
+        title: "Carte des animaux marins",
+        desc: (
+          <>
+            Repérez où observer chaque espèce, les <NavyStrong>meilleures saisons</NavyStrong> et les{" "}
+            <NavyStrong>règles d’observation éthique</NavyStrong>. Identifiez aussi les zones plus sensibles à éviter.
+          </>
+        ),
+        buttonLabel: "Voir la carte",
+        to: "/especes/requin_baleine",
+        img: carteEspecesImg,
+      },
+      {
+        key: "certified-diving",
+        title: "Carte des plongées certifiées",
+        desc: (
+          <>
+            Trouvez des <NavyStrong>centres certifiés</NavyStrong>, comparez les <NavyStrong>labels</NavyStrong> et
+            découvrez des <NavyStrong>bonnes pratiques</NavyStrong> pour plonger plus responsable.
+          </>
+        ),
+        buttonLabel: "Voir la carte",
+        to: "/activites/plongée",
+        img: carteActiviteImg,
+      },
+      {
+        key: "protected-areas",
+        title: "Carte des zones maritimes protégées",
+        desc: (
+          <>
+            Visualisez les <NavyStrong>aires marines protégées</NavyStrong>, comprenez les{" "}
+            <NavyStrong>règles locales</NavyStrong> et repérez des spots plus <NavyStrong>durables</NavyStrong> pour
+            voyager en minimisant l’impact.
+          </>
+        ),
+        buttonLabel: "Voir la carte",
+        to: "/zones",
+        img: zonesProtegeesImg,
+      },
+    ],
+    []
+  );
+
   return (
     <div className="w-full bg-white font-sans text-gray-900 antialiased">
       {/* 1) BANDEAU NOUVEAUTÉ */}
@@ -196,31 +237,17 @@ export default function Accueil() {
 
       {/* 2) HERO VIDEO */}
       <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
-        <video
-          src={fondVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <video src={fondVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" />
 
-        {/* ✅ fondu vers un gris un peu plus présent (pour matcher la section suivante) */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-gray-300" />
 
         <div className="relative z-10 text-center px-6 max-w-4xl">
-          {/* ✅ Titre demandé */}
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6 drop-shadow-2xl tracking-tight">
-            Un tourisme{" "}
-            <span className="text-blue-200 font-black">
-              respectueux
-            </span>{" "}
-            des océans
+            Un tourisme <span className="text-blue-200 font-black">respectueux</span> des océans
           </h1>
 
-          {/* ✅ Notre mission + retour à la ligne + gras sur “Notre mission” et sur la 2e partie */}
           <p className="text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed drop-shadow-lg">
-            <span className="font-black text-white">Notre mission :</span> 
+            <span className="font-black text-white">Notre mission :</span>
             <br />
             <span className="text-white">Aider chaque voyageur à faire des choix qui </span>
             <br />
@@ -229,13 +256,11 @@ export default function Accueil() {
             </span>
           </p>
 
-          {/* ✅ un seul bouton “Où pars-tu ?” + hover bleu capture */}
           <div className="mt-10 flex flex-wrap justify-center">
             <button
               onClick={() => navigate("/continents/afrique")}
               style={{ ["--hoverBlue"]: HOVER_BLUE }}
-              className="px-10 py-4 bg-white text-[#1113a2] rounded-full font-bold shadow-xl transition
-                         hover:scale-105 hover:text-white"
+              className="px-10 py-4 bg-white text-[#1113a2] rounded-full font-bold shadow-xl transition hover:scale-105 hover:text-white"
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = HOVER_BLUE)}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "white")}
             >
@@ -245,21 +270,16 @@ export default function Accueil() {
         </div>
       </section>
 
-      {/* 3) CE QUE FAIT GuardianMap (fond plus gris) */}
+      {/* 3) CE QUE FAIT GuardianMap */}
       <section className="py-24 px-6 bg-gray-300">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
-              Ce que fait GuardianMap
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Ce que fait GuardianMap</h2>
             <p className="mt-5 text-base md:text-lg text-gray-800 max-w-3xl mx-auto leading-relaxed">
               Des repères clairs pour voyager, observer et plonger de façon plus respectueuse du vivant.
             </p>
           </div>
 
-          
-
-          {/* ✅ accents bleu / blanc / rouge */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <MissionCard
               accent="blue"
@@ -296,34 +316,22 @@ export default function Accueil() {
             />
           </div>
         </div>
-
       </section>
 
-      {/* 4) 2 cartes + Wide CTA (inchangé) */}
+      {/* 4) ✅ 3 CARTES CÔTE À CÔTE (comme Voyages) */}
       <section className="bg-gray-50 py-24 px-6 border-y border-gray-100">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <ScreenCardLarge
-              title="Carte des espèces"
-              img={carteEspecesImg}
-              desc="Identifiez les spots d'observation et apprenez les règles pour ne pas déranger le vivant."
-              onClick={() => navigate("/especes/requin_baleine")}
-            />
-            <ScreenCardLarge
-              title="Activités certifiées"
-              img={carteActiviteImg}
-              desc="Plongée, observation, excursions : trouvez les centres audités Green Fins ou WCA."
-              onClick={() => navigate("/activites/plongée")}
-            />
-          </div>
-
-          <div className="mt-8">
-            <WideCTA
-              title="Carte globale"
-              desc="Explore les pays et accède rapidement aux points d’intérêt."
-              buttonLabel="Explorer le monde"
-              onClick={() => navigate("/continents/afrique")}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {screenCards.map((c) => (
+              <ScreenCardLarge
+                key={c.key}
+                title={c.title}
+                desc={c.desc}
+                img={c.img}
+                buttonLabel={c.buttonLabel}
+                onClick={() => navigate(c.to)}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -333,9 +341,7 @@ export default function Accueil() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter">
-                Blog
-              </h2>
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter">Blog</h2>
               <p className="mt-4 text-gray-700 max-w-2xl">
                 Espèces, enjeux et bons réflexes, tout pour un tourisme responsable.
               </p>
@@ -366,12 +372,7 @@ export default function Accueil() {
 
           <div className="w-full md:w-1/4 flex justify-center">
             <div className="w-44 md:w-48 aspect-[3/4] bg-white rounded-2xl shadow-2xl rotate-[-4deg] overflow-hidden">
-              <img
-                src={guideCover}
-                alt="Guide Voyage GuardianMap"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+              <img src={guideCover} alt="Guide Voyage GuardianMap" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </div>
 
@@ -386,28 +387,25 @@ export default function Accueil() {
 
             <div className="flex items-center gap-6 pt-4">
               <div className="flex flex-col">
-                <span className="text-[10px] font-black uppercase tracking-widest opacity-60">
-                  Pack Complet
-                </span>
+                <span className="text-[10px] font-black uppercase tracking-widest opacity-60">Pack Complet</span>
                 <span className="text-4xl font-black">19€</span>
               </div>
 
-            <Link
-              to="/guide-voyage"
-              className="
-                px-10 py-5
-                bg-white text-[#004455]
-                rounded-[1.5rem]
-                font-black uppercase text-xs tracking-widest
-                shadow-xl
-                transition-all duration-300
-                hover:bg-[#00586e] hover:text-white
-                hover:-translate-y-1
-              "
-            >
-              Créer mon itinéraire
-            </Link>
-
+              <Link
+                to="/guide-voyage"
+                className="
+                  px-10 py-5
+                  bg-white text-[#004455]
+                  rounded-[1.5rem]
+                  font-black uppercase text-xs tracking-widest
+                  shadow-xl
+                  transition-all duration-300
+                  hover:bg-[#00586e] hover:text-white
+                  hover:-translate-y-1
+                "
+              >
+                Créer mon itinéraire
+              </Link>
             </div>
           </div>
         </div>

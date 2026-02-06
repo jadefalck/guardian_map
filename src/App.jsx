@@ -4,12 +4,8 @@ import { useEffect, useState } from "react";
 
 // Pages principales
 import Accueil from "./pages/Accueil";
-import Knowledge from "./pages/Knowledge";
-import Partenaires from "./pages/Partenaires";
 import APropos from "./pages/APropos";
-import Services from "./pages/Services";
 import Blog from "./pages/Blog";
-import LabelsCertifications from "./pages/LabelsCertifications";
 import Circuits from "./pages/Circuits";
 import Especes from "./pages/Especes";
 import Voyages from "./pages/Voyages";
@@ -32,19 +28,6 @@ import Observation from "./pages/activites/Observation";
 import RequinBaleine from "./pages/especes/RequinBaleine";
 
 import GuideVoyage from "./pages/Guide_Voyage";
-
-// Pays
-import Philippines from "./pages/pays/Philippines";
-import Indonesie from "./pages/pays/Indonesie";
-import Thailande from "./pages/pays/Thailande";
-import Malaisie from "./pages/pays/Malaisie";
-import Japon from "./pages/pays/Japon";
-import Vietnam from "./pages/pays/Vietnam";
-import Maldives from "./pages/pays/Maldives";
-
-// Autres routes
-import ContinentRouter from "./pages/ContinentRouter";
-import CountryPage from "./pages/pays2/CountryPage";
 
 // Assets
 import logo from "./assets/images/logo.png";
@@ -218,18 +201,7 @@ function AppLayout() {
       <main className="pt-0">
         <Routes>
           <Route path="/" element={<Accueil />} />
-          <Route path="/knowledge" element={<Knowledge />} />
-          <Route path="/partenaires" element={<Partenaires />} />
-          <Route path="/philippines" element={<Philippines />} />
-          <Route path="/indonesie" element={<Indonesie />} />
-          <Route path="/thailande" element={<Thailande />} />
-          <Route path="/malaisie" element={<Malaisie />} />
-          <Route path="/japon" element={<Japon />} />
-          <Route path="/vietnam" element={<Vietnam />} />
-          <Route path="/maldives" element={<Maldives />} />
-          <Route path="/labels" element={<LabelsCertifications />} />
           <Route path="/apropos" element={<APropos />} />
-          <Route path="/services" element={<Services />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/requins-baleines" element={<RequinsBaleines />} />
           <Route path="/blog/world-maritime-day" element={<WorldMaritimeDay />} />
@@ -239,8 +211,6 @@ function AppLayout() {
           <Route path="/activites" element={<Activites />} />
           <Route path="/plongée" element={<Plongée />} />
           <Route path="/observation" element={<Observation />} />
-          <Route path="/continents/:slug" element={<ContinentRouter />} />
-          <Route path="/pays2/:slug" element={<CountryPage />} />
           <Route path="/especes" element={<Especes />} />
           <Route path="/blog/tortues-vertes" element={<TortuesVertes />} />
           <Route path="/blog/coraux-blancs" element={<CorauxBlancs />} />
