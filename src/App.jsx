@@ -11,6 +11,8 @@ import Especes from "./pages/Especes";
 import Voyages from "./pages/Voyages";
 import Zones from "./pages/Zones_protegees";
 
+import Afrique from "./pages/continents/Afrique";
+
 // Blog articles
 import RequinsBaleines from "./pages/blog/RequinsBaleines";
 import WorldMaritimeDay from "./pages/blog/WorldMaritimeDay";
@@ -220,6 +222,7 @@ function AppLayout() {
           <Route path="/especes/requin_baleine" element={<RequinBaleine />} />
           <Route path="/guide-voyage" element={<GuideVoyage />} />
           <Route path="/zones" element={<Zones />} />
+          <Route path="/continents/afrique" element={<Afrique />} />
         </Routes>
       </main>
 
