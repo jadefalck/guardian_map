@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 
 // ===== Données =====
 import EXCEL_URL from "../../data/BDD_centres_plongees.xlsx?url";
+import ZONES_EXCEL_URL from "../../data/BDD_zones_protegees.xlsx?url";
 import observationData from "../../data/BDD_observation.json";
 import speciesData from "../../data/BDD_especes_marines.json";
 
@@ -28,47 +29,45 @@ const CONTINENTS_VIEWS = {
 };
 
 /* ========= Utils ========= */
+const normalize = (s) => (s ?? "").toString().trim();
+
+const normKey = (s) =>
+  normalize(s)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
 const toNum = (v) => {
   if (v === null || v === undefined) return null;
   const n = parseFloat(String(v).replace(",", "."));
   return Number.isFinite(n) ? n : null;
 };
 
-const normLabel = (s = "") => {
-  const t = String(s || "").trim().toLowerCase();
-  if (!t) return "none";
-  if (t.includes("both")) return "both";
-  if (t.includes("blue")) return "blueflag";
-  if (t.includes("green")) return "greenfins";
-  if (t === "bf") return "blueflag";
-  if (t === "gf") return "greenfins";
-  return "none";
-};
-
-const normGF = (s = "") => {
-  const t = String(s || "").trim().toLowerCase();
-  if (!t) return "none";
-  if (t.includes("gold")) return "gold";
-  if (t.includes("silver")) return "silver";
-  if (t.includes("bronze")) return "bronze";
-  if (t.includes("inactive")) return "inactive";
-  if (t.includes("digital")) return "digital";
-  if (t === "g") return "gold";
-  if (t === "s") return "silver";
-  if (t === "b") return "bronze";
-  return "none";
-};
-
-const normObsLabel = (s = "") => {
-  const t = String(s || "").trim().toLowerCase();
-  if (!t) return "none";
-  if (t.includes("wca") || t.includes("world cetacean")) return "wca";
-  if (t.includes("friend") || t.includes("fots") || t.includes("friend of the sea")) return "fots";
-  return "none";
-};
-
 const escapeHtml = (str = "") => String(str).replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+/**
+ * ✅ Ethics mapping EXACT comme dans Especes.jsx
+ * - "✗" ou "x" => bad (rouge)
+ * - "—" / "-" / "–" => medium (orange)
+ * - sinon => good (bleu clair)
+ */
+function ethicsMeta(ethiqueRaw) {
+  const e = normalize(ethiqueRaw);
+  if (e === "✗" || e.toLowerCase() === "x") return { key: "bad", color: "#ef4444", label: "Zone pas éthique" };
+  if (e === "—" || e === "-" || e === "–") return { key: "medium", color: "#f97316", label: "Zone à éviter" };
+  return { key: "good", color: "#60a5fa", label: "Rien à signaler" };
+}
+
+const SPECIES_COLORS = {
+  good: "#60a5fa", // bleu clair
+  medium: "#f97316", // orange
+  bad: "#ef4444", // rouge
+  obs: "#8b5cf6", // violet (BDD observation)
+};
+
+/* ========= UI marker builders ========= */
 function makeBubble({ text, size = 56, bg = "#1113a2" }) {
   const el = document.createElement("div");
   el.style.width = `${size}px`;
@@ -89,19 +88,27 @@ function makeBubble({ text, size = 56, bg = "#1113a2" }) {
   return el;
 }
 
-function makeGFPin(color = "#10b981") {
+/** ✅ Pin "goutte" bleu foncé (centres de plongée) */
+const diveDropSvg = (color = "#1113a2") => `
+<svg width="34" height="44" viewBox="0 0 34 44" xmlns="http://www.w3.org/2000/svg">
+  <path d="M17 1C10.1 1 4.5 6.6 4.5 13.5c0 8.6 12.5 28.9 12.5 28.9S29.5 22.1 29.5 13.5C29.5 6.6 23.9 1 17 1z"
+    fill="${color}" stroke="white" stroke-width="1.6"/>
+  <circle cx="17" cy="13.5" r="3.2" fill="white"/>
+</svg>
+`;
+
+function makeDiveDropPin(color = "#1113a2") {
   const el = document.createElement("div");
-  el.style.width = "18px";
-  el.style.height = "18px";
-  el.style.borderRadius = "9999px";
-  el.style.background = color;
-  el.style.border = "3px solid white";
-  el.style.boxShadow = "0 12px 22px rgba(0,0,0,.30)";
+  el.innerHTML = diveDropSvg(color);
+  el.style.width = "34px";
+  el.style.height = "44px";
   el.style.cursor = "pointer";
+  el.style.transform = "translateY(-6px)";
   return el;
 }
 
-function makeBFStar(color = "#2563eb") {
+/** ✅ Étoile verte (zones protégées) */
+function makeGreenStar(color = "#22c55e") {
   const el = document.createElement("div");
   el.style.width = "22px";
   el.style.height = "22px";
@@ -120,18 +127,62 @@ function makeBFStar(color = "#2563eb") {
   return el;
 }
 
-const pinSvg = (color = "#1113a2") => `
-<svg viewBox="0 0 24 24">
-  <path fill="${color}" d="M12 2C8.686 2 6 4.686 6 8c0 3.96 3.318 8.293 4.87 10.147a1 1 0 0 0 1.26 0C14.682 16.293 18 11.96 18 8c0-3.314-2.686-6-6-6z"/>
-  <circle cx="12" cy="8" r="3" fill="white"/>
-</svg>
-`;
+/** ✅ Ronds (animaux + observation) */
+function makeDot(color, size = 18) {
+  const el = document.createElement("div");
+  el.style.width = `${size}px`;
+  el.style.height = `${size}px`;
+  el.style.borderRadius = "9999px";
+  el.style.background = color;
+  el.style.border = "3px solid white";
+  el.style.boxShadow = "0 12px 22px rgba(0,0,0,.30)";
+  el.style.cursor = "pointer";
+  return el;
+}
 
 function CardShell({ children, className = "" }) {
   return (
     <div className={["rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden", className].join(" ")}>
       {children}
     </div>
+  );
+}
+
+/** ✅ mini icônes sidebar */
+function IconDrop() {
+  return (
+    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 border border-slate-200">
+      <svg width="16" height="16" viewBox="0 0 34 44" aria-hidden="true">
+        <path
+          d="M17 1C10.1 1 4.5 6.6 4.5 13.5c0 8.6 12.5 28.9 12.5 28.9S29.5 22.1 29.5 13.5C29.5 6.6 23.9 1 17 1z"
+          fill="#1113a2"
+          stroke="white"
+          strokeWidth="3"
+        />
+        <circle cx="17" cy="13.5" r="3.2" fill="white" />
+      </svg>
+    </span>
+  );
+}
+function IconStar() {
+  return (
+    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 border border-slate-200">
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 2.6l2.85 6.03 6.65.59-5.04 4.37 1.52 6.45L12 16.97 6.02 20.04l1.52-6.45L2.5 9.22l6.65-.59L12 2.6z"
+          fill="#22c55e"
+          stroke="white"
+          strokeWidth="1.8"
+        />
+      </svg>
+    </span>
+  );
+}
+function IconDot({ color = "#60a5fa" }) {
+  return (
+    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-50 border border-slate-200">
+      <span className="w-3.5 h-3.5 rounded-full border-2 border-white shadow" style={{ background: color }} />
+    </span>
   );
 }
 
@@ -142,20 +193,22 @@ export default function ExplorationTotale() {
   const mapRef = useRef(null);
   const mapObj = useRef(null);
 
-  const [excelRows, setExcelRows] = useState([]);
+  const [excelRows, setExcelRows] = useState([]); // centres plongée
+  const [zonesRows, setZonesRows] = useState([]); // zones protégées
   const [hasError, setHasError] = useState(false);
 
   const [searchCountry, setSearchCountry] = useState("");
   const [currentZoom, setCurrentZoom] = useState(1.8);
 
-  const [mainCategory, setMainCategory] = useState("all"); // all | animals | amp | activities
-  const [subCategory, setSubCategory] = useState("all"); // all | dive | obs
-  const [gfLevels, setGfLevels] = useState({
-    gold: false,
-    silver: false,
-    bronze: false,
-    inactive: false,
-    digital: false,
+  // ✅ filtres: Centres de plongée | Zones protégées | Animaux à voir (Reset = tout)
+  const [mainCategory, setMainCategory] = useState("all"); // all | dive | amp | animals
+
+  // ✅ filtres animaux (4 couleurs)
+  const [animalFilters, setAnimalFilters] = useState({
+    good: true, // bleu clair
+    medium: true, // orange
+    bad: true, // rouge
+    obs: true, // violet (centres d'observation)
   });
 
   const [noCountryData, setNoCountryData] = useState(false);
@@ -194,24 +247,30 @@ export default function ExplorationTotale() {
     setOpenReport(false);
   };
 
-  // ✅ Lire ?country=... et pré-remplir la recherche (comme si tu avais tapé)
+  // ✅ Lire ?country=... et pré-remplir la recherche
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const c = (params.get("country") || "").trim();
     if (c) setSearchCountry(c);
   }, [location.search]);
 
-  // ========= Load Excel =========
+  // ========= Load Excel (centres) + zones protégées =========
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(EXCEL_URL);
-        if (!res.ok) throw new Error("Excel not found");
-        const buf = await res.arrayBuffer();
-        const wb = XLSX.read(buf, { type: "array" });
-        const ws = wb.Sheets[wb.SheetNames[0]];
-        const data = XLSX.utils.sheet_to_json(ws, { defval: "" });
-        setExcelRows(data);
+        const [resCentres, resZones] = await Promise.all([fetch(EXCEL_URL), fetch(ZONES_EXCEL_URL)]);
+        if (!resCentres.ok) throw new Error("Centres Excel not found");
+        if (!resZones.ok) throw new Error("Zones Excel not found");
+
+        const [bufCentres, bufZones] = await Promise.all([resCentres.arrayBuffer(), resZones.arrayBuffer()]);
+
+        const wb1 = XLSX.read(bufCentres, { type: "array" });
+        const ws1 = wb1.Sheets[wb1.SheetNames[0]];
+        setExcelRows(XLSX.utils.sheet_to_json(ws1, { defval: "" }));
+
+        const wb2 = XLSX.read(bufZones, { type: "array" });
+        const ws2 = wb2.Sheets[wb2.SheetNames[0]];
+        setZonesRows(XLSX.utils.sheet_to_json(ws2, { defval: "" }));
       } catch (e) {
         console.error(e);
         setHasError(true);
@@ -219,10 +278,11 @@ export default function ExplorationTotale() {
     })();
   }, []);
 
-  // ========= Normalize points (Excel + obs + species) =========
+  // ========= Normalize points (Centres + Zones + obs + species) =========
   const allPoints = useMemo(() => {
     const points = [];
 
+    // Centres de plongée (BDD_centres_plongees.xlsx)
     excelRows.forEach((r) => {
       let lat = toNum(r.lat ?? r.Lat ?? r.LAT ?? r.latitude ?? r.Latitude ?? r.LATITUDE ?? r.y ?? r.Y);
       let lon = toNum(
@@ -241,88 +301,94 @@ export default function ExplorationTotale() {
           r.X
       );
 
-      // swap si inversé
-      if (lat != null && lon != null && Math.abs(lat) > 90 && Math.abs(lon) <= 90) {
-        [lat, lon] = [lon, lat];
-      }
+      if (lat != null && lon != null && Math.abs(lat) > 90 && Math.abs(lon) <= 90) [lat, lon] = [lon, lat];
       if (lat == null || lon == null) return;
       if (Math.abs(lat) > 90 || Math.abs(lon) > 180) return;
 
-      const label = normLabel(r.label ?? r.Label ?? r.certif ?? r.certification ?? "");
-      const gfLevel = normGF(
-        r.certification_level ?? r.gf_level ?? r.GF_level ?? r.greenfins_level ?? r.GreenFins_level ?? ""
-      );
-
-      const isAMP = label === "blueflag" || label === "both";
-      const isDive = label === "greenfins" || label === "both";
-
-      // filtres globaux
-      if (mainCategory === "amp" && !isAMP) return;
-      if (mainCategory === "activities" && subCategory === "dive" && !isDive) return;
-      if (mainCategory === "activities" && subCategory === "obs") return;
-      if (mainCategory === "animals") return;
-
-      const anyLevel = Object.values(gfLevels).some(Boolean);
-      if (anyLevel && !isDive) return;
-      if (anyLevel && isDive) {
-        if (gfLevels[gfLevel] !== true) return;
-      }
+      if (mainCategory === "amp" || mainCategory === "animals") return;
 
       const country = (r.pays ?? r.Pays ?? r.country ?? r.Country ?? "").toString().trim();
-      const name = (r.nom ?? r.Nom ?? r.name ?? r.Name ?? "").toString().trim();
+      const name = (r.nom ?? r.Nom ?? r.name ?? r.Name ?? "Centre de plongée").toString().trim();
 
-      if (isAMP && (mainCategory === "all" || mainCategory === "amp" || mainCategory === "activities")) {
-        points.push({
-          id: `amp-${country}-${lat}-${lon}-${name}`,
-          type: "amp",
-          country,
-          lat,
-          lon,
-          color: "#2563eb",
-          name: name || "Zone Blue Flag",
-          gfLevel,
-        });
-      }
-
-      if (isDive && (mainCategory === "all" || mainCategory === "activities")) {
-        points.push({
-          id: `dive-${country}-${lat}-${lon}-${name}`,
-          type: "dive",
-          country,
-          lat,
-          lon,
-          color: "#10b981",
-          name: name || "Centre Green Fins",
-          gfLevel,
-        });
-      }
+      points.push({
+        id: `dive-${country}-${lat}-${lon}-${name}`,
+        type: "dive",
+        country,
+        lat,
+        lon,
+        name,
+      });
     });
 
-    // Observation
-    if (mainCategory === "all" || (mainCategory === "activities" && (subCategory === "all" || subCategory === "obs"))) {
-      (observationData || []).forEach((p) => {
-        const lat = toNum(p.lat);
-        const lon = toNum(p.lon);
-        if (lat == null || lon == null) return;
-        if (Math.abs(lat) > 90 || Math.abs(lon) > 180) return;
+    // Zones protégées (BDD_zones_protegees.xlsx)
+    zonesRows.forEach((r) => {
+      let lat = toNum(r.lat ?? r.Lat ?? r.LAT ?? r.latitude ?? r.Latitude ?? r.LATITUDE ?? r.y ?? r.Y);
+      let lon = toNum(
+        r.long ??
+          r.Long ??
+          r.LONG ??
+          r.lon ??
+          r.Lon ??
+          r.LON ??
+          r.lng ??
+          r.Lng ??
+          r.LNG ??
+          r.longitude ??
+          r.Longitude ??
+          r.x ??
+          r.X
+      );
 
-        const country = String(p.country || p.pays || "").trim();
-        const obsLabel = normObsLabel(p.label || p.certification || p.certif || p.program || "");
+      if (lat != null && lon != null && Math.abs(lat) > 90 && Math.abs(lon) <= 90) [lat, lon] = [lon, lat];
+      if (lat == null || lon == null) return;
+      if (Math.abs(lat) > 90 || Math.abs(lon) > 180) return;
 
-        points.push({
-          id: `obs-${country}-${lat}-${lon}-${p.name || ""}`,
-          type: "obs",
-          country,
-          lat,
-          lon,
-          color: "#1113a2",
-          name: String(p.name || "Opérateur observation").trim(),
-          obsLabel,
-        });
+      if (mainCategory === "dive" || mainCategory === "animals") return;
+
+      const country = (r.pays ?? r.Pays ?? r.country ?? r.Country ?? "").toString().trim();
+      const name = (r.nom ?? r.Nom ?? r.name ?? r.Name ?? "Zone protégée").toString().trim();
+
+      points.push({
+        id: `amp-${country}-${lat}-${lon}-${name}`,
+        type: "amp",
+        country,
+        lat,
+        lon,
+        name,
       });
+    });
+
+    // Observation (BDD_observation.json) => violet
+    if (mainCategory === "all" || mainCategory === "animals") {
+      if (animalFilters.obs) {
+        (observationData || []).forEach((p) => {
+          const lat = toNum(p.lat);
+          const lon = toNum(p.lon);
+          if (lat == null || lon == null) return;
+          if (Math.abs(lat) > 90 || Math.abs(lon) > 180) return;
+
+          const country = String(p.country || p.pays || "").trim();
+          const name = String(p.name || "Centre d’observation").trim();
+
+          points.push({
+            id: `obs-${country}-${lat}-${lon}-${name}`,
+            type: "obs",
+            country,
+            lat,
+            lon,
+            name,
+          });
+        });
+      }
     }
 
-    // Espèces
+    /**
+     * ✅ Espèces (BDD_especes_marines.json)
+     * IMPORTANT : on utilise la même logique que Especes.jsx :
+     * - "✗" / "x" => rouge
+     * - "—" / "-" / "–" => orange
+     * - sinon => bleu clair
+     */
     if (mainCategory === "all" || mainCategory === "animals") {
       (speciesData || []).forEach((p) => {
         const lat = toNum(p.lat);
@@ -330,8 +396,11 @@ export default function ExplorationTotale() {
         if (lat == null || lon == null) return;
         if (Math.abs(lat) > 90 || Math.abs(lon) > 180) return;
 
-        const isBad = p.ethique === "✗" || String(p.ethique || "").toLowerCase() === "x";
         const country = String(p.country || p.pays || "").trim();
+        const eth = p.ethique ?? p.ethic ?? p.ethics ?? "";
+        const meta = ethicsMeta(eth); // good | medium | bad
+
+        if (!animalFilters[meta.key]) return;
 
         points.push({
           id: `species-${country}-${lat}-${lon}-${p.species || p.name || ""}`,
@@ -339,15 +408,19 @@ export default function ExplorationTotale() {
           country,
           lat,
           lon,
-          color: isBad ? "#dc2626" : "#6366f1",
           name: String(p.species || p.name || "Espèce").trim(),
-          ethique: isBad ? "bad" : "good",
+          ethique: eth,
+          ethicLevel: meta.key,
         });
       });
     }
 
+    if (mainCategory === "dive") return points.filter((p) => p.type === "dive");
+    if (mainCategory === "amp") return points.filter((p) => p.type === "amp");
+    if (mainCategory === "animals") return points.filter((p) => p.type === "species" || p.type === "obs");
+
     return points;
-  }, [excelRows, mainCategory, subCategory, gfLevels]);
+  }, [excelRows, zonesRows, mainCategory, animalFilters]);
 
   const filteredPoints = useMemo(() => {
     const q = searchCountry.trim().toLowerCase();
@@ -358,21 +431,12 @@ export default function ExplorationTotale() {
   // ========= Counts =========
   const counters = useMemo(() => {
     const speciesCount = (speciesData || []).length;
-
-    const gfCount = excelRows.filter((r) => {
-      const label = normLabel(r.label ?? r.Label ?? r.certif ?? r.certification ?? "");
-      return label === "greenfins" || label === "both";
-    }).length;
-
-    const obsCount = (observationData || []).filter((p) => {
-      const l = normObsLabel(p.label || p.certification || p.certif || p.program || "");
-      return l === "wca" || l === "fots";
-    }).length;
-
-    return { speciesCount, gfCount, obsCount };
+    const diveCount = excelRows.length;
+    const obsCount = (observationData || []).length;
+    return { speciesCount, diveCount, obsCount };
   }, [excelRows]);
 
-  // ✅ Animated counters (sinon "animated is not defined")
+  // ✅ Animated counters
   const [animated, setAnimated] = useState({ species: 0, gf: 0, obs: 0 });
 
   useEffect(() => {
@@ -381,26 +445,26 @@ export default function ExplorationTotale() {
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    const target = { species: counters.speciesCount, gf: counters.diveCount, obs: counters.obsCount };
+
     if (prefersReduce) {
-      setAnimated({ species: counters.speciesCount, gf: counters.gfCount, obs: counters.obsCount });
+      setAnimated(target);
       return;
     }
 
     let raf = 0;
     const start = performance.now();
     const duration = 650;
-
     const from = { ...animated };
-    const to = { species: counters.speciesCount, gf: counters.gfCount, obs: counters.obsCount };
 
     const tick = (now) => {
       const t01 = Math.min(1, (now - start) / duration);
       const ease = 1 - Math.pow(1 - t01, 3);
 
       setAnimated({
-        species: Math.round(from.species + (to.species - from.species) * ease),
-        gf: Math.round(from.gf + (to.gf - from.gf) * ease),
-        obs: Math.round(from.obs + (to.obs - from.obs) * ease),
+        species: Math.round(from.species + (target.species - from.species) * ease),
+        gf: Math.round(from.gf + (target.gf - from.gf) * ease),
+        obs: Math.round(from.obs + (target.obs - from.obs) * ease),
       });
 
       if (t01 < 1) raf = requestAnimationFrame(tick);
@@ -409,11 +473,11 @@ export default function ExplorationTotale() {
     raf = requestAnimationFrame(tick);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     return () => cancelAnimationFrame(raf);
-  }, [counters.speciesCount, counters.gfCount, counters.obsCount]);
+  }, [counters.speciesCount, counters.diveCount, counters.obsCount]);
 
   // ========= Country clusters (only when unfiltered "all") =========
   const countryClusters = useMemo(() => {
-    const shouldCluster = currentZoom < 4 && !searchCountry.trim() && mainCategory === "all" && subCategory === "all";
+    const shouldCluster = currentZoom < 4 && !searchCountry.trim() && mainCategory === "all";
     if (!shouldCluster) return [];
 
     const clusters = new Map();
@@ -431,7 +495,7 @@ export default function ExplorationTotale() {
       const lon = c.lons.reduce((a, b) => a + b, 0) / Math.max(1, c.lons.length);
       return { ...c, lat, lon };
     });
-  }, [filteredPoints, currentZoom, searchCountry, mainCategory, subCategory]);
+  }, [filteredPoints, currentZoom, searchCountry, mainCategory]);
 
   // ========= Map init =========
   useEffect(() => {
@@ -524,89 +588,101 @@ export default function ExplorationTotale() {
 
     // Pins view
     filteredPoints.forEach((p) => {
+      // espèces = ronds (bleu clair / orange / rouge)
       if (p.type === "species") {
-        const el = document.createElement("div");
-        el.innerHTML = pinSvg(p.color);
-        el.style.width = "28px";
-        el.style.height = "28px";
-        el.style.cursor = "pointer";
-        el.style.transform = "translateY(-4px)";
+        const dotColor = SPECIES_COLORS[p.ethicLevel || "good"];
+        const el = makeDot(dotColor, 18);
+
+        const status =
+          p.ethicLevel === "bad"
+            ? { text: "Zone pas éthique", color: SPECIES_COLORS.bad }
+            : p.ethicLevel === "medium"
+            ? { text: "Zone à éviter", color: SPECIES_COLORS.medium }
+            : { text: "Rien à signaler", color: SPECIES_COLORS.good };
 
         const popupHtml = `
           <div style="font-size:12px; max-width:230px;">
             <div style="font-weight:900; color:#1113a2; margin-bottom:4px;">${escapeHtml(p.name || "")}</div>
             <div style="color:#6b7280; margin-bottom:6px;">${escapeHtml(p.country || "")}</div>
-            <div style="font-weight:700; color:${p.ethique === "bad" ? "#dc2626" : "#16a34a"};">
-              ${p.ethique === "bad" ? "Spot à risque (éthique)" : "Spot observé (éthique ok)"}
-            </div>
+            <div style="font-weight:900; color:${status.color};">${status.text}</div>
+            ${
+              normalize(p.ethique)
+                ? `<div style="margin-top:6px; color:#6b7280;">Éthique : <b>${escapeHtml(normalize(p.ethique))}</b></div>`
+                : ""
+            }
           </div>
         `;
 
-        const m = new maplibregl.Marker({ element: el, anchor: "bottom" })
+        const m = new maplibregl.Marker({ element: el, anchor: "center" })
           .setLngLat([p.lon, p.lat])
-          .setPopup(new maplibregl.Popup({ offset: 8 }).setHTML(popupHtml))
+          .setPopup(new maplibregl.Popup({ offset: 12 }).setHTML(popupHtml))
           .addTo(map);
 
         map._gm_markers.push(m);
         return;
       }
 
+      // observation = ronds VIOLETS
       if (p.type === "obs") {
-        const el = document.createElement("div");
-        el.innerHTML = pinSvg("#1113a2");
-        el.style.width = "28px";
-        el.style.height = "28px";
-        el.style.cursor = "pointer";
-        el.style.transform = "translateY(-4px)";
-
-        const badge = p.obsLabel === "wca" ? "WCA" : p.obsLabel === "fots" ? "Friend of the Sea" : "Opérateur";
+        const el = makeDot(SPECIES_COLORS.obs, 18);
 
         const popupHtml = `
           <div style="font-size:12px; max-width:240px;">
             <div style="font-weight:900; color:#1113a2; margin-bottom:4px;">${escapeHtml(p.name || "")}</div>
             <div style="color:#6b7280; margin-bottom:6px;">${escapeHtml(p.country || "")}</div>
-            <div style="display:inline-flex; padding:3px 8px; border-radius:9999px; border:1px solid #c7d2fe; background:#eef2ff; color:#4338ca; font-weight:800; font-size:11px;">
-              ${escapeHtml(badge)}
-            </div>
+            <div style="font-weight:900; color:${SPECIES_COLORS.obs};">Centre d’observation</div>
           </div>
         `;
 
-        const m = new maplibregl.Marker({ element: el, anchor: "bottom" })
+        const m = new maplibregl.Marker({ element: el, anchor: "center" })
           .setLngLat([p.lon, p.lat])
-          .setPopup(new maplibregl.Popup({ offset: 8 }).setHTML(popupHtml))
+          .setPopup(new maplibregl.Popup({ offset: 12 }).setHTML(popupHtml))
           .addTo(map);
 
         map._gm_markers.push(m);
         return;
       }
 
-      const isAmp = p.type === "amp";
-      const el = isAmp ? makeBFStar("#2563eb") : makeGFPin("#10b981");
+      // zones protégées = étoiles VERTES
+      if (p.type === "amp") {
+        const el = makeGreenStar("#22c55e");
 
-      const levelLine =
-        !isAmp && p.gfLevel && p.gfLevel !== "none"
-          ? `<div style="margin-top:6px; font-size:12px; color:#111827;">Niveau Green Fins : <strong>${escapeHtml(
-              p.gfLevel
-            )}</strong></div>`
-          : "";
-
-      const popupHtml = `
-        <div style="font-size:12px; max-width:260px;">
-          <div style="font-weight:900; color:#1113a2; margin-bottom:4px;">${escapeHtml(p.name || "")}</div>
-          <div style="color:#6b7280; margin-bottom:6px;">${escapeHtml(p.country || "")}</div>
-          <div style="color:#111827;">
-            ${isAmp ? "Zone labellisée <strong>Blue Flag</strong>." : "Centre <strong>Green Fins</strong> (plongée / snorkeling)."}
+        const popupHtml = `
+          <div style="font-size:12px; max-width:260px;">
+            <div style="font-weight:900; color:#1113a2; margin-bottom:4px;">${escapeHtml(p.name || "")}</div>
+            <div style="color:#6b7280; margin-bottom:6px;">${escapeHtml(p.country || "")}</div>
+            <div style="color:#111827;">Zone <strong>protégée</strong>.</div>
           </div>
-          ${levelLine}
-        </div>
-      `;
+        `;
 
-      const m = new maplibregl.Marker({ element: el, anchor: "center" })
-        .setLngLat([p.lon, p.lat])
-        .setPopup(new maplibregl.Popup({ offset: 12 }).setHTML(popupHtml))
-        .addTo(map);
+        const m = new maplibregl.Marker({ element: el, anchor: "center" })
+          .setLngLat([p.lon, p.lat])
+          .setPopup(new maplibregl.Popup({ offset: 12 }).setHTML(popupHtml))
+          .addTo(map);
 
-      map._gm_markers.push(m);
+        map._gm_markers.push(m);
+        return;
+      }
+
+      // centres de plongée = goutte bleu foncé
+      if (p.type === "dive") {
+        const el = makeDiveDropPin("#1113a2");
+
+        const popupHtml = `
+          <div style="font-size:12px; max-width:260px;">
+            <div style="font-weight:900; color:#1113a2; margin-bottom:4px;">${escapeHtml(p.name || "")}</div>
+            <div style="color:#6b7280; margin-bottom:6px;">${escapeHtml(p.country || "")}</div>
+            <div style="color:#111827;">Centre de <strong>plongée</strong>.</div>
+          </div>
+        `;
+
+        const m = new maplibregl.Marker({ element: el, anchor: "bottom" })
+          .setLngLat([p.lon, p.lat])
+          .setPopup(new maplibregl.Popup({ offset: 12 }).setHTML(popupHtml))
+          .addTo(map);
+
+        map._gm_markers.push(m);
+      }
     });
   }, [filteredPoints, countryClusters]);
 
@@ -619,8 +695,7 @@ export default function ExplorationTotale() {
     setSearchCountry("");
     setNoCountryData(false);
     setMainCategory("all");
-    setSubCategory("all");
-    setGfLevels({ gold: false, silver: false, bronze: false, inactive: false, digital: false });
+    setAnimalFilters({ good: true, medium: true, bad: true, obs: true });
 
     const map = mapObj.current;
     if (map) map.flyTo({ center: [10, 15], zoom: 1.8, duration: 800 });
@@ -632,6 +707,8 @@ export default function ExplorationTotale() {
     el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const toggleAnimalFilter = (k) => setAnimalFilters((p) => ({ ...p, [k]: !p[k] }));
+
   return (
     <div className="w-full bg-slate-50 min-h-screen pb-16">
       {/* TITRE fond gris */}
@@ -641,7 +718,7 @@ export default function ExplorationTotale() {
           Où voyages-tu ?
         </h1>
         <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg text-gray-700">
-          Centres labellisés, opérateurs d’observation responsables, et spots d’espèces marines.
+          Centres de plongée, zones protégées, centres d’observation et spots d’espèces marines.
         </p>
       </section>
 
@@ -677,7 +754,7 @@ export default function ExplorationTotale() {
 
                 {hasError && (
                   <p className="mt-3 text-sm text-orange-600 text-center">
-                    {t("activities.diving.error", { defaultValue: "Impossible de charger l’Excel pour l’instant." })}
+                    {t("activities.diving.error", { defaultValue: "Impossible de charger les fichiers pour l’instant." })}
                   </p>
                 )}
               </div>
@@ -720,19 +797,16 @@ export default function ExplorationTotale() {
               </button>
             </div>
 
+            {/* ✅ 3 filtres sans “petite description” */}
             <div className="space-y-2">
               {[
-                { id: "all", label: "Tout afficher" },
-                { id: "animals", label: "Animaux à voir" },
-                { id: "amp", label: "Zones protégées" },
-                { id: "activities", label: "Activités" },
+                { id: "dive", label: "Centres de plongée", icon: <IconDrop /> },
+                { id: "amp", label: "Zones protégées", icon: <IconStar /> },
+                { id: "animals", label: "Animaux à voir", icon: <IconDot color={SPECIES_COLORS.good} /> },
               ].map((cat) => (
                 <button
                   key={cat.id}
-                  onClick={() => {
-                    setMainCategory(cat.id);
-                    setSubCategory("all");
-                  }}
+                  onClick={() => setMainCategory(cat.id)}
                   className={`w-full flex items-center justify-between p-4 rounded-2xl border transition-all
                     ${
                       mainCategory === cat.id
@@ -740,47 +814,46 @@ export default function ExplorationTotale() {
                         : "border-slate-100 bg-white text-slate-800 hover:border-slate-200"
                     }`}
                 >
-                  <span className="text-sm md:text-base">{cat.label}</span>
+                  <div className="flex items-center gap-3">
+                    {cat.icon}
+                    <span className="text-sm md:text-base">{cat.label}</span>
+                  </div>
                   {mainCategory === cat.id && <span className="w-1.5 h-1.5 rounded-full bg-[#1113a2]" />}
                 </button>
               ))}
             </div>
 
-            {mainCategory === "activities" && (
-              <div className="mt-6 pt-6 border-t border-slate-100 flex flex-col gap-2">
-                <button
-                  onClick={() => setSubCategory("all")}
-                  className={`p-3 rounded-2xl border text-sm font-black transition
-                    ${
-                      subCategory === "all"
-                        ? "bg-[#1113a2]/10 text-[#1113a2] border-[#1113a2]/30"
-                        : "text-slate-800 border-slate-200 hover:bg-slate-50"
-                    }`}
-                >
-                  Tout
-                </button>
-                <button
-                  onClick={() => setSubCategory("dive")}
-                  className={`p-3 rounded-2xl border text-sm font-black transition
-                    ${
-                      subCategory === "dive"
-                        ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-                        : "text-slate-800 border-slate-200 hover:bg-slate-50"
-                    }`}
-                >
-                  Plongée (Green Fins)
-                </button>
-                <button
-                  onClick={() => setSubCategory("obs")}
-                  className={`p-3 rounded-2xl border text-sm font-black transition
-                    ${
-                      subCategory === "obs"
-                        ? "bg-indigo-50 text-indigo-700 border-indigo-200"
-                        : "text-slate-800 border-slate-200 hover:bg-slate-50"
-                    }`}
-                >
-                  Observation (WCA / FotS)
-                </button>
+            {/* ✅ panneau filtres couleurs quand on est sur Animaux */}
+            {mainCategory === "animals" && (
+              <div className="mt-4 p-4 rounded-2xl border border-slate-200 bg-white">
+                <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-3">Filtrer par couleur</p>
+
+                <div className="grid grid-cols-1 gap-2">
+                  {[
+                    { k: "bad", color: SPECIES_COLORS.bad, label: "Rouge — zone pas éthique" },
+                    { k: "medium", color: SPECIES_COLORS.medium, label: "Orange — zone à éviter" },
+                    { k: "good", color: SPECIES_COLORS.good, label: "Bleu clair — rien à signaler" },
+                    { k: "obs", color: SPECIES_COLORS.obs, label: "Violet — centres d’observation" },
+                  ].map((it) => (
+                    <label
+                      key={it.k}
+                      className={`flex items-center gap-3 rounded-2xl border px-4 py-3 cursor-pointer select-none transition
+                        ${animalFilters[it.k] ? "border-[#1113a2]/30 bg-[#1113a2]/5" : "border-slate-200 bg-white"}`}
+                    >
+                      <input
+                        type="checkbox"
+                        className="accent-[#1113a2]"
+                        checked={Boolean(animalFilters[it.k])}
+                        onChange={() => toggleAnimalFilter(it.k)}
+                      />
+                      <span
+                        className="w-3.5 h-3.5 rounded-full border-2 border-white shadow"
+                        style={{ background: it.color }}
+                      />
+                      <span className="text-sm text-slate-800">{it.label}</span>
+                    </label>
+                  ))}
+                </div>
               </div>
             )}
 
@@ -795,9 +868,7 @@ export default function ExplorationTotale() {
           </CardShell>
 
           <div className="bg-[#1113a2] text-white rounded-2xl px-5 py-4 shadow-lg">
-            <p className="text-sm font-semibold">
-              Astuce : zoome sur la carte pour voir tous les pins (centres, opérateurs, spots).
-            </p>
+            <p className="text-sm font-semibold">Astuce : zoome sur la carte pour voir tous les pins clairement.</p>
           </div>
         </aside>
 
@@ -815,11 +886,11 @@ export default function ExplorationTotale() {
             <div className="mt-2 text-3xl md:text-4xl font-black text-[#1113a2] tracking-tight">{animated.species}</div>
           </CardShell>
           <CardShell className="p-6">
-            <p className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">Centres Green Fins</p>
+            <p className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">Centres de plongée</p>
             <div className="mt-2 text-3xl md:text-4xl font-black text-[#1113a2] tracking-tight">{animated.gf}</div>
           </CardShell>
           <CardShell className="p-6">
-            <p className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">Opérateurs observation</p>
+            <p className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">Centres d’observation</p>
             <div className="mt-2 text-3xl md:text-4xl font-black text-[#1113a2] tracking-tight">{animated.obs}</div>
           </CardShell>
         </div>
@@ -850,19 +921,51 @@ export default function ExplorationTotale() {
               </button>
             </div>
 
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {/* ✅ 3 cartes même taille (grid + hauteur homogène) */}
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 items-stretch">
               {[
-                { title: "Philippines", desc: "Plus d’options structurées côté plongée + observation." },
-                { title: "Gabon", desc: "Cadres plus stricts sur certains spots clés." },
-                { title: "Açores", desc: "Opérateurs plus lisibles, règles d’approche plus claires." },
+                {
+                  title: "Philippines",
+                  bullets: [
+                    "Beaucoup d’opérateurs : on peut choisir ceux qui briefent, respectent les distances et limitent l’impact.",
+                    "Présence de sites marins gérés + des zones où les règles sont plus lisibles (capacité, mouillages, etc.).",
+                    "Bon terrain pour comparer : centres très “tourisme de masse” vs centres plus responsables (à privilégier).",
+                  ],
+                },
+                {
+                  title: "Gabon",
+                  bullets: [
+                    "Moins “industrie” et plus de contrôle sur certains spots clés : pression touristique souvent plus faible.",
+                    "Cadres et saisons d’observation généralement plus structurés (approche, vitesse, comportement bateau).",
+                    "Destination nature : plus d’incitation à faire “moins mais mieux” avec des opérateurs spécialisés.",
+                  ],
+                },
+                {
+                  title: "Açores",
+                  bullets: [
+                    "Culture d’observation : de nombreux opérateurs mettent l’accent sur les distances et le temps d’exposition.",
+                    "Règles d’approche souvent plus strictes et facilement communiquées (briefing, nombre de bateaux, etc.).",
+                    "Bonne lisibilité : avis, labels, et pratiques plus cohérentes entre opérateurs sur plusieurs îles.",
+                  ],
+                },
               ].map((d) => (
-                <div key={d.title} className="rounded-[2rem] border border-gray-200 bg-white p-5">
+                <div
+                  key={d.title}
+                  className="rounded-[2rem] border border-gray-200 bg-white p-5 flex flex-col h-full"
+                >
                   <p className="font-black text-lg text-[#1113a2]">{d.title}</p>
-                  <p className="text-sm text-gray-700 mt-2 leading-relaxed">{d.desc}</p>
+
+                  {/* ✅ même “volume” de texte : liste 3 puces pour chaque pays */}
+                  <ul className="mt-3 text-sm text-gray-700 leading-relaxed list-disc pl-5 space-y-2 flex-1">
+                    {d.bullets.map((b, i) => (
+                      <li key={`${d.title}-b-${i}`}>{b}</li>
+                    ))}
+                  </ul>
+
                   <button
                     type="button"
                     onClick={() => setSearchCountry(d.title)}
-                    className="mt-4 w-full px-4 py-3 rounded-2xl bg-[#1113a2] text-white text-sm font-semibold hover:opacity-95 transition"
+                    className="mt-5 w-full px-4 py-3 rounded-2xl bg-[#1113a2] text-white text-sm font-semibold hover:opacity-95 transition"
                   >
                     Zoomer
                   </button>
@@ -872,6 +975,7 @@ export default function ExplorationTotale() {
           </CardShell>
         </div>
       </section>
+
 
       {/* Comment choisir */}
       <section id="how-choose-operator" className="w-full bg-white">
