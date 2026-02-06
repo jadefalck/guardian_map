@@ -1,4 +1,6 @@
 // src/pages/Voyages.jsx
+import { usePageSeo } from "../seo/usePageSeo";
+
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as XLSX from "xlsx";
@@ -129,6 +131,15 @@ function extractCountryFromRow(row) {
 export default function Voyages() {
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  usePageSeo({
+    title: "Exploration globale | Où voyages-tu ? | GuardianMap",
+    description:
+      "Carte mondiale pour explorer centres de plongée, zones maritimes protégées, centres d’observation et spots d’espèces marines. Recherche par pays et filtres éthiques.",
+    canonical: "https://guardianmap.com/exploration",
+    ogImage: "https://guardianmap.com/og/og-exploration.jpg",
+  });
+
 
   // ✅ TA ROUTE VOULUE
   const MAP_ROUTE = "/exploration";

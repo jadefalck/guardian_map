@@ -1,4 +1,5 @@
 // src/pages/Zones_protegees.jsx
+import { usePageSeo } from "../seo/usePageSeo";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import * as XLSX from "xlsx";
 import maplibregl from "maplibre-gl";
@@ -111,6 +112,15 @@ function fitMapToGeoJSON(map, fc) {
 
 export default function ZonesProtegees() {
   const { t } = useTranslation();
+
+  usePageSeo({
+    title: "Exploration globale | Où voyages-tu ? | GuardianMap",
+    description:
+      "Carte mondiale pour explorer centres de plongée, zones maritimes protégées, centres d’observation et spots d’espèces marines. Recherche par pays et filtres éthiques.",
+    canonical: "https://guardianmap.com/exploration",
+    ogImage: "https://guardianmap.com/og/og-exploration.jpg",
+  });
+
 
   const mapRef = useRef(null);
   const mapObj = useRef(null);

@@ -1,4 +1,5 @@
 // src/pages/Accueil.jsx
+import { usePageSeo } from "../seo/usePageSeo";
 import React, { useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -74,7 +75,7 @@ function ScreenCardLarge({ title, desc, buttonLabel, onClick, img }) {
         <div className="w-full h-40 md:h-48 bg-gray-100 overflow-hidden">
           <img
             src={img}
-            alt=""
+            alt={title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
@@ -134,6 +135,14 @@ function BlogStripCard({ a }) {
 
 export default function Accueil() {
   const navigate = useNavigate();
+
+  usePageSeo({
+    title: "GuardianMap | Tourisme responsable & cartes océans",
+    description:
+      "GuardianMap aide les voyageurs à faire des choix plus respectueux : carte des espèces marines, plongées certifiées, zones protégées et conseils pour observer sans déranger.",
+    canonical: "https://guardianmap.com/",
+    ogImage: "https://guardianmap.com/og/og-home.jpg",
+  });
 
   // ✅ bleu hover proche de ta capture
   const HOVER_BLUE = "#001a53";

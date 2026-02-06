@@ -1,4 +1,5 @@
 // src/pages/Blog.jsx
+import { usePageSeo } from "../seo/usePageSeo";
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -67,6 +68,14 @@ function ArticleCardPremium({ a, ctaLabel }) {
 
 export default function Blog() {
   const { t } = useTranslation();
+  usePageSeo({
+    title: "Blog | GuardianMap",
+    description:
+      "Articles et guides pour un tourisme plus respectueux des océans : espèces marines, coraux, tortues, plongée, pollution et bonnes pratiques d’observation.",
+    canonical: "https://guardianmap.com/blog",
+    ogImage: "https://guardianmap.com/og/og-blog.jpg",
+  });
+
   const [q, setQ] = useState("");
 
   const articles = useMemo(

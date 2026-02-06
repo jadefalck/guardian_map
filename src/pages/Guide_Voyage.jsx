@@ -1,4 +1,5 @@
 // src/pages/Guide_Voyage.jsx
+import { usePageSeo } from "../seo/usePageSeo";
 import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -63,6 +64,15 @@ const selectBase = inputBase;
 
 export default function GuideVoyage() {
   const { t } = useTranslation();
+
+  usePageSeo({
+    title: "Exploration globale | Où voyages-tu ? | GuardianMap",
+    description:
+      "Carte mondiale pour explorer centres de plongée, zones maritimes protégées, centres d’observation et spots d’espèces marines. Recherche par pays et filtres éthiques.",
+    canonical: "https://guardianmap.com/exploration",
+    ogImage: "https://guardianmap.com/og/og-exploration.jpg",
+  });
+
 
   const [quizSubmitted, setQuizSubmitted] = useState(false);
   const [quizError, setQuizError] = useState("");

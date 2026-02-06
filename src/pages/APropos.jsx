@@ -1,4 +1,5 @@
 // src/pages/APropos.jsx
+import { usePageSeo } from "../seo/usePageSeo";
 import React, { useState } from "react";
 import { useTranslation, Trans } from "react-i18next";
 
@@ -72,6 +73,14 @@ function FounderCard({ frontSrc, backSrc, name, role, children }) {
 
 export default function APropos() {
   const { t } = useTranslation();
+  usePageSeo({
+    title: "À propos | GuardianMap",
+    description:
+      "Découvrez GuardianMap : notre mission pour un tourisme plus respectueux des océans, nos fondateurs, les labels recommandés (Green Fins, Blue Flag, WCA) et comment nous contacter.",
+    canonical: "https://guardianmap.com/apropos",
+    ogImage: "https://guardianmap.com/og/og-apropos.jpg",
+  });
+
   const [isSending, setIsSending] = useState(false);
   const [contactSent, setContactSent] = useState(false);
   const [contactError, setContactError] = useState("");

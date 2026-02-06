@@ -54,10 +54,10 @@ function AppLayout() {
       {/* ===== HEADER — CLIQUABLE ===== */}
       <header className="bg-[#1113a2] py-6 flex justify-center items-center">
         <Link to="/" aria-label="Retour à l’accueil" className="flex justify-center items-center">
-          <h1 className="text-white font-extrabold text-3xl tracking-normal">
+          <div className="text-white font-extrabold text-3xl tracking-normal">
             <span className="text-4xl">G</span>UARDIAN
             <span className="text-4xl">M</span>AP
-          </h1>
+          </div>
         </Link>
       </header>
 
