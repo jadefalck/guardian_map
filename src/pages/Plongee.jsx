@@ -273,13 +273,18 @@ function fitMapToCenters(map, list) {
 export default function Plongee() {
   const { t } = useTranslation();
 
-    usePageSeo({
-    title: "Exploration globale | Où voyages-tu ? | GuardianMap",
+  usePageSeo({
+    title: "Centres de plongée responsables | Carte mondiale & labels | GuardianMap",
     description:
-      "Carte mondiale pour explorer centres de plongée, zones maritimes protégées, centres d’observation et spots d’espèces marines. Recherche par pays et filtres éthiques.",
-    canonical: "https://guardianmap.com/exploration",
-    ogImage: "https://guardianmap.com/og/og-exploration.jpg",
+      "Trouve un centre de plongée responsable partout dans le monde : carte interactive, filtres par pays et par label (Green Fins, Longitude 181, Manta Trust, Reef Renewal, PADI Eco…). Compare les pratiques, consulte les sites officiels et aide la communauté avec tes retours.",
+    canonical: "https://guardianmap.com/plongee",
+    ogImage: "https://guardianmap.com/og/og-plongee.jpg",
+    ogTitle: "Centres de plongée responsables | Carte mondiale & labels | GuardianMap",
+    ogDescription:
+      "Carte interactive des centres labellisés (Green Fins, Longitude 181, Manta Trust…) + filtres par pays.",
+    // keywords: "plongée responsable, centre de plongée éthique, green fins, longitude 181, manta trust, padi eco, reef renewal, plongée durable"
   });
+
 
 
   const mapRef = useRef(null);
