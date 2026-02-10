@@ -1,5 +1,4 @@
 // src/pages/Especes.jsx
-import { Helmet } from "react-helmet-async";
 import { usePageSeo } from "../seo/usePageSeo";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
@@ -330,12 +329,15 @@ export default function Especes() {
   const { t } = useTranslation();
 
   usePageSeo({
-  title: "Carte des espèces marines | Où observer sans déranger | GuardianMap",
-    description:
-      "Carte interactive pour repérer où observer les espèces marines, meilleures saisons, et règles d’observation éthique. Spots à éviter et centres d’observation règlementée.",
-    canonical: "https://guardianmap.com/especes",
-    ogImage: "https://guardianmap.com/og/og-especes.jpg",
-  });
+      title: "Carte des espèces marines | Où observer sans déranger | GuardianMap",
+      description:
+        "Carte interactive pour repérer où observer les espèces marines, meilleures saisons, et règles d’observation éthique. Spots à éviter et centres d’observation règlementée.",
+      canonical: "https://guardianmap.com/especes",
+      ogImage: "https://guardianmap.com/og/og-especes.jpg",
+      ogTitle: "Carte des espèces marines | GuardianMap",
+      ogDescription:
+        "Saisons, spots et règles d’observation éthique pour voir les espèces marines sans les déranger.",
+    });
 
   const [mapReady, setMapReady] = useState(false);
 
@@ -1037,24 +1039,7 @@ export default function Especes() {
 
   return (
     <div className="w-full">
-      <Helmet>
-        <title>Carte des espèces marines | Où observer sans déranger | GuardianMap</title>
 
-        <meta
-          name="description"
-          content="Carte interactive pour repérer où observer les espèces marines, meilleures saisons, et règles d’observation éthique. Spots à éviter et centres d’observation règlementée."
-        />
-
-        <link rel="canonical" href="https://guardianmap.com/especes" />
-
-        <meta property="og:title" content="Carte des espèces marines | GuardianMap" />
-        <meta
-          property="og:description"
-          content="Saisons, spots et règles d’observation éthique pour voir les espèces marines sans les déranger."
-        />
-        <meta property="og:url" content="https://guardianmap.com/especes" />
-        <meta property="og:image" content="https://guardianmap.com/og/og-especes.jpg" />
-      </Helmet>
       {/* TITRE + SOUS-TITRE */}
       <section className="py-12 px-6 text-center bg-gray-200">
         <div className="text-[10px] md:text-xs font-black uppercase tracking-[0.35em] text-[#1113a2]">

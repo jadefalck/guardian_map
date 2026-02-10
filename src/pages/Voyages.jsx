@@ -133,11 +133,14 @@ export default function Voyages() {
   const { t } = useTranslation();
 
   usePageSeo({
-    title: "Exploration globale | Où voyages-tu ? | GuardianMap",
+    title: "Voyager responsable | Cartes & conseils pour un tourisme éthique | GuardianMap",
     description:
-      "Carte mondiale pour explorer centres de plongée, zones maritimes protégées, centres d’observation et spots d’espèces marines. Recherche par pays et filtres éthiques.",
-    canonical: "https://guardianmap.com/exploration",
-    ogImage: "https://guardianmap.com/og/og-exploration.jpg",
+      "Prépare un voyage plus responsable : explore nos cartes (animaux marins, centres de plongée labellisés, zones marines protégées) et découvre où partir selon les saisons et les bonnes pratiques. Recherche un pays et accède à la carte mondiale.",
+    canonical: "https://guardianmap.com/voyages",
+    ogImage: "https://guardianmap.com/og/og-voyages.jpg",
+    ogTitle: "Voyager responsable | Cartes & conseils | GuardianMap",
+    ogDescription:
+      "Cartes interactives + conseils pour voyager en respectant l’océan, la faune et les communautés locales.",
   });
 
 
