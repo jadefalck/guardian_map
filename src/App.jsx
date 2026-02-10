@@ -10,7 +10,7 @@ import Especes from "./pages/Especes";
 import Voyages from "./pages/Voyages";
 import Zones from "./pages/Zones_protegees";
 import ExplorationTotale from "./pages/ExplorationTotale";
-import Plongée from "./pages/Plongée.jsx"
+import Plongee from "./pages/Plongee.jsx"
 
 
 // Blog articles
@@ -20,6 +20,7 @@ import Oman from "./pages/blog/Oman";
 import TortuesVertes from "./pages/blog/TortuesVertes";
 import CorauxBlancs from "./pages/blog/CorauxBlancs";
 import AileronsRequinsADN from "./pages/blog/AileronsRequinsADN";
+import CachalotsSommeilVertical from "./pages/blog/CachalotsSommeilVertical";
 
 
 import GuideVoyage from "./pages/Guide_Voyage";
@@ -201,8 +202,9 @@ function AppLayout() {
           <Route path="/blog/requins-baleines" element={<RequinsBaleines />} />
           <Route path="/blog/world-maritime-day" element={<WorldMaritimeDay />} />
           <Route path="/blog/ailerons-requins-adn" element={<AileronsRequinsADN />} />
+          <Route path="/blog/cachalots-sommeil-vertical" element={<CachalotsSommeilVertical />} />
           <Route path="/blog/oman" element={<Oman />} />
-          <Route path="/plongée" element={<Plongée />} />
+          <Route path="/plongee" element={<Plongee />} />
           <Route path="/especes" element={<Especes />} />
           <Route path="/blog/tortues-vertes" element={<TortuesVertes />} />
           <Route path="/blog/coraux-blancs" element={<CorauxBlancs />} />

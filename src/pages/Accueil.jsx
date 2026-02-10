@@ -203,7 +203,7 @@ export default function Accueil() {
           </>
         ),
         buttonLabel: "Voir la carte",
-        to: "/plongée",
+        to: "/plongee",
         img: carteActiviteImg,
       },
       {

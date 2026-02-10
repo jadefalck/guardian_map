@@ -11,7 +11,7 @@ import tortueImg from "../assets/images/articles_blog/tortue_marine.jpg";
 import omanImg from "../assets/images/articles_blog/oman.jpg";
 import blogBanner from "../assets/images/bannière_blog.jpg";
 import aileronsAdnImg from "../assets/images/articles_blog/ailerons_requins_adn.jpg";
-
+import cachalotsSleepImg from "../assets/images/articles_blog/cachalots_sommeil_vertical.jpg"
 /* ================= UI helpers (style Accueil) ================= */
 
 function CardShell({ children, className = "" }) {
@@ -162,6 +162,32 @@ export default function Blog() {
           "illégal"
         ],
       },
+
+      {
+        id: "cachalots_sleep",
+        section: "infos",
+        to: "/blog/cachalots-sommeil-vertical",
+        img: cachalotsSleepImg,
+        title: t("blog.articles.cachalots_sleep.title"),
+        excerpt: t("blog.articles.cachalots_sleep.excerpt"),
+        alt: t("blog.articles.cachalots_sleep.alt"),
+        aria: t("blog.articles.cachalots_sleep.aria"),
+        keywords: [
+          "cachalot",
+          "cachalots",
+          "sperm whale",
+          "sommeil",
+          "dormir",
+          "vertical",
+          "sieste",
+          "mediterranee",
+          "cétacés",
+          "unihemispherique",
+          "bihémisphérique",
+          "resting behavior",
+        ],
+      },
+
 
     ],
     [t]

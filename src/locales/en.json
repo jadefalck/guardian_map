@@ -195,7 +195,18 @@
       "alt": "Dried shark fins at a market",
       "title": "Shark fins: DNA exposes an invisible trade",
       "excerpt": "A DNA investigation of more than 16,000 fins reveals a global illegal trade involving protected species."
+    }, 
+
+
+    "cachalots_sleep": {
+      "aria": "Read the article about sperm whales sleeping vertically",
+      "alt": "Sperm whales sleeping vertically below the surface",
+      "title": "The mystery of sperm whales sleeping upright",
+      "excerpt": "Giant animals, still as underwater pillars: in 2008, scientists documented a striking vertical sleeping behavior…"
     }
+  
+
+
   }
 },
 
@@ -527,7 +538,60 @@
       "guardianmap_p1": "In the Mediterranean field, our GuardianMap team recently met <b>Dr Emir Berkane</b> (Probium Foundation) at the Salon de la Plongée. With educational kits using <i>virtual reality</i>, he raises awareness among children and adults alike about shark protection through immersive workshops that radically change perceptions of these often misunderstood animals.",
 
       "sourcesTitle": "Sources and references:"
-    }
+    }, 
+
+    "cachalots_sleep": {
+    "date": "02/07/2026",
+    "title": "The mystery of sperm whales sleeping upright",
+    "subtitle": "Micro-naps, buoyancy and the brain: what science has actually observed in sperm whales.",
+    "heroAlt": "Sperm whales in a vertical resting posture near the surface",
+
+    "intro1": "Picture an unreal scene: several <b>sperm whales</b> perfectly still, <b>vertical</b> in the water like living columns. It’s not a myth — this is a <b>resting behavior</b> documented by scientists.",
+    "intro2": "By combining field observations and suction-cup tags, researchers showed these phases are <b>very short</b>, repeated naps — likely essential for animals that must hunt deep and breathe at the surface.",
+    "quote_opening": "“Reduced responsiveness, reversible with enough stimulation to trigger waking, is a key criterion to consider this sleep.”",
+
+    "h2_2008": "2008: the discovery that changed everything",
+    "p_2008_1": "The reference paper (Current Biology) describes <b>drift dives</b>: whales stop active swimming, let themselves drift, and remain almost motionless.",
+    "li_2008_1": "<b>Near-immobility</b> for minutes, with very low activity.",
+    "li_2008_2": "<b>Reduced responsiveness</b> to stimuli (boat proximity, human presence).",
+    "li_2008_3": "A <b>stereotyped pattern</b> visible in tag data: not a one-off event.",
+
+    "h2_sleep_short": "The shortest sleep?",
+    "p_sleep_short_1": "Tag data suggest these phases represent about <b>7.1%</b> of time (≈ <b>1.7 h/day</b>), in <b>micro-naps</b> of roughly <b>10–15 minutes</b>.",
+    "box_numbers_title": "Key takeaways",
+    "box_numbers_li1": "<b>~7.1%</b> of time in vertical resting (order of magnitude).",
+    "box_numbers_li2": "Typical naps: <b>10–15 min</b>.",
+    "box_numbers_li3": "Trend: more frequent <b>in the evening/night</b> (in recordings).",
+
+    "h2_why_vertical": "Why do they sleep “upright”?",
+    "p_why_vertical_1": "The vertical posture likely comes from <b>differential buoyancy</b> between the front and back of the body: when the animal relaxes, physics does the rest.",
+    "h3_spermaceti": "The head and the spermaceti organ",
+    "p_spermaceti": "The head contains the <b>spermaceti</b> organ (waxy/oily substance) and air spaces: the front is relatively more <b>buoyant</b>, while the rear is more <b>dense</b>. Result: head up, tail down.",
+
+    "h2_brain": "Unihemispheric or “full” sleep?",
+    "p_brain_1": "In several captive cetaceans (dolphins, belugas), <b>unihemispheric sleep</b> is observed. In sperm whales, the study suggests these drift-dive naps may allow sleep closer to terrestrial mammals — potentially <b>bihemispheric</b>.",
+    "quote_brain": "“This suggests the largest toothed whale may sleep in a way similar to terrestrial mammals.”",
+
+    "h2_choreo": "The vertical nap “choreography”",
+    "choreo_1": "<b>Descent</b> head-first to a moderate depth.",
+    "choreo_2": "<b>Stop</b> active swimming.",
+    "choreo_3": "<b>Passive</b> rotation into head-up posture.",
+    "choreo_4": "<b>Slow drift</b> and stabilization below the surface.",
+    "choreo_5": "<b>Stillness</b> for minutes, then activity resumes.",
+
+    "h2_tourism": "Why it’s a vulnerable moment (and what to do at sea)",
+    "p_tourism_1": "During these phases, whales can be <b>less responsive</b> — which is exactly why tourist approaches can be risky (stress, collision, forced waking).",
+    "h3_rules": "Responsible viewing rules",
+    "rules_li1": "Never cut across their path or surround the group.",
+    "rules_li2": "Keep large distances and slow down early.",
+    "rules_li3": "Avoid noise and repeated maneuvers; limit time on site.",
+    "rules_li4": "If you see vertical stillness: <b>move away</b> (rest comes first).",
+
+    "h2_conclusion": "Conclusion",
+    "concl_p1": "Vertical sleep in sperm whales is a reminder: the ocean still hides many unknown behaviors. In a noisier world, protecting <b>resting moments</b> matters too.",
+    "quote_concl": "Giants suspended between two worlds — still… and maybe dreaming.",
+    "sourcesTitle": "Sources & references:"
+  }
 
   },
 

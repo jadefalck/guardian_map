@@ -196,6 +196,12 @@
       "alt": "Ailerons de requins séchés sur un marché",
       "title": "Ailerons de requins : l’ADN révèle un trafic invisible",
       "excerpt": "Une enquête ADN sur plus de 16 000 ailerons révèle un commerce mondial illégal, incluant des espèces protégées."
+    }, 
+    "cachalots_sleep": {
+      "aria": "Lire l’article sur le sommeil vertical des cachalots",
+      "alt": "Cachalots dormant verticalement sous la surface",
+      "title": "Le mystère des cachalots qui dorment debout",
+      "excerpt": "Des géants immobiles, alignés comme des colonnes sous-marines : en 2008, des scientifiques ont documenté un sommeil vertical fascinant…"
     }
 
   }
@@ -527,6 +533,59 @@
     "h2_guardianmap": "Et sur le terrain : GuardianMap",
     "guardianmap_p1": "Sur le terrain méditerranéen, notre équipe GuardianMap a récemment rencontré <b>Dr Emir Berkane</b> (Fondation Probium) au Salon de la Plongée. Avec ses kits pédagogiques utilisant la <i>réalité virtuelle</i>, il sensibilise petits et grands à la protection des requins à travers des ateliers immersifs qui changent radicalement la perception de ces animaux souvent mal-aimés.",
 
+    "sourcesTitle": "Sources et références :"
+  }, 
+
+    "cachalots_sleep": {
+    "date": "07/02/2026",
+    "title": "Le mystère des cachalots qui dorment debout",
+    "subtitle": "Micro-siestes verticales, flottabilité et cerveau : ce que la science a vraiment observé chez les cachalots.",
+    "heroAlt": "Cachalots en position verticale près de la surface",
+
+    "intro1": "Imagine une scène irréelle : plusieurs <b>cachalots immobiles</b>, dressés <b>verticalement</b> dans l’eau, comme des piliers vivants. Ce n’est ni un mythe, ni un hasard : c’est un <b>comportement de repos</b> documenté scientifiquement.",
+    "intro2": "En combinant observations terrain et balises de suivi, des chercheurs ont montré que ces phases sont des <b>siestes très courtes</b>, répétées, et probablement cruciales pour des animaux qui doivent chasser en profondeur et respirer à la surface.",
+    "quote_opening": "« La baisse de réactivité, réversible avec une stimulation suffisante pour provoquer un réveil, est un critère clé pour parler de sommeil. »",
+
+    "h2_2008": "2008 : la découverte qui a tout changé",
+    "p_2008_1": "L’étude de référence (Current Biology) décrit des <b>plongées de dérive</b> : les cachalots cessent de nager activement, se laissent porter, et restent presque inertes.",
+    "li_2008_1": "<b>Immobiles</b> pendant plusieurs minutes, avec très peu d’activité.",
+    "li_2008_2": "<b>Réactivité réduite</b> face à des stimuli (bateau proche, présence humaine).",
+    "li_2008_3": "Un schéma <b>stéréotypé</b> retrouvé dans les données de balises : ce n’est pas un événement isolé.",
+
+    "h2_sleep_short": "Le sommeil le plus bref ?",
+    "p_sleep_short_1": "Les données indiquent que ces phases représentent environ <b>7,1%</b> du temps (≈ <b>1,7 h/jour</b>), sous forme de <b>micro-siestes</b> d’environ <b>10–15 minutes</b>.",
+    "box_numbers_title": "À retenir",
+    "box_numbers_li1": "<b>~7,1%</b> du temps en repos vertical (ordre de grandeur).",
+    "box_numbers_li2": "Siestes typiques : <b>10–15 min</b>.",
+    "box_numbers_li3": "Tendance : plus fréquent <b>en soirée/nuit</b> (selon les enregistrements).",
+
+    "h2_why_vertical": "Pourquoi dorment-ils “debout” ?",
+    "p_why_vertical_1": "La posture verticale semble venir d’une <b>différence de flottabilité</b> entre l’avant et l’arrière du corps : quand l’animal se relâche, la physique fait le reste.",
+    "h3_spermaceti": "Le rôle de la tête et du spermaceti",
+    "p_spermaceti": "La tête contient l’organe à <b>spermaceti</b> (substance cireuse/huileuse) et des volumes d’air : l’avant du corps est relativement plus <b>flottant</b>, tandis que l’arrière est plus <b>dense</b>. Résultat : tête vers le haut, queue vers le bas.",
+
+    "h2_brain": "Sommeil unihémisphérique ou “complet” ?",
+    "p_brain_1": "Chez plusieurs cétacés en captivité (dauphins, bélugas), on observe un <b>sommeil unihémisphérique</b> (un hémisphère dort, l’autre reste vigilant). Chez les cachalots, l’étude suggère que ces siestes pourraient permettre un sommeil plus proche de celui des mammifères terrestres, potentiellement <b>bihémisphérique</b>.",
+    "quote_brain": "« Cela suggère que le plus grand cétacé à dents pourrait dormir d’une façon similaire à celle des mammifères terrestres. »",
+
+    "h2_choreo": "La “chorégraphie” de la sieste verticale",
+    "choreo_1": "<b>Descente</b> tête la première à une profondeur modérée.",
+    "choreo_2": "<b>Arrêt</b> de la nage active.",
+    "choreo_3": "<b>Rotation</b> passive vers une posture tête en haut.",
+    "choreo_4": "<b>Dérive</b> lente et stabilisation sous la surface.",
+    "choreo_5": "<b>Immobilté</b> pendant quelques minutes, puis reprise d’activité.",
+
+    "h2_tourism": "Pourquoi c’est un moment vulnérable (et quoi faire en mer)",
+    "p_tourism_1": "Pendant ces phases, les cachalots peuvent être <b>peu réactifs</b> : c’est précisément ce qui rend les approches touristiques risquées (stress, collision, réveil forcé).",
+    "h3_rules": "Bonnes pratiques d’observation",
+    "rules_li1": "Ne jamais couper la trajectoire ni encercler le groupe.",
+    "rules_li2": "Garder une distance importante et réduire la vitesse très en amont.",
+    "rules_li3": "Éviter le bruit (moteur, manœuvres répétées) et limiter le temps sur zone.",
+    "rules_li4": "Si posture verticale immobile : <b>on s’éloigne</b> (priorité au repos).",
+
+    "h2_conclusion": "Conclusion",
+    "concl_p1": "Le sommeil vertical des cachalots rappelle une chose : l’océan est encore plein de comportements méconnus. Et dans un monde plus bruyant, protéger aussi les <b>moments de repos</b> devient essentiel.",
+    "quote_concl": "Des géants suspendus entre deux eaux, immobiles… et peut-être en train de rêver.",
     "sourcesTitle": "Sources et références :"
   }
 

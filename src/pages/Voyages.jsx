@@ -287,7 +287,7 @@ export default function Voyages() {
           </>
         ),
         buttonLabel: "Voir la carte",
-        to: "/plongée",
+        to: "/plongee",
         img: carteActiviteImg,
       },
       {

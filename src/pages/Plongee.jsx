@@ -1,4 +1,4 @@
-// src/pages/activites/Plongée.jsx
+// src/pages/activites/Plongee.jsx
 import { usePageSeo } from "../seo/usePageSeo";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import * as XLSX from "xlsx";
